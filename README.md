@@ -63,16 +63,40 @@ Open the `server` and `client` in separate VSCode workspaces or open the combine
 
 ### Purpose
 
-2-5 sentences describing what the system does
+The purpose of our service is to track book reading progress, and allow users to add notes related to specific pages/chapters in a journal. In addition, the service suggests trending books of different categories, and allows users to share their thoughts and opinions about books that they’ve completed reading. Charts will be used to display one’s performance in various ways:
+Burndown chart: Compare it to expected productivity
+Polygon chart: Categorize the user’s completed books (Example: Finances: 4, Management: 2, Leadership: 1, Systems: 5, Emotional intelligence: 3, Negotiation: 2)
+
+The website serves as a habitual performance tracker that enlightens the user’s perception about book-reading as a whole. It transforms the stereotypical view of reading as boring into an exciting virtuous cycle, to a game where you can “level up” by viewing your hard earned progress.
+
 
 ### Pages
 
-* Home: 1-3 sentences describing what the page displays and what a user can do
-* Shopping cart: ...
+* Home: Lists trending books of various different categories while allowing the user to search for a specific book
+* Progress: User logs progress which is visualized in charts
+* Book: Overview of a book and its associated user reviews
+* Wishlist: The user’s own modifiable list of desirable books
+* Settings: Contains user data (username, preferences, etc..)
+
+### Brief description of functionality / entities
+
+* User: Besides the account details (username, password, age), the number of completed books will be tied to this entity.
+
+* Book: Represents every single available book accessed by the API that a user is reading.
+
+* Journal: Will be displayed locally (the journal is attached to each account) and is the user’s own notes about the book.
+
+* Progress: Progress from a user towards a specific book is tracked, this data will be used for feedback and visualization.
+
+* Review: Each user can add a review to a book that they’ve completed reading, the review is viewable by all other users and contains notes and a rating.
 
 ### Entity-Relationship (ER) Diagram
 
 ![ER Diagram](./images/er_diagram.png)
+
+ISBN stands for International Standard Book Number which serves as an identifier for each book
+In this diagram, foreign keys are denoted by a red underscored text
+The wishlist entity only stores the ISBN number which is sufficient enough for providing metadata using an external API
 
 ## Teaser (MS3)
 
