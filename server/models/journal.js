@@ -2,14 +2,10 @@ const mongoose = require("mongoose");
 const User = require("./user");
 const Book = require("./book");
 
-const progressSchema = mongoose.Schema(
+const journalSchema = mongoose.Schema(
     {
-        todayDuration: {
-            type: Number,
-            required: true
-        },
-        expectedyDuration: {
-            type: Number,
+        notes: {
+            type: String,
             required: true
         },
         isbn: {
@@ -25,5 +21,5 @@ const progressSchema = mongoose.Schema(
     }
 )
 
-const Progress = mongoose.model("Progress", progressSchema);
-module.exports = Progress;
+const Journal = mongoose.model("Journal", journalSchema);
+module.exports = Journal;

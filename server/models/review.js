@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const User = require("./user");
 const Book = require("./book");
 
-const progressSchema = mongoose.Schema(
+const reviewSchema = mongoose.Schema(
     {
-        todayDuration: {
-            type: Number,
+        content: {
+            type: String,
             required: true
         },
-        expectedyDuration: {
+        rating: {
             type: Number,
             required: true
         },
@@ -25,5 +25,5 @@ const progressSchema = mongoose.Schema(
     }
 )
 
-const Progress = mongoose.model("Progress", progressSchema);
-module.exports = Progress;
+const Review = mongoose.model("Review", reviewSchema);
+module.exports = Review;
