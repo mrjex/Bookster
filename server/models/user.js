@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Book = require("./book");
+const Book = require("./book").schema;
 
 const userSchema = mongoose.Schema(
     {
@@ -8,14 +8,19 @@ const userSchema = mongoose.Schema(
             required: [true, "Please enter a username"],
             unique: true
         },
-            password: {
-            type: Number,
+        password: {
+            type: String,
             required: true
         },
         age: {
             type: Number,
-            required: true,            
+            required: true,
         },
+
+        books: {
+            type: [Book]
+        },
+
         wishlist: {
             type: [Book],
             required: true

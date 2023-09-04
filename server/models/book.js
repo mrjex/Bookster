@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const User = require("./user");
 
 const bookSchema = mongoose.Schema(
     {
@@ -13,14 +12,12 @@ const bookSchema = mongoose.Schema(
         },
         isbn: {
             type: String,
-            required: true,            
+            required: true,
+            unique: true
         },
         pages: {
             type: Number,
             required: true
-        },
-        username: {
-            type: User
         }
     },
     {
@@ -29,4 +26,5 @@ const bookSchema = mongoose.Schema(
 )
 
 const Book = mongoose.model("Book", bookSchema);
+
 module.exports = Book;
