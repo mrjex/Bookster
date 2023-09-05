@@ -6,9 +6,10 @@ var cors = require('cors');
 var history = require('connect-history-api-fallback');
 const Book = require('./models/book');
 const User = require('./models/user');
+const Review = require('./models/review');
 
 // Variables
-var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/animalDevelopmentDB';
+var mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/animalDevelopmentDB'; // localhost | 127.0.0.1
 var port = process.env.PORT || 3000;
 
 // Connect to MongoDB
@@ -42,6 +43,12 @@ app.get('/api/users', async function (req, res) {
 
     const users = await User.find({});
     res.json(users)
+})
+
+app.get('/api/reviews', async function (req, res) {
+
+    const reviews = await Review.find({});
+    res.json(reviews)
 
 })
 
@@ -51,6 +58,19 @@ app.get('/api/user/:username/books', async function (req, res) {
     const user = await User.findOne({ username });
     res.json(user.books);
 
+})
+
+app.post('/api/review', async function (req, res) {
+    const review = req.body;
+    await Review.create(review);
+    res.sendStatus(200).json(review);
+})
+
+// Update pre-selected attributes in a review
+app.patch('/api/review/username/:username', async function (req, res) {
+    const user = req.params.username;
+    const context2 = await Review.findOneAndUpdate({username: user}, req.body, {new: true});
+    res.json({context2})
 })
 
 app.delete('/api/user/:username/books/:bookId', async function (req, res) {
@@ -76,12 +96,11 @@ app.post('/api/user/:username/books/add', async function (req, res) {
 
 })
 
-
 app.post('/api/user', async function (req, res) {
 
     const user = req.body;
     await User.create(user);
-    res.sendStatus(200);
+    res.sendStatus(200).json(user);
 
 })
 
@@ -91,6 +110,18 @@ app.get('/api/user/:username', async function (req, res) {
     const user = await User.find({ username });
     res.json(user);
 
+})
+
+app.delete('/api/user/:username', async function (req, res) {
+
+    const { username } = req.params;
+    const user = await User.findByIdAndDelete(username);
+
+    if (!user) {
+        return res.status(400).json({message: `Cannot find a user with username ${username}`})
+    }
+
+    res.status(200).json(user);
 })
 
 
