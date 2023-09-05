@@ -9,8 +9,9 @@ const journalSchema = mongoose.Schema(
             required: true
         },
         isbn: {
-            type: Book.isbn,
-            required: true,            
+            type: String, // Book.isbn
+            required: true,
+            unique: true
         },
         username: {
             type: User

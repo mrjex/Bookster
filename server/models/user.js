@@ -16,7 +16,6 @@ const userSchema = mongoose.Schema(
             type: Number,
             required: true,
         },
-
         books: {
             type: [Book]
         },
