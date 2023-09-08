@@ -17,12 +17,13 @@ const userSchema = mongoose.Schema(
             required: true,
         },
         books: {
-            type: [Book]
+            type: [Book],
+            default: []
         },
 
         wishlist: {
             type: [Book],
-            required: true
+            default: []
         }
     },
     {
