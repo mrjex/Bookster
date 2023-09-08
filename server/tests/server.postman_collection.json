@@ -39,12 +39,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/reviews",
-							"protocol": "http",
+							"raw": "{{host}}/api/reviews",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"reviews"
@@ -81,12 +79,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/review",
-							"protocol": "http",
+							"raw": "{{host}}/api/review",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review"
@@ -123,12 +119,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/reviews/username/TheMa/books/5030438435",
-							"protocol": "http",
+							"raw": "{{host}}/api/reviews/username/TheMa/books/5030438435",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"reviews",
@@ -217,12 +211,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/users",
-							"protocol": "http",
+							"raw": "{{host}}/api/users",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users"
@@ -249,12 +241,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/user/TheMa",
-							"protocol": "http",
+							"raw": "{{host}}/api/user/TheMa",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -292,12 +282,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/user",
-							"protocol": "http",
+							"raw": "{{host}}/api/user",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user"
@@ -341,12 +329,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/user/:username/books/add?",
-							"protocol": "http",
+							"raw": "{{host}}/api/user/:username/books/add?",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -385,12 +371,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/api/user/64f75eb0373167c99292122e",
-							"protocol": "http",
+							"raw": "{{host}}/api/user/64f75eb0373167c99292122e",
 							"host": [
-								"127.0.0.1"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
