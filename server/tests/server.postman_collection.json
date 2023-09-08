@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "97e0cb97-e5e0-4e9c-9ac3-d4b0d8bbc73f",
+		"_postman_id": "1a46d3fa-ab79-4afa-833b-9e93650a466d",
 		"name": "WebProject",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29410740"
+		"_exporter_id": "29447636",
+		"_collection_link": "https://universal-zodiac-928995.postman.co/workspace/universal-zodiac-928995-Workspa~39096c1f-028e-4714-86c2-e7534a39622a/collection/29447636-1a46d3fa-ab79-4afa-833b-9e93650a466d?action=share&source=collection_link&creator=29447636"
 	},
 	"item": [
 		{
@@ -71,7 +72,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"My second review :DD\",\r\n    \"rating\": 9,\r\n    \"isbn\": 503045,\r\n    \"username\": \"TheMa\"\r\n}",
+							"raw": "{\r\n    \"content\": \"My second review :DD\",\r\n    \"rating\": 9,\r\n    \"isbn\": \"695943\",\r\n    \"username\": \"haha\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -79,13 +80,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/review",
+							"raw": "{{host}}/api/reviews/add",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"review"
+								"reviews",
+								"add"
 							]
 						}
 					},
@@ -119,7 +121,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/reviews/username/TheMa/books/5030438435",
+							"raw": "{{host}}/api/reviews/username/haha/books/695943",
 							"host": [
 								"{{host}}"
 							],
@@ -127,9 +129,9 @@
 								"api",
 								"reviews",
 								"username",
-								"TheMa",
+								"haha",
 								"books",
-								"5030438435"
+								"695943"
 							]
 						}
 					},
@@ -171,15 +173,15 @@
 									"    pm.expect(response[i].age).to.be.above(4);\r",
 									"}\r",
 									"\r",
-									"const responseText = pm.response.text();\r",
+									"// const responseText = pm.response.text();\r",
 									"\r",
-									"pm.test(\"Body matches string\", () => {\r",
-									"    pm.expect(responseText).to.include(\"username\");\r",
-									"    pm.expect(responseText).to.include(\"password\");\r",
-									"    pm.expect(responseText).to.include(\"age\");\r",
-									"    pm.expect(responseText).to.include(\"books\");\r",
-									"    pm.expect(responseText).to.include(\"wishlist\");\r",
-									"});\r",
+									"// pm.test(\"Body matches string\", () => {\r",
+									"//     pm.expect(responseText).to.include(\"username\");\r",
+									"//     pm.expect(responseText).to.include(\"password\");\r",
+									"//     pm.expect(responseText).to.include(\"age\");\r",
+									"//     pm.expect(responseText).to.include(\"books\");\r",
+									"//     pm.expect(responseText).to.include(\"wishlist\");\r",
+									"// });\r",
 									"\r",
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
@@ -241,14 +243,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/user/TheMa",
+							"raw": "{{host}}/api/users/lol",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"user",
-								"TheMa"
+								"users",
+								"lol"
 							]
 						}
 					},
@@ -256,6 +258,57 @@
 				},
 				{
 					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseText = pm.response.text();\r",
+									"\r",
+									"pm.test(\"Body matches string\", () => {\r",
+									"    pm.expect(responseText).to.include(\"username\");\r",
+									"    pm.expect(responseText).to.include(\"password\");\r",
+									"    pm.expect(responseText).to.include(\"age\");\r",
+									"    pm.expect(responseText).to.include(\"books\");\r",
+									"    pm.expect(responseText).to.include(\"wishlist\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"T325577\",\r\n    \"password\": \"pares345\",\r\n    \"age\": 10,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"The Rational Male\",\r\n            \"author\": \"Erik Carlsson\",\r\n            \"isbn\": \"34544\",\r\n            \"pages\": 380\r\n        },\r\n        {\r\n            \"title\": \"Financial IQ\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"632443\",\r\n            \"pages\": 328\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Positive Masculinity\",\r\n            \"author\": \"Joel Mattsson\",\r\n            \"isbn\": \"4433336\",\r\n            \"pages\": 503\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book To User",
 					"event": [
 						{
 							"listen": "test",
@@ -274,53 +327,6 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"T3255\",\r\n    \"password\": \"pares34\",\r\n    \"age\": 10,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"The Rational Male\",\r\n            \"author\": \"Erik Carlsson\",\r\n            \"isbn\": \"34544\",\r\n            \"pages\": 380\r\n        },\r\n        {\r\n            \"title\": \"Financial IQ\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"632443\",\r\n            \"pages\": 328\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Positive Masculinity\",\r\n            \"author\": \"Joel Mattsson\",\r\n            \"isbn\": \"4433336\",\r\n            \"pages\": 503\r\n        }\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/user",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Book To User",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									"\r",
-									"// Is it even possible to access the request-attributes?\r",
-									"\r",
-									"// console.log(request);\r",
-									"// console.log(pm.request);\r",
-									"// console.log(pm.request.body.toJSON());\r",
-									"// console.log(pm.request.body.pages);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
 							"raw": "{\r\n    \"title\": \"Sigma Male Bible\",\r\n    \"author\": \"Will Budson\",\r\n    \"isbn\": \"123\",\r\n    \"pages\": 98\r\n}",
 							"options": {
 								"raw": {
@@ -329,28 +335,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/user/:username/books/add?",
+							"raw": "{{host}}/api/users/lol/books/add",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"user",
-								":username",
+								"users",
+								"lol",
 								"books",
 								"add"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							],
-							"variable": [
-								{
-									"key": "username",
-									"value": "myBro123"
-								}
 							]
 						}
 					},
@@ -371,14 +365,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/user/64f75eb0373167c99292122e",
+							"raw": "{{host}}/api/users/lol",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"user",
-								"64f75eb0373167c99292122e"
+								"users",
+								"lol"
 							]
 						}
 					},
