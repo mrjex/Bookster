@@ -39,10 +39,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/reviews",
+							"raw": "http://127.0.0.1:3000/api/reviews",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -81,10 +81,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/review",
+							"raw": "http://127.0.0.1:3000/api/review",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -123,10 +123,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/username/TheMa/books/5030438435",
+							"raw": "http://127.0.0.1:3000/api/reviews/username/TheMa/books/5030438435",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -217,10 +217,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users",
+							"raw": "http://127.0.0.1:3000/api/users",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -249,10 +249,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/TheMa",
+							"raw": "http://127.0.0.1:3000/api/user/TheMa",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -292,10 +292,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user",
+							"raw": "http://127.0.0.1:3000/api/user",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -341,10 +341,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/:username/books/add?",
+							"raw": "http://127.0.0.1:3000/api/user/:username/books/add?",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
@@ -385,10 +385,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/64f75eb0373167c99292122e",
+							"raw": "http://127.0.0.1:3000/api/user/64f75eb0373167c99292122e",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127.0.0.1"
 							],
 							"port": "3000",
 							"path": [
