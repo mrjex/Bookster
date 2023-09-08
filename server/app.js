@@ -82,7 +82,7 @@ app.get('/api/users/:username/books', async function (req, res, next) {
 
 app.post('/api/reviews/add', async function (req, res, next) {
     try {
-        const review = await Review.create(review);
+        const review = await Review.create(req.body);
         res.status(201).json(review);
     }
     catch (error) {
@@ -97,7 +97,7 @@ app.patch('/api/reviews/username/:username/books/:isbn', async function (req, re
         const username = req.params.username;
         const isbn = req.params.isbn;
 
-        const review = await Review.findOneAndUpdate({username: username, isbn: isbn}, req.body, {new: true});
+        const review = await Review.findOneAndUpdate({ username: username, isbn: isbn }, req.body, { new: true });
         res.json(review);
     }
     catch (error) {
