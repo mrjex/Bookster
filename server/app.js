@@ -91,17 +91,18 @@ app.post('/api/reviews/add', async function (req, res, next) {
 })
 
 // Update pre-selected attributes in a review
-app.patch('/api/reviews/username/:username', async function (req, res, error) {
+app.patch('/api/reviews/username/:username/books/:isbn', async function (req, res, next) {
 
     try {
         const username = req.params.username;
-        const review = await Review.findOneAndUpdate({ username }, req.body, { new: true });
-        res.json(review)
+        const isbn = req.params.isbn;
+
+        const review = await Review.findOneAndUpdate({username: username, isbn: isbn}, req.body, {new: true});
+        res.json(review);
     }
     catch (error) {
         next(error)
     }
-
 })
 
 app.delete('/api/users/:username/books/:bookId', async function (req, res, next) {
@@ -117,7 +118,6 @@ app.delete('/api/users/:username/books/:bookId', async function (req, res, next)
     catch (e) {
         next(e)
     }
-
 })
 
 app.post('/api/users/:username/books/add', async function (req, res, next) {
@@ -173,7 +173,6 @@ app.delete('/api/users/:username', async function (req, res, next) {
     catch (error) {
         next(error)
     }
-
 })
 
 
