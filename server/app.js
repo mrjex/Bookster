@@ -66,9 +66,13 @@ app.get('/api/reviews', async function (req, res, next) {
 app.get('/api/users/:username/books', async function (req, res, next) {
 
     try {
+        const { sort, author } = req.query;
         const { username } = req.params;
         const user = await User.findOne({ username });
-        res.json(user.books);
+        const books = user.books
+            .sort((a, b) => a.title - b.title)
+            .filter(book => !author || book.author == author)
+        res.json(sort == 'desc' ? books : books.reverse());
     }
     catch (error) {
         next(error)
