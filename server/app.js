@@ -41,87 +41,135 @@ app.get('/api', function (req, res) {
 
 app.get('/api/users', async function (req, res) {
 
-    const users = await User.find({});
-    res.json(users)
-})
-
-app.get('/api/reviews', async function (req, res) {
-
-    const reviews = await Review.find({});
-    res.json(reviews)
-
-})
-
-app.get('/api/user/:username/books', async function (req, res) {
-
-    const { username } = req.params;
-    const user = await User.findOne({ username });
-    res.json(user.books);
+    try {
+        const users = await User.find();
+        res.json(users)
+    }
+    catch (error) {
+        next(error);
+    }
 
 })
 
-app.post('/api/review', async function (req, res) {
-    const review = req.body;
-    await Review.create(review);
-    res.sendStatus(200).json(review);
+app.get('/api/reviews', async function (req, res, next) {
+
+    try {
+        const reviews = await Review.find();
+        res.json(reviews)
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+app.get('/api/users/:username/books', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const user = await User.findOne({ username });
+        res.json(user.books);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+app.post('/api/reviews/add', async function (req, res, next) {
+    try {
+        const review = await Review.create(review);
+        res.status(201).json(review);
+    }
+    catch (error) {
+        next(error)
+    }
 })
 
 // Update pre-selected attributes in a review
-app.patch('/api/review/username/:username', async function (req, res) {
-    const user = req.params.username;
-    const context2 = await Review.findOneAndUpdate({username: user}, req.body, {new: true});
-    res.json({context2})
-})
+app.patch('/api/reviews/username/:username', async function (req, res, error) {
 
-app.delete('/api/user/:username/books/:bookId', async function (req, res) {
-
-    const { username, bookId } = req.params;
-    const user = await User.findOne({ username });
-
-    user.books.pull({ isbn: bookId });
-    await user.save();
-    res.sendStatus(200);
-
-})
-
-app.post('/api/user/:username/books/add', async function (req, res) {
-
-    const { username } = req.params;
-    const book = req.body;
-    const user = await User.findOne({ username });
-
-    user.books.push(book);
-    await user.save();
-    res.json({ books: user.books });
-
-})
-
-app.post('/api/user', async function (req, res) {
-
-    const user = req.body;
-    await User.create(user);
-    res.sendStatus(200).json(user);
-
-})
-
-app.get('/api/user/:username', async function (req, res) {
-
-    const { username } = req.params;
-    const user = await User.find({ username });
-    res.json(user);
-
-})
-
-app.delete('/api/user/:username', async function (req, res) {
-
-    const { username } = req.params;
-    const user = await User.findByIdAndDelete(username);
-
-    if (!user) {
-        return res.status(400).json({message: `Cannot find a user with username ${username}`})
+    try {
+        const username = req.params.username;
+        const review = await Review.findOneAndUpdate({ username }, req.body, { new: true });
+        res.json(review)
+    }
+    catch (error) {
+        next(error)
     }
 
-    res.status(200).json(user);
+})
+
+app.delete('/api/users/:username/books/:bookId', async function (req, res, next) {
+
+    try {
+        const { username, bookId } = req.params;
+        const user = await User.findOne({ username });
+
+        user.books.pull({ isbn: bookId });
+        await user.save();
+        res.json(user);
+    }
+    catch (e) {
+        next(e)
+    }
+
+})
+
+app.post('/api/users/:username/books/add', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const book = req.body;
+        const user = await User.findOne({ username });
+
+        user.books.push(book);
+        await user.save();
+        res.json({ books: user.books });
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+app.post('/api/users/add', async function (req, res, next) {
+
+    try {
+        const user = req.body;
+        await User.create(user);
+        res.status(201).json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+app.get('/api/users/:username', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const user = await User.findOne({ username });
+        res.json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+app.delete('/api/users/:username', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const user = await User.findOneAndDelete({ username });
+        res.status(200).json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+
 })
 
 

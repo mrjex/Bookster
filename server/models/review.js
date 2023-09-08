@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");String
+const mongoose = require("mongoose"); String
 const User = require("./user");
 const Book = require("./book");
 
@@ -15,7 +15,6 @@ const reviewSchema = mongoose.Schema(
         isbn: {
             type: String, // Book.isbn
             required: true,
-            unique: true
         },
         username: {
             type: String, // User

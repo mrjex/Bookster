@@ -11,7 +11,6 @@ const journalSchema = mongoose.Schema(
         isbn: {
             type: String, // Book.isbn
             required: true,
-            unique: true
         },
         username: {
             type: User
