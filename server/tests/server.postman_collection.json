@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1a46d3fa-ab79-4afa-833b-9e93650a466d",
+		"_postman_id": "97e0cb97-e5e0-4e9c-9ac3-d4b0d8bbc73f",
 		"name": "WebProject",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29447636",
-		"_collection_link": "https://universal-zodiac-928995.postman.co/workspace/universal-zodiac-928995-Workspa~39096c1f-028e-4714-86c2-e7534a39622a/collection/29447636-1a46d3fa-ab79-4afa-833b-9e93650a466d?action=share&source=collection_link&creator=29447636"
+		"_exporter_id": "29410740"
 	},
 	"item": [
 		{
@@ -30,7 +29,15 @@
 									"        pm.expect(response[i].rating).to.be.below(6);\r",
 									"        pm.expect(response[i].rating).to.be.above(0);\r",
 									"    }\r",
-									"})"
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -40,10 +47,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/reviews",
+							"raw": "http://localhost:3000/api/reviews",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"reviews"
@@ -61,6 +70,10 @@
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -72,7 +85,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"My second review :DD\",\r\n    \"rating\": 9,\r\n    \"isbn\": \"695943\",\r\n    \"username\": \"haha\"\r\n}",
+							"raw": "{\r\n    \"content\": \"fdgdfgdd454\",\r\n    \"rating\": -2,\r\n    \"isbn\": 53025,\r\n    \"username\": \"MadeUpUser3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -80,10 +93,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/reviews/add",
+							"raw": "http://localhost:3000/api/reviews/add",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"reviews",
@@ -102,6 +117,10 @@
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -121,17 +140,19 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/reviews/username/haha/books/695943",
+							"raw": "http://localhost:3000/api/reviews/username/jexbro/books/1234567",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"reviews",
 								"username",
-								"haha",
+								"jexbro",
 								"books",
-								"695943"
+								"1234567"
 							]
 						}
 					},
@@ -168,23 +189,22 @@
 									"});\r",
 									"*/\r",
 									"\r",
-									"for (var i = 0; i < response.length; i++)\r",
-									"{\r",
-									"    pm.expect(response[i].age).to.be.above(4);\r",
-									"}\r",
+									"const responseText = pm.response.text();\r",
 									"\r",
-									"// const responseText = pm.response.text();\r",
-									"\r",
-									"// pm.test(\"Body matches string\", () => {\r",
-									"//     pm.expect(responseText).to.include(\"username\");\r",
-									"//     pm.expect(responseText).to.include(\"password\");\r",
-									"//     pm.expect(responseText).to.include(\"age\");\r",
-									"//     pm.expect(responseText).to.include(\"books\");\r",
-									"//     pm.expect(responseText).to.include(\"wishlist\");\r",
-									"// });\r",
+									"pm.test(\"Body matches string\", () => {\r",
+									"    pm.expect(responseText).to.include(\"username\");\r",
+									"    pm.expect(responseText).to.include(\"password\");\r",
+									"    pm.expect(responseText).to.include(\"age\");\r",
+									"    pm.expect(responseText).to.include(\"books\");\r",
+									"    pm.expect(responseText).to.include(\"wishlist\");\r",
+									"});\r",
 									"\r",
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -205,7 +225,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jex\",\r\n    \"password\": \"password\",\r\n    \"age\": 10,\r\n    \"books\": \"mybooks\",\r\n    \"wishlisht\": \"mywishlist\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -213,10 +233,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users",
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"users"
@@ -227,6 +249,23 @@
 				},
 				{
 					"name": "Get User By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -243,14 +282,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/lol",
+							"raw": "http://localhost:3000/api/users/jex",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"lol"
+								"jex"
 							]
 						}
 					},
@@ -263,18 +304,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
 									"const responseText = pm.response.text();\r",
 									"\r",
 									"pm.test(\"Body matches string\", () => {\r",
 									"    pm.expect(responseText).to.include(\"username\");\r",
 									"    pm.expect(responseText).to.include(\"password\");\r",
 									"    pm.expect(responseText).to.include(\"age\");\r",
-									"    pm.expect(responseText).to.include(\"books\");\r",
-									"    pm.expect(responseText).to.include(\"wishlist\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"    // pm.expect(responseText).to.include(\"books\"); // User does not own any books in the beginning\r",
+									"    // pm.expect(responseText).to.include(\"wishlist\"); // User does have any wish-list-books in the beginning\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -286,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"T325577\",\r\n    \"password\": \"pares345\",\r\n    \"age\": 10,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"The Rational Male\",\r\n            \"author\": \"Erik Carlsson\",\r\n            \"isbn\": \"34544\",\r\n            \"pages\": 380\r\n        },\r\n        {\r\n            \"title\": \"Financial IQ\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"632443\",\r\n            \"pages\": 328\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Positive Masculinity\",\r\n            \"author\": \"Joel Mattsson\",\r\n            \"isbn\": \"4433336\",\r\n            \"pages\": 503\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"username\": \"ThisUserDoesExit2\",\r\n    \"password\": \"mypassword\",\r\n    \"age\": 22,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"The Subtle Art Of Not Giving a F*CK\",\r\n            \"author\": \"Mark Manson\",\r\n            \"isbn\": \"2325\",\r\n            \"pages\": 208\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Positive Masculinity\",\r\n            \"author\": \"Joel Mattsson\",\r\n            \"isbn\": \"443333886\",\r\n            \"pages\": 503\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,10 +339,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/add",
+							"raw": "http://localhost:3000/api/users/add",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"users",
@@ -316,6 +363,10 @@
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -335,16 +386,30 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/lol/books/add",
+							"raw": "http://localhost:3000/api/user/:username/books/add?",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
-								"users",
-								"lol",
+								"user",
+								":username",
 								"books",
 								"add"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "myBro123"
+								}
 							]
 						}
 					},
@@ -352,6 +417,23 @@
 				},
 				{
 					"name": "Delete User By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -365,14 +447,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/lol",
+							"raw": "http://localhost:3000/api/users/TheGuyYes123",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"lol"
+								"TheGuyYes123"
 							]
 						}
 					},
