@@ -9,7 +9,7 @@ const User = require('./models/user');
 const Review = require('./models/review');
 
 // Variables
-var mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/animalDevelopmentDB'; // localhost | 127.0.0.1
+var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
 var port = process.env.PORT || 3000;
 
 // Connect to MongoDB
