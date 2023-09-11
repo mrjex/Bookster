@@ -7,6 +7,9 @@ var history = require('connect-history-api-fallback');
 const Book = require('./models/book');
 const User = require('./models/user');
 const Review = require('./models/review');
+const hal9k = require('hal9k');
+const { debug } = require('console');
+const { debuglog } = require('util');
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
@@ -151,11 +154,18 @@ app.post('/api/users/add', async function (req, res, next) {
 })
 
 app.get('/api/users/:username', async function (req, res, next) {
-
+    
     try {
         const { username } = req.params;
         const user = await User.findOne({ username });
-        res.json(user);
+
+        let linkedJsonObject = hal9k.resource({
+            user
+        })
+        .link('self', `/api/users/${username}`)
+        .toJSON();
+        
+        res.json(linkedJsonObject);
     }
     catch (error) {
         next(error)
