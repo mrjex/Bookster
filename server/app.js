@@ -63,7 +63,21 @@ app.get('/api/reviews', async function (req, res, next) {
     catch (error) {
         next(error)
     }
+})
 
+app.get('/api/users/:username/reviews', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        // const user = await User.findOne({ username });
+
+        // const reviews = await Review.find();
+        const reviews = await Review.find({ username: username}, req.body);
+        res.json(reviews)
+    }
+    catch (error) {
+        next(error)
+    }
 })
 
 app.get('/api/users/:username/books', async function (req, res, next) {
@@ -72,15 +86,26 @@ app.get('/api/users/:username/books', async function (req, res, next) {
         const { sort, author } = req.query;
         const { username } = req.params;
         const user = await User.findOne({ username });
-        const books = user.books
+        const booksToSort = user.books
             .sort((a, b) => a.title - b.title)
             .filter(book => !author || book.author == author)
-        res.json(sort == 'desc' ? books : books.reverse());
+        
+        
+        let books = sort == 'desc' ? booksToSort : booksToSort.reverse();
+        let linkedJsonObject = hal9k.resource({
+            books
+        })
+        .link('home', '/api')
+        .link('self', `/api/users/${username}/books`)
+        .link('book', `/api/users/${username}/books/ISBN`)
+
+        res.json(linkedJsonObject)
+
+        // res.json(sort == 'desc' ? books : books.reverse());
     }
     catch (error) {
         next(error)
     }
-
 })
 
 app.post('/api/reviews/add', async function (req, res, next) {
@@ -162,7 +187,11 @@ app.get('/api/users/:username', async function (req, res, next) {
         let linkedJsonObject = hal9k.resource({
             user
         })
+        .link('home', '/api')
         .link('self', `/api/users/${username}`)
+        .link('reviews', `/api/users/${username}/reviews`)
+        .link('books', `/api/users/${username}/books`)
+        .link('progress', `/api/users/${username}/progress`)
         .toJSON();
         
         res.json(linkedJsonObject);
