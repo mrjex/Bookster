@@ -141,12 +141,42 @@ app.get('/api/users/:username/books', async function (req, res, next) {
         .link('book', `/api/users/${username}/books/ISBN`)
 
         res.json(linkedJsonObject)
-
-        // res.json(sort == 'desc' ? books : books.reverse());
     }
     catch (error) {
         next(error)
     }
+})
+
+app.get('/api/users/:username/wishlist', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const user = await User.findOne({ username });
+        const wishlist = user.wishlist;
+
+        let linkedJsonObject = hal9k.resource({
+            wishlist
+        })
+        .link('home', '/api')
+        .link('self', `/api/users/${username}/wishlist`)
+
+        res.json(linkedJsonObject)
+    }
+    catch (error) {
+        next(error)
+    }
+})
+
+app.post('/api/users/:username/wishlist', async function (req, res, next) {
+
+    const { username } = req.params;
+    const user = await User.findOneAndUpdate({username}, req.body, {new: true});
+    const newBooks = req.body;
+    user.wishlist.push(newBooks);
+
+    await user.save();
+
+    res.json({ wishlist: user.wishlist });
 })
 
 app.post('/api/reviews/add', async function (req, res, next) {
@@ -171,6 +201,21 @@ app.patch('/api/reviews/username/:username/books/:isbn', async function (req, re
     }
     catch (error) {
         next(error)
+    }
+})
+
+app.delete('/api/users/:username/wishlist/:bookId', async function (req, res, next) {
+
+    try {
+        const { username, bookId } = req.params;
+        const user = await User.findOne({ username });
+
+        user.wishlist.pull({ isbn: bookId });
+        await user.save();
+        res.json(user.wishlist);
+    }
+    catch (e) {
+        next(e)
     }
 })
 

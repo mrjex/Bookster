@@ -364,6 +364,28 @@
 					"response": []
 				},
 				{
+					"name": "Read Wishlist By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"AppleGuy07",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create User",
 					"event": [
 						{
@@ -464,6 +486,69 @@
 								"mrjex",
 								"books",
 								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book To Wishlist By Username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Escape The Rat Race\",\r\n    \"author\": \"MJ DeMarco\",\r\n    \"isbn\": \"4420564\",\r\n    \"pages\": 457\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"AppleGuy07",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book From Wishlist By Username",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist/4420564",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"AppleGuy07",
+								"wishlist",
+								"4420564"
 							]
 						}
 					},
