@@ -62,6 +62,50 @@
 					"response": []
 				},
 				{
+					"name": "Read Reviews By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/BananaBoy1212/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Review By ISBN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books/23255/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books",
+								"23255",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create Review",
 					"event": [
 						{
@@ -85,7 +129,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"fdgdfgdd454\",\r\n    \"rating\": -2,\r\n    \"isbn\": 53025,\r\n    \"username\": \"MadeUpUser3\"\r\n}",
+							"raw": "{\r\n    \"content\": \"This book wasn't for me :/\",\r\n    \"rating\": 1,\r\n    \"isbn\": 23255,\r\n    \"username\": \"BananaBoy1212\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,7 +326,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/jex",
+							"raw": "http://localhost:3000/api/users/AppleGuy07",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -291,7 +335,29 @@
 							"path": [
 								"api",
 								"users",
-								"jex"
+								"AppleGuy07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Books By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/AppleGuy07/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"AppleGuy07",
+								"books"
 							]
 						}
 					},
@@ -331,7 +397,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"ThisUserDoesExit2\",\r\n    \"password\": \"mypassword\",\r\n    \"age\": 22,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"The Subtle Art Of Not Giving a F*CK\",\r\n            \"author\": \"Mark Manson\",\r\n            \"isbn\": \"2325\",\r\n            \"pages\": 208\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Positive Masculinity\",\r\n            \"author\": \"Joel Mattsson\",\r\n            \"isbn\": \"443333886\",\r\n            \"pages\": 503\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"username\": \"BananaBoy1212\",\r\n    \"password\": \"BananaPassword\",\r\n    \"age\": 28,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"Die With Zero\",\r\n            \"author\": \"Bill Perkins\",\r\n            \"isbn\": \"2325235\",\r\n            \"pages\": 203\r\n        },\r\n        {\r\n            \"title\": \"Before You Quit Your Job\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"2341\",\r\n            \"pages\": 304\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Get Rich Without Cutting Up Your Credit Cards\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"435420\",\r\n            \"pages\": 67\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -378,7 +444,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Sigma Male Bible\",\r\n    \"author\": \"Will Budson\",\r\n    \"isbn\": \"123\",\r\n    \"pages\": 98\r\n}",
+							"raw": "{\r\n    \"title\": \"Never Split The Difference\",\r\n    \"author\": \"Chris Voss\",\r\n    \"isbn\": \"12352\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,7 +452,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/:username/books/add?",
+							"raw": "http://localhost:3000/api/users/mrjex/books/add",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -394,22 +460,10 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"user",
-								":username",
+								"users",
+								"mrjex",
 								"books",
 								"add"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							],
-							"variable": [
-								{
-									"key": "username",
-									"value": "myBro123"
-								}
 							]
 						}
 					},
@@ -447,7 +501,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/TheGuyYes123",
+							"raw": "http://localhost:3000/api/users/mrjex",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -456,7 +510,32 @@
 							"path": [
 								"api",
 								"users",
-								"TheGuyYes123"
+								"mrjex"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Read Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books"
 							]
 						}
 					},
