@@ -69,11 +69,52 @@ app.get('/api/users/:username/reviews', async function (req, res, next) {
 
     try {
         const { username } = req.params;
-        // const user = await User.findOne({ username });
-
-        // const reviews = await Review.find();
         const reviews = await Review.find({ username: username}, req.body);
-        res.json(reviews)
+        // res.json(reviews)
+
+        let linkedJsonObject = hal9k.resource({
+            reviews
+        })
+        .link('home', '/api')
+        .link('self', `/api/users/${username}/reviews`)
+        .link('self', `/api/users/${username}/reviews/books/ISBN`)
+
+        res.json(linkedJsonObject)
+    }
+    catch (error) {
+        next(error)
+    }
+})
+
+app.get('/api/books', async function (req, res, next) {
+
+    let booksFromAPI = "Retrieve books from API here!";
+
+    let linkedJsonObject = hal9k.resource({
+        booksFromAPI
+    })
+    .link('home', '/api')
+    .link('self', '/api/books')
+    .link('self', '/api/books/ISBN/reviews')
+
+    res.json(linkedJsonObject)
+})
+
+app.get('/api/books/:isbn/reviews', async function (req, res, next) {
+
+    try {
+        const isbn = req.params.isbn;
+
+        const reviews = await Review.find({ isbn: isbn }, req.body);
+        // res.json(reviews);
+
+        let linkedJsonObject = hal9k.resource({
+            reviews
+        })
+        .link('home', '/api')
+        .link('self', `/api/books/${isbn}/reviews`)
+
+        res.json(linkedJsonObject)
     }
     catch (error) {
         next(error)
