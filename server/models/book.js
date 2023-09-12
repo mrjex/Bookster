@@ -15,10 +15,10 @@ const bookSchema = mongoose.Schema(
             required: true,
             unique: true
         },
-        // pages: {
-        //     type: Number,
-        //     required: true
-        // }
+        pages: {
+            type: Number,
+            required: true
+        }
     },
     {
         timestamps: true
