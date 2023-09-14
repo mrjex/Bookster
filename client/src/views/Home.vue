@@ -1,18 +1,33 @@
 <template>
-  <h3>Hello Home</h3>
+  <div>
+    <h3 v-if="user">Hi, {{user.username}}</h3>
+    <h3 v-if="!user">You are not logged in</h3>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
+// import axios from 'axios'
 
 export default {
   name: 'home',
   data() {
     return {
-      message: 'none'
+      user: null
     }
   },
+  /*
+  async created() {
+    const response = await axios.get('user', {
+      headers: {
+        Authorization: 'Bearer' + localStorage.getItem('password')
+      }
+    })
+
+    this.user = response.data
+  },
+  */
   methods: {
     getMessage() {
       Api.get('/')

@@ -10,6 +10,7 @@ const Review = require('./models/review');
 const hal9k = require('hal9k');
 const { debug } = require('console');
 const { debuglog } = require('util');
+const { json } = require('body-parser');
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
@@ -38,8 +39,11 @@ app.options('*', cors());
 app.use(cors());
 
 // Import routes
-app.get('/api', function (req, res) {
-    res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
+app.get('/api', async function (req, res) {
+    // res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
+    
+    const users = await User.find();
+    res.json(users)
 });
 
 app.post('/api/register', async function (req, res, next) {
@@ -52,6 +56,11 @@ app.post('/api/register', async function (req, res, next) {
     catch (error) {
         next(error)
     }
+});
+
+app.post('/api/login', function (req, res) {
+    debug("<---------------  LOGIN  --------------------->")
+    debug(req.body)
 });
 
 app.get('/api/users', async function (req, res) {
@@ -277,7 +286,18 @@ app.post('/api/users/add', async function (req, res, next) {
 })
 
 app.get('/api/users/:username', async function (req, res, next) {
-    
+
+
+    /*
+    const { sort, author } = req.query;
+    const { username } = req.params;
+    const user = await User.findOne({ username });
+    const booksToSort = user.books
+        .sort((a, b) => a.title - b.title)
+        .filter(book => !author || book.author == author)
+    */
+
+
     try {
         const { username } = req.params;
         const user = await User.findOne({ username });
