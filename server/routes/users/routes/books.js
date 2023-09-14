@@ -1,8 +1,10 @@
+const User = require('../../../models/user');
+const hal9k = require('hal9k');
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // READ
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
 
     try {
         const { username } = req.params;
