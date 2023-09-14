@@ -51,13 +51,26 @@ export default {
       // 'http://localhost:3000/api' --> Server BackEnd Home
       // http://localhost:3000 --> Client FrontEnd Home
       // PROBABLY TODO - Create route: 'http://localhost:3000/api/register'
-      const response = await axios.post('http://localhost:8080/register', {
+
+      const response = await axios.post('http://localhost:3000/api', {
         first_name: this.first_name,
         last_name: this.last_name,
         username: this.username,
         password: this.password,
         password_confirm: this.password_confirm
       })
+
+      /*
+      const data = {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        username: this.username,
+        password: this.password_confirm,
+        password_confirm: this.password_confirm
+      }
+
+      console.log(data)
+      */
 
       console.log(response)
       this.$router.push('/login')
