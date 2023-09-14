@@ -10,10 +10,11 @@ const journalSchema = mongoose.Schema(
         },
         isbn: {
             type: String, // Book.isbn
-            required: true,
+            required: true
         },
         username: {
-            type: User
+            type: String,
+            required: true
         }
     },
     {

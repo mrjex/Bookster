@@ -10,6 +10,7 @@ const Review = require('./models/review');
 const hal9k = require('hal9k');
 const { debug } = require('console');
 const { debuglog } = require('util');
+const Journal = require('./models/journal');
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
@@ -167,6 +168,28 @@ app.get('/api/users/:username/wishlist', async function (req, res, next) {
     }
 })
 
+app.get('/api/users/:username/books/:isbn/journals', async function (req,res,next) {
+
+    try{
+        res.json(await Journal.find({ isbn: req.params.isbn, username: req.params.username}))
+    }
+    catch(e){
+        next(e)
+    }
+})
+
+app.post('/api/journals/add', async function (req,res,next) {
+
+    try{
+        const journal = await Journal.create(req.body);
+        res.status(201).json(journal);
+    }
+    catch(e){
+        next(e)
+    }
+})
+
+
 app.post('/api/users/:username/wishlist', async function (req, res, next) {
 
     const { username } = req.params;
@@ -201,6 +224,40 @@ app.patch('/api/reviews/username/:username/books/:isbn', async function (req, re
     }
     catch (error) {
         next(error)
+    }
+})
+
+app.delete('/api/journals', async function (req,res,next) {
+
+    try{
+        res.status(200).json(
+            await Journal.findOneAndDelete({
+                username:req.body.username , isbn:req.body.isbn , _id:req.body._id
+                }))
+    }
+    catch(e){
+        next(e)
+    }
+})
+
+app.post('/api/progress/add', async function (req,res,next) {
+
+    try
+    {
+        res.status(201).json(await progress.create(req.body));
+    }
+    catch(e){
+        next(e)
+    }
+})
+
+app.get('/api/users/:username/progress', async function (req,res,next) {
+
+    try{
+        res.json(await Progress.find({username: req.params.username}))
+    }
+    catch(e){
+        next(e)
     }
 })
 

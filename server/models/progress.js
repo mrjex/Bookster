@@ -8,10 +8,6 @@ const progressSchema = mongoose.Schema(
             type: Number,
             required: true
         },
-        expectedyDuration: {
-            type: Number,
-            required: true
-        },
         isbn: {
             type: String, // Book.isbn
             required: true,
