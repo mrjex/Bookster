@@ -1,6 +1,5 @@
-const Book = require('./Book');
-
 const axios = require('axios').default;
+const Book = require('./Book');
 const API_URL = `https://openlibrary.org`
 
 module.exports = class BookAPI {
