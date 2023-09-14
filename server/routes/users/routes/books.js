@@ -1,0 +1,66 @@
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+
+// READ
+router.get('/', async (req, res) => {
+
+    try {
+        const { username } = req.params;
+        const { sort, author } = req.query;
+        const user = await User.findOne({ username });
+        const booksToSort = user.books
+            .sort((a, b) => a.title - b.title)
+            .filter(book => !author || book.author == author)
+
+
+        let books = sort == 'desc' ? booksToSort : booksToSort.reverse();
+        let linkedJsonObject = hal9k.resource({
+            books
+        })
+            .link('home', '/api')
+            .link('self', `/api/users/${username}/books`)
+            .link('book', `/api/users/${username}/books/ISBN`)
+
+        res.json(linkedJsonObject)
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+// DELETE
+router.delete('/:bookId', async function (req, res, next) {
+
+    try {
+        const { username, bookId } = req.params;
+        const user = await User.findOne({ username });
+
+        user.books.pull({ isbn: bookId });
+        await user.save();
+        res.json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+})
+
+// CREATE
+router.post('/add', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const book = req.body;
+        const user = await User.findOne({ username });
+
+        user.books.push(book);
+        await user.save();
+        res.status(201).json(book);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+module.exports = router;
