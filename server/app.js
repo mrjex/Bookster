@@ -42,8 +42,16 @@ app.get('/api', function (req, res) {
     res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
 });
 
-app.post('/api', function (req, res) {
-    res.json({ 'message': 'Test' });
+app.post('/api/register', async function (req, res, next) {
+    try {
+        const user = req.body;
+        debug(user)
+        await User.create(user);
+        res.status(201).json(user);
+    }
+    catch (error) {
+        next(error)
+    }
 });
 
 app.get('/api/users', async function (req, res) {

@@ -12,8 +12,7 @@ const bookSchema = mongoose.Schema(
         },
         isbn: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         pages: {
             type: Number,
