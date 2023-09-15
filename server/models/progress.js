@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const User = require("./user");
+const User = require("./user").schema;
 const Book = require("./book");
 
 const progressSchema = mongoose.Schema(
