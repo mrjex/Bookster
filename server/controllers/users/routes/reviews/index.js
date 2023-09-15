@@ -1,7 +1,7 @@
-const Review = require('../../../models/review');
+const Review = require('../../../../models/review');
 const express = require('express');
 const hal9k = require('hal9k');
-const router = express.Router({ mergeParams: true});
+const router = express.Router({ mergeParams: true });
 
 // CREATE
 router.post('/add', async function (req, res, next) {

@@ -2,6 +2,7 @@ const express = require('express');
 const books = require('./routes/books');
 const reviews = require('./routes/reviews');
 const wishlist = require('./routes/wishlist');
+const progress = require('./routes/progress');
 const User = require('../../models/user');
 const hal9k = require('hal9k');
 const router = express.Router();
@@ -65,6 +66,6 @@ router.delete('/:username', async function (req, res, next) {
 router.use('/:username/books', books);
 router.use('/:username/reviews', reviews);
 router.use('/:username/wishlist', wishlist);
-
+router.use('/:username/progress', progress)
 
 module.exports = router

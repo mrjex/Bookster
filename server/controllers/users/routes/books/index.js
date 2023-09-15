@@ -1,7 +1,8 @@
-const User = require('../../../models/user');
+const User = require('../../../../models/user');
 const hal9k = require('hal9k');
 const express = require('express');
 const router = express.Router({ mergeParams: true });
+const journalRouter = require('./routes/journals');
 
 // READ
 router.get('/', async (req, res, next) => {
@@ -64,5 +65,7 @@ router.post('/add', async function (req, res, next) {
     }
 
 })
+
+router.use('/:isbn/journals', journalRouter)
 
 module.exports = router;
