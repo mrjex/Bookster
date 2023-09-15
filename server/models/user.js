@@ -20,7 +20,10 @@ const userSchema = mongoose.Schema(
             type: [Book],
             default: []
         },
-
+        expectedReadingTime: {
+            type: Number,
+            required: true
+        },
         wishlist: {
             type: [Book],
             default: []
