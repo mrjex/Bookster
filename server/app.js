@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
+var methodOverride = require('method-override')
 
 const userRouter = require('./controllers/users');
 const reviewRouter = require('./controllers/reviews');
@@ -34,6 +35,9 @@ app.use(morgan('dev'));
 // Enable cross-origin resource sharing for frontend must be registered before api
 app.options('*', cors());
 app.use(cors());
+
+// override with the X-HTTP-Method-Override header in the request
+app.use(methodOverride('X-HTTP-Method-Override'))
 
 // Import routes
 app.get('/api', function (req, res) {
