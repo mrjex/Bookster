@@ -1,4 +1,4 @@
-const User = require('../../../models/user');
+const User = require('../../../../models/user');
 const express = require('express');
 const hal9k = require('hal9k');
 const router = express.Router({ mergeParams: true });
