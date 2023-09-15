@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const User = require("./user");
+const User = require("./user").schema;
 const Book = require("./book");
 
 const journalSchema = mongoose.Schema(
@@ -13,7 +13,7 @@ const journalSchema = mongoose.Schema(
             required: true
         },
         username: {
-            type: String,
+            type: User,
             required: true
         }
     },

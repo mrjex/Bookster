@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema(
         },
         expectedReadingTime: {
             type: Number,
-            required: true
+            default: 30
         },
         wishlist: {
             type: [Book],
