@@ -5,9 +5,9 @@ var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
 
-const userRouter = require('./routes/users');
-const reviewRouter = require('./routes/reviews');
-const bookRouter = require('./routes/books');
+const userRouter = require('./controllers/users');
+const reviewRouter = require('./controllers/reviews');
+const bookRouter = require('./controllers/books');
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
