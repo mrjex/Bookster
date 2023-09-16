@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h3>Profile!</h3>
+        <h3>Profile</h3>
         <button class="btn btn-primary btn-block">Profile</button>
 
          <div>
@@ -8,7 +8,6 @@
            <h3 v-if="!user">You are not logged in</h3>
         </div>
     </form>
-
 </template>
 
 <script>
@@ -19,10 +18,10 @@ export default {
   name: 'home',
   data() {
     return {
-      user: null //
+      user: null
     }
   },
-  async created() {
+  async created() { // Note: Refactor this method later (since it's used in User.vue also)
     const usernameLength = localStorage.getItem('logged-in-username').length
 
     if (usernameLength > 0) {
@@ -30,8 +29,6 @@ export default {
     } else {
       this.user = null
     }
-
-    console.warn(this.user)
   },
   methods: {
     getMessage() {
@@ -42,6 +39,9 @@ export default {
         .catch(error => {
           this.message = error
         })
+    },
+    handleSubmit() {
+      this.$router.push(`/home/users/${localStorage.getItem('logged-in-username')}`)
     }
   }
 }

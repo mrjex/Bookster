@@ -25,7 +25,8 @@ export default new Router({
       component: Register
     },
     {
-      path: '/users',
+      // path: '/users',
+      path: `/home/users/${localStorage.getItem('logged-in-username')}`,
       component: User
     }
   ]

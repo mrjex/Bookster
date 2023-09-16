@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h3>Profile!</h3>
+        <h3>Profile! GG</h3>
         <button class="btn btn-primary btn-block">Profile</button>
     </form>
 </template>
@@ -11,23 +11,13 @@ export default {
   name: 'User',
   data() {
     return {
-      username: ''
+      user: null
     }
   },
   methods: {
-    /*
     async handleSubmit() {
-      const result = await axios.get(`http://localhost:3000/api/users/${this.username}`)
-
-      // User account found - Successful login
-      if (result.status === 200 && result.data.user != null) {
-        console.warn(this.username, this.password)
-
-        localStorage.setItem('logged-in-user', JSON.stringify(result.data)) // NOTE: do 'result.data.user' if we solely want the user-object without HATEOAS links
-        this.$router.push('/home')
-      }
+      this.$router.push(`/home/users/${localStorage.getItem('logged-in-username')}`)
     }
-    */
   }
 }
 </script>
