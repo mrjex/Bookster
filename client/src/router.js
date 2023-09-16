@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import User from './components/User.vue'
+import Books from './components/Books.vue'
 
 Vue.use(Router)
 
@@ -25,9 +26,12 @@ export default new Router({
       component: Register
     },
     {
-      // path: '/users',
       path: `/home/users/${localStorage.getItem('logged-in-username')}`,
       component: User
+    },
+    {
+      path: `/home/users/${localStorage.getItem('logged-in-username')}/books`,
+      component: Books
     }
   ]
 })

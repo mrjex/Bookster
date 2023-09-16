@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h3>Profile</h3>
+        <h3>Home</h3>
         <button class="btn btn-primary btn-block">Profile</button>
 
          <div>
@@ -21,7 +21,7 @@ export default {
       user: null
     }
   },
-  async created() { // Note: Refactor this method later (since it's used in User.vue also)
+  created() { // Note: Refactor this method later (since it's used in User.vue also)
     const usernameLength = localStorage.getItem('logged-in-username').length
 
     if (usernameLength > 0) {
