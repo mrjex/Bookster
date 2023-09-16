@@ -66,7 +66,7 @@ app.post('/api/login', function (req, res) {
 app.get('/api/users', async function (req, res) {
 
     try {
-        const users = await User.find();
+        const users = await User.find(req.query);
         res.json(users)
     }
     catch (error) {
@@ -286,17 +286,6 @@ app.post('/api/users/add', async function (req, res, next) {
 })
 
 app.get('/api/users/:username', async function (req, res, next) {
-
-
-    /*
-    const { sort, author } = req.query;
-    const { username } = req.params;
-    const user = await User.findOne({ username });
-    const booksToSort = user.books
-        .sort((a, b) => a.title - b.title)
-        .filter(book => !author || book.author == author)
-    */
-
 
     try {
         const { username } = req.params;

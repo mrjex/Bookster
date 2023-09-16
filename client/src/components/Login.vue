@@ -28,10 +28,10 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const result = await axios.get(`http://localhost:3000/api/users/${this.username}`)
+      const result = await axios.get(`http://localhost:3000/api/users?username=${this.username}&password=${this.password}`)
 
       // User account found - Successful login
-      if (result.status === 200 && result.data.user != null) {
+      if (result.status === 200 && result.data.length > 0) {
         console.warn(this.username, this.password)
 
         localStorage.setItem('logged-in-user', JSON.stringify(result.data)) // NOTE: do 'result.data.user' if we solely want the user-object without HATEOAS links
