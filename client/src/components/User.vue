@@ -1,32 +1,21 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h3>Login</h3>
-
-        <div class="form-group">
-            <label>Username</label>
-            <input type="username" class="form-control" v-model="username" placeholder="Username"/>
-        </div>
-
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" v-model="password" placeholder="Password"/>
-        </div>
-
-        <button class="btn btn-primary btn-block">Login</button>
+        <h3>Profile!</h3>
+        <button class="btn btn-primary btn-block">Profile</button>
     </form>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
-  name: 'Login',
+  name: 'User',
   data() {
     return {
-      username: '',
-      password: ''
+      username: ''
     }
   },
   methods: {
+    /*
     async handleSubmit() {
       const result = await axios.get(`http://localhost:3000/api/users/${this.username}`)
 
@@ -35,11 +24,10 @@ export default {
         console.warn(this.username, this.password)
 
         localStorage.setItem('logged-in-user', JSON.stringify(result.data)) // NOTE: do 'result.data.user' if we solely want the user-object without HATEOAS links
-        localStorage.setItem('logged-in-username', this.username)
-
         this.$router.push('/home')
       }
     }
+    */
   }
 }
 </script>

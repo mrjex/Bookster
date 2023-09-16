@@ -40,12 +40,6 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      // Back end HTTP here
-      // 'http://localhost:8080/register' --> Client FrontEnd Register
-      // 'http://localhost:3000/api' --> Server BackEnd Home
-      // http://localhost:3000 --> Client FrontEnd Home
-      // PROBABLY TODO - Create route: 'http://localhost:3000/api/register'
-
       const response = await axios.post('http://localhost:3000/api/register', {
         username: this.username,
         password: this.password,
