@@ -32,8 +32,6 @@ export default {
 
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {
-        console.warn(this.username, this.password)
-
         localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
         localStorage.setItem('logged-in-username', this.username)
 

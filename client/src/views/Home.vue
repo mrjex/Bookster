@@ -1,13 +1,13 @@
 <template>
-    <form @submit.prevent="handleSubmit">
-        <h3>Home</h3>
-        <button class="btn btn-primary btn-block">Profile</button>
-
-         <div>
-           <h3 v-if="user">Hi, {{user}}</h3>
-           <h3 v-if="!user">You are not logged in</h3>
-        </div>
-    </form>
+  <div>
+    <h3>Home</h3>
+    <h3 v-if="user">Hi, {{user}}</h3>
+    <h3 v-if="!user">You are not logged in</h3>
+    <div>
+      <button class="btn btn-primary btn-block"
+      @click.prevent="profileButton">Profile</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@
 import { Api } from '@/Api'
 
 export default {
-  name: 'home',
+  name: 'Home',
   data() {
     return {
       user: null
@@ -40,8 +40,8 @@ export default {
           this.message = error
         })
     },
-    handleSubmit() {
-      this.$router.push(`/home/users/${localStorage.getItem('logged-in-username')}`)
+    profileButton() {
+      this.$router.push(`/home/users/${this.user}`)
     }
   }
 }
