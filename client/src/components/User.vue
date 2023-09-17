@@ -45,20 +45,14 @@ export default {
       const books = result.data.books // Note: Do result.data to include HATEOAS links
       console.warn(books)
 
-      /*
-      if (result.status === 200 && result.data.length > 0) {
-        console.warn(this.username, this.password)
-
-        localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
-        localStorage.setItem('logged-in-username', this.username)
-
-        // this.$router.push('/home')
-      }
-      */
+      this.$router.push(`${this.user}/books`)
     },
-    reviewsButton() {
-      console.warn('Reviews!')
-      // TODO NEXT: GET Reviews and display books and reviews on front-end website
+    async reviewsButton() {
+      const result = await axios.get(`http://localhost:3000/api/users/${this.user}/reviews`)
+      const reviews = result.data.reviews // Note: Do result.data to include HATEOAS links
+      console.warn(reviews)
+
+      this.$router.push(`${this.user}/reviews`)
     }
   }
 }
