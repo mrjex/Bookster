@@ -240,6 +240,19 @@ app.delete('/api/users/:username/wishlist/:bookId', async function (req, res, ne
     }
 })
 
+app.delete('/api/users/:username/reviews/:objectId', async function (req, res, next) {
+
+    try {
+        const { username, objectId } = req.params;
+        const reviewToDelete = await Review.findOneAndDelete( {username: username, _id: objectId}, req.body)
+
+        res.json(reviewToDelete);
+    }
+    catch (e) {
+        next(e)
+    }
+})
+
 app.delete('/api/users/:username/books/:bookId', async function (req, res, next) {
 
     try {
