@@ -1,7 +1,6 @@
 <template>
-        <form @submit.prevent="handleBookSubmit">
+    <div>
         <h3>This is your profile, {{user}}</h3>
-
         <div>
             <button class="btn btn-primary btn-block"
             @click.prevent="booksButton">Your Books</button>
@@ -11,7 +10,7 @@
             <button class="btn btn-primary btn-block"
             @click.prevent="reviewsButton">Your Reviews</button>
         </div>
-    </form>
+    </div>
 </template>
 
 <script>
@@ -32,13 +31,13 @@ export default {
     }
   },
   methods: {
-    async handleSubmit() {
-      this.$router.push(`/home/users/${localStorage.getItem('logged-in-username')}`)
+    handleSubmit() {
+      this.$router.push(`/home/users/${this.user}`)
     },
-    async booksButton() {
+    booksButton() {
       this.$router.push(`${this.user}/books`)
     },
-    async reviewsButton() {
+    reviewsButton() {
       this.$router.push(`${this.user}/reviews`)
     }
   }
