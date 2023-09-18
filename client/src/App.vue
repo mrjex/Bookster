@@ -6,6 +6,7 @@
       <div class="auth-inner">
         <router-view />
       </div>
+      <router-link to="/search">Search</router-link>
     </div>
   </div>
 </template>

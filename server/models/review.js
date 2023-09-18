@@ -1,4 +1,4 @@
-const mongoose = require("mongoose"); String
+const mongoose = require("mongoose");
 const User = require("./user");
 const Book = require("./book");
 

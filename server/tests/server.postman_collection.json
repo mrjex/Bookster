@@ -1,390 +1,13 @@
 {
 	"info": {
-		"_postman_id": "97e0cb97-e5e0-4e9c-9ac3-d4b0d8bbc73f",
-		"name": "WebProject",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29410740"
+		"_postman_id": "6d82adf9-baec-47cf-a4d9-26431e53755a",
+		"name": "server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Review",
-			"item": [
-				{
-					"name": "Read Reviews",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();\r",
-									"\r",
-									"pm.test(\"Ratings test\", () => {\r",
-									"\r",
-									"    for (var i = 0; i < response.length; i++)\r",
-									"    {\r",
-									"        // Content: Maximum characters - 100\r",
-									"        pm.expect(response[i].content.length).to.be.below(100);\r",
-									"\r",
-									"        // Ratings: From 1 to 5\r",
-									"        pm.expect(response[i].rating).to.be.below(6);\r",
-									"        pm.expect(response[i].rating).to.be.above(0);\r",
-									"    }\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/reviews",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"reviews"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read Reviews By User",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/users/BananaBoy1212/reviews",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"users",
-								"BananaBoy1212",
-								"reviews"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read Review By ISBN",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/books/23255/reviews",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"books",
-								"23255",
-								"reviews"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Review",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"This book wasn't for me :/\",\r\n    \"rating\": 1,\r\n    \"isbn\": 23255,\r\n    \"username\": \"BananaBoy1212\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/reviews/add",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"reviews",
-								"add"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Content Of Review",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"updated - jex bro. G - mr jex Friday Grind\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/reviews/username/jexbro/books/1234567",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"reviews",
-								"username",
-								"jexbro",
-								"books",
-								"1234567"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "User",
 			"item": [
-				{
-					"name": "Read Users",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();\r",
-									"\r",
-									"/*\r",
-									"const user = response.find(item => item.username === \"myBro123\");\r",
-									"\r",
-									"pm.test(\"User is myBro123\", () => {\r",
-									"    pm.expect(user.username).to.eql(\"myBro123\");\r",
-									"});\r",
-									"*/\r",
-									"\r",
-									"const responseText = pm.response.text();\r",
-									"\r",
-									"pm.test(\"Body matches string\", () => {\r",
-									"    pm.expect(responseText).to.include(\"username\");\r",
-									"    pm.expect(responseText).to.include(\"password\");\r",
-									"    pm.expect(responseText).to.include(\"age\");\r",
-									"    pm.expect(responseText).to.include(\"books\");\r",
-									"    pm.expect(responseText).to.include(\"wishlist\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get User By Username",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/users/AppleGuy07",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"users",
-								"AppleGuy07"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read Books By User",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/users/AppleGuy07/books",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"users",
-								"AppleGuy07",
-								"books"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read Wishlist By User",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"users",
-								"AppleGuy07",
-								"wishlist"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Create User",
 					"event": [
@@ -427,16 +50,102 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/add",
-							"protocol": "http",
+							"raw": "{{host}}/api/users/add",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
 								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Books By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Wishlist By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212/wishlist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"wishlist"
 							]
 						}
 					},
@@ -466,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Never Split The Difference\",\r\n    \"author\": \"Chris Voss\",\r\n    \"isbn\": \"12352\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Never Split The Difference\",\r\n    \"author\": \"Chris Voss\",\r\n    \"pages\": 200,\r\n    \"isbn\": \"123523\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,16 +183,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/mrjex/books/add",
-							"protocol": "http",
+							"raw": "{{host}}/api/users/BananaBoy1212/books/add",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"mrjex",
+								"BananaBoy1212",
 								"books",
 								"add"
 							]
@@ -506,16 +213,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist",
-							"protocol": "http",
+							"raw": "{{host}}/api/users/BananaBoy1212/wishlist",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"AppleGuy07",
+								"BananaBoy1212",
 								"wishlist"
 							]
 						}
@@ -537,16 +242,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/AppleGuy07/wishlist/4420564",
-							"protocol": "http",
+							"raw": "{{host}}/api/users/BananaBoy1212/wishlist/4420564",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"AppleGuy07",
+								"BananaBoy1212",
 								"wishlist",
 								"4420564"
 							]
@@ -586,16 +289,153 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/mrjex",
-							"protocol": "http",
+							"raw": "{{host}}/api/users/BananaBoy1212",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
-								"mrjex"
+								"BananaBoy1212"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Read Reviews By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212/reviews",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Review By ISBN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/books/23255/reviews",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"23255",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"This book wasn't for me :/\",\r\n    \"rating\": 1,\r\n    \"isbn\": 23255,\r\n    \"username\": \"BananaBoy1212\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212/reviews/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"reviews",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Content Of Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"updated - jex bro. G - mr jex Friday Grind\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/BananaBoy1212/reviews/1234567",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"BananaBoy1212",
+								"reviews",
+								"1234567"
 							]
 						}
 					},
@@ -612,12 +452,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/books",
-							"protocol": "http",
+							"raw": "{{host}}/api/books",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"books"

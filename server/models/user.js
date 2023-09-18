@@ -19,7 +19,10 @@ const userSchema = mongoose.Schema(
             type: [Book],
             default: []
         },
-
+        expectedReadingTime: {
+            type: Number,
+            default: 30
+        },
         wishlist: {
             type: [Book],
             default: []

@@ -8,6 +8,7 @@ import Register from './components/Register.vue'
 import User from './components/User.vue'
 import Books from './components/Books.vue'
 import Reviews from './components/Reviews.vue'
+import Search from './views/Search.vue'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
     {
       path: `/home/users/${localStorage.getItem('logged-in-username')}/reviews`,
       component: Reviews
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     }
   ]
 })
