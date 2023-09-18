@@ -32,6 +32,8 @@ export default {
   },
   created() {
     localStorage.setItem('current-page', 'Login')
+    localStorage.setItem('logged-in-user', null)
+    localStorage.setItem('logged-in-username', null)
   },
   methods: {
     async handleSubmit() {
