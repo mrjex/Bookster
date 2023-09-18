@@ -1,5 +1,8 @@
 <template>
     <form @submit.prevent="handleSubmit">
+        <div>
+            <NavComponent />
+        </div>
         <h3>Sign Up</h3>
 
         <div class="form-group">
@@ -27,9 +30,13 @@
 </template>
 
 <script>
+import NavComponent from './NavComponent.vue'
 import axios from 'axios'
 export default {
   name: 'Register',
+  created() {
+    localStorage.setItem('current-page', 'Register')
+  },
   data() {
     return {
       username: '',
@@ -56,6 +63,9 @@ export default {
       console.log(response)
       this.$router.push('/login')
     }
+  },
+  components: {
+    NavComponent
   }
 }
 </script>

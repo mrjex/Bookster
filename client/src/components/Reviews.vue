@@ -26,6 +26,8 @@ export default {
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/reviews`)
     this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
     console.warn(this.reviews)
+
+    localStorage.setItem('current-page', 'Reviews')
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <NavComponent />
-
+    <!-- <NavComponent /> -->
     <div class="auth-wrapper">
       <div class="auth-inner">
         <router-view />
@@ -11,13 +10,15 @@
 </template>
 
 <script>
-import NavComponent from './components/NavComponent.vue'
+// import NavComponent from './components/NavComponent.vue'
 
 export default {
-  name: 'App',
+  name: 'App'
+  /*
   components: {
     NavComponent
   }
+  */
 }
 </script>
 

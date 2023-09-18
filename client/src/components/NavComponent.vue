@@ -4,12 +4,16 @@
         <!-- <a href="#" class="navbar-brand">Home</a> -->
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="/login" class="nav-link">Login</a>
-            </li>
+            <div v-if="currentPage === 'Register'">
+              <li class="nav-item">
+                <a href="/login" class="nav-link">Login</a>
+              </li>
+            </div>
+            <div v-else-if="currentPage === 'Login'">
             <li class="nav-item">
               <a href="/register" class="nav-link">Sign Up</a>
             </li>
+            </div>
           </ul>
         </div>
       </div>
@@ -18,6 +22,14 @@
 
 <script>
 export default {
-  name: 'NavComponent'
+  name: 'NavComponent',
+  data() {
+    return {
+      currentPage: null
+    }
+  },
+  created() {
+    this.currentPage = localStorage.getItem('current-page')
+  }
 }
 </script>
