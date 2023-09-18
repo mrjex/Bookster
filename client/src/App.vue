@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <NavComponent /> -->
+    <OnSiteComponent />
     <div class="auth-wrapper">
       <div class="auth-inner">
         <router-view />
@@ -10,15 +10,13 @@
 </template>
 
 <script>
-// import NavComponent from './components/NavComponent.vue'
+import OnSiteComponent from './components/OnSiteComponent.vue'
 
 export default {
-  name: 'App'
-  /*
+  name: 'App',
   components: {
-    NavComponent
+    OnSiteComponent
   }
-  */
 }
 </script>
 
