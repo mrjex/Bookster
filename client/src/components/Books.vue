@@ -26,6 +26,8 @@ export default {
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/books`)
     this.books = result.data.books // NOTE: Do result.data to include HATEOAS links
     console.warn(this.books)
+
+    localStorage.setItem('current-page', 'Books')
   }
 }
 </script>

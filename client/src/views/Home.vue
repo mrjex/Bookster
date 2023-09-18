@@ -29,6 +29,7 @@ export default {
     } else {
       this.user = null
     }
+    localStorage.setItem('current-page', 'Home')
   },
   methods: {
     getMessage() {

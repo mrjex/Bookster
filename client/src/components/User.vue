@@ -29,6 +29,8 @@ export default {
     } else {
       this.user = null
     }
+
+    localStorage.setItem('current-page', 'User')
   },
   methods: {
     handleSubmit() {
