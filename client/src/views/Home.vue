@@ -1,23 +1,39 @@
 <template>
   <div>
-    <b-jumbotron header="DIT342 Frontend" lead="Welcome to your DIT342 Frontend Vue.js App">
-      <b-button class="btn_message" variant="primary" v-on:click="getMessage()" >Get Message from Server</b-button>
-      <p>Message from the server:<br/>
-      {{ message }}</p>
-    </b-jumbotron>
+    <h3>Home</h3>
+    <h3 v-if="user">Hi, {{user}}</h3>
+    <h3 v-if="!user">You are not logged in</h3>
+    <OnSiteComponent />
+    <!--
+    <div>
+      <button class="btn btn-primary btn-block"
+      @click.prevent="profileButton">Profile</button>
+    </div>
+    -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
+import OnSiteComponent from '../components/OnSiteComponent.vue'
 
 export default {
-  name: 'home',
+  name: 'Home',
   data() {
     return {
-      message: 'none'
+      user: null
     }
+  },
+  created() { // Note: Refactor this method later (since it's used in User.vue also)
+    const usernameLength = localStorage.getItem('logged-in-username').length
+
+    if (usernameLength > 0) {
+      this.user = localStorage.getItem('logged-in-username')
+    } else {
+      this.user = null
+    }
+    localStorage.setItem('current-page', 'Home')
   },
   methods: {
     getMessage() {
@@ -29,6 +45,14 @@ export default {
           this.message = error
         })
     }
+    /*
+    profileButton() {
+      this.$router.push(`/home/users/${this.user}`) //
+    }
+    */
+  },
+  components: {
+    OnSiteComponent
   }
 }
 </script>
