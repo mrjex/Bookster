@@ -4,6 +4,7 @@ const express = require('express');
 const hal9k = require('hal9k');
 const router = express.Router();
 
+
 // READ
 router.get('/', async function (req, res, next) {
 
@@ -16,7 +17,7 @@ router.get('/', async function (req, res, next) {
         .link('self', '/api/books/ISBN/reviews')
 
     res.json(linkedJsonObject)
-    
+
 })
 
 // READ

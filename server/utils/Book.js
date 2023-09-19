@@ -1,26 +1,25 @@
-const COVER_URL = 'https://covers.openlibrary.org/b/id';
-
 module.exports = class Book {
 
     id;
     title;
     author;
-    // description;
+    description;
     coverURL;
     pages;
     publishYear;
+    ratingsCount = 0;
 
     constructor(data) {
-        this.id = data.key;
-        this.title = data.title;
-        this.author =  {
-            name: data.author_name,
-            id: data.author_key
-        };
-        // this.description = data;
-        this.coverURL = `${COVER_URL}/${data.cover_i}-L.jpg`;
-        this.pages = data.number_of_pages_median;
-        this.publishYear = data.first_publish_year;
+        this.id = data.id;
+        this.title = data.volumeInfo.title;
+        this.description = data.volumeInfo.description;
+        this.pages = data.volumeInfo.pageCount;
+        this.publishYear = data.volumeInfo.publishedDate;
+        this.ratingsCount = data.volumeInfo.ratingsCount || 0;
+        if (data.volumeInfo.imageLinks) {
+            this.coverURL = data.volumeInfo.imageLinks.thumbnail;
+        }
+        
     }
 
 }
