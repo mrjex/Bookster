@@ -1,15 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/search">Search</router-link>
+    <OnSiteComponent />
+    <div class="auth-wrapper">
+      <div class="auth-inner">
+        <router-view />
+      </div>
     </div>
-    <!-- Render the content of the current page view -->
-    <router-view/>
   </div>
 </template>
 
+<script>
+import OnSiteComponent from './components/OnSiteComponent.vue'
+
+export default {
+  name: 'App',
+  components: {
+    OnSiteComponent
+  }
+}
+</script>
+
 <style>
+/*
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,4 +29,5 @@
   text-align: center;
   color: #2c3e50;
 }
+*/
 </style>

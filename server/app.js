@@ -9,6 +9,7 @@ var methodOverride = require('method-override')
 const userRouter = require('./controllers/users');
 const reviewRouter = require('./controllers/reviews');
 const bookRouter = require('./controllers/books');
+const User = require('./models/user');
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
@@ -40,10 +41,41 @@ app.use(cors());
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 // Import routes
-app.get('/api', function (req, res) {
-    res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
+app.get('/api', async function (req, res) {
+    // res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
+
+    const users = await User.find();
+    res.json(users)
 });
 
+app.post('/api/register', async function (req, res, next) {
+    try {
+        const user = req.body;
+        debug(user)
+        await User.create(user);
+        res.status(201).json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+});
+
+app.post('/api/login', function (req, res) {
+    debug("<---------------  LOGIN  --------------------->")
+    debug(req.body)
+});
+
+app.get('/api/users', async function (req, res, next) {
+
+    try {
+        const users = await User.find(req.query);
+        res.json(users)
+    }
+    catch (error) {
+        next(error);
+    }
+
+})
 
 /* User Router */
 app.use('/api/users', userRouter)
