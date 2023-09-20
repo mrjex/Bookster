@@ -3,6 +3,8 @@ const hal9k = require('hal9k');
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 const journalRouter = require('./routes/journals');
+const BookApi = require('../../../../utils/BookAPI');
+const Book = require('../../../../utils/Book');
 
 // READ
 router.get('/', async (req, res, next) => {
@@ -15,10 +17,14 @@ router.get('/', async (req, res, next) => {
             .sort((a, b) => a.title - b.title)
             .filter(book => !author || book.author == author)
 
-
         let books = sort == 'desc' ? booksToSort : booksToSort.reverse();
+        const fetched_books = [];
+        for(const book of books) {
+            const added = await BookApi.searchBook(book.title);
+            fetched_books.push({...new Book(added), isbn:book.isbn});
+        }
         let linkedJsonObject = hal9k.resource({
-            books
+            books:fetched_books
         })
             .link('home', '/api')
             .link('self', `/api/users/${username}/books`)
