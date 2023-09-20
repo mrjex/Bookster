@@ -4,12 +4,6 @@
     <h3 v-if="user">Hi, {{user}}</h3>
     <h3 v-if="!user">You are not logged in</h3>
     <OnSiteComponent />
-    <!--
-    <div>
-      <button class="btn btn-primary btn-block"
-      @click.prevent="profileButton">Profile</button>
-    </div>
-    -->
   </div>
 </template>
 

@@ -51,7 +51,6 @@ app.get('/api', async function (req, res) {
 app.post('/api/register', async function (req, res, next) {
     try {
         const user = req.body;
-        debug(user)
         await User.create(user);
         res.status(201).json(user);
     }
