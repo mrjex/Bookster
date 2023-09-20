@@ -34,6 +34,11 @@ export default {
     localStorage.setItem('current-page', 'Login')
     localStorage.setItem('logged-in-user', null)
     localStorage.setItem('logged-in-username', null)
+
+    if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
+      setTimeout(this.testMethod, 10)
+      localStorage.setItem('Test', 'DONE')
+    }
   },
   methods: {
     async handleSubmit() {
@@ -43,9 +48,13 @@ export default {
       if (result.status === 200 && result.data.length > 0) {
         localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
         localStorage.setItem('logged-in-username', this.username)
+        localStorage.setItem('Test', 'Refreshable')
 
         this.$router.push('/home')
       }
+    },
+    testMethod() { // NOTE: Refactor this later
+      window.location.reload()
     }
   },
   components: {

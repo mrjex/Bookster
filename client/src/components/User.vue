@@ -22,7 +22,7 @@ export default {
     }
   },
   created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length
+    const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this
 
     if (usernameLength > 0) {
       this.user = localStorage.getItem('logged-in-username')
@@ -31,6 +31,12 @@ export default {
     }
 
     localStorage.setItem('current-page', 'User')
+
+    // localStorage.getItem('current-page') === 'User' &&
+    if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
+      setTimeout(this.testMethod, 10)
+      localStorage.setItem('Test', 'DONE')
+    }
   },
   methods: {
     handleSubmit() {
@@ -41,6 +47,9 @@ export default {
     },
     reviewsButton() {
       this.$router.push(`${this.user}/reviews`)
+    },
+    testMethod() { // NOTE: Refactor this later
+      window.location.reload()
     }
   }
 }

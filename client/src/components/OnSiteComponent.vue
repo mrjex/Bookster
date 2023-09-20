@@ -3,12 +3,14 @@
       <div class="container">
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <div v-if="currentPage != 'Register'">
-                <div v-if="currentPage != 'Login'">
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Logout</a>
-                     </li>
-                </div>
+            <div v-if="getUsername() != 'null'">
+                <!--
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Logout</a>
+                </li>
+                -->
+                <b-button variant="outline-primary"
+                @click.prevent="logoutButton">Logout</b-button>
             </div>
             <div v-if="currentPage === 'Home'">
                 <b-button variant="outline-primary"
@@ -19,6 +21,17 @@
       </div>
     </nav>
 </template>
+
+                     <!--
+                    <b-button variant="outline-primary"
+                    @click.prevent="logoutButton">Logout</b-button>
+                    -->
+
+                    <!--
+                        <div v-bind:placeholder="logoutButton()">
+
+                        </div>
+                    -->
 
 <script>
 export default {
@@ -31,8 +44,11 @@ export default {
     }
   },
   created() {
+    if (localStorage.getItem('current-page') === 'Home' && localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
+      setTimeout(this.testMethod, 10)
+      localStorage.setItem('Test', 'DONE')
+    }
     this.currentPage = localStorage.getItem('current-page')
-    console.warn(this.currentPage)
   },
   methods: {
     profileButton() {
@@ -45,8 +61,19 @@ export default {
         this.user = null
       }
 
+      localStorage.setItem('Test', 'Refreshable')
       this.profilePath = `users/${this.user}`
       this.$router.push(`/home/users/${this.user}`)
+    },
+    testMethod() { // NOTE: Refactor this later
+      window.location.reload()
+    },
+    getUsername() {
+      return localStorage.getItem('logged-in-username')
+    },
+    logoutButton() {
+      localStorage.setItem('Test', 'Refreshable')
+      this.$router.push('/login')
     }
   }
 }
