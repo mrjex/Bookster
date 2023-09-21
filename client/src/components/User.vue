@@ -10,6 +10,11 @@
             <button class="btn btn-primary btn-block"
             @click.prevent="reviewsButton">Your Reviews</button>
         </div>
+
+        <div>
+            <button class="btn btn-primary btn-block"
+            @click.prevent="progressButton">Your Progress</button>
+        </div>
     </div>
 </template>
 
@@ -50,6 +55,9 @@ export default {
     },
     testMethod() { // NOTE: Refactor this later
       window.location.reload()
+    },
+    progressButton() {
+      this.$router.push(`${this.user}/progress`)
     }
   }
 }
