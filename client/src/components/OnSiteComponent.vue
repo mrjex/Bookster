@@ -4,11 +4,6 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <div v-if="getUsername() != 'null'">
-                <!--
-                <li class="nav-item">
-                    <a href="/login" class="nav-link">Logout</a>
-                </li>
-                -->
                 <b-button variant="outline-primary"
                 @click.prevent="logoutButton">Logout</b-button>
             </div>
@@ -22,24 +17,15 @@
     </nav>
 </template>
 
-                     <!--
-                    <b-button variant="outline-primary"
-                    @click.prevent="logoutButton">Logout</b-button>
-                    -->
-
-                    <!--
-                        <div v-bind:placeholder="logoutButton()">
-
-                        </div>
-                    -->
-
 <script>
+import UtilsComponent from '../components/UtilsComponent.vue'
+
 export default {
   name: 'OnSiteComponent',
   data() {
     return {
       currentPage: null,
-      user: null,
+      user: UtilsComponent.methods.getUsername(),
       profilePath: null
     }
   },
@@ -53,13 +39,6 @@ export default {
   methods: {
     profileButton() {
       this.currentPage = localStorage.getItem('current-page')
-      const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this later
-
-      if (usernameLength > 0) {
-        this.user = localStorage.getItem('logged-in-username')
-      } else {
-        this.user = null
-      }
 
       localStorage.setItem('Test', 'Refreshable')
       this.profilePath = `users/${this.user}`
@@ -68,7 +47,7 @@ export default {
     testMethod() { // NOTE: Refactor this later
       window.location.reload()
     },
-    getUsername() {
+    getUsername() { // Add to utils
       return localStorage.getItem('logged-in-username')
     },
     logoutButton() {

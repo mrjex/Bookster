@@ -6,9 +6,9 @@
       <h3 v-if="!user">You are not logged in</h3>
     </div>
 
-    <OnSiteComponent />
+    <OnSiteComponent/>
 
-    <div>
+    <div> <!-- NOTE: Video is not scaleable according to screen-size. FIX THIS LATER!-->
       <video autoplay loop muted class="video">
         <source src="../resources/Systems Development Sprint 1.mp4" type="video/mp4"/>
       </video>
@@ -37,22 +37,16 @@ video{
 // @ is an alias to /src
 import { Api } from '@/Api'
 import OnSiteComponent from '../components/OnSiteComponent.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
 
 export default {
   name: 'Home',
   data() {
     return {
-      user: null
+      user: UtilsComponent.methods.getUsername()
     }
   },
-  created() { // Note: Refactor this method later (since it's used in User.vue also)
-    const usernameLength = localStorage.getItem('logged-in-username').length
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
+  created() {
     localStorage.setItem('current-page', 'Home')
   },
   methods: {
@@ -65,11 +59,6 @@ export default {
           this.message = error
         })
     }
-    /*
-    profileButton() {
-      this.$router.push(`/home/users/${this.user}`) //
-    }
-    */
   },
   components: {
     OnSiteComponent

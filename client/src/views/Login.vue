@@ -21,7 +21,8 @@
 
 <script>
 import axios from 'axios'
-import NavComponent from './NavComponent.vue'
+import NavComponent from '../components/NavComponent.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
 export default {
   name: 'Login',
   data() {
@@ -32,8 +33,7 @@ export default {
   },
   created() {
     localStorage.setItem('current-page', 'Login')
-    localStorage.setItem('logged-in-user', null)
-    localStorage.setItem('logged-in-username', null)
+    UtilsComponent.methods.registerLogout()
 
     if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
       setTimeout(this.testMethod, 10)
