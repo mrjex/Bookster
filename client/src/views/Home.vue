@@ -10,13 +10,12 @@
 
     <div> <!-- NOTE: Video is not scaleable according to screen-size. FIX THIS LATER!-->
       <video autoplay loop muted class="video">
-        <source src="../resources/Systems Development Sprint 1.mp4" type="video/mp4"/>
+        <source src="../resources/BookVideo-Group21.mp4" type="video/mp4"/>
       </video>
     </div>
   </div>
 </template>
 
-<!--
 <style>
 video{
   z-index: -1000;
@@ -31,7 +30,6 @@ video{
   object-fit: cover;
 }
 </style>
--->
 
 <script>
 // @ is an alias to /src

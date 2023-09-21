@@ -11,9 +11,9 @@ export default {
         return null
       }
     },
-    registerLogout() {
-      localStorage.setItem('logged-in-user', null)
-      localStorage.setItem('logged-in-username', null)
+    updateLoggedInUser(userData, username) {
+      localStorage.setItem('logged-in-user', userData)
+      localStorage.setItem('logged-in-username', username)
     }
   }
 }

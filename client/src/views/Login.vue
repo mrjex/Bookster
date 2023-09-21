@@ -33,7 +33,7 @@ export default {
   },
   created() {
     localStorage.setItem('current-page', 'Login')
-    UtilsComponent.methods.registerLogout()
+    UtilsComponent.methods.updateLoggedInUser(null, null)
 
     if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
       setTimeout(this.testMethod, 10)
@@ -46,8 +46,9 @@ export default {
 
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {
-        localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
-        localStorage.setItem('logged-in-username', this.username)
+        // localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
+        // localStorage.setItem('logged-in-username', this.username)
+        UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
         localStorage.setItem('Test', 'Refreshable')
 
         this.$router.push('/home')

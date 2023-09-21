@@ -37,7 +37,7 @@ export default {
   name: 'Register',
   created() {
     localStorage.setItem('current-page', 'Register')
-    UtilsComponent.methods.registerLogout()
+    UtilsComponent.methods.updateLoggedInUser(null, null)
   },
   data() {
     return {
