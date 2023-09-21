@@ -19,25 +19,18 @@
 </template>
 
 <script>
+import UtilsComponent from '../components/UtilsComponent.vue'
+
 export default {
   name: 'User',
   data() {
     return {
-      user: null
+      user: UtilsComponent.methods.getUsername()
     }
   },
   created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
-
     localStorage.setItem('current-page', 'User')
 
-    // localStorage.getItem('current-page') === 'User' &&
     if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
       setTimeout(this.testMethod, 10)
       localStorage.setItem('Test', 'DONE')

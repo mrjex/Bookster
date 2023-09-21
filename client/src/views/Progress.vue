@@ -7,22 +7,16 @@
 
 <script>
 import axios from 'axios'
+import UtilsComponent from '../components/UtilsComponent.vue'
 export default {
-  name: 'Progress ',
+  name: 'ProgressPage',
   data() {
     return {
-      user: null,
+      user: UtilsComponent.methods.getUsername(),
       progress: null
     }
   },
   async created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this later
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/progress`)
     this.progress = result.data
 
