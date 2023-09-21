@@ -13,7 +13,7 @@ const progressSchema = mongoose.Schema(
             required: true,
         },
         username: {
-            type: User
+            type: String
         }
     },
     {

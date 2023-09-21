@@ -59,11 +59,6 @@ app.post('/api/register', async function (req, res, next) {
     }
 });
 
-app.post('/api/login', function (req, res) {
-    debug("<---------------  LOGIN  --------------------->")
-    debug(req.body)
-});
-
 app.get('/api/users', async function (req, res, next) {
 
     try {
