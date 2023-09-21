@@ -30,16 +30,14 @@
 </template>
 
 <script>
-import NavComponent from './NavComponent.vue'
+import NavComponent from '../components/NavComponent.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
 import axios from 'axios'
 export default {
   name: 'Register',
   created() {
     localStorage.setItem('current-page', 'Register')
-
-    // NOTE: Refactor by creating function logout({false, true}, user) --> Reuse TWICE in Login.vue
-    localStorage.setItem('logged-in-user', null)
-    localStorage.setItem('logged-in-username', null)
+    UtilsComponent.methods.registerLogout()
   },
   data() {
     return {
@@ -51,20 +49,12 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await axios.post('http://localhost:3000/api/register', {
+      await axios.post('http://localhost:3000/api/register', {
         username: this.username,
         password: this.password,
         age: this.age
       })
 
-      /*
-      if (response.status === 201)
-      {
-
-      }
-      */
-
-      console.log(response)
       this.$router.push('/login')
     }
   },
