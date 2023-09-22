@@ -36,7 +36,7 @@ import axios from 'axios'
 export default {
   name: 'Register',
   created() {
-    localStorage.setItem('current-page', 'Register')
+    UtilsComponent.methods.setCurrentPageState('Register') // NOTE: Try to use name: instead of magical value
     UtilsComponent.methods.updateLoggedInUser(null, null)
   },
   data() {

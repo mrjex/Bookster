@@ -20,15 +20,13 @@
 </template>
 
 <script>
+import UtilsComponent from '../components/UtilsComponent.vue'
 export default {
   name: 'NavComponent',
   data() {
     return {
-      currentPage: null
+      currentPage: UtilsComponent.methods.getCurrentPageState()
     }
-  },
-  created() {
-    this.currentPage = localStorage.getItem('current-page')
   }
 }
 </script>

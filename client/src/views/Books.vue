@@ -22,7 +22,7 @@ export default {
     this.books = result.data.books // NOTE: Do result.data to include HATEOAS links
     console.warn(this.books)
 
-    localStorage.setItem('current-page', 'Books')
+    UtilsComponent.methods.setCurrentPageState('Books')
   }
 }
 </script>

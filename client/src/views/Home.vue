@@ -45,7 +45,7 @@ export default {
     }
   },
   created() {
-    localStorage.setItem('current-page', 'Home')
+    UtilsComponent.methods.setCurrentPageState('Home')
   },
   methods: {
     getMessage() {

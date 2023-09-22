@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// Pages:
-// NOTE: Refactor such that only component-vues are in /component and put everything else in /views
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
@@ -20,7 +18,7 @@ export default new Router({
   routes: [
     {
       path: '/home',
-      // name: 'Home',
+      name: 'Home',
       component: Home
     },
     {

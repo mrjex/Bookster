@@ -24,9 +24,8 @@ export default {
   name: 'OnSiteComponent',
   data() {
     return {
-      currentPage: localStorage.getItem('current-page'),
-      user: UtilsComponent.methods.getUsername(),
-      profilePath: null
+      currentPage: UtilsComponent.methods.getCurrentPageState(),
+      user: UtilsComponent.methods.getUsername()
     }
   },
   created() {
@@ -34,12 +33,11 @@ export default {
   },
   methods: {
     profileButton() {
-      localStorage.setItem('Test', 'Refreshable')
-      this.profilePath = `users/${this.user}`
+      UtilsComponent.methods.setRefreshablePageState()
       this.$router.push(`/home/users/${this.user}`)
     },
     logoutButton() {
-      localStorage.setItem('Test', 'Refreshable')
+      UtilsComponent.methods.setRefreshablePageState()
       this.$router.push('/login')
     }
   }
