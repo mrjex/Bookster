@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <OnSiteComponent />
+    <div>
+      <OnSiteComponent />
+    </div>
     <div class="auth-wrapper">
       <div class="auth-inner">
         <router-view />
