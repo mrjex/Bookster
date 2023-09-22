@@ -22,7 +22,7 @@ export default {
     this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
     console.warn(this.reviews)
 
-    localStorage.setItem('current-page', 'Reviews')
+    UtilsComponent.methods.setCurrentPageState('Reviews')
   }
 }
 </script>

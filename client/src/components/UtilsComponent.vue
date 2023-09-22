@@ -16,9 +16,9 @@ export default {
         return null
       }
     },
-    updateLoggedInUser(userData, username) {
-      localStorage.setItem('logged-in-user', userData)
-      localStorage.setItem('logged-in-username', username)
+    updateLoggedInUser(newUserData, newUsername) {
+      localStorage.setItem('logged-in-user', newUserData)
+      localStorage.setItem('logged-in-username', newUsername)
     },
     refreshPage(conditionalPage) {
       let correctPage = null
@@ -26,14 +26,24 @@ export default {
         correctPage = conditionalPage === localStorage.getItem('current-page')
       }
 
+      // If no conditional page was requested, or if the current page-state is equivalent to the conditional page
       if (correctPage == null || correctPage === true) {
-        if (localStorage.getItem('Test') === 'Refreshable') { // Replace 'Test' with something more appropriate
+        if (localStorage.getItem('refresh-state') === 'Refreshable') {
           setTimeout(this.refreshX, this.refreshDelay)
-          localStorage.setItem('Test', 'DONE')
+          localStorage.setItem('refresh-state', 'DONE')
         }
       }
     },
-    refreshX() {
+    setRefreshablePageState() {
+      localStorage.setItem('refresh-state', 'Refreshable')
+    },
+    setCurrentPageState(pageName) {
+      localStorage.setItem('current-page', pageName)
+    },
+    getCurrentPageState() {
+      return localStorage.getItem('current-page')
+    },
+    refreshX() { // Private method
       window.location.reload()
     }
   }

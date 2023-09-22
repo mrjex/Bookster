@@ -29,7 +29,7 @@ export default {
     }
   },
   created() {
-    localStorage.setItem('current-page', 'User') // NOTE: Refactor this later
+    UtilsComponent.methods.setCurrentPageState('User')
     UtilsComponent.methods.refreshPage()
   },
   methods: {
@@ -41,9 +41,6 @@ export default {
     },
     reviewsButton() {
       this.$router.push(`${this.user}/reviews`)
-    },
-    testMethod() {
-      window.location.reload()
     },
     progressButton() {
       this.$router.push(`${this.user}/progress`)

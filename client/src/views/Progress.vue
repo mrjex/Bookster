@@ -20,7 +20,7 @@ export default {
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/progress`)
     this.progress = result.data
 
-    localStorage.setItem('current-page', 'Progress')
+    UtilsComponent.methods.setCurrentPageState('Progress') // NOTE: May have to change to 'name: ProgressPage'
   }
 }
 </script>
