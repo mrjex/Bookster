@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h3>Home</h3>
-    <h3 v-if="user">Hi, {{user}}</h3>
-    <h3 v-if="!user">You are not logged in</h3>
-    <OnSiteComponent />
+    <b-container>
+      <h3>Home</h3>
+      <h3 v-if="user">Hi, {{ user }}</h3>
+      <h3 v-if="!user">You are not logged in</h3>
+    </b-container>
     <!--
     <div>
       <button class="btn btn-primary btn-block"
@@ -16,7 +17,6 @@
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
-import OnSiteComponent from '../components/OnSiteComponent.vue'
 
 export default {
   name: 'Home',
@@ -25,7 +25,8 @@ export default {
       user: null
     }
   },
-  created() { // Note: Refactor this method later (since it's used in User.vue also)
+  created() {
+    // Note: Refactor this method later (since it's used in User.vue also)
     const usernameLength = localStorage.getItem('logged-in-username').length
 
     if (usernameLength > 0) {
@@ -38,10 +39,10 @@ export default {
   methods: {
     getMessage() {
       Api.get('/')
-        .then(response => {
+        .then((response) => {
           this.message = response.data.message
         })
-        .catch(error => {
+        .catch((error) => {
           this.message = error
         })
     }
@@ -50,9 +51,6 @@ export default {
       this.$router.push(`/home/users/${this.user}`) //
     }
     */
-  },
-  components: {
-    OnSiteComponent
   }
 }
 </script>
