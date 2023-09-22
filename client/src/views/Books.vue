@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios'
-import Book from './Book'
+import Book from '../components/Book'
 
 export default {
   name: 'Books',

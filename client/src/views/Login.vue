@@ -21,7 +21,7 @@
 
 <script>
 import axios from 'axios'
-import NavComponent from './NavComponent.vue'
+import NavComponent from '../components/NavComponent.vue'
 export default {
   name: 'Login',
   data() {
