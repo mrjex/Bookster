@@ -3,11 +3,11 @@ import Router from 'vue-router'
 
 // Pages:
 import Home from './views/Home.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
-import User from './components/User.vue'
-import Books from './components/Books.vue'
-import Reviews from './components/Reviews.vue'
+import Login from './views/Login.vue'
+import Register from './views/Register.vue'
+import User from './views/User.vue'
+import Books from './views/Books.vue'
+import Reviews from './views/Reviews.vue'
 import Search from './views/Search.vue'
 import Scanner from './views/Scanner.vue'
 

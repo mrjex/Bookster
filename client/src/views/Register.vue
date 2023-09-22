@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import NavComponent from './NavComponent.vue'
+import NavComponent from '../components/NavComponent.vue'
 import axios from 'axios'
 export default {
   name: 'Register',
