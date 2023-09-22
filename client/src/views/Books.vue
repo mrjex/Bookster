@@ -7,22 +7,17 @@
 
 <script>
 import axios from 'axios'
+import UtilsComponent from '../components/UtilsComponent.vue'
+
 export default {
   name: 'Books',
   data() {
     return {
-      user: null,
+      user: UtilsComponent.methods.getUsername(),
       books: null
     }
   },
   async created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this later
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/books`)
     this.books = result.data.books // NOTE: Do result.data to include HATEOAS links
     console.warn(this.books)
