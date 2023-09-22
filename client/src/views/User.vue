@@ -29,12 +29,8 @@ export default {
     }
   },
   created() {
-    localStorage.setItem('current-page', 'User')
-
-    if (localStorage.getItem('Test') === 'Refreshable') { // NOTE: Refactor this later
-      setTimeout(this.testMethod, 10)
-      localStorage.setItem('Test', 'DONE')
-    }
+    localStorage.setItem('current-page', 'User') // NOTE: Refactor this later
+    UtilsComponent.methods.refreshPage()
   },
   methods: {
     handleSubmit() {
@@ -46,7 +42,7 @@ export default {
     reviewsButton() {
       this.$router.push(`${this.user}/reviews`)
     },
-    testMethod() { // NOTE: Refactor this later
+    testMethod() {
       window.location.reload()
     },
     progressButton() {
