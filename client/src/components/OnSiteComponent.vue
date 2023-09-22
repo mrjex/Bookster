@@ -3,12 +3,9 @@
       <div class="container">
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <div v-if="currentPage != 'Register'">
-                <div v-if="currentPage != 'Login'">
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Logout</a>
-                     </li>
-                </div>
+            <div v-if="user != 'null'">
+                <b-button variant="outline-primary"
+                @click.prevent="logoutButton">Logout</b-button>
             </div>
             <div v-if="currentPage === 'Home'">
                 <b-button variant="outline-primary"
@@ -21,32 +18,27 @@
 </template>
 
 <script>
+import UtilsComponent from '../components/UtilsComponent.vue'
+
 export default {
   name: 'OnSiteComponent',
   data() {
     return {
-      currentPage: null,
-      user: null,
-      profilePath: null
+      currentPage: UtilsComponent.methods.getCurrentPageState(),
+      user: UtilsComponent.methods.getUsername()
     }
   },
   created() {
-    this.currentPage = localStorage.getItem('current-page')
-    console.warn(this.currentPage)
+    UtilsComponent.methods.refreshPage('Home')
   },
   methods: {
     profileButton() {
-      this.currentPage = localStorage.getItem('current-page')
-      const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this later
-
-      if (usernameLength > 0) {
-        this.user = localStorage.getItem('logged-in-username')
-      } else {
-        this.user = null
-      }
-
-      this.profilePath = `users/${this.user}`
+      UtilsComponent.methods.setRefreshablePageState()
       this.$router.push(`/home/users/${this.user}`)
+    },
+    logoutButton() {
+      UtilsComponent.methods.setRefreshablePageState()
+      this.$router.push('/login')
     }
   }
 }
