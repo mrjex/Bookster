@@ -51,18 +51,12 @@ app.get('/api', async function (req, res) {
 app.post('/api/register', async function (req, res, next) {
     try {
         const user = req.body;
-        debug(user)
         await User.create(user);
         res.status(201).json(user);
     }
     catch (error) {
         next(error)
     }
-});
-
-app.post('/api/login', function (req, res) {
-    debug("<---------------  LOGIN  --------------------->")
-    debug(req.body)
 });
 
 app.get('/api/users', async function (req, res, next) {

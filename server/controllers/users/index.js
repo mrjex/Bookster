@@ -22,7 +22,6 @@ router.post('/add', async function (req, res, next) {
 
 })
 
-
 // READ
 router.get('/:username', async function (req, res, next) {
 
