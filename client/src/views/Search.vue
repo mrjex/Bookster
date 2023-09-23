@@ -42,6 +42,7 @@ import Book from '../components/Book.vue'
 export default {
   name: 'home',
   components: { Book, StreamBarcodeReader },
+  inject: ['user'],
   data() {
     return {
       keyword: '',
@@ -83,7 +84,7 @@ export default {
     },
     async addBook(book) {
       try {
-        await Api.post('/users/mrGit/books/add', {
+        await Api.post(`/users/${this.user}/books/add`, {
           title: book.title,
           author: 'Tony Robbins',
           pages: book.pages,
