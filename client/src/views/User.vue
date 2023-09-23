@@ -19,31 +19,22 @@
 </template>
 
 <script>
-import UtilsComponent from '../components/UtilsComponent.vue'
 
 export default {
   name: 'User',
-  data() {
-    return {
-      user: UtilsComponent.methods.getUsername()
-    }
-  },
-  created() {
-    UtilsComponent.methods.setCurrentPageState('User')
-    UtilsComponent.methods.refreshPage()
-  },
+  inject: ['user'],
   methods: {
     handleSubmit() {
-      this.$router.push(`/home/users/${this.user}`)
+      this.$router.push(`/users/${this.user}`)
     },
     booksButton() {
-      this.$router.push(`${this.user}/books`)
+      this.$router.push(`${this.$route.path}/books`)
     },
     reviewsButton() {
-      this.$router.push(`${this.user}/reviews`)
+      this.$router.push(`${this.$route.path}/reviews`)
     },
     progressButton() {
-      this.$router.push(`${this.user}/progress`)
+      this.$router.push(`${this.$route.path}/progress`)
     }
   }
 }

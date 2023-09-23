@@ -1,13 +1,19 @@
 <template>
-    <nav class="navbar navbar-expand navbar-light fixed-top">
+    <nav class="navbar navbar-expand navbar-light">
       <div class="container">
         <div class="collapse navbar-collapse">
+          <div>
+            <a href="/home">Home</a>
+          </div>
           <ul class="navbar-nav ml-auto">
-            <div v-if="user != 'null'">
-                <b-button variant="outline-primary"
-                @click.prevent="logoutButton">Logout</b-button>
+            <div>
+                <div>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Logout</a>
+                     </li>
+                </div>
             </div>
-            <div v-if="currentPage === 'Home'">
+            <div>
                 <b-button variant="outline-primary"
                 @click.prevent="profileButton">Profile</b-button>
             </div>
@@ -18,27 +24,15 @@
 </template>
 
 <script>
-import UtilsComponent from '../components/UtilsComponent.vue'
 
 export default {
   name: 'OnSiteComponent',
-  data() {
-    return {
-      currentPage: UtilsComponent.methods.getCurrentPageState(),
-      user: UtilsComponent.methods.getUsername()
-    }
-  },
+  inject: ['user'],
   created() {
-    UtilsComponent.methods.refreshPage('Home')
   },
   methods: {
     profileButton() {
-      UtilsComponent.methods.setRefreshablePageState()
-      this.$router.push(`/home/users/${this.user}`)
-    },
-    logoutButton() {
-      UtilsComponent.methods.setRefreshablePageState()
-      this.$router.push('/login')
+      this.$router.push(`/users/${this.user}`)
     }
   }
 }

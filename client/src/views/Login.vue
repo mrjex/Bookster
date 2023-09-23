@@ -20,9 +20,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 import NavComponent from '../components/NavComponent.vue'
 import UtilsComponent from '../components/UtilsComponent.vue'
+
+import { Api } from '../Api'
 export default {
   name: 'Login',
   data() {
@@ -31,19 +32,14 @@ export default {
       password: ''
     }
   },
-  created() {
-    UtilsComponent.methods.setCurrentPageState('Login')
-    UtilsComponent.methods.updateLoggedInUser(null, null)
-    UtilsComponent.methods.refreshPage()
-  },
   methods: {
     async handleSubmit() {
-      const result = await axios.get(`http://localhost:3000/api/users?username=${this.username}&password=${this.password}`)
+      const result = await Api.get(`/users?username=${this.username}&password=${this.password}`)
 
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {
         UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
-        UtilsComponent.methods.setRefreshablePageState()
+        // UtilsComponent.methods.setRefreshablePageState()
         this.$router.push('/home')
       }
     }

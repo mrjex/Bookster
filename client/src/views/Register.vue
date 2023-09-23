@@ -30,15 +30,10 @@
 </template>
 
 <script>
+import { Api } from '../Api'
 import NavComponent from '../components/NavComponent.vue'
-import UtilsComponent from '../components/UtilsComponent.vue'
-import axios from 'axios'
 export default {
   name: 'Register',
-  created() {
-    UtilsComponent.methods.setCurrentPageState('Register') // NOTE: Try to use name: instead of magical value
-    UtilsComponent.methods.updateLoggedInUser(null, null)
-  },
   data() {
     return {
       username: '',
@@ -49,7 +44,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      await axios.post('http://localhost:3000/api/register', {
+      const response = await Api.post('/register', {
         username: this.username,
         password: this.password,
         age: this.age
