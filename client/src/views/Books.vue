@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Book from '../components/Book'
+import { Api } from '../Api'
 
 export default {
   name: 'Books',
@@ -31,7 +31,7 @@ export default {
   methods: {
     async removeBook(book) {
       try {
-        await axios.delete(`http://localhost:3000/api/users/${this.user}/books/${book.isbn}`)
+        await Api.delete(`/users/${this.user}/books/${book.isbn}`)
         this.$bvToast.toast('Success', {
           title: 'Removed book from library',
           autoHideDelay: 5000,
@@ -48,7 +48,7 @@ export default {
     }
   },
   async created() {
-    const result = await axios.get(`http://localhost:3000/api/users/${this.user}/books`)
+    const result = await Api.get(`/users/${this.user}/books`)
     this.books = result.data.books // NOTE: Do result.data to include HATEOAS links
     console.warn(this.books)
   }

@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import axios from 'axios'
 import NavComponent from '../components/NavComponent.vue'
+import { Api } from '../Api'
 export default {
   name: 'Login',
   data() {
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const result = await axios.get(`http://localhost:3000/api/users?username=${this.username}&password=${this.password}`)
+      const result = await Api.get(`/users?username=${this.username}&password=${this.password}`)
 
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {

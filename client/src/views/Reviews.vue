@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { Api } from '../Api'
 export default {
   name: 'Reviews',
   inject: ['user'],
@@ -16,7 +16,7 @@ export default {
     }
   },
   async created() {
-    const result = await axios.get(`http://localhost:3000/api/users/${this.user}/reviews`)
+    const result = await Api.get(`/users/${this.user}/reviews`)
     this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
     console.warn(this.reviews)
   }
