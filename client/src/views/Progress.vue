@@ -27,9 +27,11 @@ export default {
     const result = await Api.get(`/users/${this.user}/progress`)
     this.progress = result.data
     console.warn('PROGRESS PAGE!')
-  },
+  }
+  /*
   components: {
     // ChartComponent,
   }
+  */
 }
 </script>

@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "charts": "parcel src/index.html",
-    "concurrentTest": "concurrently --kill-others \"npm run serve\" \"npm run charts\"",
+    "concurrencyExec": "concurrently --kill-others \"npm run serve\" \"npm run charts\"",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
