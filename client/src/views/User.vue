@@ -16,31 +16,16 @@
 <script>
 export default {
   name: 'User',
-  data() {
-    return {
-      user: null
-    }
-  },
-  created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
-
-    localStorage.setItem('current-page', 'User')
-  },
+  inject: ['user'],
   methods: {
     handleSubmit() {
-      this.$router.push(`/home/users/${this.user}`)
+      this.$router.push(`/users/${this.user}`)
     },
     booksButton() {
-      this.$router.push(`${this.user}/books`)
+      this.$router.push(`${this.$route.path}/books`)
     },
     reviewsButton() {
-      this.$router.push(`${this.user}/reviews`)
+      this.$router.push(`${this.$route.path}/reviews`)
     }
   }
 }
