@@ -30,8 +30,8 @@
 </template>
 
 <script>
+import { Api } from '../Api'
 import NavComponent from '../components/NavComponent.vue'
-import axios from 'axios'
 export default {
   name: 'Register',
   data() {
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await axios.post('http://localhost:3000/api/register', {
+      const response = await Api.post('/register', {
         username: this.username,
         password: this.password,
         age: this.age

@@ -38,7 +38,6 @@ import { Api } from '@/Api'
 import { StreamBarcodeReader } from 'vue-barcode-reader'
 import sound from '../../assets/scan.mp3'
 import Book from '../components/Book.vue'
-import axios from 'axios'
 
 export default {
   name: 'home',
@@ -84,7 +83,7 @@ export default {
     },
     async addBook(book) {
       try {
-        await axios.post('http://localhost:3000/api/users/mrGit/books/add', {
+        await Api.post('/users/mrGit/books/add', {
           title: book.title,
           author: 'Tony Robbins',
           pages: book.pages,
