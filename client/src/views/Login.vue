@@ -21,6 +21,8 @@
 
 <script>
 import NavComponent from '../components/NavComponent.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
+
 import { Api } from '../Api'
 export default {
   name: 'Login',
@@ -36,9 +38,8 @@ export default {
 
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {
-        localStorage.setItem('logged-in-user', JSON.stringify(result.data[0]))
-        localStorage.setItem('logged-in-username', this.username)
-
+        UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
+        // UtilsComponent.methods.setRefreshablePageState()
         this.$router.push('/home')
       }
     }

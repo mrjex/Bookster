@@ -1,0 +1,51 @@
+<script utils>
+export default {
+  name: 'UtilsComponent',
+  data() {
+    return {
+      refreshDelay: 10
+    }
+  },
+  methods: {
+    getUsername() {
+      const usernameLength = localStorage.getItem('logged-in-username').length
+
+      if (usernameLength > 0) {
+        return localStorage.getItem('logged-in-username')
+      } else {
+        return null
+      }
+    },
+    updateLoggedInUser(newUserData, newUsername) {
+      localStorage.setItem('logged-in-user', newUserData)
+      localStorage.setItem('logged-in-username', newUsername)
+    },
+    refreshPage(conditionalPage) {
+      let correctPage = null
+      if (conditionalPage != null) {
+        correctPage = conditionalPage === localStorage.getItem('current-page')
+      }
+
+      // If no conditional page was requested, or if the current page-state is equivalent to the conditional page
+      if (correctPage == null || correctPage === true) {
+        if (localStorage.getItem('refresh-state') === 'Refreshable') {
+          setTimeout(this.refreshX, this.refreshDelay)
+          localStorage.setItem('refresh-state', 'DONE')
+        }
+      }
+    },
+    setRefreshablePageState() {
+      localStorage.setItem('refresh-state', 'Refreshable')
+    },
+    setCurrentPageState(pageName) {
+      localStorage.setItem('current-page', pageName)
+    },
+    getCurrentPageState() {
+      return localStorage.getItem('current-page')
+    },
+    refreshX() { // Private method
+      window.location.reload()
+    }
+  }
+}
+</script>

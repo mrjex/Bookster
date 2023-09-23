@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// Pages:
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
@@ -9,6 +8,7 @@ import User from './views/User.vue'
 import Books from './views/Books.vue'
 import Reviews from './views/Reviews.vue'
 import Search from './views/Search.vue'
+import Progress from './views/Progress.vue'
 
 Vue.use(Router)
 
@@ -45,6 +45,11 @@ const router = new Router({
     {
       path: '/users/:username/reviews',
       component: Reviews,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/users/:username/progress',
+      component: Progress,
       meta: { requiresAuth: true }
     },
     {

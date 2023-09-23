@@ -50,14 +50,6 @@ export default {
         age: this.age
       })
 
-      /*
-      if (response.status === 201)
-      {
-
-      }
-      */
-
-      console.log(response)
       this.$router.push('/login')
     }
   },
