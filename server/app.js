@@ -42,10 +42,7 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 
 // Import routes
 app.get('/api', async function (req, res) {
-    // res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
-
-    const users = await User.find();
-    res.json(users)
+    res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
 });
 
 app.post('/api/register', async function (req, res, next) {

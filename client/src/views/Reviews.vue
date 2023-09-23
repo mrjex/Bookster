@@ -6,23 +6,19 @@
 </template>
 
 <script>
-import axios from 'axios'
-import UtilsComponent from '../components/UtilsComponent.vue'
-
+import { Api } from '../Api'
 export default {
   name: 'Reviews',
+  inject: ['user'],
   data() {
     return {
-      user: UtilsComponent.methods.getUsername(),
       reviews: null
     }
   },
   async created() {
-    const result = await axios.get(`http://localhost:3000/api/users/${this.user}/reviews`)
+    const result = await Api.get(`/users/${this.user}/reviews`)
     this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
     console.warn(this.reviews)
-
-    UtilsComponent.methods.setCurrentPageState('Reviews')
   }
 }
 </script>

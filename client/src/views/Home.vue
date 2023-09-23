@@ -1,18 +1,8 @@
 <template>
   <div>
-    <div>
-      <h3>Home</h3>
-      <h3 v-if="user">Hi, {{user}}</h3>
-      <h3 v-if="!user">You are not logged in</h3>
-    </div>
-
-    <OnSiteComponent/>
-
-    <div> <!-- NOTE: Video is not scaleable according to screen-size. FIX THIS LATER!-->
-      <video autoplay loop muted class="video">
-        <source src="../resources/BookVideo-Group21.mp4" type="video/mp4"/>
-      </video>
-    </div>
+    <b-container>
+      <Search />
+    </b-container>
   </div>
 </template>
 
@@ -34,33 +24,24 @@ video{
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
-import OnSiteComponent from '../components/OnSiteComponent.vue'
-import UtilsComponent from '../components/UtilsComponent.vue'
+import Search from './Search.vue'
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      user: UtilsComponent.methods.getUsername()
-    }
-  },
   created() {
-    UtilsComponent.methods.setCurrentPageState('Home')
   },
   methods: {
     getMessage() {
       Api.get('/')
-        .then(response => {
+        .then((response) => {
           this.message = response.data.message
         })
-        .catch(error => {
+        .catch((error) => {
           this.message = error
         })
     }
   },
-  components: {
-    OnSiteComponent
-  }
+  components: { Search }
 }
 </script>
 
