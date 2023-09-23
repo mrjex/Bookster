@@ -10,10 +10,16 @@
             <button class="btn btn-primary btn-block"
             @click.prevent="reviewsButton">Your Reviews</button>
         </div>
+
+        <div>
+            <button class="btn btn-primary btn-block"
+            @click.prevent="progressButton">Your Progress</button>
+        </div>
     </div>
 </template>
 
 <script>
+
 export default {
   name: 'User',
   inject: ['user'],
@@ -26,6 +32,9 @@ export default {
     },
     reviewsButton() {
       this.$router.push(`${this.$route.path}/reviews`)
+    },
+    progressButton() {
+      this.$router.push(`${this.$route.path}/progress`)
     }
   }
 }
