@@ -1,7 +1,6 @@
 <template>
   <div>
     <b-jumbotron header="Bookster" lead="Search for a book">
-      <b-container fluid="md">
         <b-input-group class="mt-3">
           <b-form-input
             v-model="keyword"
@@ -13,7 +12,7 @@
             v-on:click="getMessage()"
             >Search</b-button
           >
-          <b-button v-b-modal.modal-1>Scan Code</b-button>
+          <b-button v-b-modal.modal-1 class="mx-2">Bar Code</b-button>
 
           <b-modal id="modal-1" title="Scan Your Book's Bar Code">
             <StreamBarcodeReader
@@ -30,7 +29,6 @@
             >
           </Book>
         </b-row>
-      </b-container>
     </b-jumbotron>
   </div>
 </template>

@@ -9,48 +9,68 @@ import User from './views/User.vue'
 import Books from './views/Books.vue'
 import Reviews from './views/Reviews.vue'
 import Search from './views/Search.vue'
-import Scanner from './views/Scanner.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/home',
-      // name: 'Home',
-      component: Home
-    },
-    {
+      name: 'Login',
       path: '/login',
       component: Login
     },
     {
+      name: 'Register',
       path: '/register',
       component: Register
     },
     {
-      path: `/home/users/${localStorage.getItem('logged-in-username')}`,
-      component: User
+      path: '/home',
+      // name: 'Home',
+      component: Home,
+      meta: { requiresAuth: true }
     },
     {
-      path: `/home/users/${localStorage.getItem('logged-in-username')}/books`,
-      component: Books
+      path: '/users/:username',
+      component: User,
+      meta: { requiresAuth: true }
     },
     {
-      path: `/home/users/${localStorage.getItem('logged-in-username')}/reviews`,
-      component: Reviews
+      path: '/users/:username/books',
+      component: Books,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/users/:username/reviews',
+      component: Reviews,
+      meta: { requiresAuth: true }
     },
     {
       path: '/search',
       name: 'search',
-      component: Search
-    },
-    {
-      path: '/scanner',
-      name: 'scanner',
-      component: Scanner
+      component: Search,
+      meta: { requiresAuth: true }
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!localStorage.getItem('logged-in-username')) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
+  }
+})
+
+export default router

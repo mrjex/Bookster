@@ -34,13 +34,6 @@ import NavComponent from '../components/NavComponent.vue'
 import axios from 'axios'
 export default {
   name: 'Register',
-  created() {
-    localStorage.setItem('current-page', 'Register')
-
-    // NOTE: Refactor by creating function logout({false, true}, user) --> Reuse TWICE in Login.vue
-    localStorage.setItem('logged-in-user', null)
-    localStorage.setItem('logged-in-username', null)
-  },
   data() {
     return {
       username: '',

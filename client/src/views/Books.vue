@@ -21,17 +21,17 @@ import Book from '../components/Book'
 
 export default {
   name: 'Books',
+  inject: ['user'],
   components: { Book },
   data() {
     return {
-      user: null,
       books: []
     }
   },
   methods: {
     async removeBook(book) {
       try {
-        await axios.delete(`http://localhost:3000/api/users/mrGit/books/${book.isbn}`)
+        await axios.delete(`http://localhost:3000/api/users/${this.user}/books/${book.isbn}`)
         this.$bvToast.toast('Success', {
           title: 'Removed book from library',
           autoHideDelay: 5000,
@@ -45,24 +45,12 @@ export default {
           appendToast: false
         })
       }
-    },
-    logger() {
-      console.log('I was clicked')
     }
   },
   async created() {
-    const usernameLength = localStorage.getItem('logged-in-username').length // NOTE: Refactor this later
-
-    if (usernameLength > 0) {
-      this.user = localStorage.getItem('logged-in-username')
-    } else {
-      this.user = null
-    }
     const result = await axios.get(`http://localhost:3000/api/users/${this.user}/books`)
     this.books = result.data.books // NOTE: Do result.data to include HATEOAS links
     console.warn(this.books)
-
-    localStorage.setItem('current-page', 'Books')
   }
 
 }

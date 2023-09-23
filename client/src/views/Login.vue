@@ -30,11 +30,6 @@ export default {
       password: ''
     }
   },
-  created() {
-    localStorage.setItem('current-page', 'Login')
-    localStorage.setItem('logged-in-user', null)
-    localStorage.setItem('logged-in-username', null)
-  },
   methods: {
     async handleSubmit() {
       const result = await axios.get(`http://localhost:3000/api/users?username=${this.username}&password=${this.password}`)
