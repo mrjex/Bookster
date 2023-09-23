@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await Api.post('/register', {
+      await Api.post('/register', {
         username: this.username,
         password: this.password,
         age: this.age
