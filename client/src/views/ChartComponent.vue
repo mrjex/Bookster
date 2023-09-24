@@ -1,5 +1,15 @@
 <template>
     <div>
+        <!--
+        <Chart
+        id="radarChartTest"
+        :options="chartOptions"
+        :data="charData"
+        />
+        -->
+
+        <!-- <Chart id="radarChartTest"/> --> <!-- v-model or -bind -->
+
         <body>
             <!--
             <div style="width: 500px;"><canvas id=radarchart></canvas></div>
@@ -7,8 +17,10 @@
             -->
         <!-- <div style="width: 500px;"><canvas id=radarchart></canvas></div> -->
         </body>
+        <!--
         <h3>{{ user }}'s progress:</h3>
         <h3> {{progress}} </h3>
+        -->
     </div>
 </template>
 
@@ -63,7 +75,7 @@ export default {
 
     const dataTest2 = this.dataTest
 
-    const radarChart = new Chart(document.getElementById('radarchart'),
+    const radarChartTest = new Chart(document.getElementById('radarChartTest'),
       {
         type: 'radar',
         dataTest2,
@@ -75,7 +87,28 @@ export default {
           }
         }
       })
-    console.warn(radarChart.type)
+
+    console.warn(radarChartTest)
+  },
+  methods: {
+    createRadarChart() { // NOTE: Try to connect with HTML <template>
+      const dataTest3 = this.dataTest
+      const radarChartTest = new Chart(document.getElementById('radarChartTest'),
+        {
+          type: 'radar',
+          dataTest3,
+          options: {
+            elements: {
+              line: {
+                borderWidth: 3
+              }
+            }
+          }
+        })
+
+      console.warn(radarChartTest)
+      return radarChartTest
+    }
   }
 }
 </script>
