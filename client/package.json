@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "charts": "parcel src/index.html",
+    "charts": "parcel src/chartManager.html",
     "concurrencyExec": "concurrently --kill-others \"npm run serve\" \"npm run charts\"",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
