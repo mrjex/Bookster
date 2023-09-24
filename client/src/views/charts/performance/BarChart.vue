@@ -1,5 +1,5 @@
 <template>
-  <LineChartGenerator
+  <Bar
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
@@ -13,38 +13,29 @@
 </template>
 
 <script>
-import { Line as LineChartGenerator } from 'vue-chartjs/legacy'
+import { Bar } from 'vue-chartjs/legacy'
 
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
-  LineElement,
-  LinearScale,
+  BarElement,
   CategoryScale,
-  PointElement
+  LinearScale
 } from 'chart.js'
 
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  LineElement,
-  LinearScale,
-  CategoryScale,
-  PointElement
-)
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
-  name: 'LineChart',
+  name: 'BarChart',
   components: {
-    LineChartGenerator
+    Bar
   },
   props: {
     chartId: {
       type: String,
-      default: 'line-chart'
+      default: 'bar-chart'
     },
     datasetIdKey: {
       type: String,
@@ -75,19 +66,24 @@ export default {
     return {
       chartData: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July'
+          'Day 1',
+          'Day 2',
+          'Day 3',
+          'Day 4',
+          'Day 5',
+          'Day 6',
+          'Day 7',
+          'Day 8',
+          'Day 9',
+          'Day 10',
+          'Day 11',
+          'Day 12'
         ],
         datasets: [
           {
             label: 'Data One',
             backgroundColor: '#f87979',
-            data: [40, 39, 10, 40, 39, 80, 40]
+            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
           }
         ]
       },
