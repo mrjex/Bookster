@@ -1,5 +1,5 @@
 <template>
-  <PolarArea
+  <Radar
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
@@ -13,28 +13,36 @@
 </template>
 
 <script>
-import { PolarArea } from 'vue-chartjs/legacy'
+import { Radar } from 'vue-chartjs/legacy'
 
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
-  ArcElement,
+  PointElement,
+  LineElement,
   RadialLinearScale
 } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  PointElement,
+  RadialLinearScale,
+  LineElement
+)
 
 export default {
-  name: 'PolarAreaChart',
+  name: 'RadarChart',
   components: {
-    PolarArea
+    Radar
   },
   props: {
     chartId: {
       type: String,
-      default: 'polar-chart'
+      default: 'radar-chart'
     },
     datasetIdKey: {
       type: String,
@@ -65,32 +73,35 @@ export default {
     return {
       chartData: {
         labels: [
-          'Eating',
-          'Drinking',
-          'Sleeping',
-          'Designing',
+          'Finances',
+          'Emotional Intelligence',
+          'Mathematics',
           'Coding',
-          'Cycling',
-          'Running'
+          'Negotiation',
+          'Leadership',
+          'Business',
+          'Productivity'
         ],
         datasets: [
           {
-            label: 'My First dataset',
+            label: 'Week 1',
             backgroundColor: 'rgba(179,181,198,0.2)',
+            borderColor: 'rgba(179,181,198,1)',
             pointBackgroundColor: 'rgba(179,181,198,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [65, 59, 90, 81, 56, 55, 40]
+            data: [65, 59, 60, 81, 56, 55, 40, 50]
           },
           {
-            label: 'My Second dataset',
+            label: 'Week 2',
             backgroundColor: 'rgba(255,99,132,0.2)',
+            borderColor: 'rgba(255,99,132,1)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [28, 48, 40, 19, 96, 27, 100]
+            data: [28, 48, 40, 19, 76, 27, 60, 50]
           }
         ]
       },
