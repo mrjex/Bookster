@@ -2,7 +2,7 @@
 <div>
   <!--
   <div style="width: 500px;"><canvas id=radarchart></canvas></div>
-  <script type="module" src="../radarchart.js"></script>
+  <script type="module" src="../charts/radarchart.js"></script>
   -->
   <!-- <ChartComponent /> -->
   <form @submit.prevent="handleBookSubmit">
@@ -30,7 +30,7 @@ export default {
   }
   /*
   components: {
-    // ChartComponent,
+    ChartComponent
   }
   */
 }
