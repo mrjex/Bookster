@@ -18,16 +18,16 @@ export default {
     return {
       services: [
         {
-          title: 'Web',
-          link: '#'
+          title: 'Bar Chart'
+          // link: '#'
         },
         {
-          title: 'Design',
-          link: '#'
+          title: 'Radar Chart'
+          // link: '#'
         },
         {
-          title: 'Videos',
-          link: '#'
+          title: 'Pie Chart'
+          // link: '#'
         }
       ]
     }
