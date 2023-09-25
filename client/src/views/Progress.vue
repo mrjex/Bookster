@@ -1,22 +1,62 @@
 <template>
   <div>
+<div>
+  <b-dropdown id="dropdown-grouped" text="Charts" class="m-2">
+    <!--
+    <b-dropdown-item-button>
+      Non-grouped Item
+    </b-dropdown-item-button>
+    <b-dropdown-divider></b-dropdown-divider>
+    -->
+    <b-dropdown-group id="dropdown-group-1" header="Performance Charts">
+      <b-dropdown-item-button class="chartButton LineChart" @click="selectedPerformanceChart = 'LineChart'">Line Chart</b-dropdown-item-button>
+      <b-dropdown-item-button class="chartButton BarChart" @click="selectedPerformanceChart = 'BarChart'">Bar Chart</b-dropdown-item-button>
+    </b-dropdown-group>
+    <b-dropdown-group id="dropdown-group-2" header="Allocation Charts">
+      <b-dropdown-item-button class="chartButton RadarChart" @click.prevent="radarChart">Radar Chart</b-dropdown-item-button>
+      <b-dropdown-item-button class="chartButton PolarChart" @click.prevent="polarChart">Polar Chart</b-dropdown-item-button>
+      <b-dropdown-item-button class="chartButton PieChart" @click.prevent="pieChart">Pie Chart</b-dropdown-item-button>
+    </b-dropdown-group>
+    <!--
+    <b-dropdown-divider></b-dropdown-divider>
+    <b-dropdown-item-button>
+      Another Non-grouped Item
+    </b-dropdown-item-button>
+    -->
+  </b-dropdown>
+</div>
+
     <header>
-      <Navbar />
+      <!-- <Navbar /> -->
     </header>
-    <div v-if="user === 'bob'">
-      <h3>YOOO BOB</h3>
-    </div>
 
     <h3>{{ user }}'s progress:</h3>
-    <h3>{{ progress }}</h3>
-    <BarChart :chartData="chartDataPerformance" />
-    <LineChart :chartData="chartDataPerformance" />
-    <b-button @click.prevent="addStuff">Add datapoint</b-button>
+    <!-- <h3>{{ progress }}</h3> -->
 
-    <PolarChart :chartData="chartDataAllocation" />
-    <RadarChart :chartData="chartDataAllocation" />
-    <PieChart :chartData="chartDataAllocationPie" />
-    <b-button @click.prevent="addStuff2">Add datapoint</b-button>
+    <div name="performanceSection">
+      <div v-if="selectedPerformanceChart === 'LineChart'">
+        <LineChart :chartData="chartDataPerformance" />
+      </div>
+      <div v-else-if="selectedPerformanceChart === 'BarChart'">
+        <BarChart :chartData="chartDataPerformance" />
+      </div>
+
+      <b-button @click.prevent="addStuff">Add datapoint</b-button>
+    </div>
+
+    <div name="allocationSection">
+      <div v-if="selectedAllocationChart === 'RadarChart'">
+        <RadarChart :chartData="chartDataAllocation" />
+      </div>
+      <div v-else-if="selectedAllocationChart === 'PolarChart'">
+        <PolarChart :chartData="chartDataAllocation" />
+      </div>
+      <div v-else-if="selectedAllocationChart === 'PieChart'">
+        <PieChart :chartData="chartDataAllocationPie" />
+      </div>
+
+      <b-button @click.prevent="addStuff2">Add datapoint</b-button>
+    </div>
   </div>
 </template>
 
@@ -27,7 +67,7 @@ import PolarChart from './charts/allocation/PolarChart.vue'
 import PieChart from './charts/allocation/PieChart.vue'
 import LineChart from './charts/performance/LineChart.vue'
 import BarChart from './charts/performance/BarChart.vue'
-import Navbar from '../components/NavbarComponent.vue'
+// import Navbar from '../components/NavbarComponent.vue'
 
 export default {
   name: 'ProgressPage',
@@ -35,6 +75,8 @@ export default {
   data() {
     return {
       progress: null,
+      selectedPerformanceChart: 'LineChart',
+      selectedAllocationChart: 'RadarChart',
       chartDataPerformance: {
         labels: [
           'Day 1',
@@ -114,8 +156,8 @@ export default {
     PolarChart,
     LineChart,
     BarChart,
-    PieChart,
-    Navbar
+    PieChart
+    // Navbar
   },
   methods: {
     addStuff() {
@@ -129,11 +171,35 @@ export default {
 
       this.chartDataAllocationPie.labels.push('NewCategory')
       this.chartDataAllocationPie.datasets[0].data.push(90)
+    },
+    lineChart() {
+      // console.warn(this.selectedAllocationChart)
+    },
+    barChart() {
+      // console.warn(this.selectedAllocationChart)
+    },
+    radarChart() {
+      this.selectedAllocationChart = 'RadarChart'
+    },
+    polarChart() {
+      this.selectedAllocationChart = 'PolarChart'
+    },
+    pieChart() {
+      this.selectedAllocationChart = 'PieChart'
     }
   }
 }
 </script>
 
+<!--
+<style scoped>
+.chartButton {
+  background-color: rgb(69, 52, 179);
+}
+</style>
+-->
+
+<!--
 <style scoped>
 * {
   margin: 0;
@@ -152,3 +218,4 @@ header {
 
 }
 </style>
+-->
