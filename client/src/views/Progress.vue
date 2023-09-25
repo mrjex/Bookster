@@ -1,5 +1,12 @@
 <template>
   <div>
+    <header>
+      <Navbar />
+    </header>
+    <div v-if="user === 'bob'">
+      <h3>YOOO BOB</h3>
+    </div>
+
     <h3>{{ user }}'s progress:</h3>
     <h3>{{ progress }}</h3>
     <BarChart :chartData="chartDataPerformance" />
@@ -20,6 +27,7 @@ import PolarChart from './charts/allocation/PolarChart.vue'
 import PieChart from './charts/allocation/PieChart.vue'
 import LineChart from './charts/performance/LineChart.vue'
 import BarChart from './charts/performance/BarChart.vue'
+import Navbar from '../components/NavbarComponent.vue'
 
 export default {
   name: 'ProgressPage',
@@ -45,6 +53,7 @@ export default {
         datasets: [
           {
             label: 'Data One',
+            hidden: false,
             backgroundColor: '#f87979',
             data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
           }
@@ -105,7 +114,8 @@ export default {
     PolarChart,
     LineChart,
     BarChart,
-    PieChart
+    PieChart,
+    Navbar
   },
   methods: {
     addStuff() {
@@ -123,3 +133,22 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'montserrat', sans-serif;
+}
+
+header {
+  width: 100vw;
+  background-color: #222;
+  padding: 20px;
+
+}
+</style>
