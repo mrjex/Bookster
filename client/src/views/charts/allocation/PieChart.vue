@@ -59,10 +59,15 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    chartData: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
     return {
+      /*
       chartData: {
         labels: ['Finances', 'Emotional Intelligence', 'Mathematics', 'Coding', 'Negotiation', 'Leadership', 'Business', 'Productivity'],
         datasets: [
@@ -72,6 +77,7 @@ export default {
           }
         ]
       },
+      */
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false

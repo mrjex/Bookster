@@ -59,10 +59,15 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    chartData: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
     return {
+      /*
       chartData: {
         labels: [
           'Finances',
@@ -95,6 +100,7 @@ export default {
           }
         ]
       },
+      */
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false

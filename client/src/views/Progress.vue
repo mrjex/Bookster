@@ -2,12 +2,14 @@
   <div>
     <h3>{{ user }}'s progress:</h3>
     <h3>{{ progress }}</h3>
-    <BarChart :chartData="chartData" />
-    <LineChart :chartData="chartData" />
-    <b-button @click.prevent="addStuff">Add Lol</b-button>
-    <PolarChart />
-    <RadarChart />
-    <PieChart />
+    <BarChart :chartData="chartDataPerformance" />
+    <LineChart :chartData="chartDataPerformance" />
+    <b-button @click.prevent="addStuff">Add datapoint</b-button>
+
+    <PolarChart :chartData="chartDataAllocation" />
+    <RadarChart :chartData="chartDataAllocation" />
+    <PieChart :chartData="chartDataAllocationPie" />
+    <b-button @click.prevent="addStuff2">Add datapoint</b-button>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
   data() {
     return {
       progress: null,
-      chartData: {
+      chartDataPerformance: {
         labels: [
           'Day 1',
           'Day 2',
@@ -47,6 +49,49 @@ export default {
             data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
           }
         ]
+      },
+      chartDataAllocation: {
+        labels: [
+          'Finances',
+          'Emotional Intelligence',
+          'Mathematics',
+          'Coding',
+          'Negotiation',
+          'Leadership',
+          'Business',
+          'Productivity'
+        ],
+        datasets: [
+          {
+            // backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+            label: 'Current Month',
+            backgroundColor: 'rgba(179,181,198,0.2)',
+            pointBackgroundColor: 'rgba(179,181,198,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(179,181,198,1)',
+            data: [65, 59, 90, 81, 56, 55, 40, 38]
+          },
+          {
+            label: 'Last Month',
+            backgroundColor: 'rgba(255,99,132,0.2)',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [28, 48, 40, 19, 96, 27, 100, 65]
+          }
+        ]
+      },
+      // Seperate handling of Pie Chart due to differences of front-end structure
+      chartDataAllocationPie: {
+        labels: ['Finances', 'Emotional Intelligence', 'Mathematics', 'Coding', 'Negotiation', 'Leadership', 'Business', 'Productivity'],
+        datasets: [
+          {
+            backgroundColor: ['#AAF0D1', '#40E0D0', '#CCFFFF', '#81D8D0', '#AAF0D1', '#81D8D0', '#007C80', '#1F6357'],
+            data: [40, 20, 80, 10, 35, 57, 63, 94]
+          }
+        ]
       }
     }
   },
@@ -64,8 +109,16 @@ export default {
   },
   methods: {
     addStuff() {
-      this.chartData.labels.push('Day 13')
-      this.chartData.datasets[0].data.push(60)
+      this.chartDataPerformance.labels.push('Day 13')
+      this.chartDataPerformance.datasets[0].data.push(60)
+    },
+    addStuff2() {
+      this.chartDataAllocation.labels.push('NewCategory')
+      this.chartDataAllocation.datasets[0].data.push(90)
+      this.chartDataAllocation.datasets[1].data.push(0)
+
+      this.chartDataAllocationPie.labels.push('NewCategory')
+      this.chartDataAllocationPie.datasets[0].data.push(90)
     }
   }
 }
