@@ -1,7 +1,7 @@
 <template>
   <LineChartGenerator
-    :chart-options="chartOptionsTest"
-    :chart-data="chartDataTest"
+    :chart-options="chartOptions"
+    :chart-data="chartData"
     :chart-id="chartId"
     :dataset-id-key="datasetIdKey"
     :plugins="plugins"
@@ -38,7 +38,6 @@ ChartJS.register(
 
 export default {
   name: 'LineChart',
-  inject: ['chartDataTest', 'chartOptionsTest'],
   components: {
     LineChartGenerator
   },
@@ -70,42 +69,20 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    chartData: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
     return {
-      chartDataTest: this.chartDataTest,
-      chartOptionsTest: this.chartOptionsTest
 
-      /*
-      chartData: {
-        labels: [
-          'Day 1',
-          'Day 2',
-          'Day 3',
-          'Day 4',
-          'Day 5',
-          'Day 6',
-          'Day 7',
-          'Day 8',
-          'Day 9',
-          'Day 10',
-          'Day 11',
-          'Day 12'
-        ],
-        datasets: [
-          {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            data: [40, 39, 10, 40, 39, 73, 40, 20, 7, 3, 24, 37]
-          }
-        ]
-      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false
       }
-      */
+
     }
   }
 }

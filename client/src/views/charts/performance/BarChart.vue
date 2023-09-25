@@ -60,33 +60,14 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    chartData: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
     return {
-      chartData: {
-        labels: [
-          'Day 1',
-          'Day 2',
-          'Day 3',
-          'Day 4',
-          'Day 5',
-          'Day 6',
-          'Day 7',
-          'Day 8',
-          'Day 9',
-          'Day 10',
-          'Day 11',
-          'Day 12'
-        ],
-        datasets: [
-          {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-          }
-        ]
-      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false
