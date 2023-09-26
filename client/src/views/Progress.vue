@@ -31,7 +31,6 @@
     </header>
 
     <h3>{{ user }}'s progress:</h3>
-    <!-- <h3>{{ progress }}</h3> -->
 
     <div name="performanceSection">
       <div v-if="selectedPerformanceChart === 'LineChart'">
@@ -41,7 +40,13 @@
         <BarChart :chartData="chartDataPerformance" />
       </div>
 
-      <b-button @click.prevent="addStuff" class="addChartValueBtn addPerformanceBtn">ADD DATAPOINT</b-button>
+        <form @submit.prevent="pushPerformanceData">
+          <div class="form-group">
+              <label>Today's Progress</label>
+              <input type="today-progress" class="form-control" v-model="performanceInput" placeholder="Progress"/>
+          </div>
+          <button class="addChartValueBtn addPerformanceBtn btn btn-primary btn-block">PUSH DATA</button>
+        </form>
     </div>
 
     <div name="allocationSection">
@@ -55,7 +60,16 @@
         <PieChart :chartData="chartDataAllocationPie" />
       </div>
 
-      <b-button @click.prevent="addStuff2" class="addChartValueBtn addAllocationBtn">ADD DATAPOINT</b-button>
+          <form @submit.prevent="pushAllocationData">
+            <div class="form-group">
+                <label>New Category</label>
+                <input type="new-category" class="form-control" v-model="newCategoryInput" placeholder="New-Category"/>
+
+                <label>Completed Books</label>
+                <input type="completed-books" class="form-control" v-model="completedBooksInput" placeholder="Completed-Books"/>
+            </div>
+            <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
+        </form>
     </div>
   </div>
 </template>
@@ -75,6 +89,9 @@ export default {
   data() {
     return {
       progress: null,
+      performanceInput: null,
+      newCategoryInput: null,
+      completedBooksInput: null,
       selectedPerformanceChart: 'LineChart',
       selectedAllocationChart: 'RadarChart',
       chartDataPerformance: {
@@ -160,18 +177,6 @@ export default {
     // Navbar
   },
   methods: {
-    addStuff() {
-      this.chartDataPerformance.labels.push('Day 13')
-      this.chartDataPerformance.datasets[0].data.push(60)
-    },
-    addStuff2() {
-      this.chartDataAllocation.labels.push('NewCategory')
-      this.chartDataAllocation.datasets[0].data.push(90)
-      this.chartDataAllocation.datasets[1].data.push(0)
-
-      this.chartDataAllocationPie.labels.push('NewCategory')
-      this.chartDataAllocationPie.datasets[0].data.push(90)
-    },
     lineChart() {
       // console.warn(this.selectedAllocationChart)
     },
@@ -186,6 +191,18 @@ export default {
     },
     pieChart() {
       this.selectedAllocationChart = 'PieChart'
+    },
+    pushPerformanceData() {
+      this.chartDataPerformance.labels.push('Day 13') // TODO: Connect with current Date
+      this.chartDataPerformance.datasets[0].data.push(this.performanceInput)
+    },
+    pushAllocationData() {
+      this.chartDataAllocation.labels.push(this.newCategoryInput)
+      this.chartDataAllocation.datasets[0].data.push(this.completedBooksInput)
+      this.chartDataAllocation.datasets[1].data.push(0)
+
+      this.chartDataAllocationPie.labels.push(this.newCategoryInput)
+      this.chartDataAllocationPie.datasets[0].data.push(this.completedBooksInput)
     }
   }
 }
