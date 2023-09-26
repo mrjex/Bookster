@@ -4,12 +4,6 @@ const Book = require("./book");
 
 const progressSchema = mongoose.Schema(
     {
-        /*
-        todayDuration: {
-            type: Number,
-            required: true
-        },
-        */
         performanceCharts: {
             type: [Number]
         },
