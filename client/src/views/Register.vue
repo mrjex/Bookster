@@ -50,6 +50,15 @@ export default {
         age: this.age
       })
 
+      await Api.post(`/users/${this.user}/progress/add`, {
+        performanceCharts: null,
+        allocationChartsCurrent: null,
+        allocationChartsLastMonth: null,
+        allocationChartPie: null,
+        allocationCategories: null,
+        username: this.username
+      })
+
       this.$router.push('/login')
     }
   },
