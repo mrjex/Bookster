@@ -4,13 +4,26 @@ const Book = require("./book");
 
 const progressSchema = mongoose.Schema(
     {
+        /*
         todayDuration: {
             type: Number,
             required: true
         },
-        isbn: {
-            type: String, // Book.isbn
-            required: true,
+        */
+        performanceCharts: {
+            type: [Number]
+        },
+        allocationChartsCurrent: {
+            type: [Number]
+        },
+        allocationChartsLastMonth: {
+            type: [Number]
+        },
+        allocationChartPie: {
+            type: [Number]
+        },
+        allocationCategories: {
+            type: [String]
         },
         username: {
             type: String

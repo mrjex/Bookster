@@ -193,8 +193,19 @@ export default {
       this.selectedAllocationChart = 'PieChart'
     },
     pushPerformanceData() {
-      this.chartDataPerformance.labels.push('Day 13') // TODO: Connect with current Date
+      this.chartDataPerformance.labels.push('Day 13') // TODO: Connect with current Date: Load with data - Database
       this.chartDataPerformance.datasets[0].data.push(this.performanceInput)
+
+      console.warn('Try to add to DB')
+
+      Api.post(`/users/${this.user}/progress/add`, { // NOTE: Create method of this and reuse
+        performanceCharts: this.chartDataPerformance.datasets[0].data,
+        allocationChartsCurrent: this.chartDataAllocation.datasets[0].data,
+        allocationChartsLastMonth: this.chartDataAllocation.datasets[1].data,
+        allocationChartPie: this.chartDataAllocationPie.datasets[0].data,
+        allocationCategories: this.chartDataAllocation.labels,
+        username: this.user
+      })
     },
     pushAllocationData() {
       this.chartDataAllocation.labels.push(this.newCategoryInput)
@@ -203,6 +214,9 @@ export default {
 
       this.chartDataAllocationPie.labels.push(this.newCategoryInput)
       this.chartDataAllocationPie.datasets[0].data.push(this.completedBooksInput)
+
+      // CREATE PROGRESS
+      // axios.post
     }
   }
 }
