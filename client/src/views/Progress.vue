@@ -106,16 +106,7 @@ export default {
         ]
       },
       chartDataAllocation: {
-        labels: [
-          'Finances',
-          'Emotional Intelligence',
-          'Mathematics',
-          'Coding',
-          'Negotiation',
-          'Leadership',
-          'Business',
-          'Productivity'
-        ],
+        labels: ['Finances', 'Mathematics', 'Negotiation'],
         datasets: [
           {
             // backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
@@ -125,7 +116,7 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [65, 59, 90, 81, 56, 55, 40, 38]
+            data: [65, 59, 90] // , 81, 56, 55, 40, 38
           },
           {
             label: 'Last Month',
@@ -134,17 +125,17 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [28, 48, 40, 19, 96, 27, 100, 65]
+            data: [28, 48, 40] // , 19, 96, 27, 100, 65
           }
         ]
       },
       // Seperate handling of Pie Chart due to differences of front-end structure
       chartDataAllocationPie: {
-        labels: ['Finances', 'Emotional Intelligence', 'Mathematics', 'Coding', 'Negotiation', 'Leadership', 'Business', 'Productivity'],
+        labels: ['Finances', 'Mathematics', 'Negotiation'],
         datasets: [
           {
             backgroundColor: ['#AAF0D1', '#40E0D0', '#CCFFFF', '#81D8D0', '#AAF0D1', '#81D8D0', '#007C80', '#1F6357'],
-            data: [40, 20, 80, 10, 35, 57, 63, 94]
+            data: [65, 59, 90] // , 81, 56, 55, 40, 38
           }
         ]
       }
@@ -154,9 +145,22 @@ export default {
     const userProgress = await Api.get(`/users/${this.user}/progress`)
 
     // If user has added at least one data point to the chart: Read and load the corresponding database-values
-    if (userProgress.data[0].performanceCharts.length > 1) {
+    if (userProgress.data[0].performanceCharts != null && userProgress.data[0].performanceCharts.length > 1) {
       this.chartDataPerformance.datasets[0].data = userProgress.data[0].performanceCharts
       this.chartDataPerformance.labels = userProgress.data[0].performanceDateLabels
+    }
+
+    // NOTE: Refactor!
+    // NOTE: Delete redundant attributes in progress.js schema
+    if (userProgress.data[0].allocationCategories != null && userProgress.data[0].allocationCategories.length > 3) {
+      this.chartDataAllocation.labels = userProgress.data[0].allocationCategories
+      this.chartDataAllocation.datasets[0].data = userProgress.data[0].allocationChartsCurrent
+      this.chartDataAllocation.datasets[1].data = userProgress.data[0].allocationChartsLastMonth
+
+      this.chartDataAllocationPie.labels = this.chartDataAllocation.labels
+      // this.chartDataAllocationPie.labels = userProgress.data[0].allocationCategories
+      // this.chartDataAllocationPie.datasets[0].data = userProgress.data[0].allocationChartsCurrent
+      this.chartDataAllocationPie.datasets[0].data = this.chartDataAllocation.datasets[0].data
     }
   },
   components: {
@@ -194,10 +198,12 @@ export default {
       this.chartDataAllocation.datasets[0].data.push(this.completedBooksInput)
       this.chartDataAllocation.datasets[1].data.push(0)
 
-      this.chartDataAllocationPie.labels.push(this.newCategoryInput)
-      this.chartDataAllocationPie.datasets[0].data.push(this.completedBooksInput)
+      // this.chartDataAllocationPie.labels.push(this.newCategoryInput) --> NOTE: Examine why this generates a duplicate of categories
+      // this.chartDataAllocationPie.datasets[0].data.push(this.completedBooksInput) --> NOTE: Examine why this generates a duplicate of data-arrays
 
       this.updateChartProgressDB()
+      console.warn(this.chartDataAllocation.labels)
+      console.warn(this.chartDataAllocation.datasets)
     },
     updateChartProgressDB() {
       Api.put(`/users/${this.user}/progress`, {
