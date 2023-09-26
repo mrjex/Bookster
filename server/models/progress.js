@@ -7,6 +7,9 @@ const progressSchema = mongoose.Schema(
         performanceCharts: {
             type: [Number]
         },
+        performanceDateLabels: {
+            type: [String]
+        },
         allocationChartsCurrent: {
             type: [Number]
         },

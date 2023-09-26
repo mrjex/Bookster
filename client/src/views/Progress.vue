@@ -92,29 +92,16 @@ export default {
       performanceInput: null,
       newCategoryInput: null,
       completedBooksInput: null,
+      performanceDataPoints: null,
       selectedPerformanceChart: 'LineChart',
       selectedAllocationChart: 'RadarChart',
       chartDataPerformance: {
-        labels: [
-          'Day 1',
-          'Day 2',
-          'Day 3',
-          'Day 4',
-          'Day 5',
-          'Day 6',
-          'Day 7',
-          'Day 8',
-          'Day 9',
-          'Day 10',
-          'Day 11',
-          'Day 12'
-        ],
+        labels: ['Day 0'],
         datasets: [
           {
-            label: 'Data One',
-            hidden: false,
+            label: 'Minutes Read',
             backgroundColor: '#f87979',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+            data: [0]
           }
         ]
       },
@@ -164,9 +151,13 @@ export default {
     }
   },
   async created() {
-    const result = await Api.get(`/users/${this.user}/progress`)
-    this.progress = result.data
-    console.warn(this.progress)
+    const userProgress = await Api.get(`/users/${this.user}/progress`)
+
+    // If user has added at least one data point to the chart: Read and load the corresponding database-values
+    if (userProgress.data[0].performanceCharts.length > 1) {
+      this.chartDataPerformance.datasets[0].data = userProgress.data[0].performanceCharts
+      this.chartDataPerformance.labels = userProgress.data[0].performanceDateLabels
+    }
   },
   components: {
     RadarChart,
@@ -193,7 +184,7 @@ export default {
       this.selectedAllocationChart = 'PieChart'
     },
     pushPerformanceData() {
-      this.chartDataPerformance.labels.push('Day 13') // TODO: Connect with current Date: Load with data - Database
+      this.chartDataPerformance.labels.push('Day X') // TODO: Connect with current Date: Load with data - Database
       this.chartDataPerformance.datasets[0].data.push(this.performanceInput)
 
       this.updateChartProgressDB()
@@ -211,6 +202,7 @@ export default {
     updateChartProgressDB() {
       Api.put(`/users/${this.user}/progress`, {
         performanceCharts: this.chartDataPerformance.datasets[0].data,
+        performanceDateLabels: this.chartDataPerformance.labels,
         allocationChartsCurrent: this.chartDataAllocation.datasets[0].data,
         allocationChartsLastMonth: this.chartDataAllocation.datasets[1].data,
         allocationChartPie: this.chartDataAllocationPie.datasets[0].data,

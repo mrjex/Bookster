@@ -52,6 +52,7 @@ export default {
 
       await Api.post(`/users/${this.user}/progress/add`, {
         performanceCharts: null,
+        performanceDateLabels: null,
         allocationChartsCurrent: null,
         allocationChartsLastMonth: null,
         allocationChartPie: null,
