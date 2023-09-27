@@ -16,9 +16,6 @@ const progressSchema = mongoose.Schema(
         allocationChartsLastMonth: {
             type: [Number]
         },
-        allocationChartPie: {
-            type: [Number]
-        },
         allocationCategories: {
             type: [String]
         },
