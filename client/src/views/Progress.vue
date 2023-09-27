@@ -116,7 +116,7 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [65, 59, 90] // , 81, 56, 55, 40, 38
+            data: [65, 59, 90]
           },
           {
             label: 'Last Month',
@@ -125,7 +125,7 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [28, 48, 40] // , 19, 96, 27, 100, 65
+            data: [28, 48, 40]
           }
         ]
       },
@@ -135,33 +135,14 @@ export default {
         datasets: [
           {
             backgroundColor: ['#AAF0D1', '#40E0D0', '#CCFFFF', '#81D8D0', '#AAF0D1', '#81D8D0', '#007C80', '#1F6357'],
-            data: [65, 59, 90] // , 81, 56, 55, 40, 38
+            data: [65, 59, 90]
           }
         ]
       }
     }
   },
   async created() {
-    const userProgress = await Api.get(`/users/${this.user}/progress`)
-
-    // If user has added at least one data point to the chart: Read and load the corresponding database-values
-    if (userProgress.data[0].performanceCharts != null && userProgress.data[0].performanceCharts.length > 1) {
-      this.chartDataPerformance.datasets[0].data = userProgress.data[0].performanceCharts
-      this.chartDataPerformance.labels = userProgress.data[0].performanceDateLabels
-    }
-
-    // NOTE: Refactor!
-    // NOTE: Delete redundant attributes in progress.js schema
-    if (userProgress.data[0].allocationCategories != null && userProgress.data[0].allocationCategories.length > 3) {
-      this.chartDataAllocation.labels = userProgress.data[0].allocationCategories
-      this.chartDataAllocation.datasets[0].data = userProgress.data[0].allocationChartsCurrent
-      this.chartDataAllocation.datasets[1].data = userProgress.data[0].allocationChartsLastMonth
-
-      this.chartDataAllocationPie.labels = this.chartDataAllocation.labels
-      // this.chartDataAllocationPie.labels = userProgress.data[0].allocationCategories
-      // this.chartDataAllocationPie.datasets[0].data = userProgress.data[0].allocationChartsCurrent
-      this.chartDataAllocationPie.datasets[0].data = this.chartDataAllocation.datasets[0].data
-    }
+    this.loadCharts()
   },
   components: {
     RadarChart,
@@ -215,6 +196,32 @@ export default {
         allocationCategories: this.chartDataAllocation.labels,
         username: this.user
       })
+    },
+    // If user has added at least one data point to the chart: Read and load the corresponding database-values
+    loadPerformanceChartsData(userProgress) {
+      if (this.getProgressData(userProgress).performanceCharts != null && this.getProgressData(userProgress).performanceCharts.length > 1) {
+        this.chartDataPerformance.datasets[0].data = this.getProgressData(userProgress).performanceCharts
+        this.chartDataPerformance.labels = this.getProgressData(userProgress).performanceDateLabels
+      }
+    },
+    // NOTE: Remove magic value 3 and add it as a variable (allocation charts start with 3 default categories)
+    loadAllocationChartsData(userProgress) {
+      if (this.getProgressData(userProgress).allocationCategories != null && this.getProgressData(userProgress).allocationCategories.length > 3) {
+        this.chartDataAllocation.labels = this.getProgressData(userProgress).allocationCategories
+        this.chartDataAllocation.datasets[0].data = this.getProgressData(userProgress).allocationChartsCurrent
+        this.chartDataAllocation.datasets[1].data = this.getProgressData(userProgress).allocationChartsLastMonth
+
+        this.chartDataAllocationPie.datasets[0].data = this.getProgressData(userProgress).allocationChartsCurrent
+        this.chartDataAllocationPie.labels = this.getProgressData(userProgress).allocationCategories
+      }
+    },
+    getProgressData(userProgress) {
+      return userProgress.data[0]
+    },
+    async loadCharts() {
+      const userProgress = await Api.get(`/users/${this.user}/progress`)
+      this.loadPerformanceChartsData(userProgress)
+      this.loadAllocationChartsData(userProgress)
     }
   }
 }
