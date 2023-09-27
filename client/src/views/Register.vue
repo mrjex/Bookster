@@ -55,7 +55,6 @@ export default {
         performanceDateLabels: null,
         allocationChartsCurrent: null,
         allocationChartsLastMonth: null,
-        allocationChartPie: null,
         allocationCategories: null,
         username: this.username
       })

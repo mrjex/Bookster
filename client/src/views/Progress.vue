@@ -116,7 +116,7 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [65, 59, 90]
+            data: [4, 2, 4]
           },
           {
             label: 'Last Month',
@@ -125,7 +125,7 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [28, 48, 40]
+            data: [3, 1, 4]
           }
         ]
       },
@@ -135,7 +135,7 @@ export default {
         datasets: [
           {
             backgroundColor: ['#AAF0D1', '#40E0D0', '#CCFFFF', '#81D8D0', '#AAF0D1', '#81D8D0', '#007C80', '#1F6357'],
-            data: [65, 59, 90]
+            data: [4, 2, 4]
           }
         ]
       }
@@ -192,7 +192,6 @@ export default {
         performanceDateLabels: this.chartDataPerformance.labels,
         allocationChartsCurrent: this.chartDataAllocation.datasets[0].data,
         allocationChartsLastMonth: this.chartDataAllocation.datasets[1].data,
-        allocationChartPie: this.chartDataAllocationPie.datasets[0].data,
         allocationCategories: this.chartDataAllocation.labels,
         username: this.user
       })
