@@ -19,7 +19,7 @@
 </template>
 
 <script>
-
+import UtilsComponent from '../components/UtilsComponent.vue'
 export default {
   name: 'User',
   inject: ['user'],
@@ -34,6 +34,7 @@ export default {
       this.$router.push(`${this.$route.path}/reviews`)
     },
     progressButton() {
+      UtilsComponent.methods.setRefreshablePageState()
       this.$router.push(`${this.$route.path}/progress`)
     }
   }

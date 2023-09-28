@@ -9,6 +9,7 @@ import Books from './views/Books.vue'
 import Reviews from './views/Reviews.vue'
 import Search from './views/Search.vue'
 import Progress from './views/Progress.vue'
+import About from './views/About.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ const router = new Router({
       name: 'Register',
       path: '/register',
       component: Register
+    },
+    {
+      path: '/about',
+      component: About
     },
     {
       path: '/home',

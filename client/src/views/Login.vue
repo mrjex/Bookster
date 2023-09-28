@@ -39,7 +39,7 @@ export default {
       // User account found - Successful login
       if (result.status === 200 && result.data.length > 0) {
         UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
-        // UtilsComponent.methods.setRefreshablePageState()
+        UtilsComponent.methods.setRefreshablePageState()
         this.$router.push('/home')
       }
     }
