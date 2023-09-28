@@ -27,7 +27,7 @@
 </div>
 
     <header>
-      <!-- <Navbar /> -->
+      <Navbar />
     </header>
 
     <h3>{{ user }}'s progress:</h3>
@@ -81,7 +81,8 @@ import PolarChart from './charts/allocation/PolarChart.vue'
 import PieChart from './charts/allocation/PieChart.vue'
 import LineChart from './charts/performance/LineChart.vue'
 import BarChart from './charts/performance/BarChart.vue'
-// import Navbar from '../components/NavbarComponent.vue'
+import Navbar from '../components/NavbarComponent.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
 
 export default {
   name: 'ProgressPage',
@@ -143,14 +144,15 @@ export default {
   },
   async created() {
     this.loadCharts()
+    UtilsComponent.methods.refreshPage()
   },
   components: {
     RadarChart,
     PolarChart,
     LineChart,
     BarChart,
-    PieChart
-    // Navbar
+    PieChart,
+    Navbar
   },
   methods: {
     lineChart() {

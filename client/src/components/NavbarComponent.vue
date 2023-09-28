@@ -1,18 +1,18 @@
 <template>
     <nav>
         <div class="menu-item"><a href="#">Home</a></div>
-        <div class="menu-item"><a href="#">About</a></div>
-        <Dropdown title="Services" :items="services" />
+        <div class="menu-item"><a href="/about">About</a></div>
+        <!-- <Dropdown title="Services" :items="services" /> -->
         <div class="menu-item"><a href="#">Contact</a></div>
     </nav>
 </template>
 
 <script>
-import Dropdown from '../views/Dropdown.vue'
+// import Dropdown from '../views/Dropdown.vue'
 export default {
   name: 'navbar',
   components: {
-    Dropdown
+    // Dropdown
   },
   data() {
     return {
@@ -43,7 +43,7 @@ nav {
 }
 
 nav .menu-item {
-    color: #FFF;
+    color: #46b4bc;
     padding: 10px 20px;
     position: relative;
     text-align: center;
