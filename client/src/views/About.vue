@@ -6,15 +6,17 @@
     <div id="second-img-div">
       <img src="../resources/BooksterPic2.jpg" class="second-img">
     </div>
-    <h4>Transform reading into a game.</h4>
+    <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game. (section with pictures of our charts)</h4>
+    <h4 id="book-api-h4" class="feature-text">Expand your interest (section with pictures of Book-API)</h4>
+    <h4 id="articles">Interesting articles: correlation between reading, literacy, success, happiness and fullfillment</h4>
 
     <div class="myBorder"></div>
-    <h4>Our other entrusted projects:</h4>
+    <h4 id="entrusted-project-h4">Our other entrusted projects:</h4>
     <div id="myBox1"></div>
     <div id="myBox2"></div>
 
     <video autoplay muted loop class="changing-texts">
-      <source src="../resources/Bookster-AboutPage-Texts.mp4">
+      <source src="../resources/ChangingTexts.mp4">
     </video>
 
     <div id="change-image-box">
@@ -22,6 +24,8 @@
         <source src="../resources/Bookster-AboutPage-ChangingImages.mp4">
       </video>
     </div>
+
+    <button type="button" class="btn btn-primary" id="join-bookster-button">Join Bookster</button>
   </div>
 </template>
 
@@ -30,6 +34,7 @@
 export default {
   name: 'About',
   created() {
+    console.warn(localStorage.getItem('refresh-state'))
   }
 }
 </script>
@@ -37,6 +42,36 @@ export default {
 <style scoped>
 h4 {
   color: rgb(49, 78, 206);
+}
+
+#articles {
+  position: absolute;
+  top: 880px;
+  left: 500px;
+}
+
+#transform-reading-game-h4 {
+  position: absolute;
+  top: 800px;
+  left: 500px;
+}
+
+#book-api-h4 {
+  position: absolute;
+  top: 840px;
+  left: 500px;
+}
+
+#join-bookster-button {
+  position: absolute;
+  top: 250px;
+  left: 700px;
+}
+
+#entrusted-project-h4 {
+  position: absolute;
+  top: 1100px;
+  left: 500px;
 }
 
 #myBox1 {
@@ -67,16 +102,16 @@ h4 {
   width: 50%;
   height: 50%;
   position: absolute;
-  top: 900px;
-  left: 780px;
+  top: 290px;
+  left: 900px;
 }
 
 .changing-images {
     width: 35%;
     height: 50%;
     position: absolute;
-    top: 400px;
-    left: 780px;
+    top: 330px;
+    left: 1220px;
 }
 
 img {
@@ -98,7 +133,7 @@ img {
 .second-img {
     transform: rotate(15deg);
     position: absolute;
-    top: 300px;
+    top: 1000px;
     right: 0px;
 }
 
