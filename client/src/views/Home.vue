@@ -25,10 +25,12 @@ video{
 // @ is an alias to /src
 import { Api } from '@/Api'
 import Search from './Search.vue'
+import UtilsComponent from '../components/UtilsComponent.vue'
 
 export default {
   name: 'Home',
   created() {
+    UtilsComponent.methods.refreshPage()
   },
   methods: {
     getMessage() {

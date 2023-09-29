@@ -27,4 +27,16 @@ router.post('/add', async function (req, res, next) {
     }
 })
 
+// UPDATE
+router.put('/', async function (req, res, next) {
+    try {
+        const { username } = req.params;
+        const progress = await Progress.findOneAndUpdate({username: username}, req.body, {new: false})
+        res.json(progress)
+    }
+    catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router;
