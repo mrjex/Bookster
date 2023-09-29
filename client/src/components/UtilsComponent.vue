@@ -45,6 +45,9 @@ export default {
     },
     refreshX() { // Private method
       window.location.reload()
+    },
+    setImageChanger() {
+      localStorage.setItem('imageChanger', ['Bookster-AboutPage2.jpg', 'Bookster-Pic3.jpg', 'Bookster-Pic4.jpg', 'Bookster-Pic5.png', 'Bookster-Pic6.jpg'])
     }
   }
 }
