@@ -31,6 +31,13 @@ export default {
     getCurrentAllocationChart() {
       return localStorage.getItem('currentAllocationChart')
     },
+    // Gets the associated chart button-id for the dropdown (assuming the format '#{{chartname}}-button')
+    getCurrentPerformanceChartButtonId() {
+      return '#' + this.getCurrentPerformanceChart().toLowerCase() + '-button'
+    },
+    getCurrentAllocationChartButtonId() {
+      return '#' + this.getCurrentAllocationChart().toLowerCase() + '-button'
+    },
     setCurrentPerformanceChart(currentChart) {
       localStorage.setItem('currentPerformanceChart', currentChart)
     },
