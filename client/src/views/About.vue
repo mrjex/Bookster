@@ -7,7 +7,6 @@
       <img src="../resources/BooksterPic2.jpg" class="second-img static-image">
     </div>
     <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game. (section with pictures of our charts)</h4>
-    <h4 id="book-api-h4" class="feature-text">Expand your interest (section with pictures of Book-API)</h4>
     <h4 id="articles">Interesting articles: correlation between reading, literacy, success, happiness and fullfillment</h4>
 
     <div class="myBorder"></div>
@@ -24,6 +23,10 @@
         <source src="../resources/Bookster-AboutPage-ChangingImages.mp4">
       </video>
     </div>
+
+    <video autoplay muted loop class="wioplay-demo">
+      <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
+    </video>
 
     <button type="button" class="btn btn-primary" id="join-bookster-button">Join Bookster</button>
     <!-- img-src="https://picsum.photos/1024/480/?image=52" -->
@@ -169,6 +172,14 @@ h4 {
 
 .myBorder {
   border: 2px solid;
+}
+
+.wioplay-demo {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 800px;
+  left: 900px;
 }
 
 .changing-texts {
