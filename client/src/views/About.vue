@@ -47,18 +47,21 @@
         @sliding-end="onSlideEnd">
         <!-- Text slides with image -->
         <b-carousel-slide
-          caption="First slide"
-          text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-          img-src="https://picsum.photos/1024/480/?image=52"
+          caption="Performance Charts"
+          text="Track your daily progress."
+          img-src="https://i.ibb.co/6PStNss/Bookster-Performance-Charts2.png"
         ></b-carousel-slide>
 
-        <!-- Slides with custom text -->
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-          <h1>Hello world!</h1>
+        <b-carousel-slide
+          caption="Allocation Charts"
+          text="Track your distribution of completed books."
+          img-src="https://i.ibb.co/fC9C9pd/Bookster-Allocation-Charts.png">
         </b-carousel-slide>
 
-        <!-- Slides with image only -->
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+        <!-- Slides with custom text -->
+        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
+          <h1>Hello world!</h1>
+        </b-carousel-slide>
 
         <!-- Slides with img slot -->
         <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
@@ -128,8 +131,13 @@ h4 {
 
 #transform-reading-game-h4 {
   position: absolute;
-  top: 800px;
+  top: 590px;
   left: 500px;
+}
+
+#carouselTest {
+  position: relative;
+  top: 200px;
 }
 
 #book-api-h4 {
@@ -146,7 +154,7 @@ h4 {
 
 #entrusted-project-h4 {
   position: absolute;
-  top: 1100px;
+  top: 1770px;
   left: 500px;
 }
 
@@ -156,7 +164,7 @@ h4 {
   width: 300px;
   background-color: aquamarine;
   position: absolute;
-  top: 800px;
+  top: 1800px;
   left: 0px
 }
 
@@ -165,7 +173,7 @@ h4 {
   height: 100px;
   width: 100px;
   position: absolute;
-  top: 600px;
+  top: 1600px;
   left: 0px;
   background-color: rgb(127, 255, 136);
 }
@@ -178,7 +186,7 @@ h4 {
   width: 50%;
   height: 50%;
   position: absolute;
-  top: 800px;
+  top: 2000px;
   left: 900px;
 }
 
@@ -224,11 +232,6 @@ h4 {
     top: 1000px;
     right: 0px;
     */
-}
-
-#carouselTest {
-  position: relative;
-  top: 800px;
 }
 
 * {
