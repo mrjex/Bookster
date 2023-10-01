@@ -6,13 +6,22 @@
     <div id="second-img-div">
       <img src="../resources/BooksterPic2.jpg" class="second-img static-image">
     </div>
-    <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game. (section with pictures of our charts)</h4>
+    <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game.</h4>
     <h4 id="articles">Interesting articles: correlation between reading, literacy, success, happiness and fullfillment</h4>
 
+    <!-- Design Borders -->
     <div class="myBorder"></div>
+    <div class="myBorder2"></div>
+    <div class="myBorder3"></div>
+    <div class="myBorder4"></div>
+
+    <!-- Design Shapes -->
     <h4 id="entrusted-project-h4">Our other entrusted projects:</h4>
     <div id="myBox1"></div>
     <div id="myBox2"></div>
+    <div id="myCircle"></div>
+    <div id="myCircle2"></div>
+    <div id="myHalfCircle"></div>
 
     <video autoplay muted loop class="changing-texts">
       <source src="../resources/ChangingTexts.mp4">
@@ -28,7 +37,7 @@
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
     </video>
 
-    <button type="button" class="btn btn-primary" id="join-bookster-button">Join Bookster</button>
+    <button type="button" class="gradient-border-pseudo" id="join-bookster-button">Join Bookster</button>
     <!-- img-src="https://picsum.photos/1024/480/?image=52" -->
     <!-- <img src="../resources/chartCarousel/0. Linechart.jpg"> -->
     <!-- Carousel -->
@@ -59,8 +68,14 @@
         </b-carousel-slide>
 
         <!-- Slides with custom text -->
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-          <h1>Hello world!</h1>
+        <b-carousel-slide
+        img-src="https://picsum.photos/1024/480/?image=58">
+          <h1>Why even bother to join the game of literacy?</h1>
+          <h1>* Reading for pleasure is the single biggest indicator of a child's future success</h1>
+          <h1>* 85% of self-made millionaires read two or more books per month</h1>
+          <h1>* Increase your imagination and creativity</h1>
+          <h1>* Improve your communication skills</h1>
+          <h1>* Expand your view of the world</h1>
         </b-carousel-slide>
 
         <!-- Slides with img slot -->
@@ -120,12 +135,13 @@ export default {
 
 <style scoped>
 h4 {
-  color: rgb(49, 78, 206);
+  color: rgb(54, 206, 49);
+  font-size: 1.2em;
 }
 
 #articles {
   position: absolute;
-  top: 880px;
+  top: 1500px;
   left: 500px;
 }
 
@@ -137,7 +153,7 @@ h4 {
 
 #carouselTest {
   position: relative;
-  top: 200px;
+  top: 29vh;
 }
 
 #book-api-h4 {
@@ -146,16 +162,46 @@ h4 {
   left: 500px;
 }
 
-#join-bookster-button {
-  position: absolute;
-  top: 250px;
-  left: 700px;
-}
-
 #entrusted-project-h4 {
   position: absolute;
   top: 1770px;
   left: 500px;
+}
+
+#myCircle {
+    background-color:#ffffff;
+    border:5vh solid rgb(21, 221, 171);
+    height:15vh;
+    width:15vh;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    position: absolute;
+    top: 250vh;
+}
+
+#myCircle2 {
+    background-color:#ffffff;
+    border:2vh solid rgb(31, 221, 21);
+    height:7vh;
+    width:7vh;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    position: absolute;
+    top: 250vh;
+}
+
+#myHalfCircle {
+  width: 5vw;
+  height: 5vw;
+  border: 1vw solid rgb(23, 143, 213);
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 238.3vh;
 }
 
 #myBox1 {
@@ -180,30 +226,61 @@ h4 {
 
 .myBorder {
   border: 2px solid;
+  position: absolute;
+  width: 25vw;
+  left: 0vh;
+  top: 55vh;
+  color: #1ce9d4;
+}
+
+.myBorder2 {
+  border: 2px solid;
+  position: absolute;
+  width: 20vw;
+  left: 0vh;
+  top: 59vh;
+  color: #1ce97c;
+}
+
+.myBorder3 {
+  border: 2px solid;
+  position: absolute;
+  width: 15vw;
+  left: 0vh;
+  top: 63vh;
+  color: #26e91c;
+}
+
+.myBorder4 {
+  border: 2px solid;
+  position: absolute;
+  width: 10vw;
+  left: 0vh;
+  top: 67vh;
+  color: #c3e91c;
 }
 
 .wioplay-demo {
+  top: 275vh;
   width: 50%;
-  height: 50%;
+  height: auto;
   position: absolute;
-  top: 2000px;
-  left: 900px;
 }
 
 .changing-texts {
-  width: 50%;
-  height: 50%;
+  top: 40vh;
+  left: 60vw;
   position: absolute;
-  top: 290px;
-  left: 900px;
+  width: 50%;
+  height: auto;
 }
 
 .changing-images {
-    width: 35%;
-    height: 50%;
+    top: 40vh;
+    left: 80vw;
     position: absolute;
-    top: 330px;
-    left: 1220px;
+    width: 35%;
+    height: auto;
 }
 
 .static-image {
@@ -225,13 +302,39 @@ h4 {
 .second-img {
     transform: rotate(15deg);
     position: relative;
-    top: 2000px;
-    /*
-    right: 0px;
-    position: absolute;
-    top: 1000px;
-    right: 0px;
-    */
+    top: 300vh;
+}
+
+.gradient-border-pseudo {
+  position: relative;
+  padding: 10px 20px;
+  background: #fff;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.gradient-border-pseudo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(45deg, rgb(67, 172, 229), rgb(47, 23, 198));
+}
+
+#join-bookster-button {
+  top: 40vh;
+  left: 40vw;
+  width: 10%;
+  height: auto;
+  position: absolute;
+  /*
+  NOTE: Fix rem/em for font-size to attain responsiveness
+  */
 }
 
 * {
@@ -240,6 +343,79 @@ h4 {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 576px) {
+  .changing-images {
+    width: 10%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 0.8em;
+    color: rgb(85, 115, 204);
+  }
+}
+
+@media (min-width: 576px) {
+  .changing-images {
+    width: 15%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 0.9em;
+    color: rgb(238, 203, 115);
+  }
+}
+
+@media (min-width: 768px) {
+  .changing-images {
+    width: 20%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 1.0em;
+    color: rgb(255, 10, 75);
+  }
+}
+
+@media (min-width: 992px) {
+  .changing-images {
+    width: 25%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 1.1em;
+    color: rgb(247, 255, 10);
+  }
+}
+
+@media (min-width: 1200px) {
+  .changing-images {
+    width: 30%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 1.2em;
+    color: blue;
+  }
+}
+
+@media (min-width: 1400px) {
+  .changing-images {
+    width: 35%;
+    height: auto;
+  }
+
+   h4 {
+    font-size: 1.3em;
+    color: rgb(193, 21, 178);
+  }
+}
+
 /*
 NOTE: Dynamic text tutorial
 body {
