@@ -3,26 +3,25 @@
     <h4 id="headerText">ABOUT US</h4>
     <img src="../resources/Bookster-AboutPage-Picture.jpg" class="first-img">
     <h4>The website serves as a habitual performance tracker that enlightens the user’s perception about book-reading as a whole. It transforms the stereotypical view of reading as boring into an exciting virtuous cycle, to a game where you can “level up” by viewing your hard earned progress.</h4>
-    <img src="../resources/BooksterPic2.jpg" class="second-img">
+    <div id="second-img-div">
+      <img src="../resources/BooksterPic2.jpg" class="second-img">
+    </div>
     <h4>Transform reading into a game.</h4>
+
+    <div class="myBorder"></div>
     <h4>Our other entrusted projects:</h4>
+    <div id="myBox1"></div>
+    <div id="myBox2"></div>
 
-    <!-- IMAGE CHANGERS -->
-    <!--
-    <img src="../resources/imageChanger/Bookster-AboutPage2.jpg" class="0">
-    <img src="../resources/imageChanger/Bookster-Pic3.jpg" class="1">
-    <img src="../resources/imageChanger/Bookster-Pic4.jpg" class="2">
-    <img src="../resources/imageChanger/Bookster-Pic5.png" class="3">
-    <img src="../resources/imageChanger/Bookster-Pic6.jpg" class="4">
-    -->
+    <video autoplay muted loop class="changing-texts">
+      <source src="../resources/Bookster-AboutPage-Texts.mp4">
+    </video>
 
-    <!--
-    <img v-bind:src="switchingImage">
-    <h4>{{switchingImage}}</h4>
-    <img src="../resources/imageChanger/Bookster-Pic3.jpg">
-    <img :src="switchingImage" style="width:100%;" alt="">
-    <img :src="switchingImage">
-    -->
+    <div id="change-image-box">
+      <video autoplay muted loop class="changing-images">
+        <source src="../resources/Bookster-AboutPage-ChangingImages.mp4">
+      </video>
+    </div>
   </div>
 </template>
 
@@ -31,45 +30,53 @@
 export default {
   name: 'About',
   created() {
-    // document.getElementById('changingImage').src = 'Bookster-AboutPage2.jpg'
-    // UtilsComponent.methods.setImageChanger() // Add '../resources/imageChanger/' if not working
-    // const image = document.getElementsByTagName('image')
-    // image.src = '../resources/imageChanger/Bookster-Pic5.png'
-    // document.getElementsByTagName('image').src = '../resources/imageChanger/Bookster-Pic5.png'
-    // console.warn(image)
-    // console.warn(document)
-    // const images = ['../resources/imageChanger/Bookster-AboutPage2.jpg', '../resources/imageChanger/Bookster-Pic3.jpg', '../resources/imageChanger/Bookster-Pic4.jpg', '../resources/imageChanger/Bookster-Pic5.png', '../resources/imageChanger/Bookster-Pic6.jpg']
-    /*
-    setInterval(function () {
-      const random = Math.floor(Math.random() * 4) // Is 4 a must or images.length?
-      // console.warn(image.src)
-      // image.src = images[random]
-      // document.getElementsByTagName('image').src = image.src
-      // console.warn('yo')
-      // document.getElementsByTagName('image').src = '../resources/imageChanger/Bookster-AboutPage2.jpg'
-      // this.switchingImage = images[random]
-      this.currentImageState = random
-      // console.warn(this.currentImageState)
-    }, 800)
-    */
   }
-  /*
-  data() {
-    return {
-      switchingImage: '../resources/imageChanger/Bookster-AboutPage2.jpg',
-      currentImageState: 3
-    }
-  }
-  */
 }
 </script>
 
 <style scoped>
-.imageChanger {
-    display: block;
-    width: 800px;
-    margin: 0 auto;
-    transition: 0.3s;
+h4 {
+  color: rgb(49, 78, 206);
+}
+
+#myBox1 {
+  border: 1px slateblue;
+  height: 300px;
+  width: 300px;
+  background-color: aquamarine;
+  position: absolute;
+  top: 800px;
+  left: 0px
+}
+
+#myBox2 {
+  border: 3px slateblue;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 600px;
+  left: 0px;
+  background-color: rgb(127, 255, 136);
+}
+
+.myBorder {
+  border: 2px solid;
+}
+
+.changing-texts {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 900px;
+  left: 780px;
+}
+
+.changing-images {
+    width: 35%;
+    height: 50%;
+    position: absolute;
+    top: 400px;
+    left: 780px;
 }
 
 img {
@@ -89,9 +96,10 @@ img {
 }
 
 .second-img {
-    float: right;
     transform: rotate(15deg);
-    object-position: inherit;
+    position: absolute;
+    top: 300px;
+    right: 0px;
 }
 
 * {

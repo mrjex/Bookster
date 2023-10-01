@@ -3,11 +3,11 @@
 <div>
   <b-dropdown id="dropdown-grouped" text="CHARTS" class="chart-dropdown">
     <b-dropdown-group id="dropdown-group-1" header="Performance Charts">
-      <b-dropdown-item-button class="chartButton LineChart" @click="selectedPerformanceChart = 'LineChart'">
+      <b-dropdown-item-button class="chartButton LineChart" @click.prevent="lineChart">
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
         Line Chart </b-dropdown-item-button>
 
-      <b-dropdown-item-button class="chartButton BarChart" @click="selectedPerformanceChart = 'BarChart'">
+      <b-dropdown-item-button class="chartButton BarChart" @click.prevent="barChart">
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
         Bar Chart</b-dropdown-item-button>
     </b-dropdown-group>
@@ -94,8 +94,8 @@ export default {
       newCategoryInput: null,
       completedBooksInput: null,
       performanceDataPoints: null,
-      selectedPerformanceChart: 'LineChart',
-      selectedAllocationChart: 'RadarChart',
+      selectedPerformanceChart: UtilsComponent.methods.getCurrentPerformanceChart(),
+      selectedAllocationChart: UtilsComponent.methods.getCurrentAllocationChart(),
       chartDataPerformance: {
         labels: ['Day 0'],
         datasets: [
@@ -155,24 +155,68 @@ export default {
     Navbar
   },
   methods: {
+    getCurrentDate() {
+      const currentDateWithFormat = new Date().toJSON().slice(0, 10).replace(/-/g, '/')
+      return currentDateWithFormat
+
+      /*
+      // NOTES FOR POSSIBLE UPDATES LATER
+      const currentDate = new Date()
+      console.warn(currentDate)
+      const currentYear = currentDateWithFormat.slice(0, 4) // 2023
+      const currentMonth = currentDateWithFormat.slice(5, 7) // 09 --> Convert to string month
+      console.warn(this.getMonthName(currentMonth))
+
+      const currentDay = currentDateWithFormat.slice(8)
+      console.warn(currentDay)
+      */
+    },
+    getMonthName(monthNumber) {
+      const date = new Date()
+      date.setMonth(monthNumber - 1)
+      return date.toLocaleString('en-US', { month: 'long' })
+    },
+    // NOTE: Refactor later
     lineChart() {
-      // console.warn(this.selectedAllocationChart)
+      this.selectedPerformanceChart = 'LineChart'
+      UtilsComponent.methods.setCurrentPerformanceChart('LineChart')
     },
     barChart() {
-      // console.warn(this.selectedAllocationChart)
+      this.selectedPerformanceChart = 'BarChart'
+      UtilsComponent.methods.setCurrentPerformanceChart('BarChart')
     },
     radarChart() {
       this.selectedAllocationChart = 'RadarChart'
+      UtilsComponent.methods.setCurrentAllocationChart('RadarChart')
     },
     polarChart() {
       this.selectedAllocationChart = 'PolarChart'
+      UtilsComponent.methods.setCurrentAllocationChart('PolarChart')
     },
     pieChart() {
       this.selectedAllocationChart = 'PieChart'
+      UtilsComponent.methods.setCurrentAllocationChart('PieChart')
+    },
+    getPerformanceChartLabels() {
+      return this.chartDataPerformance.labels
+    },
+    latestLabelIsCurrentDate(currentDate) {
+      return this.getPerformanceChartLabels()[this.getPerformanceChartLabels().length - 1] === currentDate // NOTE: Refactor this later
     },
     pushPerformanceData() {
-      this.chartDataPerformance.labels.push('Day X') // TODO: Connect with current Date: Load with data - Database
-      this.chartDataPerformance.datasets[0].data.push(this.performanceInput)
+      const currentDate = this.getCurrentDate()
+      console.warn(currentDate)
+
+      const newData = parseInt(this.performanceInput)
+
+      if (this.latestLabelIsCurrentDate(currentDate)) {
+        this.chartDataPerformance.datasets[0].data[this.chartDataPerformance.datasets[0].data.length - 1] += newData
+        UtilsComponent.methods.setRefreshablePageState()
+        UtilsComponent.methods.refreshPage()
+      } else {
+        this.getPerformanceChartLabels().push(currentDate)
+        this.chartDataPerformance.datasets[0].data.push(newData)
+      }
 
       this.updateChartProgressDB()
     },
@@ -180,13 +224,7 @@ export default {
       this.chartDataAllocation.labels.push(this.newCategoryInput)
       this.chartDataAllocation.datasets[0].data.push(this.completedBooksInput)
       this.chartDataAllocation.datasets[1].data.push(0)
-
-      // this.chartDataAllocationPie.labels.push(this.newCategoryInput) --> NOTE: Examine why this generates a duplicate of categories
-      // this.chartDataAllocationPie.datasets[0].data.push(this.completedBooksInput) --> NOTE: Examine why this generates a duplicate of data-arrays
-
       this.updateChartProgressDB()
-      console.warn(this.chartDataAllocation.labels)
-      console.warn(this.chartDataAllocation.datasets)
     },
     updateChartProgressDB() {
       Api.put(`/users/${this.user}/progress`, {
