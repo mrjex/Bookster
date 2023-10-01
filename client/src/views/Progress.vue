@@ -110,8 +110,10 @@ export default {
         datasets: [
           {
             label: 'Minutes Read',
-            backgroundColor: '#f87979',
-            data: [0]
+            backgroundColor: '#C82D54',
+            data: [0],
+            borderColor: '#C82D54',
+            borderWidth: 4
           }
         ]
       },
@@ -119,16 +121,46 @@ export default {
         labels: ['Finances', 'Mathematics', 'Negotiation'],
         datasets: [
           {
-            // backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
             label: 'Current Month',
-            backgroundColor: 'rgba(179,181,198,0.2)',
-            pointBackgroundColor: 'rgba(179,181,198,1)',
+            data: [4, 2, 4],
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: '#C82D54',
+            pointBackgroundColor: '#C82D54',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#C82D54',
+            hoverOffset: 7
+            // 'rgb(255, 99, 132)'
+
+          /*
+            // backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+            pointBackgroundColor: '#41B883',
+            label: 'Current Month',
+            // backgroundColor: 'rgba(179,181,198,0.2)',
+            // pointBackgroundColor: 'rgba(179,181,198,1)',
+            pointBorderColor: '#FFFB00',
+            pointHoverBackgroundColor: '#41B883',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [4, 2, 4]
+            data: [4, 2, 4],
+            fill: true,
+            backgroundColor: 'rgba(54, 162, 235, 1)'
+            */
           },
           {
+            label: 'Last Month',
+            data: [3, 1, 4],
+            fill: true,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: '#2D42C8',
+            pointBackgroundColor: '#2D42C8',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#2D42C8',
+            hoverOffset: 7
+            // 'rgb(54, 162, 235)'
+
+            /*
             label: 'Last Month',
             backgroundColor: 'rgba(255,99,132,0.2)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
@@ -136,6 +168,7 @@ export default {
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
             data: [3, 1, 4]
+            */
           }
         ]
       },
@@ -144,8 +177,13 @@ export default {
         labels: ['Finances', 'Mathematics', 'Negotiation'],
         datasets: [
           {
-            backgroundColor: ['#AAF0D1', '#40E0D0', '#CCFFFF', '#81D8D0', '#AAF0D1', '#81D8D0', '#007C80', '#1F6357'],
-            data: [4, 2, 4]
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)',
+              'rgb(50, 190, 50)'],
+            data: [4, 2, 4],
+            hoverOffset: 10
           }
         ]
       }
