@@ -6,14 +6,38 @@
     <div id="second-img-div">
       <img src="../resources/BooksterPic2.jpg" class="second-img static-image">
     </div>
+
+    <img src="../resources/TestFrontEnd2.png" class="testFrontEnd">
     <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game.</h4>
-    <h4 id="articles">Interesting articles: correlation between reading, literacy, success, happiness and fullfillment</h4>
 
     <!-- Design Borders -->
-    <div class="myBorder"></div>
-    <div class="myBorder2"></div>
-    <div class="myBorder3"></div>
-    <div class="myBorder4"></div>
+    <div class="left-decrease-borders">
+      <div class="myBorderL1"></div>
+      <div class="myBorderL2"></div>
+      <div class="myBorderL3"></div>
+      <div class="myBorderL4"></div>
+      <div class="myBorderL5"></div>
+
+      <div class="myBorderL1-2"></div>
+      <div class="myBorderL2-2"></div>
+      <div class="myBorderL3-2"></div>
+      <div class="myBorderL4-2"></div>
+      <div class="myBorderL5-2"></div>
+    </div>
+
+    <div class="right-decrease-borders">
+      <div class="myBorderR1"></div>
+      <div class="myBorderR2"></div>
+      <div class="myBorderR3"></div>
+      <div class="myBorderR4"></div>
+      <div class="myBorderR5"></div>
+
+      <div class="myBorderR1-2"></div>
+      <div class="myBorderR2-2"></div>
+      <div class="myBorderR3-2"></div>
+      <div class="myBorderR4-2"></div>
+      <div class="myBorderR5-2"></div>
+    </div>
 
     <!-- Design Shapes -->
     <h4 id="entrusted-project-h4">Our other entrusted projects:</h4>
@@ -100,11 +124,6 @@
           </p>
         </b-carousel-slide>
       </b-carousel>
-
-      <p class="mt-4">
-        Slide #: {{ slide }}<br>
-        Sliding: {{ sliding }}
-      </p>
     </div>
   </div>
 </template>
@@ -139,21 +158,23 @@ h4 {
   font-size: 1.2em;
 }
 
-#articles {
+.testFrontEnd {
   position: absolute;
-  top: 1500px;
-  left: 500px;
 }
 
 #transform-reading-game-h4 {
   position: absolute;
-  top: 590px;
-  left: 500px;
+  top: 58vh;
+  left: 39vw;
+  font-weight: 900;
 }
 
 #carouselTest {
   position: relative;
-  top: 29vh;
+  top: 35vh;
+  left: 11.5vw;
+  width: 155vh;
+  height: auto;
 }
 
 #book-api-h4 {
@@ -177,7 +198,7 @@ h4 {
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     position: absolute;
-    top: 250vh;
+    top: 283vh;
 }
 
 #myCircle2 {
@@ -189,7 +210,7 @@ h4 {
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     position: absolute;
-    top: 250vh;
+    top: 283vh;
 }
 
 #myHalfCircle {
@@ -201,30 +222,54 @@ h4 {
   border-left-color: transparent;
   transform: rotate(-45deg);
   position: absolute;
-  top: 238.3vh;
+  top: 259.8vh;
 }
 
 #myBox1 {
   border: 1px slateblue;
-  height: 300px;
-  width: 300px;
+  height: 35vh;
+  width: 35vh;
   background-color: aquamarine;
   position: absolute;
-  top: 1800px;
-  left: 0px
+  top: 280vh;
+  left: 0vw;
 }
 
 #myBox2 {
   border: 3px slateblue;
-  height: 100px;
-  width: 100px;
+  height: 13vh;
+  width: 13vh;
   position: absolute;
-  top: 1600px;
-  left: 0px;
+  top: 265vh;
+  left: 0vw;
   background-color: rgb(127, 255, 136);
 }
 
-.myBorder {
+.myBorderR1 {
+  /*
+  NOTE: Refactor this with myBorderL1 later
+  */
+  border: 2px solid;
+  position: absolute;
+  width: 25vw;
+  right: 0vh;
+  top: 55vh;
+  color: #1ce9d4;
+}
+
+.myBorderR1-2 {
+  /*
+  NOTE: Refactor this with myBorderL1 later
+  */
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  right: 28vw;
+  top: 55vh;
+  color: #1ce9d4;
+}
+
+.myBorderL1 {
   border: 2px solid;
   position: absolute;
   width: 25vw;
@@ -233,7 +278,34 @@ h4 {
   color: #1ce9d4;
 }
 
-.myBorder2 {
+.myBorderL1-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  left: 28vw;
+  top: 55vh;
+  color: #1ce9d4;
+}
+
+.myBorderR2 {
+  border: 2px solid;
+  position: absolute;
+  width: 20vw;
+  right: 0vh;
+  top: 59vh;
+  color: #1ce97c;
+}
+
+.myBorderR2-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  right: 23vw;
+  top: 59vh;
+  color: #1ce97c;
+}
+
+.myBorderL2 {
   border: 2px solid;
   position: absolute;
   width: 20vw;
@@ -242,26 +314,140 @@ h4 {
   color: #1ce97c;
 }
 
-.myBorder3 {
+.myBorderL2-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  left: 23vw;
+  top: 59vh;
+  color: #1ce97c;
+}
+
+.myBorderR3 {
+  border: 2px solid;
+  position: absolute;
+  width: 15vw;
+  right: 0vh;
+  top: 63vh;
+  color: #d5e91c;
+}
+
+.myBorderR3-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  right: 18vw;
+  top: 63vh;
+  color: #d5e91c;
+}
+
+.myBorderL3 {
   border: 2px solid;
   position: absolute;
   width: 15vw;
   left: 0vh;
   top: 63vh;
-  color: #26e91c;
+  color: #d5e91c;
 }
 
-.myBorder4 {
+.myBorderL3-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  left: 18vw;
+  top: 63vh;
+  color: #d5e91c;
+}
+
+.myBorderR4 {
+  border: 2px solid;
+  position: absolute;
+  width: 10vw;
+  right: 0vh;
+  top: 67vh;
+  color: #e9bd1c;
+}
+
+.myBorderR4-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  right: 13vw;
+  top: 67vh;
+  color: #e9bd1c;
+}
+
+.myBorderL4 {
   border: 2px solid;
   position: absolute;
   width: 10vw;
   left: 0vh;
   top: 67vh;
-  color: #c3e91c;
+  color: #e9bd1c;
+}
+
+.myBorderL4-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  left: 13vw;
+  top: 67vh;
+  color: #e9bd1c;
+}
+
+.myBorderR5 {
+  border: 2px solid;
+  position: absolute;
+  width: 11.5vw;
+  right: 0vh;
+  top: 71vh;
+  color: #e94c1c;
+}
+
+.myBorderR5-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  right: 14.5vw;
+  top: 71vh;
+  color: #e94c1c;
+}
+
+.myBorderL5 {
+  border: 2px solid;
+  position: absolute;
+  width: 11.5vw;
+  left: 0vh;
+  top: 71vh;
+  color: #e94c1c;
+}
+
+.myBorderL5-2 {
+  border: 2px solid;
+  position: absolute;
+  width: 5vw;
+  left: 14.5vw;
+  top: 71vh;
+  color: #e94c1c;
+}
+
+.left-decrease-borders {
+  position: absolute;
+  left: 0vh;
+  top: 10vh;
+}
+
+.right-decrease-borders {
+  /*
+    NOTE: Refactor this later
+  */
+  position: absolute;
+  right: 0vh;
+  top: 10vh;
 }
 
 .wioplay-demo {
-  top: 275vh;
+  top: 300vh;
   width: 50%;
   height: auto;
   position: absolute;
@@ -302,7 +488,7 @@ h4 {
 .second-img {
     transform: rotate(15deg);
     position: relative;
-    top: 300vh;
+    top: 325vh;
 }
 
 .gradient-border-pseudo {
