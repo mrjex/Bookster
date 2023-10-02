@@ -5,6 +5,7 @@ const router = express.Router({ mergeParams: true });
 const journalRouter = require('./routes/journals');
 const BookApi = require('../../../../utils/BookAPI');
 const Book = require('../../../../utils/Book');
+const BookInfo = require('../../../../models/bookinfo');
 
 // READ
 router.get('/', async (req, res, next) => {
@@ -19,12 +20,12 @@ router.get('/', async (req, res, next) => {
 
         let books = sort == 'desc' ? booksToSort : booksToSort.reverse();
         const fetched_books = [];
-        for(const book of books) {
-            const added = await BookApi.searchBook(book.title);
-            fetched_books.push({...new Book(added), isbn:book.isbn});
+        for (const book of books) {
+            const added = await BookInfo.findOne({ isbn: book.isbn });
+            fetched_books.push({ ...added._doc });
         }
         let linkedJsonObject = hal9k.resource({
-            books:fetched_books
+            books: fetched_books
         })
             .link('home', '/api')
             .link('self', `/api/users/${username}/books`)
@@ -61,6 +62,11 @@ router.post('/add', async function (req, res, next) {
         const { username } = req.params;
         const book = req.body;
         const user = await User.findOne({ username });
+
+        // fetch the book and save it to cache
+        const fetched = await BookApi.getBook(book.isbn)
+        
+        await BookInfo.findOneAndUpdate({ isbn: book.isbn }, fetched, { upsert: true })
 
         user.books.push(book);
         await user.save();
