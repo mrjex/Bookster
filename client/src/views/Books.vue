@@ -2,11 +2,11 @@
   <form @submit.prevent="handleBookSubmit">
     <b-container>
       <h3>{{ user }}'s books:</h3>
-      <b-row v-for="result in books" :key=result.id class="my-4">
+      <b-row v-for="(result) in books" :key=result.isbn class="my-4">
         <Book :book=result>
-          <b-button v-b-modal.modal-1 variant="danger">Remove from
+          <b-button v-b-modal="`modal-${result.isbn}`" variant="danger">Remove from
             library</b-button>
-          <b-modal id="modal-1" title="Are you sure?" ok-variant="danger" @ok="() => removeBook(result)">
+          <b-modal :id="`modal-${result.isbn}`" title="Are you sure?" ok-variant="danger" @ok="() => removeBook(result)">
             <p class="my-4">This will remove the book from your library</p>
           </b-modal>
         </Book>

@@ -1,34 +1,37 @@
 <template>
   <div>
-    <b-jumbotron header="Bookster" lead="Search for a book">
+
+    <b-jumbotron class="video-container" lead="Search for a book">
+      <h1 class="caption">Bookster</h1>
+      <!-- <h3 class="subtitle">From the creators of <a href="https://github.com/indomet/wioplay" target="_blank">WioPlay</a></h3> -->
+      <video autoplay muted loop class="main-bg">
+        <source src="../resources/BookVideo-Group21.mp4" type="video/mp4" />
+      </video>
+      <b-form @submit="getMessage">
         <b-input-group class="mt-3">
-          <b-form-input
-            v-model="keyword"
-            placeholder="Enter a keyword"
-          ></b-form-input>
-          <b-button
+          <b-form-input v-model="keyword" placeholder="Enter a keyword"></b-form-input>
+
+            <b-input-group-append>
+              <b-button
             class="btn_message"
+            type="submit"
             variant="primary"
-            v-on:click="getMessage()"
-            >Search</b-button
-          >
-          <b-button v-b-modal.modal-1 class="mx-2">Bar Code</b-button>
+            >Search</b-button>
+          <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button>
+              <!-- <b-input-group-text><b-icon-eye-fill></b-icon-eye-fill></b-input-group-text> -->
+            </b-input-group-append>
 
           <b-modal id="modal-1" title="Scan Your Book's Bar Code">
-            <StreamBarcodeReader
-              @decode="onDecode"
-              @loaded="onLoaded"
-            ></StreamBarcodeReader>
+            <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
           </b-modal>
         </b-input-group>
-        <b-spinner v-if="loading" label="Loading"></b-spinner>
-        <b-row v-for="result in results" :key="result.id" class="my-4">
-          <Book :book="result">
-            <b-button variant="info" v-on:click="() => addBook(result)"
-              >Add to library</b-button
-            >
-          </Book>
-        </b-row>
+      </b-form>
+      <b-spinner v-if="loading" label="Loading"></b-spinner>
+      <b-row v-for="result in results" :key="result.id" class="my-4">
+        <Book :book="result">
+          <b-button variant="info" v-on:click="() => addBook(result)">Add to library</b-button>
+        </Book>
+      </b-row>
     </b-jumbotron>
   </div>
 </template>
@@ -52,7 +55,8 @@ export default {
     }
   },
   methods: {
-    getMessage(target) {
+    getMessage(event, target) {
+      event?.preventDefault()
       this.results = []
       this.loading = true
       Api.get(`/books/search/${target || this.keyword}`)
@@ -68,7 +72,7 @@ export default {
       console.log(decodedString)
       this.$bvModal.hide('modal-1')
       this.playSound()
-      await this.getMessage(decodedString)
+      await this.getMessage(null, decodedString)
 
       // Api.get(`/books/search/${decodedString}`)
       //   .then((response) => {

@@ -1,17 +1,51 @@
 <template>
-  <div>
-    <b-container>
+  <b-container>
+  <!-- Using components -->
+  <!-- <b-input-group class="mt-3">
+    <b-form-input></b-form-input>
+    <b-input-group-append>
+      <b-input-group-text><b-icon-search></b-icon-search></b-input-group-text>
+    </b-input-group-append>
+  </b-input-group> -->
+
       <Search />
+      <Trending />
     </b-container>
-  </div>
 </template>
 
 <style>
-video{
+
+.video-container {
+    position: relative;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-container .caption {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 10px #000000;
+}
+
+.video-container .subtitle {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.main-bg{
   z-index: -1000;
   left: 50%;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   position: absolute;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -26,6 +60,7 @@ video{
 import { Api } from '@/Api'
 import Search from './Search.vue'
 import UtilsComponent from '../components/UtilsComponent.vue'
+import Trending from '../components/Trending.vue'
 
 export default {
   name: 'Home',
@@ -43,7 +78,7 @@ export default {
         })
     }
   },
-  components: { Search }
+  components: { Search, Trending }
 }
 </script>
 
