@@ -1,10 +1,10 @@
 <template>
   <div>
     <h4 id="headerText">ABOUT US</h4>
-    <img src="../resources/Bookster-AboutPage-Picture.jpg" class="first-img">
+    <img src="../resources/Bookster-AboutPage-Picture.jpg" class="first-img static-image">
     <h4>The website serves as a habitual performance tracker that enlightens the user’s perception about book-reading as a whole. It transforms the stereotypical view of reading as boring into an exciting virtuous cycle, to a game where you can “level up” by viewing your hard earned progress.</h4>
     <div id="second-img-div">
-      <img src="../resources/BooksterPic2.jpg" class="second-img">
+      <img src="../resources/BooksterPic2.jpg" class="second-img static-image">
     </div>
     <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game. (section with pictures of our charts)</h4>
     <h4 id="book-api-h4" class="feature-text">Expand your interest (section with pictures of Book-API)</h4>
@@ -26,6 +26,65 @@
     </div>
 
     <button type="button" class="btn btn-primary" id="join-bookster-button">Join Bookster</button>
+    <!-- img-src="https://picsum.photos/1024/480/?image=52" -->
+    <!-- <img src="../resources/chartCarousel/0. Linechart.jpg"> -->
+    <!-- Carousel -->
+    <div id="carouselTest">
+      <b-carousel
+        id="carousel-1"
+        v-model="slide"
+        :interval="4000"
+        controls
+        indicators
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+        @sliding-end="onSlideEnd">
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          caption="First slide"
+          text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+          img-src="https://picsum.photos/1024/480/?image=52"
+        ></b-carousel-slide>
+
+        <!-- Slides with custom text -->
+        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+          <h1>Hello world!</h1>
+        </b-carousel-slide>
+
+        <!-- Slides with image only -->
+        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+
+        <!-- Slides with img slot -->
+        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+        <b-carousel-slide>
+          <template #img>
+            <img
+              class="d-block img-fluid w-100"
+              width="1024"
+              height="480"
+              src="https://picsum.photos/1024/480/?image=55"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+        <!-- Slide with blank fluid image to maintain slide aspect ratio -->
+        <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
+            a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
+          </p>
+        </b-carousel-slide>
+      </b-carousel>
+
+      <p class="mt-4">
+        Slide #: {{ slide }}<br>
+        Sliding: {{ sliding }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -33,8 +92,22 @@
 // import UtilsComponent from '../components/UtilsComponent.vue'
 export default {
   name: 'About',
+  data() {
+    return {
+      slide: 0,
+      sliding: null
+    }
+  },
   created() {
     console.warn(localStorage.getItem('refresh-state'))
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    }
   }
 }
 </script>
@@ -114,7 +187,7 @@ h4 {
     left: 1220px;
 }
 
-img {
+.static-image {
     border-radius: 20px;
     max-width: 30%;
     height: auto;
@@ -132,9 +205,19 @@ img {
 
 .second-img {
     transform: rotate(15deg);
+    position: relative;
+    top: 2000px;
+    /*
+    right: 0px;
     position: absolute;
     top: 1000px;
     right: 0px;
+    */
+}
+
+#carouselTest {
+  position: relative;
+  top: 800px;
 }
 
 * {
@@ -143,6 +226,8 @@ img {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+/*
+NOTE: Dynamic text tutorial
 body {
     display: flex;
     justify-content: center;
@@ -177,4 +262,5 @@ h2::before {
         width: 100%
     }
 }
+*/
 </style>
