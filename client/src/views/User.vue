@@ -37,8 +37,8 @@ export default {
       this.$router.push(`${this.$route.path}/progress`)
     },
     async deleteAccount() {
-      localStorage.removeItem('logged-in-username')
       await Api.delete(`/users/${this.user}`)
+      localStorage.removeItem('logged-in-username')
       this.$router.push('/login')
     }
   }
