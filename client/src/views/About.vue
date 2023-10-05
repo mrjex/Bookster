@@ -1,16 +1,26 @@
 <template>
   <div>
-    <h4 id="headerText">ABOUT US</h4>
-    <img src="../resources/Bookster-AboutPage-Picture.jpg" class="first-img static-image">
-    <h4>The website serves as a habitual performance tracker that enlightens the user’s perception about book-reading as a whole. It transforms the stereotypical view of reading as boring into an exciting virtuous cycle, to a game where you can “level up” by viewing your hard earned progress.</h4>
-    <div id="second-img-div">
-      <img src="../resources/BooksterPic2.jpg" class="second-img static-image">
-    </div>
-
-    <img src="../resources/TestFrontEnd2.png" class="testFrontEnd">
+    <img src="../resources/AboutBooksterDescription.png" class="about-img-card">
+    <img src="../resources/DynamicTopScreensTemplate.png" class="testFrontEnd2">
+    <img src="../resources/DynamicBottomScreensTemplate.png" class="testFrontEnd">
     <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game.</h4>
+    <h4 id="bookster-video-text">Bookster video: {Slogan here}</h4>
+    <div class="tempVideoShape"></div>
+
+    <!-- WHITE: card text-dark bg-light mb-3 -->
+    <!-- BLACK: card text-white bg-dark mb-3 -->
+  <div class="card text-white bg-dark mb-3 wioplayCard" style="max-width: 18rem;">
+    <div class="card-header">Why Trust Bookster?</div>
+    <div class="card-body">
+      <h5 class="card-title">From the creators of WioPlay:</h5>
+      <p class="card-text">An entrusted prominent project that yields joy and happiness
+        while cultivating self-love by focusing on enhancing our users' physical health
+      </p>
+    </div>
+  </div>
 
     <!-- Design Borders -->
+    <!--
     <div class="left-decrease-borders">
       <div class="myBorderL1"></div>
       <div class="myBorderL2"></div>
@@ -38,14 +48,14 @@
       <div class="myBorderR4-2"></div>
       <div class="myBorderR5-2"></div>
     </div>
+    -->
 
     <!-- Design Shapes -->
     <h4 id="entrusted-project-h4">Our other entrusted projects:</h4>
-    <div id="myBox1"></div>
-    <div id="myBox2"></div>
+
     <div id="myCircle"></div>
     <div id="myCircle2"></div>
-    <div id="myHalfCircle"></div>
+    <!-- <div id="myHalfCircle"></div> -->
 
     <video autoplay muted loop class="changing-texts">
       <source src="../resources/ChangingTexts.mp4">
@@ -61,7 +71,10 @@
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
     </video>
 
-    <button type="button" class="gradient-border-pseudo" id="join-bookster-button">Join Bookster</button>
+    <!-- <button type="button" id="join-bookster-button" class="btn-1">Join Bookster</button> -->
+    <button type="button" id="join-bookster-button" class="btn-2">Join Bookster</button>
+    <!-- <div id="myTestFade" class="btn-2-child"></div> -->
+
     <!-- img-src="https://picsum.photos/1024/480/?image=52" -->
     <!-- <img src="../resources/chartCarousel/0. Linechart.jpg"> -->
     <!-- Carousel -->
@@ -91,38 +104,23 @@
           img-src="https://i.ibb.co/fC9C9pd/Bookster-Allocation-Charts.png">
         </b-carousel-slide>
 
-        <!-- Slides with custom text -->
         <b-carousel-slide
-        img-src="https://picsum.photos/1024/480/?image=58">
-          <h1>Why even bother to join the game of literacy?</h1>
-          <h1>* Reading for pleasure is the single biggest indicator of a child's future success</h1>
-          <h1>* 85% of self-made millionaires read two or more books per month</h1>
-          <h1>* Increase your imagination and creativity</h1>
-          <h1>* Improve your communication skills</h1>
-          <h1>* Expand your view of the world</h1>
-        </b-carousel-slide>
+          caption="Why even bother to join the game of literacy?"
+          text="Reading for pleasure is the single biggest indicator of a child's future success."
+          img-src="https://i.ibb.co/7JYM3QM/Carousel-Stats-Pic-Test4.png"
+        ></b-carousel-slide>
 
-        <!-- Slides with img slot -->
-        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-        <b-carousel-slide>
-          <template #img>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="https://picsum.photos/1024/480/?image=55"
-              alt="image slot"
-            >
-          </template>
-        </b-carousel-slide>
+        <b-carousel-slide
+          caption="Why even bother to join the game of literacy?"
+          text="85% of self-made millionaires read two or more books per month."
+          img-src="https://i.ibb.co/DgY06V3/Carousel-Stats-Pic-Test5.png"
+        ></b-carousel-slide>
 
-        <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-        <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-            a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-          </p>
-        </b-carousel-slide>
+        <b-carousel-slide
+          caption="Why even bother to join the game of literacy?"
+          text="Increase your imagination and creativity."
+          img-src="https://i.ibb.co/k8ZGxS9/Coursel-Test-Img3.png"
+        ></b-carousel-slide>
       </b-carousel>
     </div>
   </div>
@@ -158,21 +156,40 @@ h4 {
   font-size: 1.2em;
 }
 
+h1 {
+  color:#ffffff;
+  text-shadow: 2px 2px #000000;
+  font-size: 4vh;
+}
+
+.wioplayCard {
+  position: absolute;
+  top: 279vh;
+  left: 15vw;
+}
+
+.testFrontEnd2 {
+  position: absolute;
+  top: 52.5vh;
+  z-index: 1;
+}
+
 .testFrontEnd {
   position: absolute;
+  top: 160vh;
 }
 
 #transform-reading-game-h4 {
   position: absolute;
-  top: 58vh;
+  top: 176.5vh;
   left: 39vw;
   font-weight: 900;
 }
 
 #carouselTest {
   position: relative;
-  top: 35vh;
-  left: 11.5vw;
+  top: 186vh;
+  left: 12.5vw;
   width: 155vh;
   height: auto;
 }
@@ -185,34 +202,39 @@ h4 {
 
 #entrusted-project-h4 {
   position: absolute;
-  top: 1770px;
-  left: 500px;
+  top: 190vh;
+  left: 40vw;
 }
 
 #myCircle {
-    background-color:#ffffff;
-    border:5vh solid rgb(21, 221, 171);
+    background-color: #7fff83;
+    border:3vh solid #6ae5df;
     height:15vh;
     width:15vh;
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     position: absolute;
-    top: 283vh;
+    top: 55vh;
+    left: 8vw;
+    z-index: 2;
 }
 
 #myCircle2 {
-    background-color:#ffffff;
-    border:2vh solid rgb(31, 221, 21);
+    background-color:#fff47f;
+    border:2vh solid #ff857f;
     height:7vh;
     width:7vh;
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     position: absolute;
-    top: 283vh;
+    top: 114vh;
+    left: 9.3vw;
+    z-index: 3;
 }
 
+/*
 #myHalfCircle {
   width: 5vw;
   height: 5vw;
@@ -222,27 +244,33 @@ h4 {
   border-left-color: transparent;
   transform: rotate(-45deg);
   position: absolute;
-  top: 259.8vh;
+  top: 159.8vh;
 }
+*/
 
-#myBox1 {
+#myTestFade {
   border: 1px slateblue;
   height: 35vh;
   width: 35vh;
-  background-color: aquamarine;
-  position: absolute;
-  top: 280vh;
-  left: 0vw;
+  top: 60vh;
+  left: 40vw;
+  position: inherit;
 }
 
-#myBox2 {
-  border: 3px slateblue;
-  height: 13vh;
-  width: 13vh;
+#bookster-video-text {
   position: absolute;
-  top: 265vh;
-  left: 0vw;
-  background-color: rgb(127, 255, 136);
+  top: 15vh;
+  left: 17.5vw;
+}
+
+.tempVideoShape {
+  height: 57vh;
+  width: 49vw;
+  position: absolute;
+  top: 60.5vh;
+  left: 11vw;
+  background-color: #1c1d1d;
+  z-index: 5;
 }
 
 .myBorderR1 {
@@ -447,26 +475,27 @@ h4 {
 }
 
 .wioplay-demo {
-  top: 300vh;
+  top: 308vh;
+  left: 62vw;
   width: 50%;
   height: auto;
   position: absolute;
+  z-index: 0;
+  border-radius: 1.2vh;
 }
 
 .changing-texts {
-  top: 40vh;
-  left: 60vw;
+  top: 82vh;
+  left: 93vw;
   position: absolute;
-  width: 50%;
-  height: auto;
+  z-index: 0;
 }
 
 .changing-images {
-    top: 40vh;
-    left: 80vw;
+    top: 93.2vh;
+    left: 81.5vw;
     position: absolute;
-    width: 35%;
-    height: auto;
+    z-index: 0;
 }
 
 .static-image {
@@ -478,17 +507,6 @@ h4 {
 
 #headerText {
     text-align: center;
-}
-
-.first-img {
-    float: left;
-    transform: rotate(-8deg);
-}
-
-.second-img {
-    transform: rotate(15deg);
-    position: relative;
-    top: 325vh;
 }
 
 .gradient-border-pseudo {
@@ -512,15 +530,80 @@ h4 {
   background-image: linear-gradient(45deg, rgb(67, 172, 229), rgb(47, 23, 198));
 }
 
-#join-bookster-button {
-  top: 40vh;
-  left: 40vw;
-  width: 10%;
-  height: auto;
+.btn-1 {
+  width: 26vw;
+  height: 13.5vh;
+  border: none;
+  color:#1c1d1d;
+  background-color: #e94c1c;
+  border-radius: 1vw;
+  box-shadow: inset 0 0 0 0 #f9e506;
+  transition: ease-out 0.3s;
+  font-size: 1em;
+  outline: none;
+  font-weight: bold;
+  top: 130vh;
+  left: 0vw;
   position: absolute;
-  /*
-  NOTE: Fix rem/em for font-size to attain responsiveness
-  */
+}
+
+.btn-1:hover {
+  box-shadow: inset 26.3vw 0 0 0 #f9e506;
+  cursor: pointer;
+  color: #1100ff;
+}
+
+.btn-2 {
+  width: 99vw;
+  height: 21.5vh;
+  border: none;
+  color:#1c1d1d;
+  border-radius: 1vw;
+  transition: ease-out 0.5s;
+  font-size: 1.3em;
+  font-weight: 900;
+  outline: none;
+  background-color: #b6f8d7;
+  border: 0.5vw solid #00ff77;
+  position: absolute;
+  z-index: 1;
+
+  top: 138vh;
+  left: 0vw;
+}
+
+.btn-2:hover {
+  color:#1c1d1d;
+  cursor: pointer;
+}
+
+.btn-2:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #00ff77;
+}
+
+.btn-2:hover:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}
+
+.about-img-card {
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+  z-index: 5;
+  width: 100%;
+  height: auto;
 }
 
 * {
@@ -592,7 +675,7 @@ h4 {
 
 @media (min-width: 1400px) {
   .changing-images {
-    width: 35%;
+    width: 25%;
     height: auto;
   }
 
@@ -600,6 +683,11 @@ h4 {
     font-size: 1.3em;
     color: rgb(193, 21, 178);
   }
+
+  .changing-texts {
+  width: 40%;
+  height: auto;
+}
 }
 
 /*
