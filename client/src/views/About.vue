@@ -485,15 +485,15 @@ h1 {
 }
 
 .changing-texts {
-  top: 82vh;
-  left: 93vw;
+  top: 72vh;
+  left: 73vw;
   position: absolute;
   z-index: 0;
 }
 
 .changing-images {
     top: 93.2vh;
-    left: 81.5vw;
+    left: 68.8vw;
     position: absolute;
     z-index: 0;
 }
