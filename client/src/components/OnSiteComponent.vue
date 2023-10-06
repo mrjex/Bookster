@@ -9,7 +9,7 @@
             <div>
                 <div>
                     <li class="nav-item">
-                        <a href="/login" class="nav-link">Logout</a>
+                        <a href="/login" @click="logout" class="nav-link">Logout</a>
                      </li>
                 </div>
             </div>
@@ -33,6 +33,9 @@ export default {
   methods: {
     profileButton() {
       this.$router.push(`/users/${this.user}`)
+    },
+    logout() {
+      localStorage.removeItem('logged-in-username')
     }
   }
 }
