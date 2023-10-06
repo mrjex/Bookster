@@ -1,6 +1,6 @@
 <template>
-  <b-col>
-    <b-card no-body class="overflow-hidden text-left" role="button">
+  <b-col @click.prevent="this.viewBook">
+    <b-card no-body class="overflow-hidden text-left" role="button" @click="this.viewBook">
       <b-row no-gutters>
         <b-col md="2">
           <b-card-img :src="book.coverURL" class="book-cover rounded-0"></b-card-img>
@@ -21,7 +21,12 @@
 </template>
 <script>
 export default {
-  props: ['book']
+  props: ['book'],
+  methods: {
+    viewBook(e) {
+      this.$router.push(`/books/${this.book.id}`)
+    }
+  }
 }
 </script>
 

@@ -17,7 +17,7 @@
             type="submit"
             variant="primary"
             >Search</b-button>
-          <!-- <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button> -->
+          <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button>
               <!-- <b-input-group-text><b-icon-eye-fill></b-icon-eye-fill></b-input-group-text> -->
             </b-input-group-append>
 

@@ -4,6 +4,7 @@ const express = require('express');
 const hal9k = require('hal9k');
 const User = require('../../models/user');
 const Book = require('../../utils/Book');
+const BookModel = require('../../models/book')
 const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
@@ -32,6 +33,20 @@ router.get('/search/:keyword', async function (req, res, next) {
     }
     catch (error) {
         next(error);
+    }
+
+})
+
+router.get('/:isbn', async function (req, res) {
+
+    const { isbn } = req.params;
+    try {
+        const book = await BookInfo.findOne({ isbn });
+        const reviews = await Review.find({ isbn })
+        res.json({...book.toJSON(), reviews})
+    }
+    catch {
+
     }
 
 })
