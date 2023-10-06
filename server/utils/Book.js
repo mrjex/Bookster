@@ -12,7 +12,7 @@ module.exports = class Book {
     constructor(data) {
         this.id = data.id;
         this.title = data.volumeInfo.title;
-        this.description = data.volumeInfo.description;
+        this.description = data.volumeInfo.description?.replace(/<\/?[^>]+(>|$)/g, "");
         this.pages = data.volumeInfo.pageCount;
         this.publishYear = data.volumeInfo.publishedDate;
         this.ratingsCount = data.volumeInfo.ratingsCount || 0;
