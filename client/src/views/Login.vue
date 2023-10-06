@@ -40,6 +40,7 @@ export default {
       if (result.status === 200 && result.data.length > 0) {
         UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
         UtilsComponent.methods.setRefreshablePageState()
+        UtilsComponent.methods.setHasAddedAllocationCategory(false)
         this.$router.push('/home')
       }
     }

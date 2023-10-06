@@ -295,6 +295,8 @@ export default {
       this.updateChartProgressDB()
     },
     pushAllocationData() {
+      this.refreshPageOnFirstCategoryAddition()
+
       this.chartDataAllocation.labels.push(this.newCategoryInput)
       this.chartDataAllocation.datasets[0].data.push(this.completedBooksInput)
       this.chartDataAllocation.datasets[1].data.push(0)
@@ -335,6 +337,13 @@ export default {
       const userProgress = await Api.get(`/users/${this.user}/progress`)
       this.loadPerformanceChartsData(userProgress)
       this.loadAllocationChartsData(userProgress)
+    },
+    refreshPageOnFirstCategoryAddition() {
+      if (UtilsComponent.methods.getHasAddedAllocationCategory() === 'false') {
+        UtilsComponent.methods.setHasAddedAllocationCategory(true)
+        UtilsComponent.methods.setRefreshablePageState()
+        UtilsComponent.methods.refreshPage()
+      }
     }
   }
 }
