@@ -10,6 +10,7 @@ import Reviews from './views/Reviews.vue'
 import Search from './views/Search.vue'
 import Progress from './views/Progress.vue'
 import About from './views/About.vue'
+import Book from './views/Book.vue'
 
 Vue.use(Router)
 
@@ -61,6 +62,12 @@ const router = new Router({
       path: '/search',
       name: 'search',
       component: Search,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/books/:isbn',
+      name: 'book',
+      component: Book,
       meta: { requiresAuth: true }
     }
   ]

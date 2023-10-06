@@ -10,7 +10,8 @@
 
           <b-modal :id="`review-${result.isbn}`" title="Review Book" @ok="() => reviewBook(result)">
             <b-form-textarea id="textarea" v-model="result.review" placeholder="Enter something..." rows="3"
-              max-rows="6"></b-form-textarea>
+              max-rows="6">
+            </b-form-textarea>
             <b-form-rating v-model="result.rating"></b-form-rating>
           </b-modal>
 
