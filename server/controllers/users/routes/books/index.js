@@ -22,7 +22,9 @@ router.get('/', async (req, res, next) => {
         const fetched_books = [];
         for (const book of books) {
             const added = await BookInfo.findOne({ isbn: book.isbn });
-            fetched_books.push({ ...added._doc });
+            if(added) {
+                fetched_books.push({ ...added._doc });
+            }
         }
         let linkedJsonObject = hal9k.resource({
             books: fetched_books
@@ -64,9 +66,9 @@ router.post('/add', async function (req, res, next) {
         const user = await User.findOne({ username });
 
         // fetch the book and save it to cache
-        const fetched = await BookApi.getBook(book.isbn)
+       // const fetched = await BookApi.getBook(book.isbn)
         
-        await BookInfo.findOneAndUpdate({ isbn: book.isbn }, fetched, { upsert: true })
+        //await BookInfo.findOneAndUpdate({ isbn: book.isbn }, fetched, { upsert: true })
 
         user.books.push(book);
         await user.save();
