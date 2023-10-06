@@ -19,6 +19,30 @@ export default {
     updateLoggedInUser(newUserData, newUsername) {
       localStorage.setItem('logged-in-user', newUserData)
       localStorage.setItem('logged-in-username', newUsername)
+      this.setDefaultCharts()
+    },
+    setDefaultCharts() {
+      localStorage.setItem('currentPerformanceChart', 'LineChart')
+      localStorage.setItem('currentAllocationChart', 'RadarChart')
+    },
+    getCurrentPerformanceChart() {
+      return localStorage.getItem('currentPerformanceChart')
+    },
+    getCurrentAllocationChart() {
+      return localStorage.getItem('currentAllocationChart')
+    },
+    // Gets the associated chart button-id for the dropdown (assuming the format '#{{chartname}}-button')
+    getCurrentPerformanceChartButtonId() {
+      return '#' + this.getCurrentPerformanceChart().toLowerCase() + '-button'
+    },
+    getCurrentAllocationChartButtonId() {
+      return '#' + this.getCurrentAllocationChart().toLowerCase() + '-button'
+    },
+    setCurrentPerformanceChart(currentChart) {
+      localStorage.setItem('currentPerformanceChart', currentChart)
+    },
+    setCurrentAllocationChart(currentChart) {
+      localStorage.setItem('currentAllocationChart', currentChart)
     },
     refreshPage(conditionalPage) {
       let correctPage = null
