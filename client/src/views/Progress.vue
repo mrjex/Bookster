@@ -4,6 +4,8 @@
       <Navbar />
     </header>
 
+    <div id="page-background"></div>
+
     <h3>{{ user }}'s progress:</h3>
 
     <div>
@@ -367,6 +369,16 @@ export default {
 
 .addAllocationBtn {
   background-image: linear-gradient(to left, #12CBC4, #0652DD,#12CBC4);
+}
+
+#page-background {
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 400vh;
+  background-color: #343434;
+  position: absolute;
+  z-index: -3;
 }
 </style>
 

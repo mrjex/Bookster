@@ -59,6 +59,24 @@ export default {
         username: this.username
       })
 
+      const userHATEOASExample = await Api.post(`/users/${this.user}/progress/add`, {
+        performanceCharts: null,
+        performanceDateLabels: null,
+        allocationChartsCurrent: null,
+        allocationChartsLastMonth: null,
+        allocationCategories: null,
+        username: this.username,
+        links: [
+          {
+            href: `users/${this.user}`,
+            rel: 'users',
+            type: 'POST'
+          }
+        ]
+      })
+
+      console.warn(userHATEOASExample)
+
       this.$router.push('/login')
     }
   },
