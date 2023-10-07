@@ -1,62 +1,44 @@
 <template>
   <div>
-    <img src="../resources/AboutBooksterDescription.png" class="about-img-card">
-    <img src="../resources/DynamicTopScreensTemplate.png" class="testFrontEnd2">
-    <img src="../resources/DynamicBottomScreensTemplate.png" class="testFrontEnd">
+    <!-- <img src="../resources/AboutBooksterDescription.png" class="about-img-card"> PREVIOUS -->
+    <img src="../resources/About-Pic-Top-Img2.png" class="hero-image">
+    <h1 class="hero-title">Bookster</h1>
+    <h1 class="hero-text">Where literacy becomes prosperity.</h1>
+
+    <!-- <img src="../resources/DynamicTopScreensTemplate.png" class="top-screen-template"> -->
+    <img src="../resources/DynamicBottomScreensTemplate2.png" class="bottomTemplate">
     <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game.</h4>
-    <h4 id="bookster-video-text">Bookster video: {Slogan here}</h4>
     <div class="tempVideoShape"></div>
+
+    <!-- <img src="../resources/Bookster-Waves-Background.svg" class="waves-top"> -->
+    <img src="../resources/blob.svg" class="blob-svg">
+    <img src="../resources/blob2.svg" class="blob-svg2">
+    <img src="../resources/blob3.svg" class="blob-svg3">
+    <img src="../resources/blob4.svg" class="blob-svg4">
 
     <!-- WHITE: card text-dark bg-light mb-3 -->
     <!-- BLACK: card text-white bg-dark mb-3 -->
   <div class="card text-white bg-dark mb-3 wioplayCard" style="max-width: 18rem;">
-    <div class="card-header">Why Trust Bookster?</div>
+    <div class="card-header">
+      <h4>Why Trust Bookster?</h4>
+      </div>
     <div class="card-body">
-      <h5 class="card-title">From the creators of WioPlay:</h5>
-      <p class="card-text">An entrusted prominent project that yields joy and happiness
+      <!-- <h5 class="card-title">From the creators of WioPlay:</h5> -->
+      <p class="card-text">From the creators of WioPlay: An entrusted prominent project that yields joy and happiness
         while cultivating self-love by focusing on enhancing our users' physical health
       </p>
     </div>
   </div>
 
-    <!-- Design Borders -->
+    <h4 id="entrusted-project-h4">Our other entrusted project:</h4>
+
     <!--
-    <div class="left-decrease-borders">
-      <div class="myBorderL1"></div>
-      <div class="myBorderL2"></div>
-      <div class="myBorderL3"></div>
-      <div class="myBorderL4"></div>
-      <div class="myBorderL5"></div>
-
-      <div class="myBorderL1-2"></div>
-      <div class="myBorderL2-2"></div>
-      <div class="myBorderL3-2"></div>
-      <div class="myBorderL4-2"></div>
-      <div class="myBorderL5-2"></div>
-    </div>
-
-    <div class="right-decrease-borders">
-      <div class="myBorderR1"></div>
-      <div class="myBorderR2"></div>
-      <div class="myBorderR3"></div>
-      <div class="myBorderR4"></div>
-      <div class="myBorderR5"></div>
-
-      <div class="myBorderR1-2"></div>
-      <div class="myBorderR2-2"></div>
-      <div class="myBorderR3-2"></div>
-      <div class="myBorderR4-2"></div>
-      <div class="myBorderR5-2"></div>
-    </div>
-    -->
-
-    <!-- Design Shapes -->
-    <h4 id="entrusted-project-h4">Our other entrusted projects:</h4>
-
     <div id="myCircle"></div>
     <div id="myCircle2"></div>
-    <!-- <div id="myHalfCircle"></div> -->
+    -->
+    <div id="page-background"></div>
 
+    <!--
     <video autoplay muted loop class="changing-texts">
       <source src="../resources/ChangingTexts.mp4">
     </video>
@@ -66,18 +48,14 @@
         <source src="../resources/Bookster-AboutPage-ChangingImages.mp4">
       </video>
     </div>
+    -->
 
     <video autoplay muted loop class="wioplay-demo">
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
     </video>
 
-    <!-- <button type="button" id="join-bookster-button" class="btn-1">Join Bookster</button> -->
-    <button type="button" id="join-bookster-button" class="btn-2">Join Bookster</button>
-    <!-- <div id="myTestFade" class="btn-2-child"></div> -->
+    <button type="button" class="btn-2">JOIN BOOKSTER</button>
 
-    <!-- img-src="https://picsum.photos/1024/480/?image=52" -->
-    <!-- <img src="../resources/chartCarousel/0. Linechart.jpg"> -->
-    <!-- Carousel -->
     <div id="carouselTest">
       <b-carousel
         id="carousel-1"
@@ -88,7 +66,7 @@
         background="#ababab"
         img-width="1024"
         img-height="480"
-        style="text-shadow: 1px 1px 2px #333;"
+        style="text-shadow: 1vh 1vh 1vh #333;"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd">
         <!-- Text slides with image -->
@@ -113,13 +91,13 @@
         <b-carousel-slide
           caption="Why even bother to join the game of literacy?"
           text="85% of self-made millionaires read two or more books per month."
-          img-src="https://i.ibb.co/DgY06V3/Carousel-Stats-Pic-Test5.png"
+          img-src="https://i.ibb.co/MNnvFg8/Carousel-Stats-Pic-Test8.png"
         ></b-carousel-slide>
 
         <b-carousel-slide
           caption="Why even bother to join the game of literacy?"
           text="Increase your imagination and creativity."
-          img-src="https://i.ibb.co/k8ZGxS9/Coursel-Test-Img3.png"
+          img-src="https://i.ibb.co/ccY0z5h/Coursel-Test-Img3-2.png"
         ></b-carousel-slide>
       </b-carousel>
     </div>
@@ -156,54 +134,124 @@ h4 {
   font-size: 1.2em;
 }
 
-h1 {
-  color:#ffffff;
-  text-shadow: 2px 2px #000000;
-  font-size: 4vh;
+.card-text {
+  color: #7dcfcb9d;
+}
+
+.blob-svg {
+  position: absolute;
+  top: 50vh;
+  left: 12vw;
+  z-index: 10;
+  width: 40%;
+  height: auto;
+  z-index: 5;
+}
+
+.blob-svg2 {
+  position: absolute;
+  top: 50vh;
+  left: 48vw;
+  z-index: 5;
+  width: 40%;
+  height: auto;
+  z-index: 4;
+}
+
+.blob-svg3 {
+  position: absolute;
+  top: 74vh;
+  left: 44vw;
+  z-index: 5;
+  width: 40%;
+  height: auto;
+  z-index: 5;
+}
+
+.blob-svg4 {
+  position: absolute;
+  top: 30vh;
+  left: 19vw;
+  z-index: 5;
+  width: 70%;
+  height: auto;
+  z-index: 2;
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 1) 50%,
+    rgb(0 0 0 / 0.3) 75%,
+    rgb(0 0 0 / 0.1) 80%,
+    rgb(0 0 0 / 0) 83%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 1) 50%,
+    rgb(0 0 0 / 0.3) 75%,
+    rgb(0 0 0 / 0.1) 80%,
+    rgb(0 0 0 / 0) 83%
+  );
+}
+
+.waves-top {
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+  width: 100%;
+  height: auto;
+  z-index: 10;
 }
 
 .wioplayCard {
   position: absolute;
-  top: 279vh;
+  top: 310vh;
   left: 15vw;
 }
 
-.testFrontEnd2 {
-  position: absolute;
+.top-screen-template {
+  position: relative;
   top: 52.5vh;
   z-index: 1;
 }
 
-.testFrontEnd {
+.bottomTemplate {
   position: absolute;
-  top: 160vh;
+  top: 180vh;
 }
 
 #transform-reading-game-h4 {
   position: absolute;
-  top: 176.5vh;
-  left: 39vw;
+  top: 196.5vh;
+  left: 37vw;
   font-weight: 900;
+}
+
+#page-background {
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 400vh;
+  background-color: #343434;
+  position: absolute;
+  z-index: -3;
 }
 
 #carouselTest {
   position: relative;
-  top: 186vh;
+  /*
+  Position with 'DynamicBottomScreensTemplate' activated
+  top: 70vh;
+  left: 12.5vw;
+  */
+  top: 210vh;
   left: 12.5vw;
   width: 155vh;
   height: auto;
 }
 
-#book-api-h4 {
-  position: absolute;
-  top: 840px;
-  left: 500px;
-}
-
 #entrusted-project-h4 {
   position: absolute;
-  top: 190vh;
-  left: 40vw;
+  top: 305vh;
+  left: 56vw;
 }
 
 #myCircle {
@@ -234,29 +282,6 @@ h1 {
     z-index: 3;
 }
 
-/*
-#myHalfCircle {
-  width: 5vw;
-  height: 5vw;
-  border: 1vw solid rgb(23, 143, 213);
-  border-radius: 50%;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(-45deg);
-  position: absolute;
-  top: 159.8vh;
-}
-*/
-
-#myTestFade {
-  border: 1px slateblue;
-  height: 35vh;
-  width: 35vh;
-  top: 60vh;
-  left: 40vw;
-  position: inherit;
-}
-
 #bookster-video-text {
   position: absolute;
   top: 15vh;
@@ -267,196 +292,11 @@ h1 {
   height: 57vh;
   width: 49vw;
   position: absolute;
-  top: 60.5vh;
-  left: 11vw;
+  top: 80.5vh;
+  left: 24vw;
   background-color: #1c1d1d;
-  z-index: 5;
-}
-
-.myBorderR1 {
-  /*
-  NOTE: Refactor this with myBorderL1 later
-  */
-  border: 2px solid;
-  position: absolute;
-  width: 25vw;
-  right: 0vh;
-  top: 55vh;
-  color: #1ce9d4;
-}
-
-.myBorderR1-2 {
-  /*
-  NOTE: Refactor this with myBorderL1 later
-  */
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  right: 28vw;
-  top: 55vh;
-  color: #1ce9d4;
-}
-
-.myBorderL1 {
-  border: 2px solid;
-  position: absolute;
-  width: 25vw;
-  left: 0vh;
-  top: 55vh;
-  color: #1ce9d4;
-}
-
-.myBorderL1-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  left: 28vw;
-  top: 55vh;
-  color: #1ce9d4;
-}
-
-.myBorderR2 {
-  border: 2px solid;
-  position: absolute;
-  width: 20vw;
-  right: 0vh;
-  top: 59vh;
-  color: #1ce97c;
-}
-
-.myBorderR2-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  right: 23vw;
-  top: 59vh;
-  color: #1ce97c;
-}
-
-.myBorderL2 {
-  border: 2px solid;
-  position: absolute;
-  width: 20vw;
-  left: 0vh;
-  top: 59vh;
-  color: #1ce97c;
-}
-
-.myBorderL2-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  left: 23vw;
-  top: 59vh;
-  color: #1ce97c;
-}
-
-.myBorderR3 {
-  border: 2px solid;
-  position: absolute;
-  width: 15vw;
-  right: 0vh;
-  top: 63vh;
-  color: #d5e91c;
-}
-
-.myBorderR3-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  right: 18vw;
-  top: 63vh;
-  color: #d5e91c;
-}
-
-.myBorderL3 {
-  border: 2px solid;
-  position: absolute;
-  width: 15vw;
-  left: 0vh;
-  top: 63vh;
-  color: #d5e91c;
-}
-
-.myBorderL3-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  left: 18vw;
-  top: 63vh;
-  color: #d5e91c;
-}
-
-.myBorderR4 {
-  border: 2px solid;
-  position: absolute;
-  width: 10vw;
-  right: 0vh;
-  top: 67vh;
-  color: #e9bd1c;
-}
-
-.myBorderR4-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  right: 13vw;
-  top: 67vh;
-  color: #e9bd1c;
-}
-
-.myBorderL4 {
-  border: 2px solid;
-  position: absolute;
-  width: 10vw;
-  left: 0vh;
-  top: 67vh;
-  color: #e9bd1c;
-}
-
-.myBorderL4-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  left: 13vw;
-  top: 67vh;
-  color: #e9bd1c;
-}
-
-.myBorderR5 {
-  border: 2px solid;
-  position: absolute;
-  width: 11.5vw;
-  right: 0vh;
-  top: 71vh;
-  color: #e94c1c;
-}
-
-.myBorderR5-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  right: 14.5vw;
-  top: 71vh;
-  color: #e94c1c;
-}
-
-.myBorderL5 {
-  border: 2px solid;
-  position: absolute;
-  width: 11.5vw;
-  left: 0vh;
-  top: 71vh;
-  color: #e94c1c;
-}
-
-.myBorderL5-2 {
-  border: 2px solid;
-  position: absolute;
-  width: 5vw;
-  left: 14.5vw;
-  top: 71vh;
-  color: #e94c1c;
+  z-index: 10;
+  border-radius: 3vh;
 }
 
 .left-decrease-borders {
@@ -466,18 +306,15 @@ h1 {
 }
 
 .right-decrease-borders {
-  /*
-    NOTE: Refactor this later
-  */
   position: absolute;
   right: 0vh;
   top: 10vh;
 }
 
 .wioplay-demo {
-  top: 308vh;
-  left: 62vw;
-  width: 50%;
+  top: 310vh;
+  left: 47vw;
+  width: 40%;
   height: auto;
   position: absolute;
   z-index: 0;
@@ -485,72 +322,17 @@ h1 {
 }
 
 .changing-texts {
-  top: 72vh;
+  top: 57.7vh;
   left: 73vw;
   position: absolute;
   z-index: 0;
 }
 
 .changing-images {
-    top: 93.2vh;
-    left: 68.8vw;
+    top: 76.2vh;
+    left: 68.9vw;
     position: absolute;
     z-index: 0;
-}
-
-.static-image {
-    border-radius: 20px;
-    max-width: 30%;
-    height: auto;
-    border: 4px solid rgb(68, 128, 219);
-}
-
-#headerText {
-    text-align: center;
-}
-
-.gradient-border-pseudo {
-  position: relative;
-  padding: 10px 20px;
-  background: #fff;
-  margin: 5px;
-  border-radius: 5px;
-}
-
-.gradient-border-pseudo::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  margin: -5px;
-  border-radius: inherit;
-  background-image: linear-gradient(45deg, rgb(67, 172, 229), rgb(47, 23, 198));
-}
-
-.btn-1 {
-  width: 26vw;
-  height: 13.5vh;
-  border: none;
-  color:#1c1d1d;
-  background-color: #e94c1c;
-  border-radius: 1vw;
-  box-shadow: inset 0 0 0 0 #f9e506;
-  transition: ease-out 0.3s;
-  font-size: 1em;
-  outline: none;
-  font-weight: bold;
-  top: 130vh;
-  left: 0vw;
-  position: absolute;
-}
-
-.btn-1:hover {
-  box-shadow: inset 26.3vw 0 0 0 #f9e506;
-  cursor: pointer;
-  color: #1100ff;
 }
 
 .btn-2 {
@@ -563,17 +345,17 @@ h1 {
   font-size: 1.3em;
   font-weight: 900;
   outline: none;
-  background-color: #b6f8d7;
-  border: 0.5vw solid #00ff77;
+  background-color: #333e43;
+  border: 0.5vw solid #2b405f;
   position: absolute;
-  z-index: 1;
+  z-index: 20;
 
-  top: 138vh;
+  top: 156vh;
   left: 0vw;
 }
 
 .btn-2:hover {
-  color:#1c1d1d;
+  color:#CCCF7C;
   cursor: pointer;
 }
 
@@ -586,7 +368,7 @@ h1 {
   bottom: 0;
   opacity: 0;
   content: "";
-  background-color: #00ff77;
+  background-color: #2b405f;
 }
 
 .btn-2:hover:before {
@@ -595,6 +377,38 @@ h1 {
   right: 0;
   opacity: 1;
   z-index: -1;
+}
+
+.hero-title {
+  color: #7dcfcb;
+  font-size: clamp(2.5rem, 4.5vw + 0.8rem, 2.5em);
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: absolute;
+  top: 20vh;
+  left: 43.5vw;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
+.hero-text {
+  color: #7dcfcbbc;
+  font-size: clamp(1rem, 2vw + 0.25rem, 1em);
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  top: 30vh;
+  left: 40.65vw;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
+.hero-image {
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
 }
 
 .about-img-card {
@@ -680,8 +494,11 @@ h1 {
   }
 
    h4 {
-    font-size: 1.3em;
-    color: rgb(193, 21, 178);
+    font-size: 1.2em;
+    color: #7dcfcb;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
   }
 
   .changing-texts {
@@ -689,42 +506,4 @@ h1 {
   height: auto;
 }
 }
-
-/*
-NOTE: Dynamic text tutorial
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #252839;
-}
-h2 {
-    position: relative;
-    font-size: 14vh;
-    color: #252839;
-    -webkit-text-stroke: 0.3vw #383d52;
-}
-h2::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    Left: 0;
-    width: 0;
-    height: 100%;
-    color: #01fe87;
-    -webkit-text-stroke: 0vw #383d52;
-    border-right: 2px solid #01fe87;
-    overflow: hidden;
-    animation: animate 3s linear infinite;
-}
-@keyframes animate {
-    0%,10%,40% {
-        width: 0
-    }
-    100% {
-        width: 100%
-    }
-}
-*/
 </style>
