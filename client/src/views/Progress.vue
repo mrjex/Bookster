@@ -5,6 +5,9 @@
     </header>
 
     <div id="page-background"></div>
+    <div id="performance-chart-background"></div>
+    <div id="performance-chart-background2"></div>
+    <div id="performance-chart-border"></div>
 
     <h3>{{ user }}'s progress:</h3>
 
@@ -22,7 +25,7 @@
       </b-dropdown>
     </div>
 
-    <div name="performanceSection">
+    <div class="performanceSection">
       <div v-if="selectedPerformanceChart === 'LineChart'">
         <LineChart :chartData="chartDataPerformance" />
       </div>
@@ -32,8 +35,8 @@
 
         <form @submit.prevent="pushPerformanceData">
           <div class="form-group">
-              <label>Today's Progress</label>
-              <input type="today-progress" class="form-control" v-model="performanceInput" placeholder="Progress"/>
+              <label class="input-progress-header">INPUT PROGRESS:</label>
+              <input type="today-progress" class="form-control performance-input" v-model="performanceInput" placeholder="Minutes Read"/>
           </div>
           <button class="addChartValueBtn addPerformanceBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -56,7 +59,7 @@
       </b-dropdown>
     </div>
 
-    <div name="allocationSection">
+    <div class="allocationSection">
       <div v-if="selectedAllocationChart === 'RadarChart'">
         <RadarChart :chartData="chartDataAllocation" />
       </div>
@@ -70,10 +73,10 @@
           <form @submit.prevent="pushAllocationData">
             <div class="form-group">
                 <label>New Category</label>
-                <input type="new-category" class="form-control" v-model="newCategoryInput" placeholder="New-Category"/>
+                <input type="new-category" class="form-control" v-model="newCategoryInput" placeholder="Book Category"/>
 
                 <label>Completed Books</label>
-                <input type="completed-books" class="form-control" v-model="completedBooksInput" placeholder="Completed-Books"/>
+                <input type="completed-books" class="form-control" v-model="completedBooksInput" placeholder="Number Of Completed Books"/>
             </div>
             <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -112,10 +115,10 @@ export default {
         datasets: [
           {
             label: 'Minutes Read',
-            backgroundColor: '#C82D54',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
             data: [0],
             borderColor: '#C82D54',
-            borderWidth: 4
+            borderWidth: 7
           }
         ]
       },
@@ -124,15 +127,16 @@ export default {
         datasets: [
           {
             label: 'Current Month',
-            data: [4, 2, 4],
+            data: [6, 4, 5],
             fill: true,
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: '#C82D54',
             pointBackgroundColor: '#C82D54',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
+            pointBorderColor: '#C82D54',
+            pointHoverBackgroundColor: '#C82D54',
             pointHoverBorderColor: '#C82D54',
-            hoverOffset: 7
+            hoverOffset: 7,
+            borderWidth: 7
             // 'rgb(255, 99, 132)'
 
           /*
@@ -151,15 +155,16 @@ export default {
           },
           {
             label: 'Last Month',
-            data: [3, 1, 4],
+            data: [5, 2, 4],
             fill: true,
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: '#2D42C8',
             pointBackgroundColor: '#2D42C8',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
+            pointBorderColor: '#2D42C8',
+            pointHoverBackgroundColor: '#2D42C8',
             pointHoverBorderColor: '#2D42C8',
-            hoverOffset: 7
+            hoverOffset: 7,
+            borderWidth: 5
             // 'rgb(54, 162, 235)'
 
             /*
@@ -352,19 +357,30 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  color: #7dcfcb;
+  font-size: clamp(2.5rem, 4.5vw + 0.8rem, 2.5em);
+  line-height: 1;
+  font-weight: 650;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
 .addChartValueBtn {
   border: none;
-  margin: 20px;
-  padding: 24px;
-  width: 220px;
+  width: 9vw;
+  height: 7vh;
   font-family: "monsterrat", sans-serif;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: 0.7vw;
   cursor: pointer;
   background-size: 200%;
+  position: absolute;
+  left: 45vw;
 }
 
 .addPerformanceBtn {
   background-image: linear-gradient(to left, #FFC312, #EE5A24,#FFC312);
+  top: 80vh;
 }
 
 .addAllocationBtn {
@@ -374,39 +390,69 @@ export default {
 #page-background {
   top: 0vh;
   left: 0vw;
-  width: 100vw;
+  width: 99vw;
   height: 400vh;
   background-color: #343434;
   position: absolute;
   z-index: -3;
 }
-</style>
 
-<!--
-<style scoped>
-.chartButton {
-  background-color: rgb(69, 52, 179);
+#performance-chart-background {
+  top: 25vh;
+  left: 0.2vw;
+  width: 98.8vw;
+  height: 77vh;
+  background-color: #ffffffd1;
+  position: absolute;
+  z-index: -2;
+  border-radius: 1.4vw;
+  border: 0.4vw solid;
+  border-color: #CCCF7C;
+}
+
+#performance-chart-background2 {
+  top: 80.3vh;
+  left: 0.2vw;
+  width: 98.8vw;
+  height: 21vh;
+  background-color: #a3a3a3d1;
+  position: absolute;
+  z-index: -1;
+  border-radius: 1.4vw;
+}
+
+.performance-input {
+  position: absolute;
+  top: 86vh;
+  left: 43vw;
+  width: 9vw;
+  height: 5vh;
+}
+
+.input-progress-header {
+  position: absolute;
+  top: 82vh;
+  left: 43vw;
+}
+
+#performance-chart-border {
+  position: absolute;
+  top: 80vh;
+  left: 0.3vw;
+  width: 98.4vw;
+  height: 0.4vw;
+  z-index: -1;
+  background-color: #CCCF7C;
+}
+
+.performanceSection {
+  width: 100%;
+  height: auto;
+}
+
+.allocationSection {
+  position: absolute;
+  top: 110vh;
+  left: 42vw;
 }
 </style>
--->
-
-<!--
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'montserrat', sans-serif;
-}
-
-header {
-  width: 100vw;
-  background-color: #222;
-  padding: 20px;
-
-}
-</style>
--->
