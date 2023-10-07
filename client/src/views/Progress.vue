@@ -5,9 +5,13 @@
     </header>
 
     <div id="page-background"></div>
+    <!--
     <div id="performance-chart-background"></div>
     <div id="performance-chart-background2"></div>
-    <div id="performance-chart-border"></div>
+    -->
+    <!-- <div id="performance-chart-border"></div> -->
+    <div class="card-border"></div>
+    <div class="dotted-line"></div>
 
     <h3>{{ user }}'s progress:</h3>
 
@@ -375,16 +379,18 @@ h3 {
   cursor: pointer;
   background-size: 200%;
   position: absolute;
-  left: 45vw;
 }
 
 .addPerformanceBtn {
   background-image: linear-gradient(to left, #FFC312, #EE5A24,#FFC312);
-  top: 80vh;
+  top: 85vh;
+  left: 54vw;
 }
 
 .addAllocationBtn {
   background-image: linear-gradient(to left, #12CBC4, #0652DD,#12CBC4);
+  top: 100vh;
+  left: 20vw;
 }
 
 #page-background {
@@ -441,12 +447,15 @@ h3 {
   left: 0.3vw;
   width: 98.4vw;
   height: 0.4vw;
-  z-index: -1;
   background-color: #CCCF7C;
+  z-index: 20;
 }
 
 .performanceSection {
-  width: 100%;
+  position: absolute;
+  top: 25vh;
+  left: 14vw;
+  width: 70%;
   height: auto;
 }
 
@@ -454,5 +463,71 @@ h3 {
   position: absolute;
   top: 110vh;
   left: 42vw;
+}
+
+.chart-dropdown-performance {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+}
+
+.chart-dropdown-allocation {
+  position: absolute;
+  top: 115vh;
+  left: 10vw;
+}
+
+.card-border {
+  background: #073438;
+  /*
+  height: 55vh;
+  */
+  height: 75vh;
+  width: 80vw;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 25vh;
+  left: 6vw;
+}
+
+.card-border::before,
+.card-border::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+    background: linear-gradient(
+    var(--gradient-angle),
+    #0e4b50,
+    #2d8f85,
+    #637c54
+  );
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+}
+
+.card-border::after {
+  filter: blur(3.5rem);
+}
+
+.dotted-line {
+  position: absolute;
+  top: 80vh;
+  left: 5.97vw;
+  width: 1230px;
+  height: 4px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237CCF8AFF' stroke-width='8' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  z-index: 20;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
 }
 </style>
