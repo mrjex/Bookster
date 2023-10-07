@@ -4,19 +4,21 @@
       <Navbar />
     </header>
 
+    <h2 class="current-performance-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
+    <h2 class="current-allocation-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
+
     <div id="page-background"></div>
-    <!--
-    <div id="performance-chart-background"></div>
-    <div id="performance-chart-background2"></div>
-    -->
-    <!-- <div id="performance-chart-border"></div> -->
-    <div class="card-border"></div>
-    <div class="dotted-line"></div>
+
+    <div class="card-border performance-card"></div>
+    <div class="card-border allocation-card"></div>
+
+    <div class="dotted-line performance-dotted-line"></div>
+    <div class="dotted-line allocation-dotted-line"></div>
 
     <h3>{{ user }}'s progress:</h3>
 
     <div>
-      <b-dropdown id="dropdown-grouped" text="PERFORMANCE CHARTS" class="chart-dropdown-performance">
+      <b-dropdown id="dropdown-grouped" text="SELECT CHART" class="chart-dropdown-performance">
         <b-dropdown-group id="dropdown-group-1" header="Performance Charts">
           <b-dropdown-item-button class="chartButton" id="linechart-button" @click.prevent="lineChart">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
@@ -47,7 +49,7 @@
     </div>
 
     <div>
-      <b-dropdown id="dropdown-grouped" text="ALLOCATION CHARTS" class="chart-dropdown-allocation">
+      <b-dropdown id="dropdown-grouped" text="SELECT CHARTS" class="chart-dropdown-allocation">
         <b-dropdown-group id="dropdown-group-2" header="Allocation Charts">
           <b-dropdown-item-button class="chartButton" id="radarchart-button" @click.prevent="radarChart">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M37.6 4.2C28-2.3 15.2-1.1 7 7s-9.4 21-2.8 30.5l112 163.3L16.6 233.2C6.7 236.4 0 245.6 0 256s6.7 19.6 16.6 22.8l103.1 33.4L66.8 412.8c-4.9 9.3-3.2 20.7 4.3 28.1s18.8 9.2 28.1 4.3l100.6-52.9 33.4 103.1c3.2 9.9 12.4 16.6 22.8 16.6s19.6-6.7 22.8-16.6l33.4-103.1 100.6 52.9c9.3 4.9 20.7 3.2 28.1-4.3s9.2-18.8 4.3-28.1L392.3 312.2l103.1-33.4c9.9-3.2 16.6-12.4 16.6-22.8s-6.7-19.6-16.6-22.8L388.9 198.7l25.7-70.4c3.2-8.8 1-18.6-5.6-25.2s-16.4-8.8-25.2-5.6l-70.4 25.7L278.8 16.6C275.6 6.7 266.4 0 256 0s-19.6 6.7-22.8 16.6l-32.3 99.6L37.6 4.2z"/></svg>
@@ -76,11 +78,11 @@
 
           <form @submit.prevent="pushAllocationData">
             <div class="form-group">
-                <label>New Category</label>
-                <input type="new-category" class="form-control" v-model="newCategoryInput" placeholder="Book Category"/>
+                <label class="new-category-label">New Category</label>
+                <input type="new-category" class="form-control add-category-field" v-model="newCategoryInput" placeholder="Book Category"/>
 
-                <label>Completed Books</label>
-                <input type="completed-books" class="form-control" v-model="completedBooksInput" placeholder="Number Of Completed Books"/>
+                <label class="completed-books-label">Completed Books</label>
+                <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Completed Books"/>
             </div>
             <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -194,7 +196,8 @@ export default {
               'rgb(255, 205, 86)',
               'rgb(50, 190, 50)'],
             data: [4, 2, 4],
-            hoverOffset: 10
+            hoverOffset: 12,
+            borderWidth: 4
           }
         ]
       }
@@ -383,13 +386,13 @@ h3 {
 
 .addPerformanceBtn {
   background-image: linear-gradient(to left, #FFC312, #EE5A24,#FFC312);
-  top: 85vh;
-  left: 54vw;
+  top: 65vh;
+  left: 38vw;
 }
 
 .addAllocationBtn {
   background-image: linear-gradient(to left, #12CBC4, #0652DD,#12CBC4);
-  top: 100vh;
+  top: 61vh;
   left: 20vw;
 }
 
@@ -429,16 +432,17 @@ h3 {
 
 .performance-input {
   position: absolute;
-  top: 86vh;
-  left: 43vw;
+  top: 66vh;
+  left: 28vw;
   width: 9vw;
   height: 5vh;
 }
 
 .input-progress-header {
   position: absolute;
-  top: 82vh;
-  left: 43vw;
+  top: 62vh;
+  left: 28vw;
+  color: #CCCF7C;
 }
 
 #performance-chart-border {
@@ -461,8 +465,8 @@ h3 {
 
 .allocationSection {
   position: absolute;
-  top: 110vh;
-  left: 42vw;
+  top: 126vh;
+  left: 35vw;
 }
 
 .chart-dropdown-performance {
@@ -477,17 +481,24 @@ h3 {
   left: 10vw;
 }
 
-.card-border {
-  background: #073438;
-  /*
-  height: 55vh;
-  */
+.performance-card {
   height: 75vh;
   width: 80vw;
-  border-radius: 0.5rem;
-  position: absolute;
   top: 25vh;
   left: 6vw;
+}
+
+.allocation-card {
+  height: 75vh;
+  width: 80vw;
+  top: 125vh;
+  left: 6vw;
+}
+
+.card-border {
+  background: #073438;
+  border-radius: 0.5rem;
+  position: absolute;
 }
 
 .card-border::before,
@@ -510,14 +521,53 @@ h3 {
   filter: blur(3.5rem);
 }
 
+.performance-dotted-line {
+  top: 80vh;
+}
+
+.allocation-dotted-line {
+  top: 182vh;
+}
+
 .dotted-line {
   position: absolute;
-  top: 80vh;
   left: 5.97vw;
   width: 1230px;
   height: 4px;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237CCF8AFF' stroke-width='8' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   z-index: 20;
+}
+
+.current-performance-chart-text {
+  position: absolute;
+  top: 18vh;
+  left: 28vw;
+  z-index: 30;
+  color:#ebebeb;
+}
+
+.current-allocation-chart-text {
+  position: absolute;
+  top: 118vh;
+  left: 28vw;
+  z-index: 30;
+  color:#ebebeb;
+}
+
+.add-category-field {
+  width: 10.5vw;
+}
+
+.add-book-quantity-field {
+  width: 16vw;
+}
+
+.new-category-label {
+  color: #CCCF7C;
+}
+
+.completed-books-label {
+  color: #CCCF7C;
 }
 
 @property --gradient-angle {
