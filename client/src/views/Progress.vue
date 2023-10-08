@@ -4,8 +4,8 @@
       <Navbar />
     </header>
 
-    <h2 class="current-performance-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
-    <h2 class="current-allocation-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
+    <h2 class="chart-header current-performance-chart-text">PERFORMANCE CHART: {{convertToSelectedPerformanceChartHeader()}}</h2>
+    <h2 class="chart-header current-allocation-chart-text">ALLOCATION CHART: {{convertToSelectedAllocationChartHeader()}}</h2>
 
     <div id="page-background"></div>
 
@@ -210,10 +210,13 @@ export default {
         datasets: [
           {
             backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)',
-              'rgb(50, 190, 50)'],
+              '#7DCFCB',
+              '#7CCF8A',
+              '#CCCF7C',
+              '#CF7C7C',
+              '#7C84CF',
+              '#CF937C',
+              '#A27CCF'],
             data: [4, 2, 4],
             hoverOffset: 12,
             borderWidth: 4
@@ -377,6 +380,16 @@ export default {
         UtilsComponent.methods.setRefreshablePageState()
         UtilsComponent.methods.refreshPage()
       }
+    },
+    convertToSelectedPerformanceChartHeader() {
+      let temp = this.selectedPerformanceChart
+      temp = temp.substring(0, temp.length - 5) // NOTE for developers: The length of 'chart' is 5
+      return temp.toUpperCase()
+    },
+    convertToSelectedAllocationChartHeader() {
+      let temp = this.selectedAllocationChart
+      temp = temp.substring(0, temp.length - 5) // NOTE for developers: The length of 'chart' is 5
+      return temp.toUpperCase()
     }
   }
 }
@@ -569,20 +582,20 @@ h3 {
   z-index: 20;
 }
 
-.current-performance-chart-text {
+.chart-header {
   position: absolute;
-  top: 18vh;
   left: 28vw;
   z-index: 30;
-  color:#ebebeb;
+  color:#7CCF8A;
+  font-size: 2vw;
+}
+
+.current-performance-chart-text {
+  top: 18vh;
 }
 
 .current-allocation-chart-text {
-  position: absolute;
   top: 118vh;
-  left: 28vw;
-  z-index: 30;
-  color:#ebebeb;
 }
 
 .add-category-field {
