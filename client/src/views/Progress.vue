@@ -15,19 +15,19 @@
     <div class="dotted-line performance-dotted-line"></div>
     <div class="dotted-line allocation-dotted-line"></div>
 
-    <h3>{{ user }}'s progress:</h3>
+    <h3 class="username-header">{{ user }}'s progress:</h3>
 
     <div>
-      <b-dropdown id="dropdown-grouped" text="SELECT CHART" class="chart-dropdown-performance">
-        <b-dropdown-group id="dropdown-group-1" header="Performance Charts">
-          <b-dropdown-item-button class="chartButton" id="linechart-button" @click.prevent="lineChart">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
-            Line Chart </b-dropdown-item-button>
-
-          <b-dropdown-item-button class="chartButton" id="barchart-button" @click.prevent="barChart">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
-            Bar Chart</b-dropdown-item-button>
-        </b-dropdown-group>
+      <!-- RIGHT DROPDOWN -->
+      <b-dropdown id="dropdown-dropright" dropright text="SELECT CHART" variant="none" class="m-2 chart-dropdown-performance">
+        <b-dropdown-item class="chartButton line-test-button" id="linechart-button" @click.prevent="lineChart">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
+          Line Chart
+        </b-dropdown-item>
+        <b-dropdown-item class="chartButton" id="barchart-button" @click.prevent="barChart">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
+          Bar Chart
+          </b-dropdown-item>
       </b-dropdown>
     </div>
 
@@ -39,9 +39,9 @@
         <BarChart :chartData="chartDataPerformance" />
       </div>
 
-        <form @submit.prevent="pushPerformanceData">
+        <form @submit.prevent="pushPerformanceData" class="performance-form">
           <div class="form-group">
-              <label class="input-progress-header">INPUT PROGRESS:</label>
+              <label class="input-progress-header">Reading Session</label>
               <input type="today-progress" class="form-control performance-input" v-model="performanceInput" placeholder="Minutes Read"/>
           </div>
           <button class="addChartValueBtn addPerformanceBtn btn btn-primary btn-block">PUSH DATA</button>
@@ -49,19 +49,20 @@
     </div>
 
     <div>
-      <b-dropdown id="dropdown-grouped" text="SELECT CHARTS" class="chart-dropdown-allocation">
-        <b-dropdown-group id="dropdown-group-2" header="Allocation Charts">
-          <b-dropdown-item-button class="chartButton" id="radarchart-button" @click.prevent="radarChart">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M37.6 4.2C28-2.3 15.2-1.1 7 7s-9.4 21-2.8 30.5l112 163.3L16.6 233.2C6.7 236.4 0 245.6 0 256s6.7 19.6 16.6 22.8l103.1 33.4L66.8 412.8c-4.9 9.3-3.2 20.7 4.3 28.1s18.8 9.2 28.1 4.3l100.6-52.9 33.4 103.1c3.2 9.9 12.4 16.6 22.8 16.6s19.6-6.7 22.8-16.6l33.4-103.1 100.6 52.9c9.3 4.9 20.7 3.2 28.1-4.3s9.2-18.8 4.3-28.1L392.3 312.2l103.1-33.4c9.9-3.2 16.6-12.4 16.6-22.8s-6.7-19.6-16.6-22.8L388.9 198.7l25.7-70.4c3.2-8.8 1-18.6-5.6-25.2s-16.4-8.8-25.2-5.6l-70.4 25.7L278.8 16.6C275.6 6.7 266.4 0 256 0s-19.6 6.7-22.8 16.6l-32.3 99.6L37.6 4.2z"/></svg>
-            Radar Chart</b-dropdown-item-button>
-          <b-dropdown-item-button class="chartButton" id="polarchart-button" @click.prevent="polarChart">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
-            Polar Chart</b-dropdown-item-button>
-
-          <b-dropdown-item-button class="chartButton" id="piechart-button" @click.prevent="pieChart">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M304 240V16.6c0-9 7-16.6 16-16.6C443.7 0 544 100.3 544 224c0 9-7.6 16-16.6 16H304zM32 272C32 150.7 122.1 50.3 239 34.3c9.2-1.3 17 6.1 17 15.4V288L412.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C371.8 495.6 323.8 512 272 512C139.5 512 32 404.6 32 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L320 288H558.4z"/></svg>
-            Pie Chart</b-dropdown-item-button>
-        </b-dropdown-group>
+      <!-- RIGHT DROPDOWN -->
+      <b-dropdown id="dropdown-dropright" dropright text="SELECT CHART" variant="none" class="m-2 chart-dropdown-allocation">
+        <b-dropdown-item class="chartButton" id="radarchart-button" @click.prevent="radarChart">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M37.6 4.2C28-2.3 15.2-1.1 7 7s-9.4 21-2.8 30.5l112 163.3L16.6 233.2C6.7 236.4 0 245.6 0 256s6.7 19.6 16.6 22.8l103.1 33.4L66.8 412.8c-4.9 9.3-3.2 20.7 4.3 28.1s18.8 9.2 28.1 4.3l100.6-52.9 33.4 103.1c3.2 9.9 12.4 16.6 22.8 16.6s19.6-6.7 22.8-16.6l33.4-103.1 100.6 52.9c9.3 4.9 20.7 3.2 28.1-4.3s9.2-18.8 4.3-28.1L392.3 312.2l103.1-33.4c9.9-3.2 16.6-12.4 16.6-22.8s-6.7-19.6-16.6-22.8L388.9 198.7l25.7-70.4c3.2-8.8 1-18.6-5.6-25.2s-16.4-8.8-25.2-5.6l-70.4 25.7L278.8 16.6C275.6 6.7 266.4 0 256 0s-19.6 6.7-22.8 16.6l-32.3 99.6L37.6 4.2z"/></svg>
+          Radar Chart
+        </b-dropdown-item>
+        <b-dropdown-item class="chartButton" id="polarchart-button" @click.prevent="polarChart">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+          Polar Chart
+          </b-dropdown-item>
+          <b-dropdown-item class="chartButton" id="piechart-button" @click.prevent="pieChart">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M304 240V16.6c0-9 7-16.6 16-16.6C443.7 0 544 100.3 544 224c0 9-7.6 16-16.6 16H304zM32 272C32 150.7 122.1 50.3 239 34.3c9.2-1.3 17 6.1 17 15.4V288L412.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C371.8 495.6 323.8 512 272 512C139.5 512 32 404.6 32 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L320 288H558.4z"/></svg>
+          Pie Chart
+          </b-dropdown-item>
       </b-dropdown>
     </div>
 
@@ -76,13 +77,13 @@
         <PieChart :chartData="chartDataAllocationPie" />
       </div>
 
-          <form @submit.prevent="pushAllocationData">
+          <form @submit.prevent="pushAllocationData" class="allocation-form">
             <div class="form-group">
                 <label class="new-category-label">New Category</label>
                 <input type="new-category" class="form-control add-category-field" v-model="newCategoryInput" placeholder="Book Category"/>
 
                 <label class="completed-books-label">Completed Books</label>
-                <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Completed Books"/>
+                <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Books"/>
             </div>
             <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -110,7 +111,7 @@ export default {
       newCategoryInput: null,
       completedBooksInput: null,
       performanceDataPoints: null,
-      selectedChartDropdownColor: '#1da228',
+      selectedChartDropdownColor: '#7CCF8A',
       unselectedChartDropdownColor: '#ffffff',
       previouslySelectedPerformanceChartId: UtilsComponent.methods.getCurrentPerformanceChartButtonId(),
       previouslySelectedAllocationChartId: UtilsComponent.methods.getCurrentAllocationChartButtonId(),
@@ -375,7 +376,6 @@ h3 {
 .addChartValueBtn {
   border: none;
   width: 9vw;
-  height: 7vh;
   font-family: "monsterrat", sans-serif;
   font-weight: 600;
   border-radius: 0.7vw;
@@ -385,22 +385,24 @@ h3 {
 }
 
 .addPerformanceBtn {
-  background-image: linear-gradient(to left, #FFC312, #EE5A24,#FFC312);
+  background-image: linear-gradient(to left, #7DCFCB, #CCCF7C,#7DCFCB);
   top: 65vh;
   left: 38vw;
+  height: 7vh;
 }
 
 .addAllocationBtn {
-  background-image: linear-gradient(to left, #12CBC4, #0652DD,#12CBC4);
-  top: 61vh;
-  left: 20vw;
+  background-image: linear-gradient(to left, #7DCFCB, #CCCF7C,#7DCFCB);
+  top: 4.2vh;
+  left: 10.8vw;
+  height: 13vh;
 }
 
 #page-background {
   top: 0vh;
   left: 0vw;
   width: 99vw;
-  height: 400vh;
+  height: 220vh;
   background-color: #343434;
   position: absolute;
   z-index: -3;
@@ -432,17 +434,18 @@ h3 {
 
 .performance-input {
   position: absolute;
-  top: 66vh;
+  top: 65.2vh;
   left: 28vw;
   width: 9vw;
-  height: 5vh;
+  height: 6.5vh;
 }
 
 .input-progress-header {
   position: absolute;
-  top: 62vh;
+  top: 61.5vh;
   left: 28vw;
   color: #CCCF7C;
+  width: 8vw;
 }
 
 #performance-chart-border {
@@ -471,14 +474,26 @@ h3 {
 
 .chart-dropdown-performance {
   position: absolute;
-  top: 10vh;
-  left: 10vw;
+  top: 85vh;
+  left: 23vw;
+  border: none;
+  font-family: "monsterrat", sans-serif;
+  font-weight: 600;
+  border-radius: 0.7vw;
+  background-size: 200%;
+  background-image: linear-gradient(to left, #7DCFCB, #7CCF8A,#7DCFCB);
 }
 
 .chart-dropdown-allocation {
   position: absolute;
-  top: 115vh;
-  left: 10vw;
+  top: 183vh;
+  left: 23vw;
+  border: none;
+  font-family: "monsterrat", sans-serif;
+  font-weight: 600;
+  border-radius: 0.7vw;
+  background-size: 200%;
+  background-image: linear-gradient(to left, #7DCFCB, #7CCF8A,#7DCFCB);
 }
 
 .performance-card {
@@ -507,6 +522,14 @@ h3 {
   position: absolute;
   inset: -0.5rem;
   z-index: -1;
+  /*
+  background: linear-gradient(
+    var(--gradient-angle),
+    #7ccf8ab4,
+    #cf7c7ca4,
+    #7dcfcba1
+  );
+  */
     background: linear-gradient(
     var(--gradient-angle),
     #0e4b50,
@@ -555,19 +578,43 @@ h3 {
 }
 
 .add-category-field {
-  width: 10.5vw;
+  width: 10vw;
+  height: 4vh;
 }
 
 .add-book-quantity-field {
-  width: 16vw;
+  width: 10vw;
+  height: 4vh;
 }
 
 .new-category-label {
   color: #CCCF7C;
+  position: relative;
+  top: 0.8vh;
 }
 
 .completed-books-label {
   color: #CCCF7C;
+  position: relative;
+  top: 0.8vh;
+}
+
+.performance-form {
+  position: absolute;
+  top: -2vh;
+  left: 8vw;
+}
+
+.allocation-form {
+  position: absolute;
+  top: 56vh;
+  left: 13.5vw;
+}
+
+.username-header {
+  position: absolute;
+  top: 7vh;
+  left: 2vw;
 }
 
 @property --gradient-angle {
