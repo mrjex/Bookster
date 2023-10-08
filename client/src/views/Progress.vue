@@ -7,6 +7,10 @@
     <h2 class="current-performance-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
     <h2 class="current-allocation-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
 
+    <img src="../resources/Progress-blob0.svg" class="blob0-svg">
+    <img src="../resources/Progress-blob1.svg" class="blob1-svg">
+    <img src="../resources/Progress-blob2.svg" class="blob2-svg">
+
     <div id="page-background"></div>
 
     <div class="card-border performance-card"></div>
@@ -615,6 +619,76 @@ h3 {
   position: absolute;
   top: 7vh;
   left: 2vw;
+}
+
+.blob0-svg {
+  position: absolute;
+  top: -19vh;
+  left: 27vw;
+  width: 75%;
+  height: auto;
+  z-index: -2;
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+}
+
+.blob1-svg {
+  position: absolute;
+  top: 38vh;
+  left: -2vw;
+  width: 40%;
+  height: auto;
+  z-index: -2;
+    -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 87%,
+    rgb(0 0 0 / 0) 94%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 87%,
+    rgb(0 0 0 / 0) 94%
+  );
+}
+
+.blob2-svg {
+  color: #7c84cf80;
+  position: absolute;
+  top: 102vh;
+  left: -4vw;
+  width: 50%;
+  height: auto;
+  z-index: -2;
+    -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 4%,
+    rgb(0 0 0 / 0.85) 25%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 4%,
+    rgb(0 0 0 / 0.85) 25%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
 }
 
 @property --gradient-angle {
