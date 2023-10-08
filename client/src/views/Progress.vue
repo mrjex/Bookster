@@ -7,11 +7,13 @@
     <h2 class="current-performance-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
     <h2 class="current-allocation-chart-text">CURRENT SELECTED CHART NAME HERE</h2>
 
-    <img src="../resources/Progress-blob0.svg" class="blob0-svg">
-    <img src="../resources/Progress-blob1.svg" class="blob1-svg">
-    <img src="../resources/Progress-blob2.svg" class="blob2-svg">
-
     <div id="page-background"></div>
+
+    <div>
+      <img src="../resources/Progress-blob0.svg" class="blob blob0-svg">
+      <img src="../resources/Progress-blob1.svg" class="blob blob1-svg">
+      <img src="../resources/Progress-blob2.svg" class="blob blob2-svg">
+    </div>
 
     <div class="card-border performance-card"></div>
     <div class="card-border allocation-card"></div>
@@ -22,8 +24,13 @@
     <h3 class="username-header">{{ user }}'s progress:</h3>
 
     <div>
-      <!-- RIGHT DROPDOWN -->
-      <b-dropdown id="dropdown-dropright" dropright text="SELECT CHART" variant="none" class="m-2 chart-dropdown-performance">
+      <div>
+        <h4 class="dropdown-performance-btn-text">
+          SELECT CHART
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+          </h4>
+      </div>
+      <b-dropdown id="dropdown-dropright" dropright text="" variant="transparent" class="m-2 chart-dropdown-performance">
         <b-dropdown-item class="chartButton line-test-button" id="linechart-button" @click.prevent="lineChart">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
           Line Chart
@@ -44,7 +51,7 @@
       </div>
 
         <form @submit.prevent="pushPerformanceData" class="performance-form">
-          <div class="form-group">
+          <div class="form-group performance-label-input">
               <label class="input-progress-header">Reading Session</label>
               <input type="today-progress" class="form-control performance-input" v-model="performanceInput" placeholder="Minutes Read"/>
           </div>
@@ -53,8 +60,13 @@
     </div>
 
     <div>
-      <!-- RIGHT DROPDOWN -->
-      <b-dropdown id="dropdown-dropright" dropright text="SELECT CHART" variant="none" class="m-2 chart-dropdown-allocation">
+      <div>
+        <h4 class="dropdown-allocation-btn-text">
+          SELECT CHART
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+        </h4>
+      </div>
+      <b-dropdown id="dropdown-dropright" dropright text="" variant="transparent" class="m-2 chart-dropdown-allocation">
         <b-dropdown-item class="chartButton" id="radarchart-button" @click.prevent="radarChart">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M37.6 4.2C28-2.3 15.2-1.1 7 7s-9.4 21-2.8 30.5l112 163.3L16.6 233.2C6.7 236.4 0 245.6 0 256s6.7 19.6 16.6 22.8l103.1 33.4L66.8 412.8c-4.9 9.3-3.2 20.7 4.3 28.1s18.8 9.2 28.1 4.3l100.6-52.9 33.4 103.1c3.2 9.9 12.4 16.6 22.8 16.6s19.6-6.7 22.8-16.6l33.4-103.1 100.6 52.9c9.3 4.9 20.7 3.2 28.1-4.3s9.2-18.8 4.3-28.1L392.3 312.2l103.1-33.4c9.9-3.2 16.6-12.4 16.6-22.8s-6.7-19.6-16.6-22.8L388.9 198.7l25.7-70.4c3.2-8.8 1-18.6-5.6-25.2s-16.4-8.8-25.2-5.6l-70.4 25.7L278.8 16.6C275.6 6.7 266.4 0 256 0s-19.6 6.7-22.8 16.6l-32.3 99.6L37.6 4.2z"/></svg>
           Radar Chart
@@ -82,12 +94,14 @@
       </div>
 
           <form @submit.prevent="pushAllocationData" class="allocation-form">
-            <div class="form-group">
+            <div class="form-group allocation-inputs">
                 <label class="new-category-label">New Category</label>
                 <input type="new-category" class="form-control add-category-field" v-model="newCategoryInput" placeholder="Book Category"/>
 
-                <label class="completed-books-label">Completed Books</label>
-                <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Books"/>
+                <div class="category-nr-input-group">
+                  <label class="completed-books-label">Completed Books</label>
+                  <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Books"/>
+                </div>
             </div>
             <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -378,8 +392,8 @@ h3 {
 }
 
 .addChartValueBtn {
+  width: 110px;
   border: none;
-  width: 9vw;
   font-family: "monsterrat", sans-serif;
   font-weight: 600;
   border-radius: 0.7vw;
@@ -390,15 +404,11 @@ h3 {
 
 .addPerformanceBtn {
   background-image: linear-gradient(to left, #7DCFCB, #CCCF7C,#7DCFCB);
-  top: 65vh;
-  left: 38vw;
   height: 7vh;
 }
 
 .addAllocationBtn {
   background-image: linear-gradient(to left, #7DCFCB, #CCCF7C,#7DCFCB);
-  top: 4.2vh;
-  left: 10.8vw;
   height: 13vh;
 }
 
@@ -440,7 +450,7 @@ h3 {
   position: absolute;
   top: 65.2vh;
   left: 28vw;
-  width: 9vw;
+  width: 125px;
   height: 6.5vh;
 }
 
@@ -449,7 +459,7 @@ h3 {
   top: 61.5vh;
   left: 28vw;
   color: #CCCF7C;
-  width: 8vw;
+  width: 130px;
 }
 
 #performance-chart-border {
@@ -473,19 +483,19 @@ h3 {
 .allocationSection {
   position: absolute;
   top: 126vh;
-  left: 35vw;
 }
 
 .chart-dropdown-performance {
   position: absolute;
   top: 85vh;
-  left: 23vw;
   border: none;
   font-family: "monsterrat", sans-serif;
   font-weight: 600;
   border-radius: 0.7vw;
   background-size: 200%;
   background-image: linear-gradient(to left, #7DCFCB, #7CCF8A,#7DCFCB);
+  height: 7vh;
+  width: 10vw;
 }
 
 .chart-dropdown-allocation {
@@ -498,6 +508,8 @@ h3 {
   border-radius: 0.7vw;
   background-size: 200%;
   background-image: linear-gradient(to left, #7DCFCB, #7CCF8A,#7DCFCB);
+  height: 7vh;
+  width: 10vw;
 }
 
 .performance-card {
@@ -526,14 +538,6 @@ h3 {
   position: absolute;
   inset: -0.5rem;
   z-index: -1;
-  /*
-  background: linear-gradient(
-    var(--gradient-angle),
-    #7ccf8ab4,
-    #cf7c7ca4,
-    #7dcfcba1
-  );
-  */
     background: linear-gradient(
     var(--gradient-angle),
     #0e4b50,
@@ -558,9 +562,9 @@ h3 {
 
 .dotted-line {
   position: absolute;
-  left: 5.97vw;
-  width: 1230px;
-  height: 4px;
+  left: 5.95vw;
+  width: 80.1vw;
+  height: 0.42vh;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237CCF8AFF' stroke-width='8' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   z-index: 20;
 }
@@ -601,6 +605,7 @@ h3 {
   color: #CCCF7C;
   position: relative;
   top: 0.8vh;
+  width: 30vw;
 }
 
 .performance-form {
@@ -615,6 +620,10 @@ h3 {
   left: 13.5vw;
 }
 
+.allocation-inputs {
+  position: absolute;
+}
+
 .username-header {
   position: absolute;
   top: 7vh;
@@ -622,12 +631,9 @@ h3 {
 }
 
 .blob0-svg {
-  position: absolute;
   top: -19vh;
   left: 27vw;
   width: 75%;
-  height: auto;
-  z-index: -2;
   -webkit-mask-image: linear-gradient(
     rgb(0 0 0 / 0) 22%,
     rgb(0 0 0 / 0.8) 50%,
@@ -645,12 +651,9 @@ h3 {
 }
 
 .blob1-svg {
-  position: absolute;
   top: 38vh;
   left: -2vw;
   width: 40%;
-  height: auto;
-  z-index: -2;
     -webkit-mask-image: linear-gradient(
     rgb(0 0 0 / 0) 22%,
     rgb(0 0 0 / 0.8) 50%,
@@ -668,13 +671,9 @@ h3 {
 }
 
 .blob2-svg {
-  color: #7c84cf80;
-  position: absolute;
   top: 102vh;
   left: -4vw;
   width: 50%;
-  height: auto;
-  z-index: -2;
     -webkit-mask-image: linear-gradient(
     rgb(0 0 0 / 0) 4%,
     rgb(0 0 0 / 0.85) 25%,
@@ -689,6 +688,350 @@ h3 {
     rgb(0 0 0 / 0.1) 77%,
     rgb(0 0 0 / 0) 80%
   );
+}
+
+.blob {
+  position: absolute;
+  height: auto;
+  z-index: -2;
+}
+
+.dropdown-performance-btn-text {
+  color: #fff;
+  font-weight: 650;
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.dropdown-allocation-btn-text {
+  color: #fff;
+  font-weight: 650;
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.performance-label-input {
+  position: absolute;
+  left: 0vw;
+}
+
+@media (max-width: 576px) {
+  .blob0-svg {
+    top: 35vh;
+  }
+
+  .blob2-svg {
+    top: 115vh;
+  }
+
+  .allocationSection {
+    left: 5.9vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 5vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 5vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 12.3vh;
+    left: 43.5vw;
+    height: 5vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 23vw;
+  }
+}
+
+@media (min-width: 576px) {
+  .blob0-svg {
+    top: 30vh;
+  }
+
+  .blob2-svg {
+    top: 112vh;
+  }
+
+  .allocationSection {
+    left: 12vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0vw;
+    top: 88.9vh;
+    left: 12vw;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+    top: 186.8vh;
+    left: 25.1vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 10vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 10vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 9.9vh;
+    left: 42vw;
+    height: 7vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 23vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .blob0-svg {
+    top: 15vh;
+  }
+
+  .blob2-svg {
+    top: 109vh;
+  }
+
+  .allocationSection {
+    left: 23vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0vw;
+    top: 88.9vh;
+    left: 12vw;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+    top: 186.8vh;
+    left: 25.1vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 10vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 10vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 10.1vh;
+    left: 34vw;
+    height: 7vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 18vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .blob0-svg {
+    top: 5vh;
+  }
+
+  .blob2-svg {
+    top: 106vh;
+  }
+
+  .allocationSection {
+    left: 30vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0.9vw;
+    top: 88.7vh;
+    left: 25vw;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 1vw;
+    top: 186.8vh;
+    left: 25.1vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 23vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 23vw;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 6.2vh;
+    left: 27.5vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 15vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .blob0-svg {
+    top: -9vh;
+  }
+
+  .blob2-svg {
+    top: 104vh;
+  }
+
+  .allocationSection {
+    left: 33vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 1vw;
+    top: 88.3vh;
+    left: 24.5vw;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 1vw;
+    top: 186.4vh;
+    left: 24.8vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 23vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 23vw;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 5.8vh;
+    left: 19.5vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 8.5vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .blob0-svg {
+    top: -19vh;
+  }
+
+  .blob2-svg {
+    top: 102vh;
+  }
+
+  .allocationSection {
+    left: 35vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 1.1vw;
+    top: 88vh;
+    left: 24.2vw;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 1.1vw;
+    top: 185.9vh;
+    left: 24.2vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 23vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 23vw;
+  }
+
+  .addPerformanceBtn {
+    top: 65vh;
+    left: 38vw;
+  }
+
+  .addAllocationBtn {
+    top: 4.2vh;
+    left: 10.8vw;
+  }
+
+  .performance-label-input {
+    top: 0vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 0vw;
+  }
 }
 
 @property --gradient-angle {
