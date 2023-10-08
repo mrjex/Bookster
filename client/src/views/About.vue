@@ -31,11 +31,6 @@
   </div>
 
     <h4 id="entrusted-project-h4">Our other entrusted project:</h4>
-
-    <!--
-    <div id="myCircle"></div>
-    <div id="myCircle2"></div>
-    -->
     <div id="page-background"></div>
 
     <!--
