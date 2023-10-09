@@ -11,7 +11,9 @@
         </b-jumbotron>
         <h3>Reviews</h3>
         <div v-for="review in reviews" :key="review.id">
-            <Review :review="review" />
+          <div class="py-2">
+              <Review :review="review" />
+          </div>
         </div>
     </b-container>
 </template>

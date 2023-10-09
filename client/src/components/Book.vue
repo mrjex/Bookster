@@ -1,5 +1,4 @@
 <template>
-  <b-col @click.prevent="this.viewBook">
     <b-card no-body class="overflow-hidden text-left" role="button" @click="this.viewBook">
       <b-row no-gutters>
         <b-col md="2">
@@ -17,14 +16,14 @@
         </b-col>
       </b-row>
     </b-card>
-  </b-col>
 </template>
 <script>
 export default {
+  name: 'Book',
   props: ['book'],
   methods: {
     viewBook(e) {
-      this.$router.push(`/books/${this.book.id}`)
+      this.$router.push(`/books/${this.book.id || this.book.isbn}`)
     }
   }
 }
