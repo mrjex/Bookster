@@ -4,6 +4,7 @@
       <Navbar />
     </header>
 
+    <h3 class="username-header">{{ user }}'s progress:</h3>
     <h2 class="chart-header current-performance-chart-text">PERFORMANCE CHART: {{convertToSelectedPerformanceChartHeader()}}</h2>
     <h2 class="chart-header current-allocation-chart-text">ALLOCATION CHART: {{convertToSelectedAllocationChartHeader()}}</h2>
 
@@ -20,8 +21,6 @@
 
     <div class="dotted-line performance-dotted-line"></div>
     <div class="dotted-line allocation-dotted-line"></div>
-
-    <h3 class="username-header">{{ user }}'s progress:</h3>
 
     <div>
       <div>
@@ -398,8 +397,6 @@ export default {
 <style scoped>
 h3 {
   color: #7dcfcb;
-  font-size: clamp(2.5rem, 4.5vw + 0.8rem, 2.5em);
-  line-height: 1;
   font-weight: 650;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
@@ -584,7 +581,7 @@ h3 {
 
 .chart-header {
   position: absolute;
-  left: 28vw;
+  left: 33vw;
   z-index: 30;
   color:#7CCF8A;
   font-size: 2vw;
@@ -640,7 +637,7 @@ h3 {
 .username-header {
   position: absolute;
   top: 7vh;
-  left: 2vw;
+  left: 6vw;
 }
 
 .blob0-svg {
@@ -778,6 +775,10 @@ h3 {
     top: 0vh;
     left: 23vw;
   }
+
+  h3 {
+    font-size: 2.85vw;
+  }
 }
 
 @media (min-width: 576px) {
@@ -831,6 +832,10 @@ h3 {
   .allocation-inputs {
     top: 0vh;
     left: 23vw;
+  }
+
+  h3 {
+    font-size: 2.55vw;
   }
 }
 
@@ -886,6 +891,10 @@ h3 {
     top: 0vh;
     left: 18vw;
   }
+
+  h3 {
+    font-size: 2.45vw;
+  }
 }
 
 @media (min-width: 992px) {
@@ -938,6 +947,10 @@ h3 {
   .allocation-inputs {
     top: 0vh;
     left: 15vw;
+  }
+
+  h3 {
+    font-size: 2.38vw;
   }
 }
 
@@ -992,6 +1005,10 @@ h3 {
     top: 0vh;
     left: 8.5vw;
   }
+
+  h3 {
+    font-size: 2.27vw;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -1044,6 +1061,10 @@ h3 {
   .allocation-inputs {
     top: 0vh;
     left: 0vw;
+  }
+
+  h3 {
+    font-size: 2.2vw;
   }
 }
 
