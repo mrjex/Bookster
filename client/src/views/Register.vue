@@ -1,32 +1,35 @@
 <template>
-    <form @submit.prevent="handleSubmit">
-        <div>
-            <NavComponent />
-        </div>
+  <div>
+    <div>
+      <NavComponent />
+    </div>
+    <b-container>
+      <b-form @submit.prevent="handleSubmit">
         <h3>Sign Up</h3>
-
         <div class="form-group">
-            <label>Username</label>
-            <input type="username" class="form-control" v-model="username" placeholder="Username"/>
-        </div>
-
-         <div class="form-group">
-            <label>Age</label>
-            <input type="age" class="form-control" v-model="age" placeholder="Age"/>
+          <label>Username</label>
+          <input type="username" class="form-control" v-model="username" placeholder="Username" />
         </div>
 
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" v-model="password" placeholder="Password"/>
+          <label>Age</label>
+          <input type="age" class="form-control" v-model="age" placeholder="Age" />
         </div>
 
         <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" class="form-control" v-model="password_confirm" placeholder="Confirm Password"/>
+          <label>Password</label>
+          <input type="password" class="form-control" v-model="password" placeholder="Password" />
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" v-model="password_confirm" placeholder="Confirm Password" />
         </div>
 
         <button class="btn btn-primary btn-block">Sign Up</button>
-    </form>
+      </b-form>
+    </b-container>
+  </div>
 </template>
 
 <script>

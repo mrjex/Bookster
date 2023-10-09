@@ -40,7 +40,7 @@ export default {
       if (result.status === 200 && result.data.length > 0) {
         UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
         UtilsComponent.methods.setRefreshablePageState()
-        this.$router.push('/home')
+        this.$router.push('/')
       }
     }
   },
