@@ -3,7 +3,7 @@
       <div class="container">
         <div class="collapse navbar-collapse">
           <div>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
           </div>
           <ul class="navbar-nav ml-auto">
             <div>

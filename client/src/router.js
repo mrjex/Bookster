@@ -33,7 +33,7 @@ const router = new Router({
       component: About
     },
     {
-      path: '/home',
+      path: '/',
       // name: 'Home',
       component: Home,
       meta: { requiresAuth: true }
