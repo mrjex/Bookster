@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <b-jumbotron class="video-container" lead="Search for a book">
       <h1 class="caption">Bookster</h1>
       <!-- <h3 class="subtitle">From the creators of <a href="https://github.com/indomet/wioplay" target="_blank">WioPlay</a></h3> -->
@@ -11,28 +10,24 @@
         <b-input-group class="mt-3">
           <b-form-input v-model="keyword" placeholder="Enter a keyword"></b-form-input>
 
-            <b-input-group-append>
-              <b-button
-            class="btn_message"
-            type="submit"
-            variant="primary"
-            >Search</b-button>
-          <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button>
-              <!-- <b-input-group-text><b-icon-eye-fill></b-icon-eye-fill></b-input-group-text> -->
-            </b-input-group-append>
+          <b-input-group-append>
+            <b-button class="btn_message" type="submit" variant="primary">Search</b-button>
+            <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button>
+            <!-- <b-input-group-text><b-icon-eye-fill></b-icon-eye-fill></b-input-group-text> -->
+          </b-input-group-append>
 
           <b-modal id="modal-1" title="Scan Your Book's Bar Code">
             <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
           </b-modal>
         </b-input-group>
       </b-form>
-      <b-spinner v-if="loading" label="Loading"></b-spinner>
-      <b-row v-for="result in results" :key="result.id" class="my-4">
-        <Book :book="result">
-          <b-button variant="info" v-on:click="() => addBook(result)">Add to library</b-button>
-        </Book>
-      </b-row>
     </b-jumbotron>
+    <b-spinner v-if="loading" label="Loading"></b-spinner>
+    <div v-for="result in results" :key="result.id" class="py-2">
+      <Book :book="result">
+        <b-button variant="info" @click.stop="() => addBook(result)">Add to library</b-button>
+      </Book>
+    </div>
   </div>
 </template>
 <script>
