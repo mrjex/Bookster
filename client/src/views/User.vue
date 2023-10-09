@@ -1,58 +1,54 @@
 <template>
   <div>
     <b-container>
-
-      <h3>This is your profile, {{ user }}</h3>
+      <h3>{{ user }}'s profile:</h3>
+      <!--
       <button class="btn btn-primary btn-block your-books-button" @click.prevent="booksButton">Your Books</button>
       <button class="btn btn-primary btn-block your-progress-button" @click.prevent="progressButton">Your Progress</button>
       <button class="btn btn-primary btn-block your-reviews-button" @click.prevent="reviewsButton">Your Reviews</button>
-      <button class="btn btn-danger btn-block delete-account-button" v-b-modal.modal-1>Delete Account</button>
-
-      <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
-        <p class="my-4">This will delete your account permanently</p>
-      </b-modal>
-
+      -->
     </b-container>
 
     <div id="page-background"></div>
 
-    <div class="container">
-
+    <div class="card-container">
       <div class="row">
-        <div class="image">
-          <img src="../resources/BookPic1.png" alt="yo">
-          <div class="details">
-            <h2>Your <span>Books</span></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
-            <div class="more">
-              <a href="#" class="read-more">Read <span>More</span></a>
+        <a @click.prevent="booksButton">
+          <div class="image">
+            <img src="../resources/BookPic1.png">
+            <div class="details">
+              <h2>Your <span>Books</span></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="image">
-          <img src="../resources/Linechart1.png" alt="yo">
-          <div class="details">
-            <h2>Your <span>Progress</span></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
-            <div class="more">
-              <a href="#" class="read-more">Read <span>More</span></a>
+        <a @click.prevent="progressButton">
+          <div class="image">
+            <img src="../resources/Linechart1.png">
+            <div class="details">
+              <h2>Your <span>Progress</span></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="image">
-          <img src="../resources/Reviews1.png" alt="yo">
-          <div class="details">
-            <h2>Your <span>Reviews</span></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
-            <div class="more">
-              <a href="#" class="read-more">Read <span>More</span></a>
+        <a @click.prevent="reviewsButton">
+          <div class="image">
+            <img src="../resources/Reviews1.png">
+            <div class="details">
+              <h2>Your <span>Reviews</span></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
+
+    <button class="btn btn-danger btn-block delete-account-button" v-b-modal.modal-1>Delete Account</button>
+      <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
+        <p class="my-4">This will delete your account permanently</p>
+      </b-modal>
   </div>
 </template>
 
@@ -86,6 +82,59 @@ export default {
 </script>
 
 <style scoped>
+.blob {
+  position: absolute;
+  height: auto;
+}
+
+.blob0-svg {
+  top: -9vh;
+  left: 27vw;
+  width: 55%;
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  z-index: -2;
+}
+
+.blob1-svg {
+  top: -9vh;
+  left: 14vw;
+  width: 55%;
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  z-index: -3;
+}
+
+h3 {
+  color: #7dcfcb;
+  font-weight: 650;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
 .your-books-button {
   border: none;
   position: relative;
@@ -142,10 +191,13 @@ export default {
 }
 
 .delete-account-button {
-  position: relative;
-  width: 35.2vw;
-  left: 17.9vw;
+  position: absolute;
+  width: 131px;
+  top: 1.2vh;
+  left: 65.9vw;
   border-radius: 2vh;
+  background-color: #CF7C7C;
+  border: none;
 }
 
 #page-background {
@@ -155,7 +207,7 @@ export default {
   height: 400vh;
   background-color: #343434;
   position: absolute;
-  z-index: -3;
+  z-index: -10;
 }
 
 /*
@@ -172,8 +224,11 @@ export default {
   background-color: rgba(134, 134, 134, 0);
 }
 
-.container {
+.card-container {
   margin: 30px;
+  position: absolute;
+  top: 7.2vh;
+  left: 8.4vw;
 }
 
 .row {
@@ -187,10 +242,12 @@ export default {
   background: #d5808000;
   position: relative;
   flex: 1;
-  max-width: 540px;
+  max-width: 400px;
   height: 280px;
-  margin: 20px;
+  margin: 15px;
   overflow: hidden;
+  cursor: pointer;
+  border-radius: 2vh;
 }
 
 .image img {
@@ -247,12 +304,6 @@ export default {
   opacity: 1;
   transform: translateY(-40px);
 }
-
-/*
-12:10 - 15:30
-.more {
-}
-*/
 
 @media (max-width: 1080px) {
   .image {
