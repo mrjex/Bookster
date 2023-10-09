@@ -1,16 +1,12 @@
 <template>
   <div>
-    <!-- <img src="../resources/AboutBooksterDescription.png" class="about-img-card"> PREVIOUS -->
     <img src="../resources/About-Pic-Top-Img2.png" class="hero-image">
     <h1 class="hero-title">Bookster</h1>
     <h1 class="hero-text">Where literacy becomes prosperity.</h1>
 
-    <!-- <img src="../resources/DynamicTopScreensTemplate.png" class="top-screen-template"> -->
     <img src="../resources/DynamicBottomScreensTemplate2.png" class="bottomTemplate">
-    <h4 id="transform-reading-game-h4" class="feature-text">Transform reading into a game.</h4>
     <div class="tempVideoShape"></div>
 
-    <!-- <img src="../resources/Bookster-Waves-Background.svg" class="waves-top"> -->
     <img src="../resources/blob.svg" class="blob-svg">
     <img src="../resources/blob2.svg" class="blob-svg2">
     <img src="../resources/blob3.svg" class="blob-svg3">
@@ -23,7 +19,6 @@
       <h4>Why Trust Bookster?</h4>
       </div>
     <div class="card-body">
-      <!-- <h5 class="card-title">From the creators of WioPlay:</h5> -->
       <p class="card-text">From the creators of WioPlay: An entrusted prominent project that yields joy and happiness
         while cultivating self-love by focusing on enhancing our users' physical health
       </p>
@@ -33,68 +28,59 @@
     <h4 id="entrusted-project-h4">Our other entrusted project:</h4>
     <div id="page-background"></div>
 
-    <!--
-    <video autoplay muted loop class="changing-texts">
-      <source src="../resources/ChangingTexts.mp4">
-    </video>
-
-    <div id="change-image-box">
-      <video autoplay muted loop class="changing-images">
-        <source src="../resources/Bookster-AboutPage-ChangingImages.mp4">
-      </video>
-    </div>
-    -->
-
     <video autoplay muted loop class="wioplay-demo">
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
     </video>
 
     <button type="button" class="btn-2">JOIN BOOKSTER</button>
+    <h1 id="transform-reading-game">Transform reading into a game.</h1>
 
-    <div id="carouselTest">
-      <b-carousel
-        id="carousel-1"
-        v-model="slide"
-        :interval="4000"
-        controls
-        indicators
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        style="text-shadow: 1vh 1vh 1vh #333;"
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd">
-        <!-- Text slides with image -->
-        <b-carousel-slide
-          caption="Performance Charts"
-          text="Track your daily progress."
-          img-src="https://i.ibb.co/6PStNss/Bookster-Performance-Charts2.png"
-        ></b-carousel-slide>
+    <div class="carousel-group">
+      <div id="carouselTest">
+        <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="4000"
+          controls
+          indicators
+          background="#ababab"
+          img-width="1024"
+          img-height="480"
+          style="text-shadow: 1vh 1vh 1vh #333;"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd">
 
-        <b-carousel-slide
-          caption="Allocation Charts"
-          text="Track your distribution of completed books."
-          img-src="https://i.ibb.co/fC9C9pd/Bookster-Allocation-Charts.png">
-        </b-carousel-slide>
+          <b-carousel-slide
+            caption="Performance Charts"
+            text="Track your daily progress."
+            img-src="https://i.ibb.co/6PStNss/Bookster-Performance-Charts2.png"
+          ></b-carousel-slide>
 
-        <b-carousel-slide
-          caption="Why even bother to join the game of literacy?"
-          text="Reading for pleasure is the single biggest indicator of a child's future success."
-          img-src="https://i.ibb.co/7JYM3QM/Carousel-Stats-Pic-Test4.png"
-        ></b-carousel-slide>
+          <b-carousel-slide
+            caption="Allocation Charts"
+            text="Track your distribution of completed books."
+            img-src="https://i.ibb.co/fC9C9pd/Bookster-Allocation-Charts.png">
+          </b-carousel-slide>
 
-        <b-carousel-slide
-          caption="Why even bother to join the game of literacy?"
-          text="85% of self-made millionaires read two or more books per month."
-          img-src="https://i.ibb.co/MNnvFg8/Carousel-Stats-Pic-Test8.png"
-        ></b-carousel-slide>
+          <b-carousel-slide
+            caption="Why even bother to join the game of literacy?"
+            text="Reading for pleasure is the single biggest indicator of a child's future success."
+            img-src="https://i.ibb.co/7JYM3QM/Carousel-Stats-Pic-Test4.png"
+          ></b-carousel-slide>
 
-        <b-carousel-slide
-          caption="Why even bother to join the game of literacy?"
-          text="Increase your imagination and creativity."
-          img-src="https://i.ibb.co/ccY0z5h/Coursel-Test-Img3-2.png"
-        ></b-carousel-slide>
-      </b-carousel>
+          <b-carousel-slide
+            caption="Why even bother to join the game of literacy?"
+            text="85% of self-made millionaires read two or more books per month."
+            img-src="https://i.ibb.co/MNnvFg8/Carousel-Stats-Pic-Test8.png"
+          ></b-carousel-slide>
+
+          <b-carousel-slide
+            caption="Why even bother to join the game of literacy?"
+            text="Increase your imagination and creativity."
+            img-src="https://i.ibb.co/ccY0z5h/Coursel-Test-Img3-2.png"
+          ></b-carousel-slide>
+        </b-carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -198,7 +184,6 @@ h4 {
 
 .wioplayCard {
   position: absolute;
-  top: 310vh;
   left: 15vw;
 }
 
@@ -211,13 +196,18 @@ h4 {
 .bottomTemplate {
   position: absolute;
   top: 180vh;
+  width: 100vw;
+  height: auto;
 }
 
-#transform-reading-game-h4 {
+#transform-reading-game {
   position: absolute;
-  top: 196.5vh;
-  left: 37vw;
+  width: 60vw;
   font-weight: 900;
+  color: #7dcfcb;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
 
 #page-background {
@@ -231,15 +221,10 @@ h4 {
 }
 
 #carouselTest {
-  position: relative;
-  /*
-  Position with 'DynamicBottomScreensTemplate' activated
-  top: 70vh;
-  left: 12.5vw;
-  */
   top: 210vh;
   left: 12.5vw;
-  width: 155vh;
+  position: relative;
+  width: 75vw;
   height: auto;
 }
 
@@ -307,7 +292,6 @@ h4 {
 }
 
 .wioplay-demo {
-  top: 310vh;
   left: 47vw;
   width: 40%;
   height: auto;
@@ -415,6 +399,11 @@ h4 {
   height: auto;
 }
 
+.carousel-group {
+  position: absolute;
+  left: 0vw;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -432,6 +421,24 @@ h4 {
     font-size: 0.8em;
     color: rgb(85, 115, 204);
   }
+
+  .carousel-group {
+    top: -19vh;
+  }
+
+  #transform-reading-game {
+    top: 185.7vh;
+    left: 34vw;
+    font-size: 1.85vw;
+  }
+
+  .wioplay-demo {
+    top: 224vh;
+  }
+
+  .wioplayCard {
+    top: 224vh;
+  }
 }
 
 @media (min-width: 576px) {
@@ -443,6 +450,24 @@ h4 {
    h4 {
     font-size: 0.9em;
     color: rgb(238, 203, 115);
+  }
+
+  .carousel-group {
+    top: -15vh;
+  }
+
+  #transform-reading-game {
+    top: 188vh;
+    left: 35vw;
+    font-size: 1.7vw;
+  }
+
+  .wioplay-demo {
+    top: 240vh;
+  }
+
+  .wioplayCard {
+    top: 240vh;
   }
 }
 
@@ -456,6 +481,24 @@ h4 {
     font-size: 1.0em;
     color: rgb(255, 10, 75);
   }
+
+  .carousel-group {
+    top: -10.5vh;
+  }
+
+  #transform-reading-game {
+    top: 189.5vh;
+    left: 35.5vw;
+    font-size: 1.7vw;
+  }
+
+  .wioplay-demo {
+    top: 260vh;
+  }
+
+  .wioplayCard {
+    top: 260vh;
+  }
 }
 
 @media (min-width: 992px) {
@@ -468,6 +511,24 @@ h4 {
     font-size: 1.1em;
     color: rgb(247, 255, 10);
   }
+
+  .carousel-group {
+    top: -6vh;
+  }
+
+  #transform-reading-game {
+    top: 191.5vh;
+    left: 35vw;
+    font-size: 1.6vw;
+  }
+
+  .wioplay-demo {
+    top: 278vh;
+  }
+
+  .wioplayCard {
+    top: 278vh;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -479,6 +540,24 @@ h4 {
    h4 {
     font-size: 1.2em;
     color: blue;
+  }
+
+  .carousel-group {
+    top: -3vh;
+  }
+
+  #transform-reading-game {
+    top: 195.5vh;
+    left: 38vw;
+    font-size: 1.4vw;
+  }
+
+  .wioplay-demo {
+    top: 297vh;
+  }
+
+  .wioplayCard {
+    top: 297vh;
   }
 }
 
@@ -497,8 +576,26 @@ h4 {
   }
 
   .changing-texts {
-  width: 40%;
-  height: auto;
-}
+    width: 40%;
+    height: auto;
+  }
+
+  .carousel-group {
+    top: 0vh;
+  }
+
+  #transform-reading-game {
+    top: 197vh;
+    left: 37vw;
+    font-size: 1.4vw;
+  }
+
+  .wioplay-demo {
+    top: 310vh;
+  }
+
+  .wioplayCard {
+    top: 310vh;
+  }
 }
 </style>
