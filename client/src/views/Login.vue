@@ -25,16 +25,20 @@
           </div>
       </form>
 
-      <a href="/register">
-        <button class="input-btn signup2-btn">Sign up</button>
+      <a href="/about">
+        <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo">
       </a>
-      <img src="../resources/LoginCardPicture1.png" class="card0-background">
+
+      <a href="/register">
+        <button class="signup2-btn">Sign up</button>
+      </a>
+      <img src="../resources/LoginCardPicture1.png" class="card0-background2">
     </div>
 
     <img src="../resources/LoginCardPicture6.png" class="card1-background">
 
     <div id="page-background"></div>
-    <div id="card-background"></div>
+    <div id="card2-background"></div>
     <div id="card0-background"></div>
   </div>
 </template>
@@ -82,26 +86,28 @@ export default {
   z-index: -15;
 }
 
-#card-background {
+#card2-background {
   background-color: #073438;
   width: 400px;
-  height: 550px;
+  height: 300px;
   position: absolute;
   left: 35vw;
-  top: 13vh;
+  top: 55vh;
   border-radius: 0.8vw;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: 11;
 }
 
-.card0-background {
+.card0-background2 {
   /*
   width: 400px;
   height: 290px;
   */
   position: absolute;
   left: 35vw;
-  top: 13vh;
+  top: 23.75vh;
   z-index: 10;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .card1-background {
@@ -135,9 +141,11 @@ export default {
 
 .signup2-btn {
   position: relative;
-  left: 45vw;
-  top: 30vh;
+  left: 45.5vw;
+  top: 40vh;
   z-index: 35;
+  border-radius: 3vh;
+  background-color: #e3e3e3;
 }
 
 .no-account {
@@ -145,8 +153,8 @@ export default {
   font-weight: 420;
   font-size: 15px;
   position: relative;
-  top: -35vh;
-  left: 1.4vw;
+  top: -21vh;
+  left: 1.84vw;
 }
 
 .welcome-text {
@@ -154,7 +162,7 @@ export default {
   font-weight: 500;
   font-size: 20px;
   position: relative;
-  top: -12.5vh;
+  top: -9.5vh;
   left: 3.36vw;
 }
 
