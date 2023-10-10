@@ -3,7 +3,7 @@
     <b-container>
       <h3>{{user}}'s reviews:</h3>
       <b-row v-for="result in reviews" :key=result.id class="my-4">
-        <Review :review=result :booktitle=result.isbn :bookcover=result.isbn>
+        <Review :review=result >
         </Review>
       </b-row>
     </b-container>

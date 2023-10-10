@@ -3,10 +3,10 @@
     <b-card no-body class="overflow-hidden text-left" role="button">
       <b-row no-gutters>
         <b-col md="2">
-          <b-card-img :src="bookcover" class="rounded-0"></b-card-img>
+          <b-card-img :src= this.bookinfo.coverURL class="rounded-0"></b-card-img>
         </b-col>
         <b-col md="10">
-          <b-card-body :title="booktitle">
+          <b-card-body :title= this.bookinfo.title>
             <b-card-text>
               <b-col>
                 <p>
@@ -15,9 +15,6 @@
                 <div>
                   <b-form-rating :value = review.rating  no-border readonly show-value></b-form-rating>
                 </div>
-                <p>
-                  {{ book }}
-                </p>
             </b-col>
             </b-card-text>
             <slot></slot>
@@ -30,12 +27,15 @@
 <script>
 import { Api } from '../Api'
 export default {
-  props: ['review', 'booktitle', 'bookcover'],
+  props: ['review'],
+  data() {
+    return {
+      bookinfo: { coverURL: ' ', title: ' ' }
+    }
+  },
   async created() {
-    const result = await Api.get(`/books/${this.booktitle}`)
-    this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
-    console.warn(this.reviews)
-    console.log(this.review)
+    const result = await Api.get(`/books/${this.review.isbn}`)
+    this.bookinfo = result.data
   }
 }
 </script>
