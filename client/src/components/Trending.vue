@@ -1,33 +1,26 @@
 <template>
   <div>
     <h1>Trending Books</h1>
-    <b-row class="justify-content-center">
-      <div v-for="book in books" :key="book.isbn">
-        <b-col class="flex-fill">
-          <b-card :title="book.title" :img-src="book.coverURL" img-alt="Image" img-top tag="article"
-            style="max-width: 20rem;" class="bookCard mb-2">
-            <b-card-text>
-              {{ book.description }}
-            </b-card-text>
-            <b-button href="#" variant="primary">Add</b-button>
-          </b-card>
-        </b-col>
+      <div class="justify-content-center" v-for="book in books" :key="book.isbn">
+        <div class="py-2">
+          <Book :book=book />
+        </div>
       </div>
-    </b-row>
   </div>
 </template>
 <script>
 import { Api } from '../Api'
+import Book from './Book.vue'
 
 export default {
   name: 'trending',
+  components: {
+    Book
+  },
   data() {
     return {
       books: []
     }
-  },
-  methods: {
-
   },
   async created() {
     const { data } = await Api.get('/books/trending')

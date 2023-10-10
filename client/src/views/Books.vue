@@ -2,11 +2,13 @@
   <form @submit.prevent="handleBookSubmit">
     <b-container>
       <h3>{{ user }}'s books:</h3>
+
+      <span v-if="!this.books.length">You have no books</span>
       <b-row v-for="(result) in books" :key=result.isbn class="my-4">
         <Book :book=result>
-          <b-button v-b-modal="`modal-${result.isbn}`" variant="danger">Remove from
+          <b-button @click.stop="" v-b-modal="`modal-${result.isbn}`" variant="danger">Remove from
             library</b-button>
-          <b-button v-b-modal="`review-${result.isbn}`" class="mx-2">Review</b-button>
+          <b-button @click.stop="" v-b-modal="`review-${result.isbn}`" class="mx-2">Review</b-button>
 
           <b-modal :id="`review-${result.isbn}`" title="Review Book" @ok="() => reviewBook(result)">
             <b-form-textarea id="textarea" v-model="result.review" placeholder="Enter something..." rows="3"
