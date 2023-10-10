@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div>
-    </div>
-    <div class="auth-wrapper">
+    <div class="auth-wrapper" id="container-background">
       <div class="auth-inner">
           <OnSiteComponent v-if="this.$route.meta.requiresAuth" />
+          <b-container class="py-3">
           <router-view />
+          </b-container>
         </div>
     </div>
   </div>
@@ -24,13 +24,11 @@ export default {
 </script>
 
 <style>
-/*
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  color: white !important;
+  background-color: #343434 !important;
 }
-*/
+.card-body {
+  color: black;
+}
 </style>

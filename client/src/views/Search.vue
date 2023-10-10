@@ -67,13 +67,15 @@ export default {
     async onDecode(decodedString) {
       console.log(decodedString)
       this.$bvModal.hide('modal-1')
-      // this.playSound()
+      this.playSound()
+      setTimeout(() => {
+        const utterance = new SpeechSynthesisUtterance()
+        utterance.text = 'Book has been scanned'
+        utterance.voice = window.speechSynthesis.getVoices()[158]
+        window.speechSynthesis.speak(utterance)
+      }, 1000)
       await this.getMessage(null, decodedString)
-      console.log(window.speechSynthesis.getVoices())
-      const utterance = new SpeechSynthesisUtterance()
-      utterance.text = 'Book has been scanned'
-      utterance.voice = window.speechSynthesis.getVoices()[158]
-      window.speechSynthesis.speak(utterance)
+
       // Api.get(`/books/search/${decodedString}`)
       //   .then((response) => {
       //     console.log(response.data)

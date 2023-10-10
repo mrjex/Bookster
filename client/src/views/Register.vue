@@ -1,9 +1,9 @@
 <template>
   <div>
     <form @submit.prevent="handleSubmit" class="signup-form">
-        <div>
+        <!-- <div>
             <NavComponent />
-        </div>
+        </div> -->
         <h4 class="welcome2-text">WELCOME</h4>
 
         <h4 class="have-account">Already have an account?</h4>
@@ -50,7 +50,7 @@
 
 <script>
 import { Api } from '../Api'
-import NavComponent from '../components/NavComponent.vue'
+// import NavComponent from '../components/NavComponent.vue'
 export default {
   name: 'Register',
   data() {
@@ -100,7 +100,7 @@ export default {
     }
   },
   components: {
-    NavComponent
+    // NavComponent
   }
 }
 </script>

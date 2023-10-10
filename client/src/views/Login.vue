@@ -3,9 +3,9 @@
 
     <div class="middle-card">
       <form @submit.prevent="handleSubmit" class="login-form">
-          <div>
+          <!-- <div>
               <NavComponent />
-          </div>
+          </div> -->
 
           <h4 class="no-account">Don't have an account?</h4>
           <h4 class="welcome-text">WELCOME</h4>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import NavComponent from '../components/NavComponent.vue'
+// import NavComponent from '../components/NavComponent.vue'
 import UtilsComponent from '../components/UtilsComponent.vue'
 
 import { Api } from '../Api'
@@ -65,12 +65,12 @@ export default {
         UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
         UtilsComponent.methods.setRefreshablePageState()
         UtilsComponent.methods.setHasAddedAllocationCategory(false)
-        this.$router.push('/home')
+        this.$router.push('/')
       }
     }
   },
   components: {
-    NavComponent
+    // NavComponent
   }
 }
 </script>
