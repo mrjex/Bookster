@@ -1,22 +1,28 @@
 <template>
-  <b-container>
-  <!-- Using components -->
-  <!-- <b-input-group class="mt-3">
-    <b-form-input></b-form-input>
-    <b-input-group-append>
-      <b-input-group-text><b-icon-search></b-icon-search></b-input-group-text>
-    </b-input-group-append>
-  </b-input-group> -->
+  <div>
+    <b-container>
+        <Search />
+        <Trending />
+      </b-container>
 
-      <Search />
-      <Trending />
-    </b-container>
+    <div id="page-background"></div>
+  </div>
 </template>
 
 <style>
 
 .video-container {
     position: relative;
+}
+
+#page-background {
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 400vh;
+  background-color: #343434;
+  position: absolute;
+  z-index: -3;
 }
 
 .video-container video {
