@@ -25,7 +25,7 @@
     <b-spinner v-if="loading" label="Loading"></b-spinner>
     <div v-for="result in results" :key="result.id" class="py-2">
       <Book :book="result">
-        <b-button variant="info" @click.stop="() => addBook(result)">Add to library</b-button>
+        <AddButton :book="result" />
       </Book>
     </div>
   </div>
@@ -36,10 +36,11 @@ import { Api } from '@/Api'
 import { StreamBarcodeReader } from 'vue-barcode-reader'
 import sound from '../../assets/scan.mp3'
 import Book from '../components/Book.vue'
+import AddButton from '../components/AddButton.vue'
 
 export default {
   name: 'home',
-  components: { Book, StreamBarcodeReader },
+  components: { Book, StreamBarcodeReader, AddButton },
   inject: ['user'],
   data() {
     return {
@@ -66,9 +67,13 @@ export default {
     async onDecode(decodedString) {
       console.log(decodedString)
       this.$bvModal.hide('modal-1')
-      this.playSound()
+      // this.playSound()
       await this.getMessage(null, decodedString)
-
+      console.log(window.speechSynthesis.getVoices())
+      const utterance = new SpeechSynthesisUtterance()
+      utterance.text = 'Book has been scanned'
+      utterance.voice = window.speechSynthesis.getVoices()[158]
+      window.speechSynthesis.speak(utterance)
       // Api.get(`/books/search/${decodedString}`)
       //   .then((response) => {
       //     console.log(response.data)
@@ -81,27 +86,7 @@ export default {
     onLoaded() {
       console.log('scanner has loaded')
     },
-    async addBook(book) {
-      try {
-        await Api.post(`/users/${this.user}/books/add`, {
-          title: book.title,
-          author: 'Tony Robbins',
-          pages: book.pages,
-          isbn: book.id
-        })
-        this.$bvToast.toast('Success', {
-          title: 'Added book to library',
-          autoHideDelay: 5000,
-          appendToast: false
-        })
-      } catch {
-        this.$bvToast.toast('Error', {
-          title: 'Something went wrong',
-          autoHideDelay: 5000,
-          appendToast: false
-        })
-      }
-    },
+
     playSound() {
       const audio = new Audio(sound)
       audio.play()
