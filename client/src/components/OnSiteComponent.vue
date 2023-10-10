@@ -13,7 +13,7 @@
                      </li>
                 </div>
             </div>
-            <div>
+            <div v-if="this.$route.name !== 'Profile'">
                 <b-button variant="outline-primary"
                 @click.prevent="profileButton">Profile</b-button>
             </div>
