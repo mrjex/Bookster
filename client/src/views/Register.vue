@@ -4,6 +4,7 @@
         <div>
             <NavComponent />
         </div>
+        <h4 class="welcome2-text">WELCOME</h4>
 
         <h4 class="have-account">Already have an account?</h4>
 
@@ -27,16 +28,23 @@
             <input type="password" class="input-btn" v-model="password_confirm" placeholder="Confirm Password"/>
         </div>
 
-        <button class="input-btn signup-btn">Sign Up</button>
+        <button class="input-btn signup-btn">SIGN UP</button>
     </form>
 
-      <a href="/login">
-        <button class="input-btn login2-btn">Login</button>
+      <a href="/about">
+        <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo">
       </a>
-      <img src="../resources/LoginCardPicture1.png" class="card0-background">
-      <img src="../resources/LoginCardPicture6.png" class="card1-background">
 
-    <div id="card-background"></div>
+    <a href="/login">
+      <button class="login2-btn">Login</button>
+    </a>
+
+    <div class="card-background-elements">
+      <img src="../resources/LoginCardPicture1.png" class="card0-background">
+      <div id="card-background"></div>
+    </div>
+
+    <img src="../resources/LoginCardPicture6.png" class="card1-background">
   </div>
 </template>
 
@@ -100,17 +108,30 @@ export default {
 <style>
 .input-btn {
   border-radius: 3vh;
+  background-image: linear-gradient(to left, #7DCFCB, #A27CCF);
+  /*
+  background-image: linear-gradient(to left, #7DCFCB, #A27CCF,#7DCFCB);
+  */
+}
+
+.card0-background {
+  position: absolute;
+  left: 35vw;
+  top: 13vh;
+  z-index: 8;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 #card-background {
   background-color: #073438;
   width: 400px;
-  height: 550px;
+  height: 300px;
   position: absolute;
   left: 35vw;
-  top: 13vh;
+  top: 45vh;
   border-radius: 0.8vw;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: 9;
 }
 
 .signup-btn {
@@ -122,16 +143,18 @@ export default {
 
 .signup-form {
   position: absolute;
-  top: 56vh;
-  left: 41vw;
+  top: 62.5vh;
+  left: 42vw;
   z-index: 20;
 }
 
 .login2-btn {
   position: relative;
-  left: 45vw;
-  top: 30vh;
+  left: 46vw;
+  top: 40vh;
   z-index: 35;
+  border-radius: 3vh;
+  background-color: #e3e3e3;
 }
 
 .user2-icon {
@@ -163,8 +186,34 @@ export default {
   font-weight: 420;
   font-size: 15px;
   position: absolute;
-  top: -35vh;
+  top: -26vh;
   left: 1.4vw;
+}
+
+.welcome2-text {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 20px;
+  position: absolute;
+  top: -11vh;
+  left: 3.07vw;
+}
+
+.bookster-logo {
+  position: absolute;
+  aspect-ratio: 520 / 376;
+  width: 290px;
+  /*
+  height: 376px;
+  */
+  top: 1vh;
+  left: 38.5vw;
+  z-index: 15;
+}
+
+.card-background-elements {
+  position: relative;
+  top: 6.7vh;
 }
 
 </style>

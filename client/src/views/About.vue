@@ -32,7 +32,7 @@
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
     </video>
 
-    <button type="button" class="btn-2">JOIN BOOKSTER</button>
+    <button type="button" class="btn-2" @click.prevent="joinBooksterButton">JOIN BOOKSTER</button>
     <h1 id="transform-reading-game">Transform reading into a game.</h1>
 
     <div class="carousel-group">
@@ -104,6 +104,9 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
+    },
+    joinBooksterButton() {
+      this.$router.push('/register')
     }
   }
 }
