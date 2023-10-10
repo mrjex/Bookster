@@ -2,9 +2,8 @@
   <form @submit.prevent="handleBookSubmit">
     <b-container>
       <h3>{{ user }}'s books:</h3>
-
       <span v-if="!this.books.length">You have no books</span>
-      <b-row v-for="(result) in books" :key=result.isbn class="my-4">
+      <div v-for="(result) in books" :key=result.isbn class="my-4">
         <Book :book=result>
           <b-button @click.stop="" v-b-modal="`modal-${result.isbn}`" variant="danger">Remove from
             library</b-button>
@@ -21,7 +20,7 @@
             <p class="my-4">This will remove the book from your library</p>
           </b-modal>
         </Book>
-      </b-row>
+      </div>
     </b-container>
   </form>
 </template>

@@ -44,7 +44,6 @@
       </div>
     </div>
 
-    <button class="btn btn-danger btn-block delete-account-button" v-b-modal.modal-1>Delete Account</button>
       <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
         <p class="my-4">This will delete your account permanently</p>
       </b-modal>
@@ -253,10 +252,6 @@ h3 {
 }
 
 .delete-account-button {
-  position: absolute;
-  width: 131px;
-  top: 1.2vh;
-  left: 65.9vw;
   border-radius: 2vh;
   background-color: #CF7C7C;
   border: none;

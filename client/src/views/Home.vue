@@ -1,28 +1,15 @@
 <template>
   <div>
     <b-container>
-        <Search />
-        <Trending />
-      </b-container>
-
-    <div id="page-background"></div>
+      <Search />
+      <Trending />
+    </b-container>
   </div>
 </template>
 
 <style>
-
 .video-container {
-    position: relative;
-}
-
-#page-background {
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 400vh;
-  background-color: #343434;
-  position: absolute;
-  z-index: -3;
+  position: relative;
 }
 
 .video-container video {
@@ -48,7 +35,7 @@
   color: white;
 }
 
-.main-bg{
+.main-bg {
   z-index: -1000;
   left: 50%;
   width: 100%;
