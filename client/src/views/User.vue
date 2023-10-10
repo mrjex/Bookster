@@ -53,6 +53,8 @@
 
 <script>
 import UtilsComponent from '../components/UtilsComponent.vue'
+// import { BIconBook } from 'bootstrap-vue'
+
 import { Api } from '../Api'
 export default {
   name: 'User',
@@ -76,6 +78,9 @@ export default {
       localStorage.removeItem('logged-in-username')
       this.$router.push('/login')
     }
+  },
+  components: {
+    // BIconBook
   }
 }
 </script>

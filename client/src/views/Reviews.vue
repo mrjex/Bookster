@@ -1,15 +1,23 @@
 <template>
-        <form @submit.prevent="handleBookSubmit">
-        <h3>{{user}}'s reviews:</h3>
-        <h3>{{reviews}}</h3>
-    </form>
+  <form @submit.prevent="handleBookSubmit">
+    <b-container>
+      <h3>{{user}}'s reviews:</h3>
+      <b-row v-for="result in reviews" :key=result.id class="my-4">
+        <Review :review=result >
+        </Review>
+      </b-row>
+    </b-container>
+  </form>
 </template>
 
 <script>
+import Review from '../components/UserPageReview'
 import { Api } from '../Api'
+
 export default {
   name: 'Reviews',
   inject: ['user'],
+  components: { Review },
   data() {
     return {
       reviews: null

@@ -3,7 +3,7 @@
       <div class="container">
         <div class="collapse navbar-collapse">
           <div>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
           </div>
           <ul class="navbar-nav ml-auto">
             <div>
@@ -13,7 +13,7 @@
                      </li>
                 </div>
             </div>
-            <div>
+            <div v-if="this.$route.name !== 'Profile'">
                 <b-button variant="outline-primary"
                 @click.prevent="profileButton">Profile</b-button>
             </div>
