@@ -8,6 +8,33 @@ const BookModel = require('../../models/book')
 const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
+router.get('/trending', async (req, res) => {
+
+    const current_date = new Date();
+    const last_month = new Date().setMonth(current_date.getMonth() - 1)
+
+    const books = new Map();
+
+    // Returns all books of last month
+    const all_users = await User.find({ 'books.createdAt': { $gte: last_month.valueOf() } }, 'books');
+
+    // measures frequency of each book
+    for (const user of all_users) {
+        for (const book of user.books) {
+            const data = await BookInfo.findOne({ isbn: book.isbn });
+            if (data) {
+                const weight = books.get(book.isbn)?.weight || 0;
+                books.set(book.isbn, { ...data._doc, weight: weight + 1 });
+            }
+        }
+    }
+
+    const result = [...books.values()].sort((a, b) => b.weight - a.weight);
+
+    res.json(result)
+
+})
+
 // READ
 router.get('/', async function (req, res, next) {
 
@@ -20,6 +47,18 @@ router.get('/', async function (req, res, next) {
         .link('self', '/api/books/ISBN/reviews')
 
     res.json(linkedJsonObject)
+
+})
+
+
+router.delete('/', async function (req, res, next) {
+
+    await User.updateMany({}, {$set: {
+        books: []
+    }});
+
+    await BookModel.deleteMany({})
+    res.sendStatus(200)
 
 })
 
@@ -43,7 +82,7 @@ router.get('/:isbn', async function (req, res) {
     try {
         const book = await BookInfo.findOne({ isbn });
         const reviews = await Review.find({ isbn })
-        res.json({...book.toJSON(), reviews})
+        res.json({ ...book.toJSON(), reviews })
     }
     catch {
 
@@ -69,33 +108,6 @@ router.get('/:isbn/reviews', async function (req, res, next) {
     catch (error) {
         next(error)
     }
-
-})
-
-router.get('/trending', async (req, res) => {
-
-    const current_date = new Date();
-    const last_month = new Date().setMonth(current_date.getMonth() - 1)
-
-    const books = new Map();
-
-    // Returns all books of last month
-    const all_users = await User.find({ 'books.createdAt': { $gte: last_month.valueOf() } }, 'books');
-
-    // measures frequency of each book
-    for (const user of all_users) {
-        for (const book of user.books) {
-            const data = await BookInfo.findOne({ isbn: book.isbn });
-            if (data) {
-                const weight = books.get(book.isbn)?.weight || 0;
-                books.set(book.isbn, { ...data._doc, weight: weight + 1 });
-            }
-        }
-    }
-
-    const result = [...books.values()].sort((a, b) => b.weight - a.weight);
-
-    res.json(result)
 
 })
 
