@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Review from '../components/Review'
+import Review from '../components/UserPageReview'
 import { Api } from '../Api'
 
 export default {
