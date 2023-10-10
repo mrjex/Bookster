@@ -2,13 +2,12 @@
   <div>
     <b-container>
       <h3>{{ user }}'s profile:</h3>
-      <!--
-      <button class="btn btn-primary btn-block your-books-button" @click.prevent="booksButton">Your Books</button>
-      <button class="btn btn-primary btn-block your-progress-button" @click.prevent="progressButton">Your Progress</button>
-      <button class="btn btn-primary btn-block your-reviews-button" @click.prevent="reviewsButton">Your Reviews</button>
-      -->
     </b-container>
 
+    <!-- <img src="../resources/UserVueBlob1.svg" class="blob blob0-svg"> -->
+    <img src="../resources/UserVueBlob3.svg" class="blob blob1-svg">
+    <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
+    <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
     <div id="page-background"></div>
 
     <div class="card-container">
@@ -17,28 +16,28 @@
           <div class="image">
             <img src="../resources/BookPic1.png">
             <div class="details">
-              <h2>Your <span>Books</span></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
+              <h2><span>Books</span></h2>
+              <p>Your acquired books</p>
             </div>
           </div>
         </a>
 
         <a @click.prevent="progressButton">
           <div class="image">
-            <img src="../resources/Linechart1.png">
+            <img src="../resources/ChartPic3.png">
             <div class="details">
-              <h2>Your <span>Progress</span></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
+              <h2><span>Progress</span></h2>
+              <p>Your statistical monitoring</p>
             </div>
           </div>
         </a>
 
         <a @click.prevent="reviewsButton">
           <div class="image">
-            <img src="../resources/Reviews1.png">
+            <img src="../resources/Reviews.png">
             <div class="details">
-              <h2>Your <span>Reviews</span></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices felis sed metus varius cursus vel at ipsum</p>
+              <h2><span>Reviews</span></h2>
+              <p>Your take on the books you bought</p>
             </div>
           </div>
         </a>
@@ -82,21 +81,31 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: #CCCF7C;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
+h2 {
+  color: #CF937C;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
 .blob {
   position: absolute;
   height: auto;
 }
 
 .blob0-svg {
-  top: -9vh;
-  left: 27vw;
-  width: 55%;
+  top: -18vh;
+  left: 42vw;
+  width: 45%;
   -webkit-mask-image: linear-gradient(
-    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0) 15%,
     rgb(0 0 0 / 0.8) 50%,
-    rgb(0 0 0 / 0.3) 70%,
-    rgb(0 0 0 / 0.1) 77%,
-    rgb(0 0 0 / 0) 80%
+    rgb(0 0 0 / 0.4) 64%,
+    rgb(0 0 0 / 0.1) 83%,
+    rgb(0 0 0 / 0) 90%
   );
   mask-image: linear-gradient(
     rgb(0 0 0 / 0) 22%,
@@ -109,9 +118,10 @@ export default {
 }
 
 .blob1-svg {
-  top: -9vh;
-  left: 14vw;
-  width: 55%;
+  top: -16vh;
+  left: 8vw;
+  width: 45%;
+  /*
   -webkit-mask-image: linear-gradient(
     rgb(0 0 0 / 0) 22%,
     rgb(0 0 0 / 0.8) 50%,
@@ -126,7 +136,54 @@ export default {
     rgb(0 0 0 / 0.1) 77%,
     rgb(0 0 0 / 0) 80%
   );
+  */
   z-index: -3;
+}
+
+.blob2-svg {
+  top: -16vh;
+  left: 41vw;
+  width: 45%;
+  /*
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  */
+  z-index: -3;
+}
+
+.blob3-svg {
+  top: 28vh;
+  left: 27vw;
+  width: 45%;
+  /*
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0) 22%,
+    rgb(0 0 0 / 0.8) 50%,
+    rgb(0 0 0 / 0.3) 70%,
+    rgb(0 0 0 / 0.1) 77%,
+    rgb(0 0 0 / 0) 80%
+  );
+  */
+  z-index: -4;
 }
 
 h3 {
@@ -251,7 +308,7 @@ h3 {
 }
 
 .image img {
-  opacity: 0.6;
+  opacity: 0.8;
   position: relative;
   vertical-align: top;
   transition: 0.6s;
