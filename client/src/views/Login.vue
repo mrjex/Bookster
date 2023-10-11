@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="middle-card">
       <div class="card-content">
         <form @submit.prevent="handleSubmit" class="login-form">
@@ -129,6 +128,7 @@ export default {
 
 .input-btn {
   border-radius: 3vh;
+  background-image: linear-gradient(to left, #7DCFCB, #9E7CCF);
 }
 
 .login-btn {
@@ -190,6 +190,15 @@ export default {
 .card-content {
   position: absolute;
   left: 0vw;
+}
+
+.bookster-logo {
+  position: absolute;
+  left: 37.5vw;
+  top: -1.5vh;
+  width: 322px;
+  height: auto;
+  z-index: 15;
 }
 
 @media (max-width: 576px) {
