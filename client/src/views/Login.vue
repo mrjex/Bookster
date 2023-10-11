@@ -107,12 +107,8 @@ export default {
   left: 0vw;
   top: 0vh;
   z-index: -11;
-  object-fit: cover;
-  /*
-  max-width: 100%;
-  height: auto;
-  width: auto\9;
-  */
+  width: 100vw;
+  height: 100vh;
 }
 
 .login-form {
@@ -194,20 +190,94 @@ export default {
 
 .bookster-logo {
   position: absolute;
-  left: 37.5vw;
   top: -1.5vh;
+  left: 37.5vw;
   width: 322px;
+  /*
+  left: 38.5vw;
+  width: 45vh;
+  */
   height: auto;
   z-index: 15;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 376px) {
 .cardpic-black-background {
-    left: -26.5vw;
+    left: -41.3vw;
   }
 
   .card-content {
-    left: -20vw;
+    left: -28vw;
+  }
+
+  .bookster-logo {
+    width: 200px;
+    left: 60vw;
+    top: 6vh;
+  }
+}
+
+@media (min-width: 376px) {
+.cardpic-black-background {
+    left: -33.3vw;
+  }
+
+  .card-content {
+    left: -28vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
+}
+
+@media (min-width: 410px) {
+.cardpic-black-background {
+    left: -33.3vw;
+  }
+
+  .card-content {
+    left: -28vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
+}
+
+@media (min-width: 450px) {
+.cardpic-black-background {
+    left: -29vw;
+  }
+
+  .card-content {
+    left: -25vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
+}
+
+@media (min-width: 490px) {
+.cardpic-black-background {
+    left: -27vw;
+  }
+
+  .card-content {
+    left: -23vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
   }
 }
 
@@ -219,6 +289,12 @@ export default {
   .card-content {
     left: -14.5vw;
   }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -228,6 +304,12 @@ export default {
 
   .card-content {
     left: -8.5vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
   }
 }
 
@@ -239,6 +321,12 @@ export default {
   .card-content {
     left: -4.5vw;
   }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -249,6 +337,12 @@ export default {
   .card-content {
     left: -0.5vw;
   }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -258,6 +352,12 @@ export default {
 
   .card-content {
     left: 0vw;
+  }
+
+  .bookster-logo {
+    top: -1.5vh;
+    left: 37.5vw;
+    width: 322px;
   }
 }
 </style>

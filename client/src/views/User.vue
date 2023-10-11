@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container>
-      <h3>{{ user }}'s profile:</h3>
+      <h3 id="username-display">{{ user }}'s profile:</h3>
     </b-container>
 
     <!-- <img src="../resources/UserVueBlob1.svg" class="blob blob0-svg"> -->
@@ -191,9 +191,15 @@ h2 {
 }
 
 h3 {
-  color: #7dcfcb;
+  color: #fff; /* #7dcfcb */
   font-weight: 650;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+}
+
+#username-display {
+  position: absolute;
+  left: 1vw;
+  top: 8vh;
 }
 
 .your-books-button {
@@ -367,11 +373,25 @@ h3 {
     flex: 100%;
     max-width: 540px;
   }
+
+  .blob {
+    display: none;
+  }
+}
+
+@media (max-width: 615px) {
+  .card-container {
+    left: 1.4vw;
+  }
 }
 
 @media (max-width: 400px) {
   .image .details p {
     font-size: 16px;
+  }
+
+    .card-container {
+    left: 0vw;
   }
 }
 </style>
