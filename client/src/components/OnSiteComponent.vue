@@ -57,4 +57,46 @@ export default {
 .nav-link {
   color: white !important;
 }
+
+@media (max-width: 541px) {
+  .navbar {
+    width: 107vw;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    width: 141vw;
+  }
+}
+
+@media (max-width: 394px) {
+  .navbar {
+    width: 146vw;
+  }
+}
+
+@media (max-width: 391px) {
+  .navbar {
+    width: 145vw;
+  }
+}
+
+@media (max-width: 376px) {
+  .navbar {
+    width: 152vw;
+  }
+}
+
+@media (max-width: 361px) {
+  .navbar {
+    width: 158vw;
+  }
+}
+
+@media (max-width: 281px) {
+  .navbar {
+    width: 203vw;
+  }
+}
 </style>
