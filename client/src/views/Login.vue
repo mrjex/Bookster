@@ -2,43 +2,46 @@
   <div>
 
     <div class="middle-card">
-      <form @submit.prevent="handleSubmit" class="login-form">
-          <!-- <div>
-              <NavComponent />
-          </div> -->
+      <div class="card-content">
+        <form @submit.prevent="handleSubmit" class="login-form">
+            <!-- <div>
+                <NavComponent />
+            </div> -->
 
-          <h4 class="no-account">Don't have an account?</h4>
-          <h4 class="welcome-text">WELCOME</h4>
+            <h4 class="no-account">Don't have an account?</h4>
+            <h4 class="welcome-text">WELCOME</h4>
 
-          <div class="form-frontend">
-            <div class="form-group">
-              <svg xmlns="http://www.w3.org/2000/svg" class="user-icon" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-                <input type="username" class="input-btn" v-model="username" placeholder="Username"/>
+            <div class="form-frontend">
+              <div class="form-group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="user-icon" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                  <input type="username" class="input-btn" v-model="username" placeholder="Username"/>
+              </div>
+
+              <div class="form-group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="password-icon" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                  <input type="password" class="input-btn" v-model="password" placeholder="Password"/>
+              </div>
+
+              <button class="input-btn login-btn">LOGIN</button>
             </div>
+        </form>
 
-            <div class="form-group">
-              <svg xmlns="http://www.w3.org/2000/svg" class="password-icon" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
-                <input type="password" class="input-btn" v-model="password" placeholder="Password"/>
-            </div>
+        <a href="/about">
+          <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo">
+        </a>
 
-            <button class="input-btn login-btn">LOGIN</button>
-          </div>
-      </form>
+        <a href="/register">
+          <button class="signup2-btn">Sign up</button>
+        </a>
+      </div>
 
-      <a href="/about">
-        <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo">
-      </a>
-
-      <a href="/register">
-        <button class="signup2-btn">Sign up</button>
-      </a>
+      <div class="cardpic-black-background">
       <img src="../resources/LoginCardPicture1.png" class="card0-background2">
+      <div id="card2-background"></div>
+      </div>
     </div>
 
     <img src="../resources/LoginCardPicture6.png" class="card1-background">
-
-    <div id="page-background"></div>
-    <div id="card2-background"></div>
     <div id="card0-background"></div>
   </div>
 </template>
@@ -76,20 +79,10 @@ export default {
 </script>
 
 <style>
-#page-background {
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 400vh;
-  background-color: #343434;
-  position: absolute;
-  z-index: -15;
-}
-
 #card2-background {
   background-color: #073438;
   width: 400px;
-  height: 300px;
+  height: 270px;
   position: absolute;
   left: 35vw;
   top: 55vh;
@@ -112,11 +105,15 @@ export default {
 
 .card1-background {
   position: absolute;
-  width: 100vw;
-  height: auto;
   left: 0vw;
   top: 0vh;
   z-index: -11;
+  object-fit: cover;
+  /*
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+  */
 }
 
 .login-form {
@@ -140,12 +137,13 @@ export default {
 }
 
 .signup2-btn {
-  position: relative;
-  left: 45.5vw;
-  top: 40vh;
+  position: absolute;
+  left: 45.1vw;
+  top: 39vh;
   z-index: 35;
   border-radius: 3vh;
   background-color: #e3e3e3;
+  width: 70px;
 }
 
 .no-account {
@@ -155,6 +153,7 @@ export default {
   position: relative;
   top: -21vh;
   left: 1.84vw;
+  width: 40vw;
 }
 
 .welcome-text {
@@ -182,5 +181,74 @@ export default {
   position: relative;
   top: -6vh;
   left: 0.4vw;
+}
+
+.cardpic-black-background {
+  position: absolute;
+}
+
+.card-content {
+  position: absolute;
+  left: 0vw;
+}
+
+@media (max-width: 576px) {
+.cardpic-black-background {
+    left: -26.5vw;
+  }
+
+  .card-content {
+    left: -20vw;
+  }
+}
+
+@media (min-width: 576px) {
+.cardpic-black-background {
+    left: -18.5vw;
+  }
+
+  .card-content {
+    left: -14.5vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardpic-black-background {
+    left: -10.5vw;
+  }
+
+  .card-content {
+    left: -8.5vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .cardpic-black-background {
+    left: -5.5vw;
+  }
+
+  .card-content {
+    left: -4.5vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardpic-black-background {
+    left: -0.5vw;
+  }
+
+  .card-content {
+    left: -0.5vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cardpic-black-background {
+    left: 0vw;
+  }
+
+  .card-content {
+    left: 0vw;
+  }
 }
 </style>
