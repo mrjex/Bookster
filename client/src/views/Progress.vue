@@ -30,7 +30,7 @@
           </h4>
       </div>
       <b-dropdown id="dropdown-dropright" dropright text="" variant="transparent" class="m-2 chart-dropdown-performance">
-        <b-dropdown-item class="chartButton line-test-button" id="linechart-button" @click.prevent="lineChart">
+        <b-dropdown-item class="chartButton" id="linechart-button" @click.prevent="lineChart">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
           Line Chart
         </b-dropdown-item>
@@ -94,13 +94,12 @@
 
           <form @submit.prevent="pushAllocationData" class="allocation-form">
             <div class="form-group allocation-inputs">
-                <label class="new-category-label">New Category</label>
+
+                <!-- <label class="new-category-label">New Category</label> -->
                 <input type="new-category" class="form-control add-category-field" v-model="newCategoryInput" placeholder="Book Category"/>
 
-                <div class="category-nr-input-group">
-                  <label class="completed-books-label">Completed Books</label>
+                  <!-- <label class="completed-books-label">Completed Books</label> -->
                   <input type="completed-books" class="form-control add-book-quantity-field" v-model="completedBooksInput" placeholder="Number Of Books"/>
-                </div>
             </div>
             <button class="addChartValueBtn addAllocationBtn btn btn-primary btn-block">PUSH DATA</button>
         </form>
@@ -493,6 +492,8 @@ h3 {
 .allocationSection {
   position: absolute;
   top: 126vh;
+  top: 127vh;
+  left: 0vw;
 }
 
 .chart-dropdown-performance {
@@ -551,7 +552,7 @@ h3 {
     background: linear-gradient(
     var(--gradient-angle),
     #0e4b50,
-    #2d8f85,
+    #7dcfcbc7,
     #637c54
   );
   border-radius: inherit;
@@ -596,8 +597,11 @@ h3 {
 }
 
 .add-category-field {
+  position: relative;
   width: 10vw;
   height: 4vh;
+  top: 12vh;
+  left: 0vw;
 }
 
 .add-book-quantity-field {
@@ -614,7 +618,7 @@ h3 {
 .completed-books-label {
   color: #CCCF7C;
   position: relative;
-  top: 0.8vh;
+  top: 5vh;
   width: 30vw;
 }
 
@@ -766,18 +770,23 @@ h3 {
   }
 
   .addAllocationBtn {
-    top: 12.3vh;
+    top: 11.3vh;
     left: 43.5vw;
     height: 5vh;
   }
 
   .allocation-inputs {
     top: 0vh;
-    left: 23vw;
+    left: 31.3vw;
   }
 
   h3 {
     font-size: 2.85vw;
+  }
+
+  input,
+  input::placeholder {
+  font: 0.45rem sans-serif;
   }
 }
 
@@ -837,6 +846,11 @@ h3 {
   h3 {
     font-size: 2.55vw;
   }
+
+  input,
+  input::placeholder {
+  font: 0.5rem sans-serif;
+  }
 }
 
 @media (min-width: 768px) {
@@ -895,6 +909,11 @@ h3 {
   h3 {
     font-size: 2.45vw;
   }
+
+  input,
+  input::placeholder {
+  font: 0.55rem sans-serif;
+  }
 }
 
 @media (min-width: 992px) {
@@ -951,6 +970,11 @@ h3 {
 
   h3 {
     font-size: 2.38vw;
+  }
+
+  input,
+  input::placeholder {
+  font: 0.6rem sans-serif;
   }
 }
 
@@ -1009,6 +1033,11 @@ h3 {
   h3 {
     font-size: 2.27vw;
   }
+
+  input,
+  input::placeholder {
+  font: 0.65rem sans-serif;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -1065,6 +1094,11 @@ h3 {
 
   h3 {
     font-size: 2.2vw;
+  }
+
+  input,
+  input::placeholder {
+    font: 0.9rem sans-serif;
   }
 }
 
