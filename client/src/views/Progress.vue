@@ -147,7 +147,7 @@ export default {
         ]
       },
       chartDataAllocation: {
-        labels: ['Finances', 'Mathematics', 'Negotiation'],
+        labels: ['Finances', 'Business', 'Negotiation'],
         datasets: [
           {
             label: 'Current Month',
@@ -205,7 +205,7 @@ export default {
       },
       // Seperate handling of Pie Chart due to differences of front-end structure
       chartDataAllocationPie: {
-        labels: ['Finances', 'Mathematics', 'Negotiation'],
+        labels: ['Finances', 'Business', 'Negotiation'],
         datasets: [
           {
             backgroundColor: [
