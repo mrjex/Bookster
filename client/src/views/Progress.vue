@@ -418,7 +418,6 @@ h3 {
 
 .addAllocationBtn {
   background-image: linear-gradient(to left, #7DCFCB, #CCCF7C,#7DCFCB);
-  height: 13vh;
 }
 
 #page-background {
@@ -731,7 +730,184 @@ h3 {
   left: 0vw;
 }
 
-@media (max-width: 576px) {
+@media (min-width: 279px) {
+  .blob0-svg {
+    top: 35vh;
+  }
+
+  .blob2-svg {
+    top: 115vh;
+  }
+
+  .allocationSection {
+    left: 5.9vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 5vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 5vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 11.3vh;
+    left: 26vw;
+    height: 5vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 15vw;
+  }
+
+  h3 {
+    font-size: 2.85vw;
+  }
+
+  input,
+  input::placeholder {
+  font: 0.45rem sans-serif;
+  }
+}
+
+@media (min-width: 374px) {
+  .blob0-svg {
+    top: 35vh;
+  }
+
+  .blob2-svg {
+    top: 115vh;
+  }
+
+  .allocationSection {
+    left: 5.9vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 5vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 5vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 11.3vh;
+    left: 35vw;
+    height: 5vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 15vw;
+  }
+
+  h3 {
+    font-size: 2.85vw;
+  }
+
+  input,
+  input::placeholder {
+  font: 0.45rem sans-serif;
+  }
+}
+
+@media (min-width: 420px) {
+  .blob0-svg {
+    top: 35vh;
+  }
+
+  .blob2-svg {
+    top: 115vh;
+  }
+
+  .allocationSection {
+    left: 5.9vw;
+  }
+
+  .chart-dropdown-performance {
+    left: 5vw;
+  }
+
+  .chart-dropdown-allocation {
+    left: 5vw;
+  }
+
+  .dropdown-performance-btn-text {
+    font-size: 0;
+  }
+
+  .dropdown-allocation-btn-text {
+    font-size: 0vw;
+  }
+
+  .performance-label-input {
+    top: -3vh;
+  }
+
+  .addPerformanceBtn {
+    top: 69.25vh;
+    left: 28.6vw;
+  }
+
+  .addAllocationBtn {
+    top: 11.3vh;
+    left: 38.5vw;
+    height: 5vh;
+  }
+
+  .allocation-inputs {
+    top: 0vh;
+    left: 15vw;
+  }
+
+  h3 {
+    font-size: 2.85vw;
+  }
+
+  input,
+  input::placeholder {
+  font: 0.45rem sans-serif;
+  }
+}
+
+@media (min-width: 540px) {
   .blob0-svg {
     top: 35vh;
   }
@@ -777,7 +953,7 @@ h3 {
 
   .allocation-inputs {
     top: 0vh;
-    left: 31.3vw;
+    left: 15.3vw;
   }
 
   h3 {
@@ -957,6 +1133,7 @@ h3 {
   .addAllocationBtn {
     top: 6.2vh;
     left: 27.5vw;
+    height: 10.5vh;
   }
 
   .performance-label-input {
@@ -1019,6 +1196,7 @@ h3 {
   .addAllocationBtn {
     top: 5.8vh;
     left: 19.5vw;
+    height: 11vh;
   }
 
   .performance-label-input {
@@ -1081,6 +1259,7 @@ h3 {
   .addAllocationBtn {
     top: 4.2vh;
     left: 10.8vw;
+    height: 12vh;
   }
 
   .performance-label-input {
