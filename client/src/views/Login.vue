@@ -4,27 +4,28 @@
       <div class="form-content">
         <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
         <div class="d-flex align-items-center justify-content-center">
-          <form @submit.prevent="handleSubmit" class="login-form">
+          <div>
             <h4 class="no-account">Don't have an account? <a href="/register">
                 Sign up
               </a>
             </h4>
             <h4 class="welcome-text">WELCOME</h4>
-          </form>
+          </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center" id="loginDetails">
+      <div class="d-flex justify-content-center align-items-center py-2" id="loginDetails">
         <div class="form-frontend">
-          <div class="form-group">
-            <BIconPersonCircle class="mx-2" />
-            <input type="username" class="input-btn" v-model="username" placeholder="Username" />
-          </div>
-
-          <div class="form-group">
-            <BIconKey class="mx-2" />
-            <input type="password" class="input-btn" v-model="password" placeholder="Password" />
-          </div>
-          <button class="input-btn login-btn float-right">LOGIN</button>
+          <form @submit.prevent="handleSubmit">
+            <div class="form-group">
+              <BIconPersonCircle class="mx-2" />
+              <input type="username" class="input-btn" v-model="username" placeholder="Username" />
+            </div>
+            <div class="form-group">
+              <BIconKey class="mx-2" />
+              <input type="password" class="input-btn" v-model="password" placeholder="Password" />
+            </div>
+            <button class="input-btn login-btn float-right">LOGIN</button>
+          </form>
         </div>
       </div>
     </div>
@@ -67,10 +68,8 @@ export default {
 <style>
 #loginDetails {
   background-color: #073438;
-  height: 220px;
   border-radius: 0.8vw;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
-  z-index: 11;
 }
 
 .outer-container {
