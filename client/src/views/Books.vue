@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleBookSubmit">
     <b-container>
-      <h3>{{ user }}'s books:</h3>
+      <h3 class="text-white">{{ user }}'s books:</h3>
       <span v-if="!this.books.length">You have no books</span>
       <div v-for="(result) in books" :key=result.isbn class="my-4">
         <Book :book=result>
