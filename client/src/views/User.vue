@@ -8,7 +8,6 @@
     <img src="../resources/UserVueBlob3.svg" class="blob blob1-svg">
     <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
     <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
-    <div id="page-background"></div>
 
     <div class="card-container">
       <div class="row">
@@ -196,12 +195,6 @@ h3 {
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
 
-#username-display {
-  position: absolute;
-  left: 1vw;
-  top: 8vh;
-}
-
 .your-books-button {
   border: none;
   position: relative;
@@ -263,36 +256,26 @@ h3 {
   border: none;
 }
 
-#page-background {
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 400vh;
-  background-color: #343434;
-  position: absolute;
-  z-index: -10;
-}
-
 /*
  NOTE: The  majority of the styling below shall be credited to https://www.youtube.com/watch?v=E2TW4ZxXrsI
 */
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .details {
   background-color: rgba(134, 134, 134, 0);
 }
 
-.card-container {
+/* .card-container {
   margin: 30px;
   position: absolute;
   top: 7.2vh;
   left: 8.4vw;
-}
+} */
 
 .row {
   width: 100%;
@@ -369,29 +352,24 @@ h3 {
 }
 
 @media (max-width: 1080px) {
-  .image {
-    flex: 100%;
-    max-width: 540px;
-  }
-
   .blob {
     display: none;
   }
 }
 
-@media (max-width: 615px) {
+/* @media (max-width: 615px) {
   .card-container {
     left: 1.4vw;
   }
-}
+} */
 
 @media (max-width: 400px) {
   .image .details p {
     font-size: 16px;
   }
 
-    .card-container {
+    /* .card-container {
     left: 0vw;
-  }
+  } */
 }
 </style>
