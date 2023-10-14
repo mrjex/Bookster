@@ -9,4 +9,11 @@ router.get('/', async (req, res) => {
 
 })
 
+router.delete('/', async (req, res) => {
+
+    await Review.deleteMany({});
+    res.sendStatus(200)
+
+})
+
 module.exports = router;
