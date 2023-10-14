@@ -9,18 +9,20 @@
     <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
     <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
 
-    <div class="card-container">
-      <div class="row">
-        <a @click.prevent="booksButton">
-          <div class="image">
-            <img src="../resources/BookPic1.png">
-            <div class="details">
-              <h2><span>Books</span></h2>
-              <p>Your acquired books</p>
+    <div class="card-container fluid">
+      <b-row class="row">
+        <b-col>
+          <a @click.prevent="booksButton">
+            <div class="image">
+              <img src="../resources/BookPic1.png">
+              <div class="details">
+                <h2><span>Books</span></h2>
+                <p>Your acquired books</p>
+              </div>
             </div>
-          </div>
-        </a>
-
+          </a>
+        </b-col>
+        <b-col>
         <a @click.prevent="progressButton">
           <div class="image">
             <img src="../resources/ChartPic3.png">
@@ -30,7 +32,8 @@
             </div>
           </div>
         </a>
-
+      </b-col>
+      <b-col>
         <a @click.prevent="reviewsButton">
           <div class="image">
             <img src="../resources/Reviews.png">
@@ -40,12 +43,13 @@
             </div>
           </div>
         </a>
-      </div>
+        </b-col>
+      </b-row>
     </div>
 
-      <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
-        <p class="my-4">This will delete your account permanently</p>
-      </b-modal>
+    <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
+      <p class="my-4">This will delete your account permanently</p>
+    </b-modal>
   </div>
 </template>
 
@@ -103,20 +107,16 @@ h2 {
   top: -18vh;
   left: 42vw;
   width: 45%;
-  -webkit-mask-image: linear-gradient(
-    rgb(0 0 0 / 0) 15%,
-    rgb(0 0 0 / 0.8) 50%,
-    rgb(0 0 0 / 0.4) 64%,
-    rgb(0 0 0 / 0.1) 83%,
-    rgb(0 0 0 / 0) 90%
-  );
-  mask-image: linear-gradient(
-    rgb(0 0 0 / 0) 22%,
-    rgb(0 0 0 / 0.8) 50%,
-    rgb(0 0 0 / 0.3) 70%,
-    rgb(0 0 0 / 0.1) 77%,
-    rgb(0 0 0 / 0) 80%
-  );
+  -webkit-mask-image: linear-gradient(rgb(0 0 0 / 0) 15%,
+      rgb(0 0 0 / 0.8) 50%,
+      rgb(0 0 0 / 0.4) 64%,
+      rgb(0 0 0 / 0.1) 83%,
+      rgb(0 0 0 / 0) 90%);
+  mask-image: linear-gradient(rgb(0 0 0 / 0) 22%,
+      rgb(0 0 0 / 0.8) 50%,
+      rgb(0 0 0 / 0.3) 70%,
+      rgb(0 0 0 / 0.1) 77%,
+      rgb(0 0 0 / 0) 80%);
   z-index: -2;
 }
 
@@ -190,7 +190,8 @@ h2 {
 }
 
 h3 {
-  color: #fff; /* #7dcfcb */
+  color: #fff;
+  /* #7dcfcb */
   font-weight: 650;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
@@ -368,7 +369,7 @@ h3 {
     font-size: 16px;
   }
 
-    /* .card-container {
+  /* .card-container {
     left: 0vw;
   } */
 }
