@@ -10,6 +10,7 @@ const userRouter = require('./controllers/users');
 const reviewRouter = require('./controllers/reviews');
 const bookRouter = require('./controllers/books');
 const User = require('./models/user');
+const VERSION = 'v1';
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
@@ -41,7 +42,7 @@ app.use(cors());
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 // Import routes
-app.get('/api', async function (req, res) {
+app.get(`/api/${VERSION}`, async function (req, res) {
     res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
 });
 
@@ -69,17 +70,17 @@ app.get('/api/users', async function (req, res, next) {
 })
 
 /* User Router */
-app.use('/api/users', userRouter)
+app.use(`/api/${VERSION}/users`, userRouter)
 
 /* Book Router */
-app.use('/api/books', bookRouter)
+app.use(`/api/${VERSION}/books`, bookRouter)
 
 /* Review Router */
-app.use('/api/reviews', reviewRouter)
+app.use(`/api/${VERSION}/reviews`, reviewRouter)
 
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
-app.use('/api/*', function (req, res) {
+app.use(`/api/${VERSION}/*`, function (req, res) {
     res.status(404).json({ 'message': 'Not Found' });
 });
 
