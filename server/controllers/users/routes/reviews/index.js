@@ -4,7 +4,7 @@ const hal9k = require('hal9k');
 const router = express.Router({ mergeParams: true });
 
 // CREATE
-router.post('/add', async function (req, res, next) {
+router.post('/', async function (req, res, next) {
     try {
         const review = await Review.create(req.body);
         res.status(201).json(review);
