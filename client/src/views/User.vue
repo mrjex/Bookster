@@ -1,27 +1,28 @@
 <template>
   <div>
     <b-container>
-      <h3>{{ user }}'s profile:</h3>
+      <h3 id="username-display">{{ user }}'s profile:</h3>
     </b-container>
 
     <!-- <img src="../resources/UserVueBlob1.svg" class="blob blob0-svg"> -->
     <img src="../resources/UserVueBlob3.svg" class="blob blob1-svg">
     <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
     <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
-    <div id="page-background"></div>
 
-    <div class="card-container">
-      <div class="row">
-        <a @click.prevent="booksButton">
-          <div class="image">
-            <img src="../resources/BookPic1.png">
-            <div class="details">
-              <h2><span>Books</span></h2>
-              <p>Your acquired books</p>
+    <div class="card-container fluid">
+      <b-row class="row">
+        <b-col>
+          <a @click.prevent="booksButton">
+            <div class="image">
+              <img src="../resources/BookPic1.png">
+              <div class="details">
+                <h2><span>Books</span></h2>
+                <p>Your acquired books</p>
+              </div>
             </div>
-          </div>
-        </a>
-
+          </a>
+        </b-col>
+        <b-col>
         <a @click.prevent="progressButton">
           <div class="image">
             <img src="../resources/ChartPic3.png">
@@ -31,7 +32,8 @@
             </div>
           </div>
         </a>
-
+      </b-col>
+      <b-col>
         <a @click.prevent="reviewsButton">
           <div class="image">
             <img src="../resources/Reviews.png">
@@ -41,12 +43,13 @@
             </div>
           </div>
         </a>
-      </div>
+        </b-col>
+      </b-row>
     </div>
 
-      <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
-        <p class="my-4">This will delete your account permanently</p>
-      </b-modal>
+    <b-modal id="modal-1" title="Delete Account" ok-variant="danger" @ok="deleteAccount">
+      <p class="my-4">This will delete your account permanently</p>
+    </b-modal>
   </div>
 </template>
 
@@ -85,12 +88,12 @@ export default {
 </script>
 
 <style scoped>
-p {
+.details > p {
   color: #CCCF7C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
 
-h2 {
+.details > h2 {
   color: #CF937C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
@@ -104,20 +107,16 @@ h2 {
   top: -18vh;
   left: 42vw;
   width: 45%;
-  -webkit-mask-image: linear-gradient(
-    rgb(0 0 0 / 0) 15%,
-    rgb(0 0 0 / 0.8) 50%,
-    rgb(0 0 0 / 0.4) 64%,
-    rgb(0 0 0 / 0.1) 83%,
-    rgb(0 0 0 / 0) 90%
-  );
-  mask-image: linear-gradient(
-    rgb(0 0 0 / 0) 22%,
-    rgb(0 0 0 / 0.8) 50%,
-    rgb(0 0 0 / 0.3) 70%,
-    rgb(0 0 0 / 0.1) 77%,
-    rgb(0 0 0 / 0) 80%
-  );
+  -webkit-mask-image: linear-gradient(rgb(0 0 0 / 0) 15%,
+      rgb(0 0 0 / 0.8) 50%,
+      rgb(0 0 0 / 0.4) 64%,
+      rgb(0 0 0 / 0.1) 83%,
+      rgb(0 0 0 / 0) 90%);
+  mask-image: linear-gradient(rgb(0 0 0 / 0) 22%,
+      rgb(0 0 0 / 0.8) 50%,
+      rgb(0 0 0 / 0.3) 70%,
+      rgb(0 0 0 / 0.1) 77%,
+      rgb(0 0 0 / 0) 80%);
   z-index: -2;
 }
 
@@ -191,7 +190,8 @@ h2 {
 }
 
 h3 {
-  color: #7dcfcb;
+  color: #fff;
+  /* #7dcfcb */
   font-weight: 650;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
@@ -257,36 +257,26 @@ h3 {
   border: none;
 }
 
-#page-background {
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 400vh;
-  background-color: #343434;
-  position: absolute;
-  z-index: -10;
-}
-
 /*
  NOTE: The  majority of the styling below shall be credited to https://www.youtube.com/watch?v=E2TW4ZxXrsI
 */
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .details {
   background-color: rgba(134, 134, 134, 0);
 }
 
-.card-container {
+/* .card-container {
   margin: 30px;
   position: absolute;
   top: 7.2vh;
   left: 8.4vw;
-}
+} */
 
 .row {
   width: 100%;
@@ -363,15 +353,24 @@ h3 {
 }
 
 @media (max-width: 1080px) {
-  .image {
-    flex: 100%;
-    max-width: 540px;
+  .blob {
+    display: none;
   }
 }
+
+/* @media (max-width: 615px) {
+  .card-container {
+    left: 1.4vw;
+  }
+} */
 
 @media (max-width: 400px) {
   .image .details p {
     font-size: 16px;
   }
+
+  /* .card-container {
+    left: 0vw;
+  } */
 }
 </style>

@@ -57,4 +57,5 @@ export default {
 .nav-link {
   color: white !important;
 }
+
 </style>
