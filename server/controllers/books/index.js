@@ -50,12 +50,26 @@ router.get('/', async function (req, res, next) {
 
 })
 
+router.post('/', async function (req, res, next) {
+
+    try {
+        const added = await BookModel.create(req.body)
+        res.status(201).json(added)
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
 
 router.delete('/', async function (req, res, next) {
 
-    await User.updateMany({}, {$set: {
-        books: []
-    }});
+    await User.updateMany({}, {
+        $set: {
+            books: []
+        }
+    });
 
     await BookModel.deleteMany({})
     res.sendStatus(200)

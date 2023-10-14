@@ -57,7 +57,7 @@ export default {
       }
     },
     async reviewBook(book) {
-      await Api.post(`/users/${this.user}/reviews/add`, {
+      await Api.post(`/users/${this.user}/reviews/`, {
         content: book.review,
         rating: book.rating,
         isbn: book.isbn,

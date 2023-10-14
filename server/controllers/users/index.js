@@ -7,6 +7,18 @@ const User = require('../../models/user');
 const hal9k = require('hal9k');
 const router = express.Router();
 
+// READ
+router.get('/', async function (req, res, next) {
+
+    try {
+        const users = await User.find(req.query);
+        res.json(users)
+    }
+    catch (error) {
+        next(error);
+    }
+
+})
 
 // CREATE
 router.post('/', async function (req, res, next) {
