@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <div class="auth-wrapper" id="container-background">
       <div class="auth-inner">
           <OnSiteComponent v-if="this.$route.meta.requiresAuth" />
           <b-container class="py-3">
           <router-view />
           </b-container>
         </div>
-    </div>
   </div>
 </template>
 
@@ -25,7 +23,6 @@ export default {
 
 <style>
 body {
-  color: white !important;
   background-color: #343434 !important;
 }
 .card-body {

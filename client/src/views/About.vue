@@ -4,23 +4,25 @@
     <h1 class="hero-title">Bookster</h1>
     <h1 class="hero-text">Where literacy becomes prosperity.</h1>
 
-    <img src="../resources/DynamicBottomScreensTemplate2.png" class="bottomTemplate">
+    <img src="../resources/DynamicBottomScreensTemplate.png" class="bottomTemplate">
     <div class="tempVideoShape"></div>
 
-    <img src="../resources/blob.svg" class="blob-svg">
-    <img src="../resources/blob2.svg" class="blob-svg2">
-    <img src="../resources/blob3.svg" class="blob-svg3">
-    <img src="../resources/blob4.svg" class="blob-svg4">
+    <div class="blobs">
+      <img src="../resources/blob.svg" class="blob-svg">
+      <img src="../resources/blob2.svg" class="blob-svg2">
+      <img src="../resources/blob3.svg" class="blob-svg3">
+      <img src="../resources/blob4.svg" class="blob-svg4">
+    </div>
 
     <!-- WHITE: card text-dark bg-light mb-3 -->
     <!-- BLACK: card text-white bg-dark mb-3 -->
-  <div class="card text-white bg-dark mb-3 wioplayCard" style="max-width: 18rem;">
+  <div class="card text-white bg-dark mb-3 wioplayCard">
     <div class="card-header">
       <h4>Why Trust Bookster?</h4>
-      </div>
+    </div>
     <div class="card-body">
-      <p class="card-text">From the creators of WioPlay: An entrusted prominent project that yields joy and happiness
-        while cultivating self-love by focusing on enhancing our users' physical health
+      <p class="card-text">From the creators of WioPlay: A prominent project that yields joy and happiness
+        while cultivating self-love by focusing on enhancing its users' physical health
       </p>
     </div>
   </div>
@@ -53,29 +55,29 @@
           <b-carousel-slide
             caption="Performance Charts"
             text="Track your daily progress."
-            img-src="https://i.ibb.co/6PStNss/Bookster-Performance-Charts2.png"
+            img-src="https://i.ibb.co/WKPZyCS/Testlol.png"
           ></b-carousel-slide>
 
           <b-carousel-slide
             caption="Allocation Charts"
             text="Track your distribution of completed books."
-            img-src="https://i.ibb.co/fC9C9pd/Bookster-Allocation-Charts.png">
+            img-src="https://i.ibb.co/B2CvhW4/Testlol2.png">
           </b-carousel-slide>
 
           <b-carousel-slide
-            caption="Why even bother to join the game of literacy?"
+            caption="Why bother to join the game of literacy?"
             text="Reading for pleasure is the single biggest indicator of a child's future success."
             img-src="https://i.ibb.co/7JYM3QM/Carousel-Stats-Pic-Test4.png"
           ></b-carousel-slide>
 
           <b-carousel-slide
-            caption="Why even bother to join the game of literacy?"
+            caption="Why bother to join the game of literacy?"
             text="85% of self-made millionaires read two or more books per month."
             img-src="https://i.ibb.co/MNnvFg8/Carousel-Stats-Pic-Test8.png"
           ></b-carousel-slide>
 
           <b-carousel-slide
-            caption="Why even bother to join the game of literacy?"
+            caption="Why bother to join the game of literacy?"
             text="Increase your imagination and creativity."
             img-src="https://i.ibb.co/ccY0z5h/Coursel-Test-Img3-2.png"
           ></b-carousel-slide>
@@ -188,6 +190,10 @@ h4 {
 .wioplayCard {
   position: absolute;
   left: 15vw;
+  width: 25rem;
+  /*
+  height: 25rem;
+  */
 }
 
 .top-screen-template {
@@ -199,6 +205,7 @@ h4 {
 .bottomTemplate {
   position: absolute;
   top: 180vh;
+  left: 0vw;
   width: 100vw;
   height: auto;
 }
@@ -217,7 +224,7 @@ h4 {
   top: 0vh;
   left: 0vw;
   width: 100vw;
-  height: 400vh;
+  height: 380vh;
   background-color: #343434;
   position: absolute;
   z-index: -3;
@@ -442,6 +449,10 @@ h4 {
   .wioplayCard {
     top: 224vh;
   }
+
+  .blobs {
+    display: none;
+  }
 }
 
 @media (min-width: 576px) {
@@ -471,6 +482,10 @@ h4 {
 
   .wioplayCard {
     top: 240vh;
+  }
+
+  .blobs {
+    display: none;
   }
 }
 
@@ -502,6 +517,10 @@ h4 {
   .wioplayCard {
     top: 260vh;
   }
+
+  .blobs {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
@@ -532,6 +551,10 @@ h4 {
   .wioplayCard {
     top: 278vh;
   }
+
+  .blobs {
+    display: block;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -561,6 +584,10 @@ h4 {
 
   .wioplayCard {
     top: 297vh;
+  }
+
+  .blobs {
+    display: block;
   }
 }
 
@@ -599,6 +626,10 @@ h4 {
 
   .wioplayCard {
     top: 310vh;
+  }
+
+  .blobs {
+    display: block;
   }
 }
 </style>

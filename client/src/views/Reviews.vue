@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleBookSubmit">
     <b-container>
-      <h3>{{user}}'s reviews:</h3>
+      <h3 class="text-white">{{user}}'s reviews:</h3>
       <b-row v-for="result in reviews" :key=result.id class="my-4">
         <Review :review=result >
         </Review>
