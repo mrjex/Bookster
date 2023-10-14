@@ -23,7 +23,6 @@ export default {
 
 <style>
 body {
-  color: white !important;
   background-color: #343434 !important;
 }
 .card-body {

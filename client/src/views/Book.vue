@@ -9,7 +9,7 @@
             </div>
             <AddButton :book="{id, title, author, pages}" />
         </b-jumbotron>
-        <h3>Reviews</h3>
+        <h3 class="text-white">Reviews</h3>
         <span v-if="!reviews.length">Book has no reviews</span>
         <div v-for="review in reviews" :key="review.id">
           <div class="py-2">

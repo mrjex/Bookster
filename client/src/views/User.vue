@@ -88,12 +88,12 @@ export default {
 </script>
 
 <style scoped>
-p {
+.details > p {
   color: #CCCF7C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
 
-h2 {
+.details > h2 {
   color: #CF937C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }

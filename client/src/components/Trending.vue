@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Trending Books</h1>
+    <h1 class="text-white">Trending Books</h1>
       <div class="justify-content-center" v-for="book in books" :key="book.isbn">
         <div class="py-2">
           <Book :book=book />
