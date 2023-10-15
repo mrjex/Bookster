@@ -59,6 +59,20 @@ router.get('/:username', async function (req, res, next) {
 
 })
 
+router.patch('/:username', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const { updatedUsername } = req.body;
+        const user = await User.findOneAndUpdate({ username }, { username: updatedUsername });
+        res.json(user);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
 
 // DELETE
 router.delete('/:username', async function (req, res, next) {

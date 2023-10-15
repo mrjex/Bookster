@@ -23,26 +23,37 @@
           </a>
         </b-col>
         <b-col>
-        <a @click.prevent="progressButton">
-          <div class="image">
-            <img src="../resources/ChartPic3.png">
-            <div class="details">
-              <h2><span>Progress</span></h2>
-              <p>Your statistical monitoring</p>
+          <a @click.prevent="progressButton">
+            <div class="image">
+              <img src="../resources/ChartPic3.png">
+              <div class="details">
+                <h2><span>Progress</span></h2>
+                <p>Your statistical monitoring</p>
+              </div>
             </div>
-          </div>
-        </a>
-      </b-col>
-      <b-col>
-        <a @click.prevent="reviewsButton">
-          <div class="image">
-            <img src="../resources/Reviews.png">
-            <div class="details">
-              <h2><span>Reviews</span></h2>
-              <p>Your take on the books you bought</p>
+          </a>
+        </b-col>
+        <b-col>
+          <a @click.prevent="reviewsButton">
+            <div class="image">
+              <img src="../resources/Reviews.png">
+              <div class="details">
+                <h2><span>Reviews</span></h2>
+                <p>Your take on the books you bought</p>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </b-col>
+        <b-col>
+          <a @click.prevent="profileButton">
+            <div class="image">
+              <img src="../resources/Reviews.png">
+              <div class="details">
+                <h2><span>Profile</span></h2>
+                <p>Change profile data</p>
+              </div>
+            </div>
+          </a>
         </b-col>
       </b-row>
     </div>
@@ -71,6 +82,9 @@ export default {
     reviewsButton() {
       this.$router.push(`${this.$route.path}/reviews`)
     },
+    profileButton() {
+      this.$router.push(`${this.$route.path}/profile`)
+    },
     progressButton() {
       UtilsComponent.methods.setRefreshablePageState()
       this.$router.push(`${this.$route.path}/progress`)
@@ -88,12 +102,12 @@ export default {
 </script>
 
 <style scoped>
-.details > p {
+.details>p {
   color: #CCCF7C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
 
-.details > h2 {
+.details>h2 {
   color: #CF937C;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
 }
