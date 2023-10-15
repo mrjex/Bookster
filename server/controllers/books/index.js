@@ -9,7 +9,7 @@ const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
 
-router.get('/trending', async (req, res) => {
+router.get('/trending', async (req, res, next) => {
 
     try {
         const result = await getTrendingBooks()
@@ -87,10 +87,12 @@ router.get('/search/:keyword', async function (req, res, next) {
 
 })
 
-router.get('/:isbn', async function (req, res) {
+router.get('/:isbn', async function (req, res, next) {
 
     const { isbn } = req.params;
     try {
+        const fetched = await BookAPI.getBook(isbn)
+        await BookInfo.findOneAndUpdate({ isbn }, fetched, { upsert: true })
         const book = await BookInfo.findOne({ isbn });
         const reviews = await Review.find({ isbn })
         res.json({ ...book.toJSON(), reviews })
