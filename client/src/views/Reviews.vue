@@ -26,7 +26,6 @@ export default {
   async created() {
     const result = await Api.get(`/users/${this.user}/reviews`)
     this.reviews = result.data.reviews // NOTE: Do result.data to include HATEOAS links
-    console.warn(this.reviews)
   }
 }
 </script>
