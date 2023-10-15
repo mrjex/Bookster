@@ -23,7 +23,7 @@ export default {
     }
   },
   async created() {
-    const { data } = await Api.get('/books/trending')
+    const { data } = await Api.get('/books?trending=1')
     this.books = data
   }
 

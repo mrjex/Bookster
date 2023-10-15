@@ -106,13 +106,13 @@ export default {
   },
   methods: {
     async handleRegister() {
-      await Api.post('/register', {
+      await Api.post('/users', {
         username: this.username,
         password: this.password,
         age: this.age
       })
 
-      await Api.post(`/users/${this.user}/progress/add`, {
+      await Api.post(`/users/${this.user}/progress/`, {
         performanceCharts: null,
         performanceDateLabels: null,
         allocationChartsCurrent: null,
@@ -121,7 +121,7 @@ export default {
         username: this.username
       })
 
-      const userHATEOASExample = await Api.post(`/users/${this.user}/progress/add`, {
+      const userHATEOASExample = await Api.post(`/users/${this.user}/progress/`, {
         performanceCharts: null,
         performanceDateLabels: null,
         allocationChartsCurrent: null,

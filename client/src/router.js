@@ -11,6 +11,7 @@ import Search from './views/Search.vue'
 import Progress from './views/Progress.vue'
 import About from './views/About.vue'
 import Book from './views/Book.vue'
+import UserSettings from './views/UserSettings.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,12 @@ const router = new Router({
       name: 'Profile',
       path: '/users/:username',
       component: User,
+      meta: { requiresAuth: true }
+    },
+    {
+      name: 'User Settings',
+      path: '/users/:username/profile',
+      component: UserSettings,
       meta: { requiresAuth: true }
     },
     {

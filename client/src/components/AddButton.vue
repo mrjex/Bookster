@@ -12,7 +12,7 @@ export default {
   methods: {
     async addBook() {
       try {
-        await Api.post(`/users/${this.user}/books/add`, {
+        await Api.post(`/users/${this.user}/books`, {
           title: this.book.title,
           author: 'Tony Robbins',
           pages: this.book.pages,

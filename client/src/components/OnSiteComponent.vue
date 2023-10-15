@@ -14,7 +14,7 @@
             </div>
           </div>
           <div v-if="this.$route.name !== 'Profile'">
-            <b-button variant="outline-primary" @click.prevent="profileButton">Profile</b-button>
+            <b-button variant="outline-primary" @click.prevent="profileButton">Dashboard</b-button>
           </div>
           <div v-else>
             <button class="btn btn-danger btn-block delete-account-button" v-b-modal.modal-1>Delete Account</button>

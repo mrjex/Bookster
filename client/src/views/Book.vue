@@ -1,22 +1,22 @@
 <template>
-    <b-container>
-        <b-jumbotron :style="jumboStyles" class="jumbotron">
-            <div>
-                <h2 id="header">{{ title }}</h2>
-                <p id="lead" class="book-description">
-                    {{ description }}
-                </p>
-            </div>
-            <AddButton :book="{id, title, author, pages}" />
-        </b-jumbotron>
-        <h3 class="text-white">Reviews</h3>
-        <span v-if="!reviews.length">Book has no reviews</span>
-        <div v-for="review in reviews" :key="review.id">
-          <div class="py-2">
-              <Review :review="review" />
-          </div>
-        </div>
-    </b-container>
+  <b-container>
+    <b-jumbotron :style="jumboStyles" class="jumbotron">
+      <div>
+        <h2 id="header">{{ title }}</h2>
+        <p id="lead" class="book-description">
+          {{ this.strip(description) }}
+        </p>
+      </div>
+      <AddButton :book="{ id, title, author, pages }" />
+    </b-jumbotron>
+    <h3 class="text-white">Reviews</h3>
+    <span v-if="!reviews.length" class="text-white">Book has no reviews</span>
+    <div v-for="review in reviews" :key="review.id">
+      <div class="py-2">
+        <Review :review="review" />
+      </div>
+    </div>
+  </b-container>
 </template>
 
 <script>
@@ -51,16 +51,23 @@ export default {
         'background-size': 'cover'
       }
     }
+  },
+  methods: {
+    strip: function strip(input) {
+      return input.length > 400 ? input.slice(0, 399) + '…' : input
+    }
   }
 }
+
 </script>
 
 <style>
 .jumbotron {
-    /* text-shadow: 1px 1px 1px #000000; */
-    color: black;
+  /* text-shadow: 1px 1px 1px #000000; */
+  color: black;
 }
+
 .blur {
-    backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 </style>

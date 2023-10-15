@@ -5,11 +5,24 @@ const wishlist = require('./routes/wishlist');
 const progress = require('./routes/progress');
 const User = require('../../models/user');
 const hal9k = require('hal9k');
+const Progress = require('../../models/progress');
 const router = express.Router();
 
+// READ
+router.get('/', async function (req, res, next) {
+
+    try {
+        const users = await User.find(req.query);
+        res.json(users)
+    }
+    catch (error) {
+        next(error);
+    }
+
+})
 
 // CREATE
-router.post('/add', async function (req, res, next) {
+router.post('/', async function (req, res, next) {
 
     try {
         const user = req.body;
@@ -40,6 +53,21 @@ router.get('/:username', async function (req, res, next) {
             .toJSON();
 
         res.json(linkedJsonObject);
+    }
+    catch (error) {
+        next(error)
+    }
+
+})
+
+router.patch('/:username', async function (req, res, next) {
+
+    try {
+        const { username } = req.params;
+        const { updatedUsername } = req.body;
+        const user = await User.findOneAndUpdate({ username }, { username: updatedUsername });
+        await Progress.findOneAndUpdate({ username }, { username: updatedUsername })
+        res.json(user);
     }
     catch (error) {
         next(error)
