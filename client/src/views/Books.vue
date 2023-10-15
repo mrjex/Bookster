@@ -2,7 +2,7 @@
   <form @submit.prevent="handleBookSubmit">
     <b-container>
       <h3 class="text-white">{{ user }}'s books:</h3>
-      <span v-if="!this.books.length">You have no books</span>
+      <span v-if="!this.books.length" class="text-white">You have no books</span>
       <div v-for="(result) in books" :key=result.isbn class="my-4">
         <Book :book=result>
           <b-button @click.stop="" v-b-modal="`modal-${result.isbn}`" variant="danger">Remove from
@@ -57,7 +57,7 @@ export default {
       }
     },
     async reviewBook(book) {
-      await Api.post(`/users/${this.user}/reviews/add`, {
+      await Api.post(`/users/${this.user}/reviews/`, {
         content: book.review,
         rating: book.rating,
         isbn: book.isbn,

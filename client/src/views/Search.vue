@@ -11,8 +11,8 @@
           <b-form-input v-model="keyword" placeholder="Enter a keyword"></b-form-input>
 
           <b-input-group-append>
-            <b-button class="btn_message" type="submit" variant="primary">Search</b-button>
-            <b-button class="btn_message" v-b-modal.modal-1>Bar Code</b-button>
+            <b-button class="d-none d-md-block" type="submit" variant="primary">Search</b-button>
+            <b-button class="d-none d-md-block" v-b-modal.modal-1>Bar Code</b-button>
             <!-- <b-input-group-text><b-icon-eye-fill></b-icon-eye-fill></b-input-group-text> -->
           </b-input-group-append>
 
@@ -20,6 +20,10 @@
             <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
           </b-modal>
         </b-input-group>
+        <b-form-group class="mobile-btns">
+          <b-button class="btn-block d-md-none my-2" type="submit" variant="primary">Search</b-button>
+          <b-button class="btn-block d-md-none my-2" v-b-modal.modal-1>Bar Code</b-button>
+        </b-form-group>
       </b-form>
     </b-jumbotron>
     <b-spinner v-if="loading" label="Loading"></b-spinner>
@@ -98,7 +102,9 @@ export default {
 </script>
 
 <style>
-.btn_message {
-  margin-bottom: 1em;
+.mobile-btns {
+  position: relative;
+  z-index: 1;
 }
+
 </style>
