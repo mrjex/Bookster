@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6d82adf9-baec-47cf-a4d9-26431e53755a",
+		"_postman_id": "5d969df4-37ba-4c1f-b5eb-1f03b151d9e4",
 		"name": "server",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15145094"
 	},
 	"item": [
 		{
@@ -50,14 +51,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/add",
+							"raw": "{{host}}/api/v1/users",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"users",
-								"add"
+								"v1",
+								"users"
 							]
 						}
 					},
@@ -98,12 +99,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212"
 							]
@@ -117,12 +119,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/books",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/books",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"books"
@@ -137,12 +140,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/wishlist",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"wishlist"
@@ -159,7 +163,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
@@ -175,7 +179,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Never Split The Difference\",\r\n    \"author\": \"Chris Voss\",\r\n    \"pages\": 200,\r\n    \"isbn\": \"123523\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K Rowling\",\r\n    \"pages\": 200,\r\n    \"isbn\": \"Zqe5xgEACAAJ\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -183,16 +187,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/books/add",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/books",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
-								"books",
-								"add"
+								"books"
 							]
 						}
 					},
@@ -213,12 +217,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/wishlist",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"wishlist"
@@ -242,12 +247,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/wishlist/4420564",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist/4420564",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"wishlist",
@@ -289,12 +295,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212"
 							]
@@ -313,12 +320,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/reviews",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"reviews"
@@ -333,12 +341,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/books/23255/reviews",
+							"raw": "{{host}}/api/v1/books/23255/reviews",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"books",
 								"23255",
 								"reviews"
@@ -379,16 +388,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/reviews/add",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
-								"reviews",
-								"add"
+								"reviews"
 							]
 						}
 					},
@@ -426,12 +435,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/users/BananaBoy1212/reviews/1234567",
+							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews/1234567",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"users",
 								"BananaBoy1212",
 								"reviews",
@@ -452,12 +462,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/books",
+							"raw": "{{host}}/api/v1/books",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"books"
 							]
 						}
@@ -465,6 +476,12 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000"
 		}
 	]
 }

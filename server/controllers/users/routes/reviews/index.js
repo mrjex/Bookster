@@ -3,7 +3,7 @@ const express = require('express');
 const hal9k = require('hal9k');
 const router = express.Router({ mergeParams: true });
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
     try {
         const review = await Review.create(req.body);
@@ -15,7 +15,7 @@ router.post('/', async function (req, res, next) {
 })
 
 
-// READ
+// READ TESTED
 router.get('/', async function (req, res, next) {
     try {
         const { username } = req.params;
@@ -35,7 +35,7 @@ router.get('/', async function (req, res, next) {
     }
 })
 
-// UPDATE
+// UPDATE TESTED
 router.patch('/:isbn', async function (req, res, next) {
 
     try {

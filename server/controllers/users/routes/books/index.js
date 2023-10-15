@@ -7,7 +7,7 @@ const BookApi = require('../../../../utils/BookAPI');
 const Book = require('../../../../utils/Book');
 const BookInfo = require('../../../../models/bookinfo');
 
-// READ
+// READ TESTED
 router.get('/', async (req, res, next) => {
 
     try {
@@ -57,7 +57,7 @@ router.delete('/:bookId', async function (req, res, next) {
     }
 })
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
 
     try {

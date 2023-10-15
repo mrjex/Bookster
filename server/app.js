@@ -42,7 +42,7 @@ app.use(cors());
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 // Import routes
-app.get(`/api/${VERSION}`, async function (req, res) {
+app.get(`/api`, async function (req, res) {
     res.json({ 'message': 'Welcome to your DIT342 backend ExpressJS project!' });
 });
 
@@ -58,7 +58,7 @@ app.use(`/api/${VERSION}/reviews`, reviewRouter)
 
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
-app.use(`/api/${VERSION}/*`, function (req, res) {
+app.use(`/api/*`, function (req, res) {
     res.status(404).json({ 'message': 'Not Found' });
 });
 
