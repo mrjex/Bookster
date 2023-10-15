@@ -8,45 +8,42 @@ const BookModel = require('../../models/book')
 const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
+
 router.get('/trending', async (req, res) => {
 
-    const current_date = new Date();
-    const last_month = new Date().setMonth(current_date.getMonth() - 1)
-
-    const books = new Map();
-
-    // Returns all books of last month
-    const all_users = await User.find({ 'books.createdAt': { $gte: last_month.valueOf() } }, 'books');
-
-    // measures frequency of each book
-    for (const user of all_users) {
-        for (const book of user.books) {
-            const data = await BookInfo.findOne({ isbn: book.isbn });
-            if (data) {
-                const weight = books.get(book.isbn)?.weight || 0;
-                books.set(book.isbn, { ...data._doc, weight: weight + 1 });
-            }
-        }
+    try {
+        const result = await getTrendingBooks()
+        res.json(result)
     }
-
-    const result = [...books.values()].sort((a, b) => b.weight - a.weight);
-
-    res.json(result)
+    catch (error) {
+        next(error)
+    }
 
 })
 
 // READ
 router.get('/', async function (req, res, next) {
 
-    let booksFromAPI = "Retrieve books from API here!";
-    let linkedJsonObject = hal9k.resource({
-        booksFromAPI
-    })
-        .link('home', '/api')
-        .link('self', '/api/books')
-        .link('self', '/api/books/ISBN/reviews')
+    try {
+        
+        const { trending } = req.query;
+        if (trending) {
+            const result = await getTrendingBooks();
+            return res.json(result);
+        }
 
-    res.json(linkedJsonObject)
+        let linkedJsonObject = hal9k.resource({
+            booksFromAPI
+        })
+            .link('home', '/api')
+            .link('self', '/api/books')
+            .link('self', '/api/books/ISBN/reviews')
+
+        res.json(linkedJsonObject)
+    }
+    catch (error) {
+        next(error)
+    }
 
 })
 
@@ -65,14 +62,19 @@ router.post('/', async function (req, res, next) {
 
 router.delete('/', async function (req, res, next) {
 
-    await User.updateMany({}, {
-        $set: {
-            books: []
-        }
-    });
+    try {
+        await User.updateMany({}, {
+            $set: {
+                books: []
+            }
+        });
 
-    await BookModel.deleteMany({})
-    res.sendStatus(200)
+        await BookModel.deleteMany({})
+        res.sendStatus(200)
+    }
+    catch (error) {
+        next(error)
+    }
 
 })
 
@@ -98,8 +100,8 @@ router.get('/:isbn', async function (req, res) {
         const reviews = await Review.find({ isbn })
         res.json({ ...book.toJSON(), reviews })
     }
-    catch {
-
+    catch (error) {
+        next(error)
     }
 
 })
@@ -124,5 +126,28 @@ router.get('/:isbn/reviews', async function (req, res, next) {
     }
 
 })
+
+
+async function getTrendingBooks() {
+    const current_date = new Date();
+    const last_month = new Date().setMonth(current_date.getMonth() - 1)
+
+    const books = new Map();
+
+    // Returns all books of last month
+    const all_users = await User.find({ 'books.createdAt': { $gte: last_month.valueOf() } }, 'books');
+
+    // measures frequency of each book
+    for (const user of all_users) {
+        for (const book of user.books) {
+            const data = await BookInfo.findOne({ isbn: book.isbn });
+            if (data) {
+                const weight = books.get(book.isbn)?.weight || 0;
+                books.set(book.isbn, { ...data._doc, weight: weight + 1 });
+            }
+        }
+    }
+    return [...books.values()].sort((a, b) => b.weight - a.weight);
+}
 
 module.exports = router
