@@ -30,7 +30,8 @@ router.delete('/:id', async (req, res, next) => {
 router.delete('/', async (req, res, next) => {
 
     try {
-        await Review.deleteMany({});
+        const { username } = req.body;
+        await Review.deleteMany({ username });
         res.sendStatus(200)
     }
     catch (error) {
