@@ -21,7 +21,7 @@ router.get('/', async function (req, res, next) {
 
 })
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -35,7 +35,7 @@ router.post('/', async function (req, res, next) {
 
 })
 
-// READ
+// READ TESTED
 router.get('/:username', async function (req, res, next) {
 
     try {
