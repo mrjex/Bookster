@@ -5,6 +5,7 @@ const wishlist = require('./routes/wishlist');
 const progress = require('./routes/progress');
 const User = require('../../models/user');
 const hal9k = require('hal9k');
+const Progress = require('../../models/progress');
 const router = express.Router();
 
 // READ
@@ -65,6 +66,7 @@ router.patch('/:username', async function (req, res, next) {
         const { username } = req.params;
         const { updatedUsername } = req.body;
         const user = await User.findOneAndUpdate({ username }, { username: updatedUsername });
+        await Progress.findOneAndUpdate({ username }, { username: updatedUsername })
         res.json(user);
     }
     catch (error) {
