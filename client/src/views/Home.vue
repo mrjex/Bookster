@@ -74,9 +74,3 @@ export default {
   components: { Search, Trending }
 }
 </script>
-
-<style>
-.btn_message {
-  margin-bottom: 1em;
-}
-</style>
