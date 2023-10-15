@@ -28,4 +28,7 @@ body {
 .card-body {
   color: black;
 }
+.b-icon {
+  color: white;
+}
 </style>
