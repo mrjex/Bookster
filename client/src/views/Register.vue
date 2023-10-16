@@ -227,7 +227,7 @@ export default {
   z-index: 15;
 }
 
-.icon {
+.b-icon {
   color: white;
 }
 
