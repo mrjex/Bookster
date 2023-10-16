@@ -71,12 +71,20 @@ import { Api } from '../Api'
 export default {
   name: 'User',
   inject: ['user'],
+  data() {
+    return {
+      username: '',
+      password: '',
+      age: '',
+      password_confirm: ''
+    }
+  },
   methods: {
     handleSubmit() {
       this.$router.push(`/users/${this.user}`)
     },
     booksButton() {
-      this.$router.push(`${this.$route.path}/books`)
+      this.$router.push(`${this.$route.path}/books`) //
     },
     reviewsButton() {
       this.$router.push(`${this.$route.path}/reviews`)
