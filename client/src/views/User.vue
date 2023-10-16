@@ -39,7 +39,7 @@
               <img src="../resources/Reviews.png">
               <div class="details">
                 <h2><span>Reviews</span></h2>
-                <p>Your take on the books you bought</p>
+                <p>Your take on acquired books</p>
               </div>
             </div>
           </a>
@@ -47,10 +47,10 @@
         <b-col>
           <a @click.prevent="profileButton">
             <div class="image">
-              <img src="../resources/Reviews.png">
+              <img src="../resources/ProfileButton.png">
               <div class="details">
                 <h2><span>Profile</span></h2>
-                <p>Change profile data</p>
+                <p>Your personal data</p>
               </div>
             </div>
           </a>
@@ -222,12 +222,6 @@ h3 {
   left: 18vw;
   border-radius: 2vh;
   background-image: url("https://i.ibb.co/KrC2xtV/BookPic4.png");
-  /*
-  1.       https://i.ibb.co/crD6NXR/Untitled-1.png
-  2.       https://i.ibb.co/NrzBM1d/BookPic2.png
-  3.       https://i.ibb.co/vV5ZVYb/BookPic3.png
-  4.       https://i.ibb.co/KrC2xtV/BookPic4.png
-  */
 }
 
 .your-progress-button {
@@ -242,13 +236,6 @@ h3 {
   left: 18vw;
   border-radius: 2vh;
   background-image: url("https://i.ibb.co/x3GNf5H/Linechart1.png");
-  /*
-  1.       Link here
-  2.       Link here
-  3.       Link here
-  4.       Link here
-  5.       Link here
-  */
 }
 
 .your-reviews-button {

@@ -18,7 +18,7 @@
     <!-- BLACK: card text-white bg-dark mb-3 -->
   <div class="card text-white bg-dark mb-3 wioplayCard">
     <div class="card-header">
-      <h4>Why Trust Bookster?</h4>
+      <h4 id="trust-bookster">Why Trust Bookster?</h4>
     </div>
     <div class="card-body">
       <p class="card-text">From the creators of WioPlay: A prominent project that yields joy and happiness
@@ -28,7 +28,6 @@
   </div>
 
     <h4 id="entrusted-project-h4">Our other entrusted project:</h4>
-    <div id="page-background"></div>
 
     <video autoplay muted loop class="wioplay-demo">
       <source src="../resources/Group 10 WioPlay Demo - Whitebars.mp4">
@@ -115,10 +114,6 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  color: rgb(54, 206, 49);
-  font-size: 1.2em;
-}
 
 .card-text {
   color: #7dcfcb9d;
@@ -178,22 +173,11 @@ h4 {
   );
 }
 
-.waves-top {
-  position: absolute;
-  top: 0vh;
-  left: 0vw;
-  width: 100%;
-  height: auto;
-  z-index: 10;
-}
-
 .wioplayCard {
   position: absolute;
   left: 15vw;
-  width: 25rem;
-  /*
-  height: 25rem;
-  */
+  width: 32vw;
+  height: 15vw;
 }
 
 .top-screen-template {
@@ -213,21 +197,10 @@ h4 {
 #transform-reading-game {
   position: absolute;
   width: 60vw;
-  font-weight: 900;
   color: #7dcfcb;
   font-weight: 600;
   text-transform: uppercase;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
-}
-
-#page-background {
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 380vh;
-  background-color: #343434;
-  position: absolute;
-  z-index: -3;
 }
 
 #carouselTest {
@@ -236,12 +209,6 @@ h4 {
   position: relative;
   width: 75vw;
   height: auto;
-}
-
-#entrusted-project-h4 {
-  position: absolute;
-  top: 305vh;
-  left: 56vw;
 }
 
 #myCircle {
@@ -298,16 +265,38 @@ h4 {
 .right-decrease-borders {
   position: absolute;
   right: 0vh;
-  top: 10vh;
+  top: 40vh;
+}
+
+#trust-bookster {
+  color: #7dcfcb;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+  font-size: 1.2vw;
+}
+
+#entrusted-project-h4 {
+  position: absolute;
+  top: 305vh;
+  left: 56vw;
+  width: 60vw;
+  color: #7dcfcb;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+  font-size: 1.4vw;
 }
 
 .wioplay-demo {
-  left: 47vw;
   width: 40%;
   height: auto;
-  position: absolute;
   z-index: 0;
   border-radius: 1.2vh;
+  position: relative;
+  top: 300vh;
+  float: right;
+  margin-right: 7vw;
 }
 
 .changing-texts {
@@ -374,10 +363,10 @@ h4 {
   line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
-  position: absolute;
-  top: 20vh;
-  left: 43.5vw;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+  position: relative;
+  text-align: center;
+  top: 17vh;
 }
 
 .hero-text {
@@ -386,10 +375,10 @@ h4 {
   line-height: 1;
   font-weight: 600;
   text-transform: uppercase;
-  position: absolute;
-  top: 30vh;
-  left: 40.65vw;
   text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
+  position: relative;
+  text-align: center;
+  top: 21vh;
 }
 
 .hero-image {
@@ -398,6 +387,8 @@ h4 {
   position: absolute;
   top: 0vh;
   left: 0vw;
+  width: 100%;
+  height: auto;
 }
 
 .about-img-card {
@@ -427,9 +418,40 @@ h4 {
     height: auto;
   }
 
-   h4 {
-    font-size: 0.8em;
-    color: rgb(85, 115, 204);
+  .carousel-group {
+    top: -19vh;
+  }
+
+  #transform-reading-game {
+    top: 185.7vh;
+    left: 34vw;
+    font-size: 1.85vw;
+  }
+
+  .wioplay-demo {
+    top: 218vh;
+    left: -17vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 225vh;
+    left: 37.5vw;
+  }
+
+  .wioplayCard {
+    top: 224vh;
+    display: none;
+  }
+
+  .blobs {
+    display: none;
+  }
+}
+
+@media (max-width: 415px) {
+  .changing-images {
+    width: 10%;
+    height: auto;
   }
 
   .carousel-group {
@@ -443,11 +465,126 @@ h4 {
   }
 
   .wioplay-demo {
-    top: 224vh;
+    top: 202vh;
+    left: -17vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 208.9vh;
+    left: 40vw;
   }
 
   .wioplayCard {
     top: 224vh;
+    display: none;
+  }
+
+  .blobs {
+    display: none;
+  }
+}
+
+@media (max-width: 377px) {
+  .changing-images {
+    width: 10%;
+    height: auto;
+  }
+
+  .carousel-group {
+    top: -19vh;
+  }
+
+  #transform-reading-game {
+    top: 185.7vh;
+    left: 34vw;
+    font-size: 1.85vw;
+  }
+
+  .wioplay-demo {
+    top: 205vh;
+    left: -17vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 214.4vh;
+    left: 40vw;
+  }
+
+  .wioplayCard {
+    top: 224vh;
+    display: none;
+  }
+
+  .blobs {
+    display: none;
+  }
+}
+
+@media (max-width: 363px) {
+  .changing-images {
+    width: 10%;
+    height: auto;
+  }
+
+  .carousel-group {
+    top: -19vh;
+  }
+
+  #transform-reading-game {
+    top: 185.7vh;
+    left: 34vw;
+    font-size: 1.85vw;
+  }
+
+  .wioplay-demo {
+    top: 199.5vh;
+    left: -17vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 210vh;
+    left: 40vw;
+  }
+
+  .wioplayCard {
+    top: 224vh;
+    display: none;
+  }
+
+  .blobs {
+    display: none;
+  }
+}
+
+@media (max-width: 285px) {
+  .changing-images {
+    width: 10%;
+    height: auto;
+  }
+
+  .carousel-group {
+    top: -19vh;
+  }
+
+  #transform-reading-game {
+    top: 185.7vh;
+    left: 34vw;
+    font-size: 1.85vw;
+  }
+
+  .wioplay-demo {
+    top: 195vh;
+    left: -17vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 207.5vh;
+    left: 40vw;
+  }
+
+  .wioplayCard {
+    top: 224vh;
+    display: none;
   }
 
   .blobs {
@@ -461,11 +598,6 @@ h4 {
     height: auto;
   }
 
-   h4 {
-    font-size: 0.9em;
-    color: rgb(238, 203, 115);
-  }
-
   .carousel-group {
     top: -15vh;
   }
@@ -477,11 +609,18 @@ h4 {
   }
 
   .wioplay-demo {
-    top: 240vh;
+    top: 238vh;
+    left: -12vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 245vh;
+    left: 38.5vw;
   }
 
   .wioplayCard {
     top: 240vh;
+    display: none;
   }
 
   .blobs {
@@ -495,11 +634,6 @@ h4 {
     height: auto;
   }
 
-   h4 {
-    font-size: 1.0em;
-    color: rgb(255, 10, 75);
-  }
-
   .carousel-group {
     top: -10.5vh;
   }
@@ -511,11 +645,18 @@ h4 {
   }
 
   .wioplay-demo {
-    top: 260vh;
+    top: 261vh;
+    left: -12vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 267vh;
+    left: 41.2vw;
   }
 
   .wioplayCard {
     top: 260vh;
+    display: none;
   }
 
   .blobs {
@@ -527,11 +668,6 @@ h4 {
   .changing-images {
     width: 25%;
     height: auto;
-  }
-
-   h4 {
-    font-size: 1.1em;
-    color: rgb(247, 255, 10);
   }
 
   .carousel-group {
@@ -548,8 +684,14 @@ h4 {
     top: 278vh;
   }
 
+  #entrusted-project-h4 {
+    top: 284vh;
+    left: 40vw;
+  }
+
   .wioplayCard {
     top: 278vh;
+    display: none;
   }
 
   .blobs {
@@ -561,11 +703,6 @@ h4 {
   .changing-images {
     width: 30%;
     height: auto;
-  }
-
-   h4 {
-    font-size: 1.2em;
-    color: blue;
   }
 
   .carousel-group {
@@ -582,8 +719,14 @@ h4 {
     top: 297vh;
   }
 
+  #entrusted-project-h4 {
+    top: 302vh;
+    left: 40.5vw;
+  }
+
   .wioplayCard {
     top: 297vh;
+    display: none;
   }
 
   .blobs {
@@ -595,14 +738,6 @@ h4 {
   .changing-images {
     width: 25%;
     height: auto;
-  }
-
-   h4 {
-    font-size: 1.2em;
-    color: #7dcfcb;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-shadow: rgb(0, 0, 0) 0.3vw 0 0.5vw;
   }
 
   .changing-texts {
@@ -621,11 +756,18 @@ h4 {
   }
 
   .wioplay-demo {
-    top: 310vh;
+    top: 308vh;
+    left: 5vw;
+  }
+
+  #entrusted-project-h4 {
+    top: 313vh;
+    left: 58vw;
   }
 
   .wioplayCard {
-    top: 310vh;
+    top: 318vh;
+    display: block;
   }
 
   .blobs {
