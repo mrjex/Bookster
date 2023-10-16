@@ -4,17 +4,16 @@
       <h3 id="username-display">{{ user }}'s profile:</h3>
     </b-container>
 
-    <!-- <img src="../resources/UserVueBlob1.svg" class="blob blob0-svg"> -->
-    <img src="../resources/UserVueBlob3.svg" class="blob blob1-svg">
-    <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
-    <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
+    <img src="../resources/blobs/UserVueBlob3.svg" class="blob blob1-svg">
+    <img src="../resources/blobs/UserVueBlob4.svg" class="blob blob2-svg">
+    <img src="../resources/blobs/UserVueBlob5.svg" class="blob blob3-svg">
 
     <div class="card-container fluid">
       <b-row class="row">
         <b-col>
           <a @click.prevent="booksButton">
             <div class="image">
-              <img src="../resources/BookPic1.png">
+              <img src="../resources/dashboard/BookButton.png">
               <div class="details">
                 <h2><span>Books</span></h2>
                 <p>Your acquired books</p>
@@ -25,7 +24,7 @@
         <b-col>
           <a @click.prevent="progressButton">
             <div class="image">
-              <img src="../resources/ChartPic3.png">
+              <img src="../resources/dashboard/ChartButton.png">
               <div class="details">
                 <h2><span>Progress</span></h2>
                 <p>Your statistical monitoring</p>
@@ -36,7 +35,7 @@
         <b-col>
           <a @click.prevent="reviewsButton">
             <div class="image">
-              <img src="../resources/Reviews.png">
+              <img src="../resources/dashboard/ReviewsButton.png">
               <div class="details">
                 <h2><span>Reviews</span></h2>
                 <p>Your take on acquired books</p>
@@ -47,7 +46,7 @@
         <b-col>
           <a @click.prevent="profileButton">
             <div class="image">
-              <img src="../resources/ProfileButton.png">
+              <img src="../resources/dashboard/ProfileButton.png">
               <div class="details">
                 <h2><span>Profile</span></h2>
                 <p>Your personal data</p>

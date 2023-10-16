@@ -8,10 +8,10 @@
     <div class="tempVideoShape"></div>
 
     <div class="blobs">
-      <img src="../resources/blob.svg" class="blob-svg">
-      <img src="../resources/blob2.svg" class="blob-svg2">
-      <img src="../resources/blob3.svg" class="blob-svg3">
-      <img src="../resources/blob4.svg" class="blob-svg4">
+      <img src="../resources/blobs/blob.svg" class="blob-svg">
+      <img src="../resources/blobs/blob2.svg" class="blob-svg2">
+      <img src="../resources/blobs/blob3.svg" class="blob-svg3">
+      <img src="../resources/blobs/blob4.svg" class="blob-svg4">
     </div>
 
     <!-- WHITE: card text-dark bg-light mb-3 -->
