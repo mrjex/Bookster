@@ -1,49 +1,52 @@
 <template>
-  <div class="background-forest d-flex align-items-center justify-content-center">
-    <div class="outer-container p-2">
-      <div class="form-content">
-        <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
-        <div class="d-flex align-items-center justify-content-center">
-          <div>
-            <h4 class="no-account">Already have an account? <a href="/login">
-                Login
-              </a>
-            </h4>
-            <h4 class="welcome-text">WELCOME</h4>
+  <div>
+      <div class="background-forest d-flex align-items-center justify-content-center">
+        <div class="outer-container p-2">
+          <div class="form-content">
+            <a href="/about">
+              <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
+            </a>
+            <div class="d-flex align-items-center justify-content-center">
+              <div>
+                <h4 class="no-account">Already have an account? <a href="/login">
+                    Login
+                  </a>
+                </h4>
+                <h4 class="welcome-text">WELCOME</h4>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center py-2" id="loginDetails">
+            <div class="form-frontend">
+              <form @submit.prevent="handleRegister">
+                <div class="form-group">
+                  <BIconPersonCircle class="mx-2" />
+                  <input type="username" class="input-btn" v-model="username" placeholder="Username" />
+                </div>
+                <div class="form-group">
+                  <BIconCalendar2Date class="mx-2" />
+                  <input type="age" class="input-btn" v-model="age" placeholder="Age" />
+                </div>
+                <div class="form-group">
+                  <BIconKey class="mx-2" />
+                  <input type="password" class="input-btn" v-model="password" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                  <BIconCheck2Circle class="mx-2" />
+                  <input type="password" class="input-btn" v-model="password_confirm" placeholder="Confirm Password" />
+                </div>
+                <button class="input-btn login-btn float-right">SIGN UP</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center py-2" id="loginDetails">
-        <div class="form-frontend">
-          <form @submit.prevent="handleRegister">
-            <div class="form-group">
-              <BIconPersonCircle class="mx-2" />
-              <input type="username" class="input-btn" v-model="username" placeholder="Username" />
-            </div>
-            <div class="form-group">
-              <BIconCalendar2Date class="mx-2" />
-              <input type="age" class="input-btn" v-model="age" placeholder="Age" />
-            </div>
-            <div class="form-group">
-              <BIconKey class="mx-2" />
-              <input type="password" class="input-btn" v-model="password" placeholder="Password" />
-            </div>
-            <div class="form-group">
-              <BIconCheck2Circle class="mx-2" />
-              <input type="password" class="input-btn" v-model="password_confirm" placeholder="Confirm Password" />
-            </div>
-            <button class="input-btn login-btn float-right">SIGN UP</button>
-          </form>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import { Api } from '../Api'
 import { BIconCalendar2Date, BIconCheck2Circle } from 'bootstrap-vue'
-// import NavComponent from '../components/NavComponent.vue'
 export default {
   name: 'Register',
   data() {
@@ -51,18 +54,26 @@ export default {
       username: '',
       password: '',
       age: '',
-      password_confirm: ''
+      password_confirm: '',
+      userHATEOAS: ''
     }
   },
   methods: {
     async handleRegister() {
-      await Api.post('/users', {
+      this.userHATEOAS = await Api.post('/users', {
         username: this.username,
         password: this.password,
-        age: this.age
+        age: this.age,
+        links: [
+          {
+            href: '/login',
+            rel: 'user',
+            type: 'POST'
+          }
+        ]
       })
 
-      await Api.post(`/users/${this.user}/progress/`, {
+      await Api.post(`/users/${this.username}/progress`, {
         performanceCharts: null,
         performanceDateLabels: null,
         allocationChartsCurrent: null,
@@ -71,25 +82,7 @@ export default {
         username: this.username
       })
 
-      const userHATEOASExample = await Api.post(`/users/${this.user}/progress/`, {
-        performanceCharts: null,
-        performanceDateLabels: null,
-        allocationChartsCurrent: null,
-        allocationChartsLastMonth: null,
-        allocationCategories: null,
-        username: this.username,
-        links: [
-          {
-            href: `users/${this.user}`,
-            rel: 'users',
-            type: 'POST'
-          }
-        ]
-      })
-
-      console.warn(userHATEOASExample)
-
-      this.$router.push('/login')
+      this.$router.push(this.userHATEOAS.data.links[0].href)
     }
   },
   components: {

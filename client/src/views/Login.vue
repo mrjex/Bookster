@@ -2,7 +2,9 @@
   <div class="background-forest d-flex align-items-center justify-content-center">
     <div class="outer-container p-2">
       <div class="form-content">
-        <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
+        <a href="/about">
+          <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
+        </a>
         <div class="d-flex align-items-center justify-content-center">
           <div>
             <h4 class="no-account">Don't have an account? <a href="/register">
