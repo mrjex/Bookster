@@ -50,14 +50,18 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const result = await Api.get(`/users?username=${this.username}&password=${this.password}`)
+      try {
+        const result = await Api.get(`/users?username=${this.username}&password=${this.password}`)
 
-      // User account found - Successful login
-      if (result.status === 200 && result.data.length > 0) {
-        UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
-        UtilsComponent.methods.setRefreshablePageState()
-        UtilsComponent.methods.setHasAddedAllocationCategory(false)
-        this.$router.push('/')
+        // User account found - Successful login
+        if (result.status === 200 && result.data.length > 0) {
+          UtilsComponent.methods.updateLoggedInUser(JSON.stringify(result.data[0]), this.username)
+          UtilsComponent.methods.setRefreshablePageState()
+          UtilsComponent.methods.setHasAddedAllocationCategory(false)
+          this.$router.push('/')
+        }
+      } catch (e) {
+        console.error(e)
       }
     }
   },

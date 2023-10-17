@@ -57,28 +57,36 @@ export default {
       }
     },
     async reviewBook(book) {
-      await Api.post(`/users/${this.user}/reviews/`, {
-        content: book.review,
-        rating: book.rating,
-        isbn: book.isbn,
-        username: this.user
-      })
-      this.$bvToast.toast('Success', {
-        title: 'Added book review',
-        autoHideDelay: 5000,
-        appendToast: false
-      })
+      try {
+        await Api.post(`/users/${this.user}/reviews/`, {
+          content: book.review,
+          rating: book.rating,
+          isbn: book.isbn,
+          username: this.user
+        })
+        this.$bvToast.toast('Success', {
+          title: 'Added book review',
+          autoHideDelay: 5000,
+          appendToast: false
+        })
+      } catch (e) {
+        console.error(e)
+      }
     }
   },
   async created() {
-    const result = await Api.get(`/users/${this.user}/books`)
-    this.books = result.data.books.map(book => {
-      return {
-        ...book,
-        rating: 0,
-        review: ''
-      }
-    })
+    try {
+      const result = await Api.get(`/users/${this.user}/books`)
+      this.books = result.data.books.map(book => {
+        return {
+          ...book,
+          rating: 0,
+          review: ''
+        }
+      })
+    } catch (e) {
+      console.error(e)
+    }
   }
 
 }

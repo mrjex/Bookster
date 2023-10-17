@@ -67,8 +67,12 @@ export default {
     }
   },
   async created() {
-    const result = await Api.get(`/books/${this.review.isbn}`)
-    this.bookinfo = result.data
+    try {
+      const result = await Api.get(`/books/${this.review.isbn}`)
+      this.bookinfo = result.data
+    } catch (e) {
+      console.error(e)
+    }
   }
 }
 </script>
