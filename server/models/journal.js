@@ -13,7 +13,8 @@ const journalSchema = mongoose.Schema(
             required: true
         },
         username: {
-            type: User,
+            type: String,
+            ref: 'User',
             required: true
         }
     },

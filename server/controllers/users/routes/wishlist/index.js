@@ -3,13 +3,13 @@ const express = require('express');
 const hal9k = require('hal9k');
 const router = express.Router({ mergeParams: true });
 
-// READ
+// READ TESTED
 router.get('/', async function (req, res, next) {
 
     try {
         const { username } = req.params;
         const user = await User.findOne({ username });
-        const wishlist = user.wishlist;
+        const wishlist = user?.wishlist;
 
         let linkedJsonObject = hal9k.resource({
             wishlist
@@ -25,7 +25,7 @@ router.get('/', async function (req, res, next) {
 
 })
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -43,7 +43,7 @@ router.post('/', async function (req, res, next) {
 
 })
 
-// DELETE
+// DELETE TESTED
 router.delete('/:bookId', async function (req, res, next) {
 
     try {
