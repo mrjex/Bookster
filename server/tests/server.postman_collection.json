@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"BananaBoy1212\",\r\n    \"password\": \"BananaPassword\",\r\n    \"age\": 28,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"Die With Zero\",\r\n            \"author\": \"Bill Perkins\",\r\n            \"isbn\": \"2325235\",\r\n            \"pages\": 203\r\n        },\r\n        {\r\n            \"title\": \"Before You Quit Your Job\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"2341\",\r\n            \"pages\": 304\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Get Rich Without Cutting Up Your Credit Cards\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"435420\",\r\n            \"pages\": 67\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"BananaPassword\",\r\n    \"age\": 28,\r\n    \"books\": [\r\n        {\r\n            \"title\": \"Die With Zero\",\r\n            \"author\": \"Bill Perkins\",\r\n            \"isbn\": \"2325235\",\r\n            \"pages\": 203\r\n        },\r\n        {\r\n            \"title\": \"Before You Quit Your Job\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"2341\",\r\n            \"pages\": 304\r\n        }\r\n    ],\r\n    \"wishlist\": [\r\n        {\r\n            \"title\": \"Get Rich Without Cutting Up Your Credit Cards\",\r\n            \"author\": \"Robert Kiyosaki\",\r\n            \"isbn\": \"435420\",\r\n            \"pages\": 67\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +99,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212",
+							"raw": "{{host}}/api/v1/users/{{username}}",
 							"host": [
 								"{{host}}"
 							],
@@ -107,7 +107,7 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212"
+								"{{username}}"
 							]
 						}
 					},
@@ -115,32 +115,28 @@
 				},
 				{
 					"name": "Read Books By User",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/books",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"BananaBoy1212",
-								"books"
-							]
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read Wishlist By User",
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist",
+							"raw": "{{host}}/api/v1/users/{{username}}/books",
 							"host": [
 								"{{host}}"
 							],
@@ -148,8 +144,8 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212",
-								"wishlist"
+								"{{username}}",
+								"books"
 							]
 						}
 					},
@@ -163,7 +159,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
@@ -179,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K Rowling\",\r\n    \"pages\": 200,\r\n    \"isbn\": \"Zqe5xgEACAAJ\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K Rowling\",\r\n    \"pages\": 200,\r\n    \"isbn\": \"{{isbn}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +183,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/books",
+							"raw": "{{host}}/api/v1/users/{{username}}/books",
 							"host": [
 								"{{host}}"
 							],
@@ -195,7 +191,7 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212",
+								"{{username}}",
 								"books"
 							]
 						}
@@ -203,79 +199,102 @@
 					"response": []
 				},
 				{
-					"name": "Add Book To Wishlist By Username",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Escape The Rat Race\",\r\n    \"author\": \"MJ DeMarco\",\r\n    \"isbn\": \"4420564\",\r\n    \"pages\": 457\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"BananaBoy1212",
-								"wishlist"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Book From Wishlist By Username",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/wishlist/4420564",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"BananaBoy1212",
-								"wishlist",
-								"4420564"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete User By Username",
+					"name": "Read All Users",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
+									"pm.environment.set('username', \"AppleBoy\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"AppleBoy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -285,17 +304,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212",
+							"raw": "{{host}}/api/v1/users/{{$randomUserName}}",
 							"host": [
 								"{{host}}"
 							],
@@ -303,7 +313,46 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212"
+								"{{$randomUserName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Book from User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/books/{{isbn}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"books",
+								"{{isbn}}"
 							]
 						}
 					},
@@ -316,11 +365,28 @@
 			"item": [
 				{
 					"name": "Read Reviews By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews",
+							"raw": "{{host}}/api/v1/users/{{username}}/reviews",
 							"host": [
 								"{{host}}"
 							],
@@ -328,7 +394,7 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212",
+								"{{username}}",
 								"reviews"
 							]
 						}
@@ -337,11 +403,28 @@
 				},
 				{
 					"name": "Read Review By ISBN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/books/23255/reviews",
+							"raw": "{{host}}/api/v1/books/{{username}}/reviews",
 							"host": [
 								"{{host}}"
 							],
@@ -349,7 +432,7 @@
 								"api",
 								"v1",
 								"books",
-								"23255",
+								"{{username}}",
 								"reviews"
 							]
 						}
@@ -388,7 +471,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews",
+							"raw": "{{host}}/api/v1/users/{{username}}/reviews",
 							"host": [
 								"{{host}}"
 							],
@@ -396,7 +479,7 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212",
+								"{{username}}",
 								"reviews"
 							]
 						}
@@ -435,7 +518,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/BananaBoy1212/reviews/1234567",
+							"raw": "{{host}}/api/v1/users/{{username}}/reviews/88",
 							"host": [
 								"{{host}}"
 							],
@@ -443,9 +526,164 @@
 								"api",
 								"v1",
 								"users",
-								"BananaBoy1212",
+								"{{username}}",
 								"reviews",
-								"1234567"
+								"88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all Reviews",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/reviews",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/reviews/652c21c669965f1515b65f2e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"652c21c669965f1515b65f2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Good Book!\",\r\n    \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/reviews/652c21c669965f1515b65f2e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"652c21c669965f1515b65f2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Reviews",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/reviews",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
 							]
 						}
 					},
@@ -458,6 +696,23 @@
 			"item": [
 				{
 					"name": "Read Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -474,6 +729,601 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Trending Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/books/trending",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"trending"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/books/search/Harry Potter",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"search",
+								"Harry Potter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book by ISBN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/books/{{isbn}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{isbn}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Progress",
+			"item": [
+				{
+					"name": "Get Progress",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/progress",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Progress",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"performanceCharts\": null,\r\n    \"performanceDateLabels\": null,\r\n    \"allocationChartsCurrent\": null,\r\n    \"allocationChartsLastMonth\": null,\r\n    \"allocationCategories\": null,\r\n    \"username\": \"{{username}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/progress",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Progress",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"performanceCharts\": [\r\n        0,\r\n        21\r\n    ],\r\n    \"performanceDateLabels\": [\r\n        \"Day 0\",\r\n        \"2023/10/17\"\r\n    ],\r\n    \"allocationChartsCurrent\": [\r\n        6,\r\n        4,\r\n        5\r\n    ],\r\n    \"allocationChartsLastMonth\": [\r\n        5,\r\n        2,\r\n        4\r\n    ],\r\n    \"allocationCategories\": [\r\n        \"Finances\",\r\n        \"Business\",\r\n        \"Negotiation\"\r\n    ],\r\n    \"username\": \"{{username}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/progress",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Journals",
+			"item": [
+				{
+					"name": "Add Journal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.environment.set('journal_id', pm.response.json()._id)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"notes\": \"This was a good book!\",\r\n        \"isbn\": \"{{isbn}}\",\r\n        \"username\": \"{{username}}\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/books/{{isbn}}/journals",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"books",
+								"{{isbn}}",
+								"journals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Journals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/books/{{isbn}}/journals",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"books",
+								"{{isbn}}",
+								"journals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Journal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/books/{{isbn}}/journals/{{journal_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"books",
+								"{{isbn}}",
+								"journals",
+								"{{journal_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wishlist",
+			"item": [
+				{
+					"name": "Read Wishlist By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/wishlist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book To Wishlist By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Escape The Rat Race\",\r\n    \"author\": \"MJ DeMarco\",\r\n    \"isbn\": \"4420564\",\r\n    \"pages\": 457\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/wishlist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book From Wishlist By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{username}}/wishlist/{{isbn}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{username}}",
+								"wishlist",
+								"{{isbn}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
@@ -482,6 +1332,18 @@
 		{
 			"key": "host",
 			"value": "http://localhost:3000"
+		},
+		{
+			"key": "username",
+			"value": "Harry"
+		},
+		{
+			"key": "isbn",
+			"value": "Zqe5xgEACAAJ"
+		},
+		{
+			"key": "journal_id",
+			"value": "652e2b07d1d6b413a042c761"
 		}
 	]
 }

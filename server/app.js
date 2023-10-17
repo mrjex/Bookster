@@ -9,7 +9,6 @@ var methodOverride = require('method-override')
 const userRouter = require('./controllers/users');
 const reviewRouter = require('./controllers/reviews');
 const bookRouter = require('./controllers/books');
-const User = require('./models/user');
 const VERSION = 'v1';
 
 // Variables
