@@ -3,7 +3,7 @@
     <b-jumbotron class="video-container" lead="Search for a book">
       <h1 class="caption">Bookster</h1>
       <!-- <h3 class="subtitle">From the creators of <a href="https://github.com/indomet/wioplay" target="_blank">WioPlay</a></h3> -->
-      <video autoplay muted loop class="main-bg">
+      <video autoplay muted loop class="main-bg" playsinline>
         <source src="../resources/BookVideo-Group21.mp4" type="video/mp4" />
       </video>
       <b-form @submit="getMessage">
