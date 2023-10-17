@@ -5,7 +5,12 @@
     <h1 class="hero-text">Where literacy becomes prosperity.</h1>
 
     <img src="../resources/DynamicBottomScreensTemplate.png" class="bottomTemplate">
-    <div class="tempVideoShape"></div>
+
+    <a href="https://www.youtube.com/watch?v=QJtuR23a90U">
+      <video autoplay muted loop class="bookster-video">
+        <source src="../resources/Bookster-Video.mp4">
+      </video>
+    </a>
 
     <div class="blobs">
       <img src="../resources/blobs/blob.svg" class="blob-svg">
@@ -245,13 +250,12 @@ export default {
   left: 17.5vw;
 }
 
-.tempVideoShape {
+.bookster-video {
   height: 57vh;
   width: 49vw;
   position: absolute;
   top: 80.5vh;
   left: 24vw;
-  background-color: #1c1d1d;
   z-index: 10;
   border-radius: 3vh;
 }
