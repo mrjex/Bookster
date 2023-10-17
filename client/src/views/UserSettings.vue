@@ -34,10 +34,10 @@ export default {
           autoHideDelay: 5000,
           appendToast: false
         })
-        // setTimeout(() => {
-        //   this.$router.push(`/users/${this.username}/profile`)
-        //   window.location.reload()
-        // }, 500)
+        setTimeout(() => {
+          this.$router.push(`/users/${this.username}/profile`)
+          window.location.reload()
+        }, 500)
       } catch {
       }
     }
