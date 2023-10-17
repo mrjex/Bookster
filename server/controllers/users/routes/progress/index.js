@@ -4,7 +4,7 @@ const router = express.Router({ mergeParams: true });
 
 // NOTE: Path = 'api/users/:username/progress'
 
-// READ
+// READ TESTED
 router.get('/', async function (req, res, next) {
     try {
         res.json(await Progress.find({ username: req.params.username }))
@@ -14,7 +14,7 @@ router.get('/', async function (req, res, next) {
     }
 })
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -27,7 +27,7 @@ router.post('/', async function (req, res, next) {
     }
 })
 
-// UPDATE
+// UPDATE TESTED
 router.put('/', async function (req, res, next) {
     try {
         const { username } = req.params;

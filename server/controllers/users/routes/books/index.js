@@ -7,7 +7,7 @@ const BookApi = require('../../../../utils/BookAPI');
 const Book = require('../../../../utils/Book');
 const BookInfo = require('../../../../models/bookinfo');
 
-// READ
+// READ TESTED
 router.get('/', async (req, res, next) => {
 
     try {
@@ -22,7 +22,7 @@ router.get('/', async (req, res, next) => {
         const fetched_books = [];
         for (const book of books) {
             const added = await BookInfo.findOne({ isbn: book.isbn });
-            if(added) {
+            if (added) {
                 fetched_books.push({ ...added._doc });
             }
         }
@@ -41,15 +41,15 @@ router.get('/', async (req, res, next) => {
 
 })
 
-// DELETE
+// DELETE TESTED
 router.delete('/:bookId', async function (req, res, next) {
 
     try {
         const { username, bookId } = req.params;
         const user = await User.findOne({ username });
 
-        user.books.pull({ isbn: bookId });
-        await user.save();
+        user?.books.pull({ isbn: bookId });
+        await user?.save();
         res.json(user);
     }
     catch (error) {
@@ -57,7 +57,7 @@ router.delete('/:bookId', async function (req, res, next) {
     }
 })
 
-// CREATE
+// CREATE TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -66,15 +66,15 @@ router.post('/', async function (req, res, next) {
         const user = await User.findOne({ username });
 
         // fetch the book and save it to cache
-       const fetched = await BookApi.getBook(book.isbn)
-        
-        await BookInfo.findOneAndUpdate({ isbn: book.isbn }, fetched, { upsert: true })
+        const fetched = await BookApi.getBook(book.isbn)
 
-        user.books.push(book);
-        await user.save();
+        await BookInfo.findOneAndUpdate({ isbn: book.isbn }, fetched, { upsert: true })
+        user?.books.push(book);
+        await user?.save();
         res.status(201).json(book);
     }
     catch (error) {
+        console.error(error)
         next(error)
     }
 

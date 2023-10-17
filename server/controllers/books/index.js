@@ -8,8 +8,8 @@ const BookModel = require('../../models/book')
 const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
-
-router.get('/trending', async (req, res) => {
+// TESTED
+router.get('/trending', async (req, res, next) => {
 
     try {
         const result = await getTrendingBooks()
@@ -21,25 +21,20 @@ router.get('/trending', async (req, res) => {
 
 })
 
-// READ
+// READ TESTED
 router.get('/', async function (req, res, next) {
 
     try {
-        
+
         const { trending } = req.query;
         if (trending) {
             const result = await getTrendingBooks();
             return res.json(result);
         }
 
-        let linkedJsonObject = hal9k.resource({
-            booksFromAPI
-        })
-            .link('home', '/api')
-            .link('self', '/api/books')
-            .link('self', '/api/books/ISBN/reviews')
+        const books = await BookInfo.find({})
+        res.json(books)
 
-        res.json(linkedJsonObject)
     }
     catch (error) {
         next(error)
@@ -47,6 +42,7 @@ router.get('/', async function (req, res, next) {
 
 })
 
+// TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -59,7 +55,7 @@ router.post('/', async function (req, res, next) {
 
 })
 
-
+// TESTED
 router.delete('/', async function (req, res, next) {
 
     try {
@@ -78,7 +74,7 @@ router.delete('/', async function (req, res, next) {
 
 })
 
-// READ
+// READ TESTED
 router.get('/search/:keyword', async function (req, res, next) {
 
     try {
@@ -92,10 +88,13 @@ router.get('/search/:keyword', async function (req, res, next) {
 
 })
 
-router.get('/:isbn', async function (req, res) {
+// TESTED
+router.get('/:isbn', async function (req, res, next) {
 
     const { isbn } = req.params;
     try {
+        const fetched = await BookAPI.getBook(isbn)
+        await BookInfo.findOneAndUpdate({ isbn }, fetched, { upsert: true })
         const book = await BookInfo.findOne({ isbn });
         const reviews = await Review.find({ isbn })
         res.json({ ...book.toJSON(), reviews })
@@ -106,7 +105,7 @@ router.get('/:isbn', async function (req, res) {
 
 })
 
-// READ
+// READ TESTED
 router.get('/:isbn/reviews', async function (req, res, next) {
 
     try {
