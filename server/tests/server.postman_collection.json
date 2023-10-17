@@ -268,15 +268,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/users/{{username}}",
+							"raw": "{{host}}/api/v1/users/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"users",
-								"{{username}}"
+								"users"
 							]
 						}
 					},

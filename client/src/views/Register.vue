@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="background-forest d-flex align-items-center justify-content-center">
-        <div class="outer-container p-2">
+        <div id="outer-container" class="p-2">
           <div class="form-content">
             <a href="/about">
               <img src="../resources/Bookster-Logo3.0.png" class="bookster-logo p-2">
@@ -35,7 +35,7 @@
                   <BIconCheck2Circle class="mx-2 auth-icon" />
                   <input type="password" class="input-btn" v-model="password_confirm" placeholder="Confirm Password" />
                 </div>
-                <button class="input-btn login-btn float-right">SIGN UP</button>
+                <button class="float-right">SIGN UP</button>
               </form>
             </div>
           </div>
@@ -92,14 +92,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #loginDetails {
   background-color: #073438;
   border-radius: 0.8vw;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.outer-container {
+#outer-container {
   width: 450px;
 }
 
@@ -133,6 +133,11 @@ export default {
 }
 
 .input-btn {
+  border-radius: 3vh;
+  background-image: linear-gradient(to left, #7DCFCB, #9E7CCF);
+}
+
+button {
   border-radius: 3vh;
   background-image: linear-gradient(to left, #7DCFCB, #9E7CCF);
 }
