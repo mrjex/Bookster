@@ -61,6 +61,9 @@ Open the `server` and `client` in separate VSCode workspaces or open the combine
 
 ## System Definition (MS0)
 
+**Name:** Group 21<br />
+**Members:** Joel Mattsson, Mohamad Khalil, Danyil Akulich
+
 ### Purpose
 
 The purpose of our service is to track book reading progress, and allow users to add notes related to specific pages/chapters in a journal. In addition, the service suggests trending books of different categories, and allows users to share their thoughts and opinions about books that they’ve completed reading. Charts will be used to display one’s performance in various ways:
