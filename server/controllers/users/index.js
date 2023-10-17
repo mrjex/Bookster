@@ -65,7 +65,7 @@ router.get('/:username', async function (req, res, next) {
 
 
 // TESTED
-router.patch('/:username', async function (req, res, next) {
+router.patch('/', async function (req, res, next) {
 
     try {
         const { username } = req.params;
