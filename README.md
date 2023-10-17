@@ -66,28 +66,14 @@ Open the `server` and `client` in separate VSCode workspaces or open the combine
 
 ### Purpose
 
-The purpose of our service is to track book reading progress, and allow users to add notes related to specific pages/chapters in a journal. In addition, the service suggests trending books of different categories, and allows users to share their thoughts and opinions about books that they’ve completed reading. Charts will be used to display one’s performance in various ways:
-Burndown chart: Compare it to expected productivity
-Polygon chart: Categorize the user’s completed books (Example: Finances: 4, Management: 2, Leadership: 1, Systems: 5, Emotional intelligence: 3, Negotiation: 2)
-
-The website serves as a habitual performance tracker that enlightens the user’s perception about book-reading as a whole. It transforms the stereotypical view of reading as boring into an exciting virtuous cycle, to a game where you can “level up” by viewing your hard earned progress.
+Transform reading into a game: Convert the habit of reading from a shortage of dopamine to an exciting virtuous cycle that highlights your hard earned progress.
 
 
-### Pages
-
-* Home: Lists trending books of various different categories while allowing the user to search for a specific book
-* Progress: User logs progress which is visualized in charts
-* Book: Overview of a book and its associated user reviews
-* Wishlist: The user’s own modifiable list of desirable books
-* Settings: Contains user data (username, preferences, etc..)
-
-### Brief description of functionality / entities
+### Entities
 
 * User: Besides the account details (username, password, age), the number of completed books will be tied to this entity.
 
 * Book: Represents every single available book accessed by the API that a user is reading.
-
-* Journal: Will be displayed locally (the journal is attached to each account) and is the user’s own notes about the book.
 
 * Progress: Progress from a user towards a specific book is tracked, this data will be used for feedback and visualization.
 
@@ -104,3 +90,6 @@ The wishlist entity only stores the ISBN number which is sufficient enough for p
 ## Teaser (MS3)
 
 ![Teaser](./images/teaser.png)
+
+## Video
+https://www.youtube.com/watch?v=QJtuR23a90U
