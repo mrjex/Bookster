@@ -8,7 +8,7 @@ const BookModel = require('../../models/book')
 const BookInfo = require('../../models/bookinfo');
 const router = express.Router();
 
-
+// TESTED
 router.get('/trending', async (req, res, next) => {
 
     try {
@@ -42,6 +42,7 @@ router.get('/', async function (req, res, next) {
 
 })
 
+// TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -54,7 +55,7 @@ router.post('/', async function (req, res, next) {
 
 })
 
-
+// TESTED
 router.delete('/', async function (req, res, next) {
 
     try {
@@ -73,7 +74,7 @@ router.delete('/', async function (req, res, next) {
 
 })
 
-// READ
+// READ TESTED
 router.get('/search/:keyword', async function (req, res, next) {
 
     try {
@@ -87,6 +88,7 @@ router.get('/search/:keyword', async function (req, res, next) {
 
 })
 
+// TESTED
 router.get('/:isbn', async function (req, res, next) {
 
     const { isbn } = req.params;

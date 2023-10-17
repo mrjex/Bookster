@@ -41,15 +41,15 @@ router.get('/', async (req, res, next) => {
 
 })
 
-// DELETE
+// DELETE TESTED
 router.delete('/:bookId', async function (req, res, next) {
 
     try {
         const { username, bookId } = req.params;
         const user = await User.findOne({ username });
 
-        user.books.pull({ isbn: bookId });
-        await user.save();
+        user?.books.pull({ isbn: bookId });
+        await user?.save();
         res.json(user);
     }
     catch (error) {

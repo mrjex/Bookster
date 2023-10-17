@@ -2,6 +2,7 @@ const Journal = require('../../../../../models/journal');
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
+// TESTED
 router.get('/', async function (req, res, next) {
 
     const { username, isbn } = req.params;
@@ -13,6 +14,7 @@ router.get('/', async function (req, res, next) {
     }
 })
 
+// TESTED
 router.post('/', async function (req, res, next) {
 
     try {
@@ -25,13 +27,14 @@ router.post('/', async function (req, res, next) {
 
 })
 
-router.delete('/', async function (req, res, next) {
+// TESTED
+router.delete('/:id', async function (req, res, next) {
 
     try {
-        const { username, isbn } = req.params;
+        const { username, isbn, id } = req.params;
         res.json(
             await Journal.findOneAndDelete({
-                username, isbn, _id: req.body._id
+                username, isbn, _id: id
             }))
     }
     catch (e) {

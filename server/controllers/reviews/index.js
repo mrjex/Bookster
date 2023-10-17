@@ -2,6 +2,7 @@ const express = require('express');
 const Review = require('../../models/review');
 const router = express.Router();
 
+// TESTED
 router.get('/', async (req, res, next) => {
 
     try {
@@ -14,6 +15,7 @@ router.get('/', async (req, res, next) => {
 
 })
 
+// TESTED
 router.delete('/:id', async (req, res, next) => {
 
     try {
@@ -27,6 +29,7 @@ router.delete('/:id', async (req, res, next) => {
 
 })
 
+// TESTED
 router.delete('/', async (req, res, next) => {
 
     try {
@@ -40,13 +43,14 @@ router.delete('/', async (req, res, next) => {
 
 })
 
+// TESTED
 router.put('/:id', async (req, res, next) => {
 
     try {
         const { id } = req.params;
         const payload = req.body;
         const result = await Review.findOneAndUpdate({ _id: id }, payload);
-        res.status(201).json(result)
+        res.json(result)
     }
     catch (error) {
         next(error)

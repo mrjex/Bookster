@@ -1,14 +1,17 @@
 const express = require('express');
+const Progress = require('../../models/progress');
+const Reviews = require('../../models/review');
+
 const books = require('./routes/books');
 const reviews = require('./routes/reviews');
 const wishlist = require('./routes/wishlist');
 const progress = require('./routes/progress');
 const User = require('../../models/user');
 const hal9k = require('hal9k');
-const Progress = require('../../models/progress');
+const Journal = require('../../models/journal');
 const router = express.Router();
 
-// READ
+// READ TESTED
 router.get('/', async function (req, res, next) {
 
     try {
@@ -60,13 +63,18 @@ router.get('/:username', async function (req, res, next) {
 
 })
 
+
+// TESTED
 router.patch('/:username', async function (req, res, next) {
 
     try {
         const { username } = req.params;
-        const { updatedUsername } = req.body;
-        const user = await User.findOneAndUpdate({ username }, { username: updatedUsername });
-        await Progress.findOneAndUpdate({ username }, { username: updatedUsername })
+        const { username:value } = req.body;
+        const user = await User.findOneAndUpdate({ username }, { username: value });
+        await Progress.findOneAndUpdate({ username }, { username: value })
+        await Reviews.updateMany({ username }, { username: value })
+        await Journal.updateMany({ username }, { username: value })
+
         res.json(user);
     }
     catch (error) {
@@ -76,7 +84,7 @@ router.patch('/:username', async function (req, res, next) {
 })
 
 
-// DELETE
+// DELETE TESTED
 router.delete('/:username', async function (req, res, next) {
 
     try {
