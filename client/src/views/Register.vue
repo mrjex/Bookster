@@ -20,19 +20,19 @@
             <div class="form-frontend">
               <form @submit.prevent="handleRegister">
                 <div class="form-group">
-                  <BIconPersonCircle class="mx-2" />
+                  <BIconPersonCircle class="mx-2 auth-icon" />
                   <input type="username" class="input-btn" v-model="username" placeholder="Username" />
                 </div>
                 <div class="form-group">
-                  <BIconCalendar2Date class="mx-2" />
+                  <BIconCalendar2Date class="mx-2 auth-icon" />
                   <input type="age" class="input-btn" v-model="age" placeholder="Age" />
                 </div>
                 <div class="form-group">
-                  <BIconKey class="mx-2" />
+                  <BIconKey class="mx-2 auth-icon" />
                   <input type="password" class="input-btn" v-model="password" placeholder="Password" />
                 </div>
                 <div class="form-group">
-                  <BIconCheck2Circle class="mx-2" />
+                  <BIconCheck2Circle class="mx-2 auth-icon" />
                   <input type="password" class="input-btn" v-model="password_confirm" placeholder="Confirm Password" />
                 </div>
                 <button class="input-btn login-btn float-right">SIGN UP</button>
@@ -159,9 +159,5 @@ export default {
 .bookster-logo {
   width: 28vh;
   z-index: 15;
-}
-
-.b-icon {
-  color: white;
 }
 </style>
