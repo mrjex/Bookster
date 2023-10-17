@@ -32,8 +32,8 @@ router.post('/', async function (req, res, next) {
         const { username } = req.params;
         const wish = req.body;
         const user = await User.findOneAndUpdate({ username }, req.body, { new: true });
-        user.wishlist.push(wish);
-        await user.save();
+        user?.wishlist.push(wish);
+        await user?.save();
         res.status(201).json(wish);
     }
 
@@ -49,9 +49,9 @@ router.delete('/:bookId', async function (req, res, next) {
     try {
         const { username, bookId } = req.params;
         const user = await User.findOne({ username });
-        user.wishlist.pull({ isbn: bookId });
-        await user.save();
-        res.json(user.wishlist);
+        user?.wishlist.pull({ isbn: bookId });
+        await user?.save();
+        res.json(user?.wishlist);
     }
     catch (error) {
         next(error)
