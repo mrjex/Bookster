@@ -4,17 +4,16 @@
       <h3 id="username-display">{{ user }}'s profile:</h3>
     </b-container>
 
-    <!-- <img src="../resources/UserVueBlob1.svg" class="blob blob0-svg"> -->
-    <img src="../resources/UserVueBlob3.svg" class="blob blob1-svg">
-    <img src="../resources/UserVueBlob4.svg" class="blob blob2-svg">
-    <img src="../resources/UserVueBlob5.svg" class="blob blob3-svg">
+    <img src="../resources/blobs/UserVueBlob3.svg" class="blob blob1-svg">
+    <img src="../resources/blobs/UserVueBlob4.svg" class="blob blob2-svg">
+    <img src="../resources/blobs/UserVueBlob5.svg" class="blob blob3-svg">
 
     <div class="card-container fluid">
       <b-row class="row">
         <b-col>
           <a @click.prevent="booksButton">
             <div class="image">
-              <img src="../resources/BookPic1.png">
+              <img src="../resources/dashboard/BookButton.png">
               <div class="details">
                 <h2><span>Books</span></h2>
                 <p>Your acquired books</p>
@@ -25,7 +24,7 @@
         <b-col>
           <a @click.prevent="progressButton">
             <div class="image">
-              <img src="../resources/ChartPic3.png">
+              <img src="../resources/dashboard/ChartButton.png">
               <div class="details">
                 <h2><span>Progress</span></h2>
                 <p>Your statistical monitoring</p>
@@ -36,10 +35,10 @@
         <b-col>
           <a @click.prevent="reviewsButton">
             <div class="image">
-              <img src="../resources/Reviews.png">
+              <img src="../resources/dashboard/ReviewsButton.png">
               <div class="details">
                 <h2><span>Reviews</span></h2>
-                <p>Your take on the books you bought</p>
+                <p>Your take on acquired books</p>
               </div>
             </div>
           </a>
@@ -47,10 +46,10 @@
         <b-col>
           <a @click.prevent="profileButton">
             <div class="image">
-              <img src="../resources/Reviews.png">
+              <img src="../resources/dashboard/ProfileButton.png">
               <div class="details">
                 <h2><span>Profile</span></h2>
-                <p>Change profile data</p>
+                <p>Your personal data</p>
               </div>
             </div>
           </a>
@@ -72,12 +71,20 @@ import { Api } from '../Api'
 export default {
   name: 'User',
   inject: ['user'],
+  data() {
+    return {
+      username: '',
+      password: '',
+      age: '',
+      password_confirm: ''
+    }
+  },
   methods: {
     handleSubmit() {
       this.$router.push(`/users/${this.user}`)
     },
     booksButton() {
-      this.$router.push(`${this.$route.path}/books`)
+      this.$router.push(`${this.$route.path}/books`) //
     },
     reviewsButton() {
       this.$router.push(`${this.$route.path}/reviews`)
@@ -222,12 +229,6 @@ h3 {
   left: 18vw;
   border-radius: 2vh;
   background-image: url("https://i.ibb.co/KrC2xtV/BookPic4.png");
-  /*
-  1.       https://i.ibb.co/crD6NXR/Untitled-1.png
-  2.       https://i.ibb.co/NrzBM1d/BookPic2.png
-  3.       https://i.ibb.co/vV5ZVYb/BookPic3.png
-  4.       https://i.ibb.co/KrC2xtV/BookPic4.png
-  */
 }
 
 .your-progress-button {
@@ -242,13 +243,6 @@ h3 {
   left: 18vw;
   border-radius: 2vh;
   background-image: url("https://i.ibb.co/x3GNf5H/Linechart1.png");
-  /*
-  1.       Link here
-  2.       Link here
-  3.       Link here
-  4.       Link here
-  5.       Link here
-  */
 }
 
 .your-reviews-button {
