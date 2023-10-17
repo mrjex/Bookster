@@ -60,29 +60,33 @@ export default {
   },
   methods: {
     async handleRegister() {
-      this.userHATEOAS = await Api.post('/users', {
-        username: this.username,
-        password: this.password,
-        age: this.age,
-        links: [
-          {
-            href: '/login',
-            rel: 'user',
-            type: 'POST'
-          }
-        ]
-      })
+      try {
+        this.userHATEOAS = await Api.post('/users', {
+          username: this.username,
+          password: this.password,
+          age: this.age,
+          links: [
+            {
+              href: '/login',
+              rel: 'user',
+              type: 'POST'
+            }
+          ]
+        })
 
-      await Api.post(`/users/${this.username}/progress`, {
-        performanceCharts: null,
-        performanceDateLabels: null,
-        allocationChartsCurrent: null,
-        allocationChartsLastMonth: null,
-        allocationCategories: null,
-        username: this.username
-      })
+        await Api.post(`/users/${this.username}/progress`, {
+          performanceCharts: null,
+          performanceDateLabels: null,
+          allocationChartsCurrent: null,
+          allocationChartsLastMonth: null,
+          allocationCategories: null,
+          username: this.username
+        })
 
-      this.$router.push(this.userHATEOAS.data.links[0].href)
+        this.$router.push(this.userHATEOAS.data.links[0].href)
+      } catch (e) {
+        console.error(e)
+      }
     }
   },
   components: {

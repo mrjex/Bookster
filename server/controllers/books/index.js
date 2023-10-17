@@ -139,10 +139,15 @@ async function getTrendingBooks() {
     // measures frequency of each book
     for (const user of all_users) {
         for (const book of user.books) {
-            const data = await BookInfo.findOne({ isbn: book.isbn });
-            if (data) {
-                const weight = books.get(book.isbn)?.weight || 0;
-                books.set(book.isbn, { ...data._doc, weight: weight + 1 });
+            try {
+                const data = await BookInfo.findOne({ isbn: book.isbn });
+                if (data) {
+                    const weight = books.get(book.isbn)?.weight || 0;
+                    books.set(book.isbn, { ...data._doc, weight: weight + 1 });
+                }
+            }
+            catch(e) {
+                console.error(e)
             }
         }
     }

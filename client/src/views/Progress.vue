@@ -350,14 +350,18 @@ export default {
       this.updateChartProgressDB()
     },
     updateChartProgressDB() {
-      Api.put(`/users/${this.user}/progress`, {
-        performanceCharts: this.chartDataPerformance.datasets[0].data,
-        performanceDateLabels: this.chartDataPerformance.labels,
-        allocationChartsCurrent: this.chartDataAllocation.datasets[0].data,
-        allocationChartsLastMonth: this.chartDataAllocation.datasets[1].data,
-        allocationCategories: this.chartDataAllocation.labels,
-        username: this.user
-      })
+      try {
+        Api.put(`/users/${this.user}/progress`, {
+          performanceCharts: this.chartDataPerformance.datasets[0].data,
+          performanceDateLabels: this.chartDataPerformance.labels,
+          allocationChartsCurrent: this.chartDataAllocation.datasets[0].data,
+          allocationChartsLastMonth: this.chartDataAllocation.datasets[1].data,
+          allocationCategories: this.chartDataAllocation.labels,
+          username: this.user
+        })
+      } catch (e) {
+        console.error(e)
+      }
     },
     // If user has added at least one data point to the chart: Read and load the corresponding database-values
     loadPerformanceChartsData(userProgress) {
@@ -381,9 +385,13 @@ export default {
       return userProgress.data[0]
     },
     async loadCharts() {
-      const userProgress = await Api.get(`/users/${this.user}/progress`)
-      this.loadPerformanceChartsData(userProgress)
-      this.loadAllocationChartsData(userProgress)
+      try {
+        const userProgress = await Api.get(`/users/${this.user}/progress`)
+        this.loadPerformanceChartsData(userProgress)
+        this.loadAllocationChartsData(userProgress)
+      } catch (e) {
+        console.error(e)
+      }
     },
     refreshPageOnFirstCategoryAddition() {
       if (UtilsComponent.methods.getHasAddedAllocationCategory() === 'false') {

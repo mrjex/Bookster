@@ -23,8 +23,12 @@ export default {
     }
   },
   async created() {
-    const { data } = await Api.get('/books?trending=1')
-    this.books = data
+    try {
+      const { data } = await Api.get('/books?trending=1')
+      this.books = data
+    } catch (e) {
+      console.error(e)
+    }
   }
 
 }
