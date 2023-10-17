@@ -69,11 +69,11 @@ router.patch('/:username', async function (req, res, next) {
 
     try {
         const { username } = req.params;
-        const { username:value } = req.body;
-        const user = await User.findOneAndUpdate({ username }, { username: value });
-        await Progress.findOneAndUpdate({ username }, { username: value })
-        await Reviews.updateMany({ username }, { username: value })
-        await Journal.updateMany({ username }, { username: value })
+        const { updatedUsername } = req.body;
+        const user = await User.findOneAndUpdate({ username }, { username: updatedUsername });
+        await Progress.updateMany({ username }, { username: updatedUsername })
+        await Reviews.updateMany({ username }, { username: updatedUsername })
+        await Journal.updateMany({ username }, { username: updatedUsername })
 
         res.json(user);
     }
