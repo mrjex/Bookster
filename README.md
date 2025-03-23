@@ -1,95 +1,45 @@
-# Backend and Frontend Template
+# Web Development
 
-Latest version: https://git.chalmers.se/courses/dit342/group-00-web
+I attended this course in `August - October 2023` and coded in a group with 2 other students. HTML, CSS, JavaScript, Vuejs and MongoDB were the big technologies that we focused on learning. Fortunately, I had prior experience of JavaScript in one of my AlgoExpert problem solving ventures:
 
-This template refers to itself as `group-00-web`. In your project, use your group number in place of `00`.
+- [Youngest Common Ancestor](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Graphs/Youngest-Common-Ancestor).
 
-## Project Structure
+- [Blackjack Probability](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Recursion/Blackjack%20Probability)
 
-| File        | Purpose           | What you do?  |
-| ------------- | ------------- | ----- |
-| `server/` | Backend server code | All your server code |
-| [server/README.md](server/README.md) | Everything about the server | **READ ME** carefully! |
-| `client/` | Frontend client code | All your client code |
-| [client/README.md](client/README.md) | Everything about the client | **READ ME** carefully! |
-| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Free online production deployment | Deploy your app online in production mode |
-| [docs/LOCAL_DEPLOYMENT.md](docs/LOCAL_DEPLOYMENT.md) | Local production deployment | Deploy your app local in production mode |
-
-## Requirements
-
-The version numbers in brackets indicate the tested versions but feel free to use more recent versions.
-You can also use alternative tools if you know how to configure them (e.g., Firefox instead of Chrome).
-
-* [Git](https://git-scm.com/) (v2) => [installation instructions](https://www.atlassian.com/git/tutorials/install-git)
-  * [Add your Git username and set your email](https://docs.gitlab.com/ce/gitlab-basics/start-using-git.html#add-your-git-username-and-set-your-email)
-    * `git config --global user.name "YOUR_USERNAME"` => check `git config --global user.name`
-    * `git config --global user.email "email@example.com"` => check `git config --global user.email`
-  * > **Windows users**: We recommend to use the [Git Bash](https://www.atlassian.com/git/tutorials/git-bash) shell from your Git installation or the Bash shell from the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to run all shell commands for this project.
-* [Chalmers GitLab](https://git.chalmers.se/) => Login with your **Chalmers CID** choosing "Sign in with" **Chalmers Login**. (contact [support@chalmers.se](mailto:support@chalmers.se) if you don't have one)
-  * DIT342 course group: https://git.chalmers.se/courses/dit342
-  * [Setup SSH key with Gitlab](https://docs.gitlab.com/ee/ssh/)
-    * Create an SSH key pair `ssh-keygen -t ed25519 -C "email@example.com"` (skip if you already have one)
-    * Add your public SSH key to your Gitlab profile under https://git.chalmers.se/profile/keys
-    * Make sure the email you use to commit is registered under https://git.chalmers.se/profile/emails
-  * Checkout the [Backend-Frontend](https://git.chalmers.se/courses/dit342/group-00-web) template `git clone git@git.chalmers.se:courses/dit342/group-00-web.git`
-* [Server Requirements](./server/README.md#Requirements)
-* [Client Requirements](./client/README.md#Requirements)
-
-## Getting started
-
-```bash
-# Clone repository
-git clone git@git.chalmers.se:courses/dit342/group-00-web.git
-
-# Change into the directory
-cd group-00-web
-
-# Setup backend
-cd server && npm install
-npm run dev
-
-# Setup frontend
-cd client && npm install
-npm run serve
-```
-
-> Check out the detailed instructions for [backend](./server/README.md) and [frontend](./client/README.md).
-
-## Visual Studio Code (VSCode)
-
-Open the `server` and `client` in separate VSCode workspaces or open the combined [backend-frontend.code-workspace](./backend-frontend.code-workspace). Otherwise, workspace-specific settings don't work properly.
-
-## System Definition (MS0)
-
-**Group Name:** Group 21<br />
-**Members:** Joel Mattsson, Mohamad Khalil, Danyil Akulich
-
-### Purpose
-
-Transform reading into a game: Convert the habit of reading from a shortage of dopamine to an exciting virtuous cycle that highlights your hard earned progress.
+- [Powerset](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Recursion/Powerset)
 
 
-### Entities
+In this course, we developed a website as a project and had a final written exam at the end of the course. The project was strictly divided in 3 separate milestones with respective requirements, which required an agile effort to establish a cooperative and productive environment to successfully complete the project. The 3 milestones were structured as follows:
 
-* User: Besides the account details (username, password, age), the number of completed books will be tied to this entity.
+- **1.** Backend *(Complete all backend or server API functionality)*
+- **2.** Frontend *(Complete all frontend or client UI functionality)*
+- **3.** Responsive Frontend + Presentation *(Complete screen-resizing responsiveness functionality and present project)*
 
-* Book: Represents every single available book accessed by the API that a user is reading.
+![teaser-img](images/teaser.png)
 
-* Progress: Progress from a user towards a specific book is tracked, this data will be used for feedback and visualization.
+## Documentation
 
-* Review: Each user can add a review to a book that they’ve completed reading, the review is viewable by all other users and contains notes and a rating.
+Although our implemented features were comprehensive, refactored and integrated in a well-functioning client-system architecture with a database, we did not put much emphasis on the documentation. The main motive of this course was to harness programming, systems and frontend as a whole, as documentation was a larger focus in my [1st Bachelor Year](https://gitlab.com/jex-projects/mrjex/-/tree/main/projects/1.%20courses/year-1?ref_type=heads). Nevertheless, we recorded a video that showcase the system in action and all implemented features from the customer's perspective:
 
-### Entity-Relationship (ER) Diagram
+[![Bookster Demo](https://img.youtube.com/vi/3EczvSPDzhU/maxresdefault.jpg)](https://www.youtube.com/watch?v=3EczvSPDzhU)
 
-![ER Diagram](./images/er_diagram.png)
 
-ISBN stands for International Standard Book Number which serves as an identifier for each book
-In this diagram, foreign keys are denoted by a red underscored text
-The wishlist entity only stores the ISBN number which is sufficient enough for providing metadata using an external API
+If you want to see my other projects where I focused on documentation more, checkout the following projects:
 
-## Teaser (MS3)
+- **TOP 1:** [Global City Streaming](https://github.com/mrjex/Global-City-Streaming)
 
-![Teaser](./images/teaser.png)
+- **TOP 2:** [WioPlay](https://github.com/Indomet/WioPlay)
 
-## Video
-https://www.youtube.com/watch?v=QJtuR23a90U
+- **TOP 3:** [Dentanoid](https://github.com/Dentanoid?view_as=public)
+
+- [Cyber Physical Systems and Sytems of Systems](https://github.com/mrjex/Cyber-Physical-Systems-and-Sytems-of-Systems)
+
+- [Project Branno](https://github.com/mrjex/Project-Branno)
+
+- [Tableau Visualization](https://github.com/mrjex/Tableau-Visualization)
+
+- [Development of Embedded & Real-Time Systems](https://github.com/mrjex/Embedded-and-Real-Time-Systems)
+
+- [AWS BigData System](https://github.com/mrjex/AWS-BigData-System)
+
+- [Sagemaker AWS Prediction](https://github.com/mrjex/AWS-Sagemaker-System)
