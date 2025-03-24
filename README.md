@@ -27,7 +27,6 @@
     - [3️⃣ Responsive Design \& Presentation](#3️⃣-responsive-design--presentation)
   - [🎥 Live Demo](#-live-demo)
   - [🚀 Getting Started](#-getting-started)
-  - [📚 Documentation](#-documentation)
   - [🔗 Related Projects](#-related-projects)
     - [Previous JavaScript Experience](#previous-javascript-experience)
     - [Documentation-Focused Projects](#documentation-focused-projects)
@@ -54,7 +53,6 @@ Bookster is a comprehensive web application developed during the Web Development
 
 ### 🎨 UI/UX
 - Responsive design for all devices
-- Dark/Light theme support
 - Intuitive navigation
 - Modern, clean interface
 
@@ -62,7 +60,6 @@ Bookster is a comprehensive web application developed during the Web Development
 
 ### Frontend
 - **Vue.js 3**: Component-based UI development
-- **Vuex**: State management
 - **Vue Router**: Client-side routing
 - **CSS3**: Custom styling with Flexbox/Grid
 - **JavaScript (ES6+)**: Modern JS features
@@ -79,7 +76,7 @@ Bookster is a comprehensive web application developed during the Web Development
 - **GitLab CI/CD**: Continuous integration
 - **npm**: Package management
 - **ESLint**: Code quality
-- **Jest**: Unit testing
+
 
 ## 🏗 System Architecture
 
@@ -102,22 +99,16 @@ Bookster/
 ### 1️⃣ Backend Development (Server API)
 - Database schema design
 - RESTful API implementation
-- Authentication middleware
 - Data validation
-- Unit testing
 
 ### 2️⃣ Frontend Development (Client UI)
-- Component architecture
-- State management
 - Route configuration
 - API integration
 - User interface design
 
 ### 3️⃣ Responsive Design & Presentation
-- Mobile-first approach
+- Responsive design for all devices
 - Cross-browser compatibility
-- Performance optimization
-- Final testing and debugging
 - Project presentation
 
 ## 🎥 Live Demo
@@ -138,28 +129,13 @@ Watch our comprehensive system demo showcasing all implemented features:
    # Clone repository
    git clone https://github.com/yourusername/Bookster
 
-   # Install dependencies
-   cd Bookster
-   npm install
+   # Run the client
+   cd Bookster/client && npm i && npm run serve
 
-   # Start development servers
-   npm run dev
+   # Run the server
+   cd Bookster/server && npm i && npm run dev
    ```
 
-3. **Environment Setup**
-   ```env
-   MONGODB_URI=your_mongodb_uri
-   JWT_SECRET=your_jwt_secret
-   PORT=3000
-   ```
-
-## 📚 Documentation
-
-While our primary focus was on technical implementation, we maintained comprehensive API documentation and user guides:
-
-- [API Documentation](docs/api.md)
-- [User Guide](docs/user-guide.md)
-- [Development Guide](docs/dev-guide.md)
 
 ## 🔗 Related Projects
 
