@@ -35,7 +35,7 @@
 
 Bookster is a comprehensive web application developed during the Web Development course (August - October 2023) in collaboration with two other students. The project demonstrates modern full-stack development practices, implementing a responsive book management system with robust backend APIs and an intuitive frontend interface.
 
-![teaser-img](images/teaser.png)
+![teaser-img](readme-material/teaser.png)
 
 ## ✨ Features
 
@@ -90,8 +90,7 @@ Bookster/
 │   ├── routes/
 │   ├── models/
 │   └── controllers/
-├── docs/                # Documentation
-└── images/              # Project assets
+└── readme-material/              # Project assets
 ```
 
 ## 📈 Project Milestones
@@ -135,6 +134,10 @@ Watch our comprehensive system demo showcasing all implemented features:
    # Run the server
    cd Bookster/server && npm i && npm run dev
    ```
+
+
+
+![data-visualization-vid](readme-material/Bookster-Data-Visualization-Edit.gif)
 
 
 ## 🔗 Related Projects
