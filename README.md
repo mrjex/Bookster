@@ -16,6 +16,9 @@
     - [📚 Book Management](#-book-management)
     - [👤 User Features](#-user-features)
     - [🎨 UI/UX](#-uiux)
+    - [Chart Visualizations](#chart-visualizations)
+      - [Performance Charts](#performance-charts)
+      - [Allocation Charts](#allocation-charts)
   - [🛠 Technology Stack](#-technology-stack)
     - [Frontend](#frontend)
     - [Backend](#backend)
@@ -56,6 +59,36 @@ Bookster is a comprehensive web application developed during the Web Development
 - Responsive design for all devices
 - Intuitive navigation
 - Modern, clean interface
+
+
+### Chart Visualizations
+
+In total, 5 charts were implemented:
+
+![bookster-card-logo](readme-material/bookster-card-logo-final.png)
+
+These charts were divided into two distinct types: *Performance* and *Allocation* charts
+
+
+#### Performance Charts
+
+This group encompasses two distinct types: *Line* and *Bar* charts
+
+![line-chart](readme-material/linechart.png)
+
+![bar-chart](readme-material/bar-chart.PNG)
+
+
+#### Allocation Charts
+
+This group concerns three distinct types: *Pie*, *Polar* and *Radar* charts
+
+![pie-chart](readme-material/pie-chart.PNG)
+
+![polar-chart](readme-material/polar-chart.PNG)
+
+![radar-chart](readme-material/radar-chart.PNG)
+
 
 ## 🛠 Technology Stack
 
