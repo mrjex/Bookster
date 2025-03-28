@@ -27,6 +27,7 @@
     "body-parser": "^1.20.2",
     "connect-history-api-fallback": "^1.6.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.17.1",
     "hal9k": "^1.0.1",
     "method-override": "^3.0.0",

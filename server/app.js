@@ -5,6 +5,7 @@ var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
 var methodOverride = require('method-override')
+require('dotenv').config();
 
 const userRouter = require('./controllers/users');
 const reviewRouter = require('./controllers/reviews');
@@ -12,7 +13,7 @@ const bookRouter = require('./controllers/books');
 const VERSION = 'v1';
 
 // Variables
-var mongoURI = process.env.MONGODB_URI || 'mongodb+srv://admin:123@javascriptexercises-clu.dk25y82.mongodb.net/?retryWrites=true&w=majority'; // localhost | 127.0.0.1 | mongodb://127.0.0.1:27017/animalDevelopmentDB
+var mongoURI = process.env.MONGODB_URI;
 var port = process.env.PORT || 3000;
 
 // Connect to MongoDB
@@ -23,7 +24,7 @@ mongoose.connect(mongoURI).catch(function (err) {
         process.exit(1);
     }
 }).then(() => {
-    console.log(`Connected to MongoDB with URI: ${mongoURI}`);
+    console.log(`Connected to MongoDB`);
 });
 
 // Create Express app
