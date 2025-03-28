@@ -25,7 +25,8 @@
     - [1️⃣ Backend Development (Server API)](#1️⃣-backend-development-server-api)
     - [2️⃣ Frontend Development (Client UI)](#2️⃣-frontend-development-client-ui)
     - [3️⃣ Responsive Design \& Presentation](#3️⃣-responsive-design--presentation)
-  - [🎥 Live Demo](#-live-demo)
+  - [🎥 Commercial Demo](#-commercial-demo)
+  - [🎥 Functional Demo](#-functional-demo)
   - [🚀 Getting Started](#-getting-started)
   - [🔗 Related Projects](#-related-projects)
     - [Previous JavaScript Experience](#previous-javascript-experience)
@@ -110,11 +111,15 @@ Bookster/
 - Cross-browser compatibility
 - Project presentation
 
-## 🎥 Live Demo
+## 🎥 Commercial Demo
 
-Watch our comprehensive system demo showcasing all implemented features:
+[![Bookster Commercial Demo](https://img.youtube.com/vi/3EczvSPDzhU/maxresdefault.jpg)](https://www.youtube.com/watch?v=3EczvSPDzhU)
 
-[![Bookster Demo](https://img.youtube.com/vi/3EczvSPDzhU/maxresdefault.jpg)](https://www.youtube.com/watch?v=3EczvSPDzhU)
+
+## 🎥 Functional Demo
+
+[![Bookster Functional Demo](https://img.youtube.com/vi/6DpyRPPL0jI/maxresdefault.jpg)](https://www.youtube.com/watch?v=6DpyRPPL0jI)
+
 
 ## 🚀 Getting Started
 
@@ -136,8 +141,7 @@ Watch our comprehensive system demo showcasing all implemented features:
    ```
 
 
-
-![data-visualization-vid](readme-material/Bookster-Data-Visualization-Edit.gif)
+[![Bookster Data Visualization Edit](https://img.youtube.com/vi/5A1JjzypApU/maxresdefault.jpg)](https://www.youtube.com/watch?v=5A1JjzypApU)
 
 
 ## 🔗 Related Projects
