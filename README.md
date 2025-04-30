@@ -176,19 +176,6 @@ Bookster/
 
 [![Bookster Data Visualization Edit](https://img.youtube.com/vi/5A1JjzypApU/maxresdefault.jpg)](https://www.youtube.com/watch?v=5A1JjzypApU)
 
-
-## 🔗 Related Projects
-
-### Previous JavaScript Experience
-- [Youngest Common Ancestor](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Graphs/Youngest-Common-Ancestor)
-- [Blackjack Probability](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Recursion/Blackjack%20Probability)
-- [Powerset](https://github.com/mrjex/AlgoExpert/tree/main/Executionary%20Code/Recursion/Powerset)
-
-### Documentation-Focused Projects
-- [Global City Streaming](https://github.com/mrjex/Global-City-Streaming)
-- [WioPlay](https://github.com/Indomet/WioPlay)
-- [Dentanoid](https://github.com/Dentanoid?view_as=public)
-
 ---
 
 *Developed with by Mohamad Khalil, Joel Mattsson and Danyil Churchil*
