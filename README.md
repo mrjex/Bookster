@@ -1,6 +1,6 @@
 # 🌐 Bookster - Modern Web Development Project
 
-> A full-stack web application for book management built with Vue.js, Node.js, and MongoDB
+> A full-stack web application for book management by [Mohamad Khalil](https://github.com/Chef03), [Joel Mattsson](https://github.com/mrjex) and Danyl Churhcil
 
 [![Vue.js](https://img.shields.io/badge/Vue.js-v3-green)](https://vuejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-v5-brightgreen)](https://www.mongodb.com/)
