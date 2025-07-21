@@ -15,42 +15,15 @@
 ## Table of Contents
 - [Bookster - Web Development Project](#bookster---web-development-project)
   - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [✨ Features](#-features)
-    - [Book Management](#book-management)
-    - [User Features](#user-features)
-    - [UI/UX](#uiux)
-    - [Chart Visualizations](#chart-visualizations)
-      - [Performance Charts](#performance-charts)
-      - [Allocation Charts](#allocation-charts)
-  - [System Architecture](#system-architecture)
+  - [Chart Visualizations](#chart-visualizations)
+    - [Performance Charts](#performance-charts)
+    - [Allocation Charts](#allocation-charts)
   - [Commercial Demo](#commercial-demo)
   - [Functional Demo](#functional-demo)
   - [Getting Started](#getting-started)
 
-## Overview
 
-## ✨ Features
-
-### Book Management
-- Create, read, update, and delete books
-- Advanced search and filtering capabilities
-- Book categorization and tagging
-- Rating and review system
-
-### User Features
-- User authentication and authorization
-- Personalized bookshelves
-- Reading progress tracking
-- Social sharing capabilities
-
-### UI/UX
-- Responsive design for all devices
-- Intuitive navigation
-- Modern, clean interface
-
-
-### Chart Visualizations
+## Chart Visualizations
 
 In total, 5 charts were implemented:
 
@@ -59,7 +32,7 @@ In total, 5 charts were implemented:
 These charts were divided into two distinct types: *Performance* and *Allocation* charts
 
 
-#### Performance Charts
+### Performance Charts
 
 This group encompasses two distinct types: *Line* and *Bar* charts
 
@@ -68,7 +41,7 @@ This group encompasses two distinct types: *Line* and *Bar* charts
 ![bar-chart](readme-material/bar-chart.PNG)
 
 
-#### Allocation Charts
+### Allocation Charts
 
 This group concerns three distinct types: *Pie*, *Polar* and *Radar* charts
 
@@ -78,21 +51,6 @@ This group concerns three distinct types: *Pie*, *Polar* and *Radar* charts
 
 ![radar-chart](readme-material/radar-chart.PNG)
 
-
-## System Architecture
-
-```
-Bookster/
-├── client/              # Vue.js frontend
-│   ├── src/
-│   ├── components/
-│   └── views/
-├── server/              # Node.js backend
-│   ├── routes/
-│   ├── models/
-│   └── controllers/
-└── readme-material/              # Project assets
-```
 
 
 ## Commercial Demo
@@ -123,6 +81,3 @@ Bookster/
    # Run the server
    cd Bookster/server && npm i && npm run dev
    ```
-
-
-[![Bookster Data Visualization Edit](https://img.youtube.com/vi/5A1JjzypApU/maxresdefault.jpg)](https://www.youtube.com/watch?v=5A1JjzypApU)
